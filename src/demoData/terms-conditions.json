@@ -1,0 +1,54 @@
+[
+  {
+    "name": "TERMS_AND_CONDITIONS",
+    "description": "TERMS_AND_CONDITIONS_DETAIL"
+  },
+  {
+    "name": "Data_Protection",
+    "description": "Data_Protection_Detail"
+  },
+  {
+    "name": "Information_Security",
+    "description": "Information_Security_Detail"
+  },
+  {
+    "name": "Collection_Personal_Information",
+    "description": "Collection_Personal_Information_Detail"
+  },
+  {
+    "name": "Analysis_Log_Information",
+    "description": "Analysis_Log_Information_Detail"
+  },
+  {
+    "name":"Purpose_personal_information",
+    "description": "Purpose_personal_information_detail"
+  },
+  {
+    "name":"Documents_requested",
+    "description": "Documents_requested_detail"
+  },
+  {
+    "name":"Transfer_Personal_Information",
+    "description": "Transfer_Personal_Information_detail"
+  },
+  {
+    "name":"Nonrefundable_payment",
+    "description": "Nonrefundable_payment_detail"
+  },
+  {
+    "name": "Applicability_to_Other_Websites",
+    "description": "Applicability_to_Other_Websites_detail"
+  },
+  {
+    "name": "Information_Storage_Time",
+    "description": "Information_Storage_Time_detail"
+  },
+  {
+    "name": "Changes_Protection_Policy",
+    "description": "Changes_Protection_Policy_detail"
+  },
+  {
+    "name": "Conservation_of_Clauses",
+    "description": "Conservation_of_Clauses_detail"
+  }
+]

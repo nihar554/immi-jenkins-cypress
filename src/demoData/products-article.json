@@ -1,0 +1,30 @@
+[
+  {
+    "productName": "Stablecoin",
+    "keyName": "stablecoin",
+    "category": [
+      {
+        "categoryName": "Introduction to Stablecoin",
+        "subCategoryName": ["Switch between accounts", "Change your email", "Stop getting emails from lorem"]
+      },
+      {
+        "categoryName": "tools for your Plugin admin & change password",
+        "subCategoryName": ["Threads to organize discussions", "Understand your actions in lorem"]
+      }
+    ]
+  },
+  {
+    "productName": "Commodities",
+    "keyName": "commodities",
+    "category": [
+      {
+        "categoryName": "Introduction to Commoditie",
+        "subCategoryName": ["Switch between accounts", "Change your emaile", "Stop getting emails from lorem"]
+      },
+      {
+        "categoryName": "Productivity tools for your Plugin admin & change password in Commoditie",
+        "subCategoryName": ["Threads to organize discussions", "Understand your actions in lorem", "test"]
+      }
+    ]
+  }
+]

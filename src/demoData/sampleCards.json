@@ -1,0 +1,56 @@
+{
+  "BlogCardData": [
+    {
+      "id": 1,
+      "title": "Announcing Tether: Unlocking the Future with Tokenization-as-a-Service",
+      "content": "Tokenization-as-a-Service (TaaS) is a revolutionary concept that holds the potential to reshape",
+      "category": "Tokenization",
+      "img": "https://worldfinancialreview.com/wp-content/uploads/2021/12/Blockchain-blog.jpg",
+      "author": "Tether",
+      "authorImg": "1.png",
+      "postDate": "22 Sept 2023",
+      "favouriteBy": 0,
+      "viewedBy": 20,
+      "isFavourit": false
+    },
+    {
+      "id": 2,
+      "title": "What are the Benefits of Stablecoins",
+      "content": "Stablecoins are tokenized assets on the blockchain that are pegged to the US dollar or other",
+      "category": "Crypto Stablecoins",
+      "img": "https://worldfinancialreview.com/wp-content/uploads/2021/12/Blockchain-blog.jpg",
+      "author": "Tether",
+      "authorImg": "1.png",
+      "postDate": "22 Sept 2023",
+      "favouriteBy": 0,
+      "viewedBy": 20,
+      "isFavourit": false
+    },
+    {
+      "id": 3,
+      "title": "What are The Benefits of Tokenized Commodities",
+      "content": "Larry Fink, CEO of BlackRock recently said that 'The next generation for markets, the next generation for securities, will be tokenization of securities.'",
+      "category": "Tokenized",
+      "img": "https://worldfinancialreview.com/wp-content/uploads/2021/12/Blockchain-blog.jpg",
+      "author": "Tether",
+      "authorImg": "1.png",
+      "postDate": "22 Sept 2023",
+      "favouriteBy": 0,
+      "viewedBy": 20,
+      "isFavourit": false
+    },
+    {
+      "id": 4,
+      "title": "Institutional Interest in Gold Surges Amid Global Uncertainties",
+      "content": "The world has been grappling with escalating geopolitical tensions, and recent developments",
+      "category": "Institutional",
+      "img": "https://worldfinancialreview.com/wp-content/uploads/2021/12/Blockchain-blog.jpg",
+      "author": "Tether",
+      "authorImg": "1.png",
+      "postDate": "22 Sept 2023",
+      "favouriteBy": 0,
+      "viewedBy": 20,
+      "isFavourit": false
+    }
+  ]
+}

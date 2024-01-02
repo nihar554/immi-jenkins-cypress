@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+  build:
+    commands:
+      - aws s3 cp s3://$SECRETS_BUCKET/$CONTAINER_NAME/.env.${ENVIRONMENT} .env
+      #- ls .env*
+      #- cat .env
+      - mkdir .yarncache
+      - yarn install --cache-folder ./.yarncache
+      - rm -rf .yarncache
+      - yarn build
+artifacts:
+  files: 
+    - '**/*'
+  base-directory: 'build'
