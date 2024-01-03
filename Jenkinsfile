@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'windows' } // Specify a Windows agent label here
     
     stages {
         stage('Checkout Prod') {
@@ -11,15 +11,15 @@ pipeline {
         
         stage('NPM Install') {
             steps {
-                // Run npm install with the legacy-peer-deps flag
-                sh 'npm install --legacy-peer-deps'
+                // Run npm install with the legacy-peer-deps flag on Windows
+                bat 'npm install --legacy-peer-deps'
             }
         }
         
         stage('Run Cypress Tests') {
             steps {
-                // Run Cypress tests using npx
-                sh 'npx cypress run'
+                // Run Cypress tests using npx on Windows
+                bat 'npx cypress run'
             }
         }
     }
