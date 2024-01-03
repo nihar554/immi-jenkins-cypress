@@ -18,10 +18,5 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Any cleanup or final steps
-                cleanWs() // Clean workspace
-        }
-    }
+
 }
