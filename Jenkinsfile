@@ -26,8 +26,8 @@ pipeline {
      post {
         always {
             emailext (
-                attachmentsPattern: '/cypress/reports/html/index.html',
-                body: 'Build finished successfully. Here is the attachment. ${FILE,path="/cypress/reports/html/index.html"}',
+                attachmentsPattern: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\test git\\cypress\\reports\\html\\index.html',
+                body: 'Build finished successfully. Here is the attachment. ${FILE,path="C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\test git\\cypress\\reports\\html\\index.html"}',
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 subject: 'Test',
             )
