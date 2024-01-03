@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Prod') {
             steps {
                 // Checkout the code from the prod branch
-                checkout([$class: 'GitSCM', branches: [[name: 'prod']], userRemoteConfigs: [[url: 'https://github.com/example/repo.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'prod']], userRemoteConfigs: [[url: 'https://github.com/nihar554/immi-jenkins-cypress.git']]])
             }
         }
         
