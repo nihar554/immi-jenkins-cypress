@@ -22,19 +22,15 @@ pipeline {
                 bat 'npx cypress run'
             }
         }
-        stage('Download') {
-            steps {
-                bat 'echo "artifact file" > **/index.html'
-            }
-        }
+ 
     }
      post {
         always {
-             archiveArtifacts artifacts: '**/index.html'
+             archiveArtifacts artifacts: '**/html/index.html'
             
             emailext (
-                attachmentsPattern: '**/index.html',
-                body: 'Build finished successfully. Here is the attachment. ${FILE,path="http://localhost:7000/job/test%20git/15/execution/node/3/ws/cypress/reports/html/index"}',
+                attachmentsPattern: '**/html/index.html',
+                body: 'Build finished successfully. Here is the attachment. ${FILE,path="**/html/index.html"}',
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 subject: 'Test',
             )
