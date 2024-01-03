@@ -12,7 +12,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Node.js dependencies
-                sh 'npm install' // or yarn install
+                sh 'npm install  --legacy-peer-deps' // or yarn install
             }
         }
 
@@ -27,6 +27,7 @@ pipeline {
     post {
         always {
             // Any cleanup or final steps
+                cleanWs() // Clean workspace
         }
     }
 }
