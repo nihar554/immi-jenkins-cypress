@@ -26,8 +26,8 @@ pipeline {
      post {
         always {
             emailext (
-                attachmentsPattern: 'http://localhost:7000/job/test%20git/15/execution/node/3/ws/cypress/reports/html/index.html',
-                body: 'Build finished successfully. Here is the attachment. ${FILE,path="http://localhost:7000/job/test%20git/15/execution/node/3/ws/cypress/reports/html/index.html"}',
+                attachmentsPattern: 'http://localhost:7000/job/test%20git/15/execution/node/3/ws/cypress/reports/html/index',
+                body: 'Build finished successfully. Here is the attachment. ${FILE,path="http://localhost:7000/job/test%20git/15/execution/node/3/ws/cypress/reports/html/index"}',
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 subject: 'Test',
             )
