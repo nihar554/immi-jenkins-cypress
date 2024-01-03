@@ -33,6 +33,7 @@ pipeline {
                 body: 'Build finished successfully. Here is the attachment. ${FILE,path="**/html/index.html"}',
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 subject: 'Test',
+                mimeType: 'text/html',
             )
         }
     }
