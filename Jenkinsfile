@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your Git repository
-                checkout scm
+                checkout prod
             }
         }
 
