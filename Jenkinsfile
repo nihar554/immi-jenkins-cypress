@@ -33,7 +33,7 @@ pipeline {
                 body: 'Build finished successfully. Here is the attachment. ${FILE,path="**/html/index.html"}',
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 subject: 'Test',
-                to:'soni.tizil@gmail.com'
+                to:'soni.tizil@gmail.com',
                 mimeType: 'text/html',
             )
         }
