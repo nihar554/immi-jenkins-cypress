@@ -1,13 +1,6 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout your Git repository
-                checkout prod
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
