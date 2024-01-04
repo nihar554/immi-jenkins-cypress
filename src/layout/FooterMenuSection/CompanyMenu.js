@@ -6,8 +6,7 @@ function CompanyMenu() {
     <div className="footer-product-menu">
       <p className="footer-menu-title typography-h4">Company</p>
       <ul>
-        <li className="typography-body-regular-medium">
-          <Link to="aboutus">About Us</Link>
+        <li className="typography-body-regular-medium"><Link to="aboutus">About Us</Link>
         </li>
         <li className="typography-body-regular-medium">
           <Link to="coming-soon">Pressroom</Link>
