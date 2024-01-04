@@ -52,7 +52,8 @@
     "test": "craco test",
     "eject": "craco eject",
     "lint": "eslint ./",
-    "lint-fix": "eslint ./ --fix"
+		"lint-fix": "eslint ./ --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "eslintConfig": {
     "extends": [
@@ -86,7 +87,7 @@
     "cypress-mochawesome-reporter": "^3.8.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
@@ -120,4 +121,5 @@
       "git add"
     ]
   }
+  
 }
