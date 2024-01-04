@@ -56,7 +56,7 @@
   "scripts": {
     "start": "craco start",
     "build": "set \"GENERATE_SOURCEMAP=false\" && craco --max-old-space-size=4096 build",
-    "test": "craco test",
+    "test": "npx cypress run",
     "eject": "craco eject",
     "lint": "eslint ./",
     "lint-fix": "eslint . --fix",
@@ -112,7 +112,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && pretty-quick --staged"
+      "pre-commit": "lint-staged && pretty-quick --staged",
+      "pre-push": "npm test"
     }
   },
   "lint-staged": {

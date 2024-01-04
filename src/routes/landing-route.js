@@ -6,7 +6,7 @@ const AboutUs = lazy(() => import('../container/pages/CompanyPolicy/AboutUs'))
 const FAQs = lazy(() => import('../container/pages/CompanyPolicy/FAQs'))
 const ContactUs = lazy(() => import('../container/pages/CompanyPolicy/ContactUs'))
 const TermsConditions = lazy(() => import('../container/pages/CompanyPolicy/TermsConditions'))
-const LandingRoutes = React.memo(() => {
+const LandingRoutes = () => {
   return (
     <Suspense
       fallback={
@@ -23,5 +23,5 @@ const LandingRoutes = React.memo(() => {
       </Routes>
     </Suspense>
   )
-})
+}
 export default LandingRoutes

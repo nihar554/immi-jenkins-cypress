@@ -1,6 +1,6 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable no-debugger */
-/* eslint-disable react/self-closing-comp */
+// eslint-disable jsx-a11y/label-has-associated-control
+// eslint-disable no-debugger
+// eslint-disable react/self-closing-comp
 import React, { Suspense, useEffect, useState } from 'react'
 import { Button, Card, Col, Modal, Row, Skeleton, Spin, Table, Tabs, Select, Input, Form, message } from 'antd'
 import { FormOutlined, EyeOutlined } from '@ant-design/icons'
