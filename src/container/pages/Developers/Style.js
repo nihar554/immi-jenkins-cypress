@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const HeaderCointainer = Styled.div`
    text-align:center;
@@ -6,6 +6,6 @@ const HeaderCointainer = Styled.div`
   @media only screen and (max-width: 1199px) {
     padding: 0px 15px;
   }
-`;
+`
 
-export { HeaderCointainer };
+export { HeaderCointainer }

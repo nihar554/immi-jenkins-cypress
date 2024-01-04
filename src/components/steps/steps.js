@@ -1,16 +1,16 @@
-import UilArrowLeft from '@iconscout/react-unicons/icons/uil-arrow-left';
-import UilArrowRight from '@iconscout/react-unicons/icons/uil-arrow-right';
-import { Col, message, Row } from 'antd';
+import UilArrowLeft from '@iconscout/react-unicons/icons/uil-arrow-left'
+import UilArrowRight from '@iconscout/react-unicons/icons/uil-arrow-right'
+import { Col, message, Row } from 'antd'
 
-import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { ActionWrapper, StepsStyle } from './style';
-import { Button } from '../buttons/buttons';
+import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { ActionWrapper, StepsStyle } from './style'
+import { Button } from '../buttons/buttons'
 
-const { Step } = StepsStyle;
+const { Step } = StepsStyle
 
-function Steps({
+function Steps ({
   isvertical,
   size,
   current,
@@ -30,52 +30,53 @@ function Steps({
   children,
   height,
   isfinished,
-  loading,
+  loading
 }) {
   const [state, setState] = useState({
-    currents: current,
-  });
+    currents: current
+  })
 
   useEffect(() => {
-    setState({ currents: current });
-  }, [current]);
+    setState({ currents: current })
+  }, [current])
 
   const next = () => {
     form
       .validateFields()
       .then(() => {
-        const currents = state.currents + 1;
-        setState({ currents });
-        onNext(currents);
+        const currents = state.currents + 1
+        setState({ currents })
+        onNext(currents)
       })
       .catch((err) => {
-        console.log('err', err);
-      });
-  };
+        console.log('err', err)
+      })
+  }
 
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   const prev = () => {
-    const currents = state.currents - 1;
-    setState({ currents });
-    onPrev(currents);
-  };
+    const currents = state.currents - 1
+    setState({ currents })
+    onPrev(currents)
+  }
 
-  const { currents } = state;
+  const { currents } = state
 
   const stepStyle = {
     marginBottom: 60,
-    boxShadow: '0px -1px 0 0 #e8e8e8 inset',
-  };
+    boxShadow: '0px -1px 0 0 #e8e8e8 inset'
+  }
 
   // console.log(steps);
   const onChanges = (curr) => {
     // console.log('onChange:', current);
-    setState({ currents: curr });
-    if (onChange) onChange(curr);
-  };
+    setState({ currents: curr })
+    if (onChange) onChange(curr)
+  }
 
-  return !isswitch ? (
+  return !isswitch
+    ? (
     <StepsStyle
       type={navigation && 'navigation'}
       style={navigation && stepStyle}
@@ -88,7 +89,8 @@ function Steps({
     >
       {children}
     </StepsStyle>
-  ) : (
+      )
+    : (
     <>
       <StepsStyle current={currents} direction={direction} status={status} progressDot={progressDot} size={size}>
         {steps !== undefined &&
@@ -101,7 +103,8 @@ function Steps({
             />
           ))}
       </StepsStyle>
-      {isvertical ? (
+      {isvertical
+        ? (
         <div className="steps-wrapper">
           <div className="steps-content" style={{ minHeight: height, display: 'flex', justifyContent: 'center' }}>
             {steps[state.currents].content}
@@ -141,7 +144,8 @@ function Steps({
             </ActionWrapper>
           )}
         </div>
-      ) : (
+          )
+        : (
         <>
           <div className="steps-content" style={{ minHeight: height, display: 'flex', marginTop: 100 }}>
             {steps[state.currents]?.content}
@@ -194,17 +198,17 @@ function Steps({
             </ActionWrapper>
           )}
         </>
-      )}
+          )}
     </>
-  );
+      )
 }
 
 Steps.defaultProps = {
   current: 0,
   height: 150,
   onDone: () => message.success('Processing complete!'),
-  isfinished: false,
-};
+  isfinished: false
+}
 
 Steps.propTypes = {
   size: PropTypes.string,
@@ -226,7 +230,7 @@ Steps.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.node, PropTypes.string]),
   isvertical: PropTypes.bool,
   form: PropTypes.object,
-  loading: PropTypes.bool,
-};
+  loading: PropTypes.bool
+}
 
-export { Step, Steps };
+export { Step, Steps }

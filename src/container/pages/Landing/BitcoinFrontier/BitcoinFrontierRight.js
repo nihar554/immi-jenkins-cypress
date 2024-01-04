@@ -1,11 +1,11 @@
-import { Button } from 'antd';
-import React from 'react';
-import { useNavigate } from 'react-router';
-import { useTranslation } from 'react-i18next';
+import { Button } from 'antd'
+import React from 'react'
+import { useNavigate } from 'react-router'
+import { useTranslation } from 'react-i18next'
 
-function BitcoinFrontierRight() {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+function BitcoinFrontierRight () {
+  const { t } = useTranslation()
+  const navigate = useNavigate()
   return (
     <div className="description-block">
       <h1 className="font-bold">
@@ -25,13 +25,13 @@ function BitcoinFrontierRight() {
       </p>
       <Button
         onClick={() => {
-          navigate('/register');
+          navigate('/register')
         }}
       >
         {t('Start_Process')}
       </Button>
     </div>
-  );
+  )
 }
 
-export default BitcoinFrontierRight;
+export default BitcoinFrontierRight

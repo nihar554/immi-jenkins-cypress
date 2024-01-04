@@ -1,60 +1,60 @@
 /* eslint-disable prefer-promise-reject-errors */
-import React from 'react';
-import { Col, DatePicker, Form, Input, Row, Select } from 'antd';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import { useTranslation } from 'react-i18next';
-import { BasicFormWrapper } from '../../styled';
-import Heading from '../../../components/heading/heading';
+import React from 'react'
+import { Col, DatePicker, Form, Input, Row, Select } from 'antd'
+import PropTypes from 'prop-types'
+import moment from 'moment'
+import { useTranslation } from 'react-i18next'
+import { BasicFormWrapper } from '../../styled'
+import Heading from '../../../components/heading/heading'
 
-function NameContact(props) {
-  const { t } = useTranslation();
-  const { form, setData, countries } = props;
-  const { Option } = Select;
+function NameContact (props) {
+  const { t } = useTranslation()
+  const { form, setData, countries } = props
+  const { Option } = Select
 
   const onChange = (value) => {
     setData((prev) => {
-      return { ...prev, ...value };
-    });
-  };
+      return { ...prev, ...value }
+    })
+  }
 
   const handleChange = (date, dateString) => {
-    console.log('Selected Date:', date);
-    console.log('Formatted Date String:', dateString);
-  };
+    console.log('Selected Date:', date)
+    console.log('Formatted Date String:', dateString)
+  }
 
   const onChangeSearch = (value) => {
-    console.log(`selected ${value}`);
-  };
+    console.log(`selected ${value}`)
+  }
 
   const onSearch = (value) => {
-    console.log('search:', value);
-  };
+    console.log('search:', value)
+  }
 
   const validateMobileNumber = (_, value) => {
     // Regular expression for a simple mobile number validation
-    const mobileNumberRegex = /^-?\d*(\.\d*)?$/;
+    const mobileNumberRegex = /^-?\d*(\.\d*)?$/
 
     if (mobileNumberRegex.test(value) || !value) {
-      return Promise.resolve();
+      return Promise.resolve()
     }
 
-    return Promise.reject('Please enter a valid mobile number.');
-  };
+    return Promise.reject('Please enter a valid mobile number.')
+  }
 
   const validateName = (_, value) => {
     // Regular expression for a simple mobile number validation
-    const mobileNumberRegex = /^[a-zA-Z\s]{0,200}$/;
+    const mobileNumberRegex = /^[a-zA-Z\s]{0,200}$/
 
     if (mobileNumberRegex.test(value)) {
-      return Promise.resolve();
+      return Promise.resolve()
     }
 
-    return Promise.reject('Please enter a valid name.');
-  };
+    return Promise.reject('Please enter a valid name.')
+  }
 
   // Filter `option.label` match the user type `input`
-  const filterOption = (input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
+  const filterOption = (input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
 
   return (
     <BasicFormWrapper className="basic-form-inner">
@@ -71,11 +71,11 @@ function NameContact(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your First Name',
+                        message: 'Please Input Your First Name'
                       },
                       {
-                        validator: validateName,
-                      },
+                        validator: validateName
+                      }
                     ]}
                   >
                     <Input placeholder={t('Enter Your First Name')} />
@@ -87,8 +87,8 @@ function NameContact(props) {
                     label={t('Middle Name')}
                     rules={[
                       {
-                        validator: validateName,
-                      },
+                        validator: validateName
+                      }
                     ]}
                   >
                     <Input placeholder={t('Enter Your Middle Name')} />
@@ -101,11 +101,11 @@ function NameContact(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your Last Name',
+                        message: 'Please Input Your Last Name'
                       },
                       {
-                        validator: validateName,
-                      },
+                        validator: validateName
+                      }
                     ]}
                   >
                     <Input placeholder={t('Enter Your Last Name')} />
@@ -118,8 +118,8 @@ function NameContact(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Select Your Date of Birth',
-                      },
+                        message: 'Please Select Your Date of Birth'
+                      }
                     ]}
                   >
                     <DatePicker
@@ -127,8 +127,8 @@ function NameContact(props) {
                       onChange={handleChange}
                       format="YYYY-MM-DD"
                       disabledDate={(current) => {
-                        const customDate = moment().format('YYYY-MM-DD');
-                        return current && current >= moment(customDate, 'YYYY-MM-DD');
+                        const customDate = moment().format('YYYY-MM-DD')
+                        return current && current >= moment(customDate, 'YYYY-MM-DD')
                       }}
                     />
                   </Form.Item>
@@ -140,8 +140,8 @@ function NameContact(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Select Your Nationality',
-                      },
+                        message: 'Please Select Your Nationality'
+                      }
                     ]}
                   >
                     <Select
@@ -163,8 +163,8 @@ function NameContact(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Select Your Gender',
-                      },
+                        message: 'Please Select Your Gender'
+                      }
                     ]}
                   >
                     <Select style={{ width: '100%' }}>
@@ -185,8 +185,8 @@ function NameContact(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Enter Your Country Code',
-                      },
+                        message: 'Please Enter Your Country Code'
+                      }
                     ]}
                   >
                     <Input placeholder={t('91')} />
@@ -199,11 +199,11 @@ function NameContact(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Enter Your Phone Number',
+                        message: 'Please Enter Your Phone Number'
                       },
                       {
-                        validator: validateMobileNumber,
-                      },
+                        validator: validateMobileNumber
+                      }
                     ]}
                   >
                     <Input placeholder={t('Enter your mobile number')} />
@@ -220,12 +220,12 @@ function NameContact(props) {
         </Row>
       </div>
     </BasicFormWrapper>
-  );
+  )
 }
 
 NameContact.propTypes = {
   countries: PropTypes.array,
   form: PropTypes.object,
-  setData: PropTypes.func,
-};
-export default NameContact;
+  setData: PropTypes.func
+}
+export default NameContact

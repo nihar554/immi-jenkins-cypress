@@ -1,28 +1,28 @@
 /* eslint-disable react/jsx-no-bind */
-import { Badge } from 'antd';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Scrollbars } from '@pezhmanparsaee/react-custom-scrollbars';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { ReactSVG } from 'react-svg';
-import { UserActionDropDown } from './auth-info-style';
-import Heading from '../../heading/heading';
-import { Popover } from '../../popup/popup';
+import { Badge } from 'antd'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Scrollbars } from '@pezhmanparsaee/react-custom-scrollbars'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { ReactSVG } from 'react-svg'
+import { UserActionDropDown } from './auth-info-style'
+import Heading from '../../heading/heading'
+import { Popover } from '../../popup/popup'
 
 const MessageBox = React.memo(() => {
   const { rtl } = useSelector((state) => {
     return {
-      rtl: state.ChangeLayoutMode.rtlData,
-    };
-  });
+      rtl: state.ChangeLayoutMode.rtlData
+    }
+  })
 
-  function renderThumb({ style }) {
+  function renderThumb ({ style }) {
     const thumbStyle = {
       borderRadius: 6,
-      backgroundColor: '#F1F2F6',
-    };
-    return <div style={{ ...style, ...thumbStyle }} />;
+      backgroundColor: '#F1F2F6'
+    }
+    return <div style={{ ...style, ...thumbStyle }} />
   }
 
   const renderTrackVertical = () => {
@@ -34,26 +34,26 @@ const MessageBox = React.memo(() => {
       [rtl ? 'left' : 'right']: '2px',
       bottom: '2px',
       top: '2px',
-      borderRadius: '3px',
-    };
-    return <div className="hello" style={thumbStyle} />;
-  };
+      borderRadius: '3px'
+    }
+    return <div className="hello" style={thumbStyle} />
+  }
 
-  function renderView({ style }) {
+  function renderView ({ style }) {
     const customStyle = {
       marginRight: rtl && 'auto',
-      [rtl ? 'marginLeft' : 'marginRight']: '-17px',
-    };
-    return <div style={{ ...style, ...customStyle }} />;
+      [rtl ? 'marginLeft' : 'marginRight']: '-17px'
+    }
+    return <div style={{ ...style, ...customStyle }} />
   }
 
   renderThumb.propTypes = {
-    style: PropTypes.shape(PropTypes.object),
-  };
+    style: PropTypes.shape(PropTypes.object)
+  }
 
   renderView.propTypes = {
-    style: PropTypes.shape(PropTypes.object),
-  };
+    style: PropTypes.shape(PropTypes.object)
+  }
 
   const content = (
     <UserActionDropDown className="ninjadash-top-dropdown">
@@ -169,7 +169,7 @@ const MessageBox = React.memo(() => {
         See all messages
       </Link>
     </UserActionDropDown>
-  );
+  )
 
   return (
     <div className="ninjadash-nav-actions__item ninjadash-nav-actions__message">
@@ -181,11 +181,11 @@ const MessageBox = React.memo(() => {
         </Badge>
       </Popover>
     </div>
-  );
-});
+  )
+})
 
 MessageBox.propTypes = {
-  rtl: PropTypes.bool,
-};
+  rtl: PropTypes.bool
+}
 
-export default MessageBox;
+export default MessageBox

@@ -1,95 +1,95 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Form, Input, Row, Col, message, Button } from 'antd';
-import { useTranslation } from 'react-i18next';
+import React, { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Form, Input, Row, Col, message, Button } from 'antd'
+import { useTranslation } from 'react-i18next'
 // import Cookies from 'js-cookie';
-import { AuthFormWrap, LoginWrap } from './style';
-import { DataService } from '../../../../config/dataService/dataService';
-import PassPopUp from '../../../../components/dropdown/PassPopUp';
-import { checkPasswordValid } from '../../../../utility/utility';
+import { AuthFormWrap, LoginWrap } from './style'
+import { DataService } from '../../../../config/dataService/dataService'
+import PassPopUp from '../../../../components/dropdown/PassPopUp'
+import { checkPasswordValid } from '../../../../utility/utility'
 
-function ResetPassword() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [form] = Form.useForm();
-  const { t } = useTranslation();
+function ResetPassword () {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const [form] = Form.useForm()
+  const { t } = useTranslation()
   const [state, setState] = useState({
     email: '',
     password: '',
     confirmPassword: '',
-    otp: '',
-  });
-  const [loading, setLoading] = useState(false);
-  const [tooltip, setTooltip] = React.useState(false);
+    otp: ''
+  })
+  const [loading, setLoading] = useState(false)
+  const [tooltip, setTooltip] = React.useState(false)
   const [state1, setState1] = useState({
     minimumChar: false,
     specialCharValid: false,
     uppercaseValid: false,
     lowercaseValid: false,
-    numberValid: false,
-  });
+    numberValid: false
+  })
 
   const handleSubmit = async () => {
     try {
       const body = {
         email: location.state,
         password: state.password,
-        otp: Number(state.otp),
-      };
-      setLoading(true);
-      const response = await DataService.post('/resetPassword', body);
-      response.data = typeof response.data === 'string' ? JSON.parse(response?.data) : response?.data;
+        otp: Number(state.otp)
+      }
+      setLoading(true)
+      const response = await DataService.post('/resetPassword', body)
+      response.data = typeof response.data === 'string' ? JSON.parse(response?.data) : response?.data
       if (response?.status === 200) {
-        navigate('/login');
-        setLoading(false);
-        message.success(t('reset_password_success'));
+        navigate('/login')
+        setLoading(false)
+        message.success(t('reset_password_success'))
       } else {
-        message.error(t('reset_password_otp_invalid'));
-        setLoading(false);
+        message.error(t('reset_password_otp_invalid'))
+        setLoading(false)
       }
     } catch (err) {
-      message.error(t('reset_password_otp_invalid'));
-      setLoading(false);
+      message.error(t('reset_password_otp_invalid'))
+      setLoading(false)
     }
-  };
+  }
 
   const resendOTP = async () => {
     try {
       const body = {
-        email: location.state,
-      };
-      const response = await DataService.post('/resendVerificationCode', body);
+        email: location.state
+      }
+      const response = await DataService.post('/resendVerificationCode', body)
       if (response?.data?.success === false) {
-        message.error(response?.data?.errors.msg);
+        message.error(response?.data?.errors.msg)
       } else {
-        message.success(t('reset_password_resend_otp_success'));
+        message.success(t('reset_password_resend_otp_success'))
       }
     } catch (err) {
-      message.error(err?.response?.data?.errors.msg);
+      message.error(err?.response?.data?.errors.msg)
     }
-  };
+  }
 
   const validateCPassword = (rule, value, callback) => {
     if (value && value !== state.password) {
-      callback(t('reset_password_confirm_password_invalid'));
+      callback(t('reset_password_confirm_password_invalid'))
     } else {
-      callback();
+      callback()
     }
-  };
+  }
 
   const validatePassword = (rule, value, callback) => {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     if (regex.test(value)) {
-      callback();
+      callback()
     } else {
       if (value) {
-        callback(t('reset_password_password_strong'));
+        callback(t('reset_password_password_strong'))
       }
-      callback(t('reset_password_password_required'));
+      callback(t('reset_password_password_required'))
     }
-  };
+  }
 
   const areAllValidationsComplete = () => {
     if (
@@ -99,10 +99,10 @@ function ResetPassword() {
       state1.numberValid &&
       state1.uppercaseValid
     ) {
-      return true;
+      return true
     }
-    return false;
-  };
+    return false
+  }
 
   return (
     <LoginWrap>
@@ -134,8 +134,8 @@ function ResetPassword() {
                         onBlur={() => setTooltip(false)}
                         onFocus={() => setTooltip(true)}
                         onChange={(e) => {
-                          setState({ ...state, password: e.target.value });
-                          checkPasswordValid(e.target.value, setState1);
+                          setState({ ...state, password: e.target.value })
+                          checkPasswordValid(e.target.value, setState1)
                         }}
                         value={state.password}
                       />
@@ -147,7 +147,7 @@ function ResetPassword() {
                       name="email"
                       rules={[
                         { required: true, message: t('reset_password_confirm_password_required') },
-                        { validator: validateCPassword },
+                        { validator: validateCPassword }
                       ]}
                     >
                       <Input.Password
@@ -166,7 +166,7 @@ function ResetPassword() {
                         type="text"
                         onKeyPress={(event) => {
                           if (!/[0-9]/.test(event.key)) {
-                            event.preventDefault();
+                            event.preventDefault()
                           }
                         }}
                       />
@@ -181,7 +181,7 @@ function ResetPassword() {
                       style={{
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center',
+                        alignItems: 'center'
                       }}
                     >
                       <p className="" />
@@ -205,7 +205,7 @@ function ResetPassword() {
         </p>
       </div>
     </LoginWrap>
-  );
+  )
 }
 
-export default ResetPassword;
+export default ResetPassword

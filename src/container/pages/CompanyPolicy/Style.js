@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const LoginWrap = Styled.div`
   width: 100%;
@@ -140,7 +140,7 @@ ul, .term{
   border-color: #0042A8; 
 }
 
-`;
+`
 
 const AuthFormWrap = Styled.div`
   display: flex;
@@ -544,6 +544,6 @@ const AuthFormWrap = Styled.div`
       }
   }
 }
-`;
+`
 
-export { AuthFormWrap, LoginWrap };
+export { AuthFormWrap, LoginWrap }

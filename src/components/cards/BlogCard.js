@@ -1,36 +1,36 @@
 // import UilFile from '@iconscout/react-unicons/icons/uil-file-alt';
 // import { UilThumbsUp } from '@iconscout/react-unicons';
 // import UilHeart from '@iconscout/react-unicons/icons/uil-heart-sign';
-import propTypes from 'prop-types';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Tooltip } from 'antd';
+import propTypes from 'prop-types'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Tooltip } from 'antd'
 
-import { BlogCardStyleWrap } from './Style';
-import BlogDetail1 from '../../static/img/blogs/blog-details/blog-detail-main-1.jpg';
-import BlogDetail2 from '../../static/img/blogs/blog-details/blog-detail-main-2.jpg';
-import BlogDetail3 from '../../static/img/blogs/blog-details/blog-detail-main-3.jpg';
-import BlogDetail4 from '../../static/img/blogs/blog-details/blog-details-4-1.jpg';
+import { BlogCardStyleWrap } from './Style'
+import BlogDetail1 from '../../static/img/blogs/blog-details/blog-detail-main-1.jpg'
+import BlogDetail2 from '../../static/img/blogs/blog-details/blog-detail-main-2.jpg'
+import BlogDetail3 from '../../static/img/blogs/blog-details/blog-detail-main-3.jpg'
+import BlogDetail4 from '../../static/img/blogs/blog-details/blog-details-4-1.jpg'
 
-function BlogCard({ item, theme }) {
+function BlogCard ({ item, theme }) {
   const image = [
     {
       id: 1,
-      img: BlogDetail1,
+      img: BlogDetail1
     },
     {
       id: 2,
-      img: BlogDetail2,
+      img: BlogDetail2
     },
     {
       id: 3,
-      img: BlogDetail3,
+      img: BlogDetail3
     },
     {
       id: 4,
-      img: BlogDetail4,
-    },
-  ];
+      img: BlogDetail4
+    }
+  ]
   // const [isFav, setIsFav] = useState(item.isFavourite);
   // const [like, setLike] = useState(item.favouriteBy);
   // const [view, setView] = useState(item.viewedBy);
@@ -69,24 +69,30 @@ function BlogCard({ item, theme }) {
           <img className="ninjadash-blog__image" src={image[item.id - 1].img} alt="ninjadash Blog" />
         </div>
         <figcaption>
-          {theme === 'style-1' ? (
+          {theme === 'style-1'
+            ? (
             <div className="ninjadash-blog-meta ninjadash-blog-meta-theme-1">
               <span className="ninjadash-blog-meta__single ninjadash-date-meta">{item.postDate}</span>
             </div>
-          ) : theme === 'style-2' ? (
+              )
+            : theme === 'style-2'
+              ? (
             <div className="ninjadash-blog-meta ninjadash-blog-meta-theme-2">
               <span className="ninjadash-blog-meta__single ninjadash-category-meta">{item.category}</span>
               <span className="ninjadash-blog-meta__single ninjadash-date-meta">{item.postDate}</span>
             </div>
-          ) : theme === 'style-3' ? (
+                )
+              : theme === 'style-3'
+                ? (
             <div className="ninjadash-blog-meta ninjadash-blog-meta-theme-3">
               <span className="ninjadash-blog-meta__single ninjadash-date-meta">{item.postDate}</span>
               <span className="ninjadash-blog-meta__single ninjadash-category-meta">{item?.category}</span>
               <span className="ninjadash-blog-meta__single ninjadash-time-meta">6 mins read</span>
             </div>
-          ) : (
-            ''
-          )}
+                  )
+                : (
+                    ''
+                  )}
           <h2 className="ninjadash-blog__title">
             <Tooltip placement="topLeft" title={item.title}>
               <Link to={`/blog-details/${item.title}`}>
@@ -122,13 +128,13 @@ function BlogCard({ item, theme }) {
         </figcaption>
       </figure>
     </BlogCardStyleWrap>
-  );
+  )
 }
 
 BlogCard.propTypes = {
   item: propTypes.object,
-  theme: propTypes.string,
-};
+  theme: propTypes.string
+}
 
 BlogCard.defaultProps = {
   item: {
@@ -142,9 +148,9 @@ BlogCard.defaultProps = {
     postDate: '15 March 2021',
     favouriteBy: '15k',
     viewedBy: '20k',
-    isFavourit: false,
+    isFavourit: false
   },
-  theme: 'style-2',
-};
+  theme: 'style-2'
+}
 
-export default BlogCard;
+export default BlogCard

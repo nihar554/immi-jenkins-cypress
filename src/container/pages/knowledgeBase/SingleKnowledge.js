@@ -1,41 +1,41 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState, useLayoutEffect } from 'react';
-import { Link } from 'react-router-dom';
-import UilTimes from '@iconscout/react-unicons/icons/uil-times';
-import UilAngleUp from '@iconscout/react-unicons/icons/uil-angle-up';
-import UilAngleDown from '@iconscout/react-unicons/icons/uil-angle-down';
-import UilAlignLeft from '@iconscout/react-unicons/icons/uil-align-left';
-import UilAlignRight from '@iconscout/react-unicons/icons/uil-align-right';
-import SingleKnowledgeDetails from './overview/SingleKnowledge/SingleKnowledgeDetails';
-import GeneralKnowledgeTop from './overview/GeneralKnowledgeTop';
-import { KnowledgebaseArticleWrap, SingleKnowledgeContent, SidebarNavWrap } from './style';
-import { Button } from '../../../components/buttons/buttons';
-import { Main } from '../../styled';
+import React, { useState, useLayoutEffect } from 'react'
+import { Link } from 'react-router-dom'
+import UilTimes from '@iconscout/react-unicons/icons/uil-times'
+import UilAngleUp from '@iconscout/react-unicons/icons/uil-angle-up'
+import UilAngleDown from '@iconscout/react-unicons/icons/uil-angle-down'
+import UilAlignLeft from '@iconscout/react-unicons/icons/uil-align-left'
+import UilAlignRight from '@iconscout/react-unicons/icons/uil-align-right'
+import SingleKnowledgeDetails from './overview/SingleKnowledge/SingleKnowledgeDetails'
+import GeneralKnowledgeTop from './overview/GeneralKnowledgeTop'
+import { KnowledgebaseArticleWrap, SingleKnowledgeContent, SidebarNavWrap } from './style'
+import { Button } from '../../../components/buttons/buttons'
+import { Main } from '../../styled'
 
-function SingleKnowledge() {
+function SingleKnowledge () {
   const [state, setState] = useState({
     responsive: 0,
-    collapsed: false,
-  });
-  const [open, setOpen] = useState('menu1');
-  const { responsive, collapsed } = state;
+    collapsed: false
+  })
+  const [open, setOpen] = useState('menu1')
+  const { responsive, collapsed } = state
 
   useLayoutEffect(() => {
-    function updateSize() {
-      const width = window.innerWidth;
-      setState({ responsive: width });
+    function updateSize () {
+      const width = window.innerWidth
+      setState({ responsive: width })
     }
-    window.addEventListener('resize', updateSize);
-    updateSize();
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
+    window.addEventListener('resize', updateSize)
+    updateSize()
+    return () => window.removeEventListener('resize', updateSize)
+  }, [])
 
   const toggleCollapsed = () => {
     setState({
       ...state,
-      collapsed: !collapsed,
-    });
-  };
+      collapsed: !collapsed
+    })
+  }
 
   return (
     <>
@@ -71,7 +71,8 @@ function SingleKnowledge() {
               )}
             </div>
             <SingleKnowledgeContent>
-              {responsive > 991 ? (
+              {responsive > 991
+                ? (
                 <SidebarNavWrap>
                   <div className="knowledge-sidebar">
                     <h4 className="knowledge-sidebar__title">Plugins</h4>
@@ -249,7 +250,8 @@ function SingleKnowledge() {
                     </ul>
                   </div>
                 </SidebarNavWrap>
-              ) : (
+                  )
+                : (
                 <div className={collapsed ? 'knowledge-sidebar-wrap show' : 'knowledge-sidebar-wrap hide'}>
                   <SidebarNavWrap>
                     <div className="knowledge-sidebar">
@@ -434,7 +436,7 @@ function SingleKnowledge() {
                     </div>
                   </SidebarNavWrap>
                 </div>
-              )}
+                  )}
 
               <SingleKnowledgeDetails />
             </SingleKnowledgeContent>
@@ -449,7 +451,7 @@ function SingleKnowledge() {
         </KnowledgebaseArticleWrap>
       </Main>
     </>
-  );
+  )
 }
 
-export default SingleKnowledge;
+export default SingleKnowledge

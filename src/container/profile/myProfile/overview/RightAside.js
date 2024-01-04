@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import UilPlay from '@iconscout/react-unicons/icons/uil-play';
-import UilCheck from '@iconscout/react-unicons/icons/uil-check';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Col, Row } from 'antd';
-import ModalVideo from 'react-modal-video';
-import { RightAsideWrapper } from './Style';
-import { Button } from '../../../../components/buttons/buttons';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import { profileFriendsChangeStatus } from '../../../../redux/profile/actionCreator';
-import './video-modal.css';
+import React, { useState } from 'react'
+import UilPlay from '@iconscout/react-unicons/icons/uil-play'
+import UilCheck from '@iconscout/react-unicons/icons/uil-check'
+import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Col, Row } from 'antd'
+import ModalVideo from 'react-modal-video'
+import { RightAsideWrapper } from './Style'
+import { Button } from '../../../../components/buttons/buttons'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
+import { profileFriendsChangeStatus } from '../../../../redux/profile/actionCreator'
+import './video-modal.css'
 
-function RightAside() {
-  const dispatch = useDispatch();
+function RightAside () {
+  const dispatch = useDispatch()
   const { friends, gallery } = useSelector((state) => {
     return {
       friends: state.Profile.friends,
-      gallery: state.gallery.data,
-    };
-  });
+      gallery: state.gallery.data
+    }
+  })
 
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false)
 
   return (
     <RightAsideWrapper>
@@ -42,17 +42,19 @@ function RightAside() {
                   outlined={!status}
                   type={status ? 'primary' : 'white'}
                 >
-                  {!status ? (
-                    'Follow'
-                  ) : (
+                  {!status
+                    ? (
+                        'Follow'
+                      )
+                    : (
                     <>
                       <UilCheck />
                       Following
                     </>
-                  )}
+                      )}
                 </Button>
               </li>
-            );
+            )
           })}
 
           <Link to="#" className="btn-loadMore">
@@ -77,7 +79,7 @@ function RightAside() {
                     <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
                   </Col>
                 )
-              );
+              )
             })}
           </Row>
         </div>
@@ -104,13 +106,13 @@ function RightAside() {
                     </Link>
                   </Col>
                 )
-              );
+              )
             })}
           </Row>
         </div>
       </Cards>
     </RightAsideWrapper>
-  );
+  )
 }
 
-export default RightAside;
+export default RightAside

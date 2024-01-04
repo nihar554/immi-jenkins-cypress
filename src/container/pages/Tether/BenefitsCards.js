@@ -1,9 +1,9 @@
-import React from 'react';
-import { Col, Row } from 'antd';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { ProductCard } from './Style';
-import Heading from '../../../components/heading/heading';
+import React from 'react'
+import { Col, Row } from 'antd'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { ProductCard } from './Style'
+import Heading from '../../../components/heading/heading'
 
 // import { Main } from '../../styled';
 
@@ -29,12 +29,12 @@ const BenefitsCards = React.memo(({ img, text, title, linktext }) => {
         </div>
       </ProductCard>
     </Col>
-  );
-});
+  )
+})
 BenefitsCards.propTypes = {
   img: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.string,
-  linktext: PropTypes.string,
-};
-export default BenefitsCards;
+  linktext: PropTypes.string
+}
+export default BenefitsCards

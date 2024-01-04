@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const BoardStyle = Styled.div`
   .container{
@@ -237,6 +237,6 @@ const BoardStyle = Styled.div`
   .ant-checkbox-checked .ant-checkbox-inner {
     background-color: #0042A8; 
     border-color: #0042A8; 
-}`;
+}`
 
-export { BoardStyle };
+export { BoardStyle }

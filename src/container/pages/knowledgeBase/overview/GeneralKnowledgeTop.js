@@ -1,8 +1,8 @@
-import React from 'react';
-import { Form, Input, Select, Button } from 'antd';
-import { KnowledgebaseTopWrap } from '../style';
+import React from 'react'
+import { Form, Input, Select, Button } from 'antd'
+import { KnowledgebaseTopWrap } from '../style'
 
-function GeneralKnowledgeTop() {
+function GeneralKnowledgeTop () {
   return (
     <KnowledgebaseTopWrap>
       <div className="ninjadash-knowledgetop">
@@ -29,7 +29,7 @@ function GeneralKnowledgeTop() {
         </div>
       </div>
     </KnowledgebaseTopWrap>
-  );
+  )
 }
 
-export default GeneralKnowledgeTop;
+export default GeneralKnowledgeTop

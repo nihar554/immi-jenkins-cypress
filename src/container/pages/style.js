@@ -1,6 +1,6 @@
-import Styled from 'styled-components';
-import DashboardImg from '../../static/img/pages/migrate.png';
-import BottomImage from '../../static/img/icon/botomsvg.svg';
+import Styled from 'styled-components'
+import DashboardImg from '../../static/img/pages/migrate.png'
+import BottomImage from '../../static/img/icon/botomsvg.svg'
 
 const DashboardBanner = Styled.div`
  width: 100%;
@@ -31,7 +31,7 @@ const DashboardBanner = Styled.div`
   .sub-heading{
     font-size: 24px;
   }
-`;
+`
 
 const PricingCard = Styled.div`
   background: ${({ theme }) => theme[theme.mainContent]['white-background']};
@@ -87,7 +87,7 @@ const PricingCard = Styled.div`
       }
     }
   }
-`;
+`
 
 const ListGroup = Styled.div`
   margin: 28px 0 15px;
@@ -104,7 +104,7 @@ const ListGroup = Styled.div`
       margin: ${({ theme }) => (theme.rtl ? '0px 0 -4px 10px' : '0px 10px -4px 0')};
     }
   }
-`;
+`
 
 const Badge = Styled.span`
   display: inline-block;
@@ -119,7 +119,7 @@ const Badge = Styled.span`
     color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
     background-color: ${({ theme }) => theme[theme.mainContent]['dark-background']};
   }
-`;
+`
 
 const GalleryNav = Styled.nav`
   background: ${({ theme }) => theme[theme.mainContent]['white-background']};
@@ -169,7 +169,7 @@ const GalleryNav = Styled.nav`
       }
     }
   }
-`;
+`
 
 const GalleryCard = Styled.nav`
   border-radius: 10px;
@@ -192,7 +192,7 @@ const GalleryCard = Styled.nav`
       color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};
     }
   }
-`;
+`
 
 const UsercardWrapper = Styled.nav`
   .user-card-pagination{
@@ -202,7 +202,7 @@ const UsercardWrapper = Styled.nav`
       text-align: center;
     }
   }
-`;
+`
 
 const UserTableStyleWrapper = Styled.nav`
   table{
@@ -283,7 +283,7 @@ const UserTableStyleWrapper = Styled.nav`
       }
     }
   }
-`;
+`
 
 const UserCard = Styled.div`
   text-align: center;
@@ -646,7 +646,7 @@ const UserCard = Styled.div`
       }
     }
   }
-`;
+`
 
 const FaqCategoryBox = Styled.div`
   .faq-badge{
@@ -774,7 +774,7 @@ const FaqCategoryBox = Styled.div`
       }
     }
   }
-`;
+`
 
 const FaqSupportBox = Styled.div`
   text-align: center;
@@ -812,7 +812,7 @@ const FaqSupportBox = Styled.div`
     border-radius: 6px;
     height: 44px;
   }
-`;
+`
 
 const FaqWrapper = Styled.div`
   .ant-card{
@@ -901,7 +901,7 @@ const FaqWrapper = Styled.div`
       }
     }
   }
-`;
+`
 
 const SearchResultWrapper = Styled.div`
   .ant-select{
@@ -959,7 +959,7 @@ const SearchResultWrapper = Styled.div`
       }
     }
   }
-`;
+`
 
 const ResultList = Styled.div`
   .result-list-top{
@@ -1022,7 +1022,7 @@ const ResultList = Styled.div`
       text-align: center;
     }
   }
-`;
+`
 
 const MaintananceWrapper = Styled.div`
   display: flex;
@@ -1054,7 +1054,7 @@ const MaintananceWrapper = Styled.div`
   p{
     color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
   }
-`;
+`
 
 const ErrorWrapper = Styled.div`
   display: flex;
@@ -1086,7 +1086,7 @@ const ErrorWrapper = Styled.div`
   button{
     height: 44px;
   }
-`;
+`
 
 const ComingsoonStyleWrapper = Styled.div`
   text-align: center;
@@ -1283,7 +1283,7 @@ const ComingsoonStyleWrapper = Styled.div`
       color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};
     }
   }
-`;
+`
 
 const AddUser = Styled.div`
   .form-title{
@@ -1516,7 +1516,7 @@ const AddUser = Styled.div`
       }
     }
   }
-`;
+`
 const ChangelogWrapper = Styled.div`
    .ant-card-head{
      .ant-card-head-title{
@@ -1667,7 +1667,7 @@ const ChangelogWrapper = Styled.div`
       }
     }
   }
-`;
+`
 const VersionHistoryList = Styled.div`
   .history-title{
     font-size: 11px;
@@ -1692,7 +1692,7 @@ const VersionHistoryList = Styled.div`
       }
     }
   }
-`;
+`
 
 const TestimonialWrapper = Styled.div`
   position: relative;
@@ -1705,7 +1705,7 @@ const TestimonialWrapper = Styled.div`
       top: 50%;
       left: 0;
   }
-`;
+`
 
 const TestimonialStyleWrapper = Styled.div`
   .ant-card{
@@ -2146,7 +2146,7 @@ const TestimonialStyleWrapper = Styled.div`
   .testimonial-title{
     text-align: center;
   }
-`;
+`
 
 const UserCarrdTop = Styled.div`
   .ant-page-header-heading-extra{
@@ -2182,7 +2182,7 @@ const UserCarrdTop = Styled.div`
       }
     }
   }
-`;
+`
 
 const SupportTopWrap = Styled.div`
   background-color: ${({ theme }) => theme['bg-color-light']};
@@ -2238,7 +2238,7 @@ const SupportTopWrap = Styled.div`
       }
     }
   }
-`;
+`
 
 const SupportContentWrap = Styled.div`
   background-color: #fff;
@@ -2344,7 +2344,7 @@ const SupportContentWrap = Styled.div`
       }
     }
   }
-`;
+`
 
 const TermsConditionsStyle = Styled.div`
   margin-bottom: 30px;
@@ -2416,7 +2416,7 @@ const TermsConditionsStyle = Styled.div`
       color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
     }
   }
-`;
+`
 
 const Background = Styled.div`
   background-image: url(${DashboardImg});
@@ -2428,7 +2428,7 @@ const Background = Styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
-`;
+`
 
 const WizardBlock = Styled.div`
     width: 100%;
@@ -2481,7 +2481,7 @@ const WizardBlock = Styled.div`
         }
     }
     
-`;
+`
 
 const IdentityWrapper = Styled.div`
     width: 100%;
@@ -2565,7 +2565,7 @@ const IdentityWrapper = Styled.div`
     .ml-2{
       margin-left:6px;
     }
-`;
+`
 
 const ReviewWrapper = Styled.div`
     width: 100%;
@@ -2654,7 +2654,7 @@ const ReviewWrapper = Styled.div`
       border: 1px solid #041E5F;
       padding: 20px 8px 0px 8px;
     }
-`;
+`
 
 const WizardWrapper = Styled.div`
     color:#eee;
@@ -3359,7 +3359,7 @@ const WizardWrapper = Styled.div`
       color: #9D9D9D;
     }
    }
-`;
+`
 
 const SummaryWrapper = Styled.div`
     width: 100%;
@@ -3368,7 +3368,7 @@ const SummaryWrapper = Styled.div`
     flex-direction: column;
     color: #000;
     padding:10px 70px 10px 70px;
-`;
+`
 
 const MainStyle = Styled.div`
   width: 100%;
@@ -3487,7 +3487,7 @@ ul, .term{
   border-color: #0042A8; 
 }
 
-`;
+`
 
 const ContainerStyle = Styled.div`
   height:100%;
@@ -3577,7 +3577,7 @@ const ContainerStyle = Styled.div`
     }
     }
 
-`;
+`
 
 const RightBlockStyle = Styled.div`
   display: flex;
@@ -4073,7 +4073,7 @@ const RightBlockStyle = Styled.div`
       }
   }
 }
-`;
+`
 
 const PaymentWrapper = Styled.div`
 .pay-button {
@@ -4085,7 +4085,7 @@ const PaymentWrapper = Styled.div`
 .payment-block {
   padding-bottom: 3rem !important;
 }
-`;
+`
 export {
   TestimonialWrapper,
   PricingCard,
@@ -4122,5 +4122,5 @@ export {
   ContainerStyle,
   RightBlockStyle,
   MainStyle,
-  PaymentWrapper,
-};
+  PaymentWrapper
+}

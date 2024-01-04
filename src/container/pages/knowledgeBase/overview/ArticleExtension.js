@@ -1,10 +1,10 @@
-import React from 'react';
-import { Row, Col } from 'antd';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import { Link, NavLink } from 'react-router-dom';
-import { ArticleTabContentWrap } from '../style';
+import React from 'react'
+import { Row, Col } from 'antd'
+import { ArrowRightOutlined } from '@ant-design/icons'
+import { Link, NavLink } from 'react-router-dom'
+import { ArticleTabContentWrap } from '../style'
 
-function ArticleExtension() {
+function ArticleExtension () {
   return (
     <ArticleTabContentWrap>
       <div className="ninjadash-article-tab-content">
@@ -144,7 +144,7 @@ function ArticleExtension() {
         </Row>
       </div>
     </ArticleTabContentWrap>
-  );
+  )
 }
 
-export default ArticleExtension;
+export default ArticleExtension

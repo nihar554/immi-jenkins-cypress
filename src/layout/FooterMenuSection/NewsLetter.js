@@ -1,31 +1,31 @@
-import React from 'react';
-import { Button, Input, Space, Form, message } from 'antd';
-import TwitterIcon from '../../static/img/icons/twitter.svg';
-import LinkedinIcon from '../../static/img/icons/linkedin.svg';
-import FbIcon from '../../static/img/icons/facebook.svg';
-import YoutubeIcon from '../../static/img/icons/youtube.svg';
-import { subscribeEmailServices } from '../../config/dataService/subscribeEmailServices';
+import React from 'react'
+import { Button, Input, Space, Form, message } from 'antd'
+import TwitterIcon from '../../static/img/icons/twitter.svg'
+import LinkedinIcon from '../../static/img/icons/linkedin.svg'
+import FbIcon from '../../static/img/icons/facebook.svg'
+import YoutubeIcon from '../../static/img/icons/youtube.svg'
+import { subscribeEmailServices } from '../../config/dataService/subscribeEmailServices'
 
-function NewsLetter() {
-  const [form] = Form.useForm();
+function NewsLetter () {
+  const [form] = Form.useForm()
   // const [email, setEmail] = useState();
 
   const handleSubmit = (value) => {
     subscribeEmailServices
       .createSubscribeEmail(value)
       .then(() => {
-        form.resetFields();
-        message.success('Subscribe email successfully');
+        form.resetFields()
+        message.success('Subscribe email successfully')
       })
       .catch((error) => {
         if (error.response.data.errors.msg === 'SUBSCRIBE_EMAIL_ALREADY_EXISTS') {
-          form.resetFields();
-          message.success('Subscribe email successfully');
+          form.resetFields()
+          message.success('Subscribe email successfully')
         } else {
-          message.error(error.response.data.errors.msg);
+          message.error(error.response.data.errors.msg)
         }
-      });
-  };
+      })
+  }
 
   return (
     <div className="footer-newsletter-menu">
@@ -40,12 +40,12 @@ function NewsLetter() {
               rules={[
                 {
                   type: 'email',
-                  message: 'Invalid Email!',
+                  message: 'Invalid Email!'
                 },
                 {
                   required: true,
-                  message: 'Please input your Email!',
-                },
+                  message: 'Please input your Email!'
+                }
               ]}
             >
               <Input name="email" placeholder="Type your email" />
@@ -84,7 +84,7 @@ function NewsLetter() {
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default NewsLetter;
+export default NewsLetter

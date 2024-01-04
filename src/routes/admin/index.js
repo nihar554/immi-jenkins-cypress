@@ -1,16 +1,16 @@
-import { Spin } from 'antd';
-import React, { Suspense, useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Spin } from 'antd'
+import React, { Suspense, useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 
-import Pages from './pages';
-import withAdminLayout from '../../layout/withAdminLayout';
+import Pages from './pages'
+import withAdminLayout from '../../layout/withAdminLayout'
 
 const Admin = React.memo(() => {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   return (
     <Suspense
@@ -25,7 +25,7 @@ const Admin = React.memo(() => {
         <Route path="/*" element={<Pages />} />
       </Routes>
     </Suspense>
-  );
-});
+  )
+})
 
-export default withAdminLayout(Admin);
+export default withAdminLayout(Admin)

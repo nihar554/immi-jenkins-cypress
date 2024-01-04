@@ -1,30 +1,30 @@
-import { useState } from 'react';
-import UilFacebook from '@iconscout/react-unicons/icons/uil-facebook-f';
-import UilLinkh from '@iconscout/react-unicons/icons/uil-link-h';
-import UilLinkedin from '@iconscout/react-unicons/icons/uil-linkedin';
-import UilTwitter from '@iconscout/react-unicons/icons/uil-twitter';
-import { Col, Row, Tooltip } from 'antd';
-import { Link } from 'react-router-dom';
-import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
-import propTypes from 'prop-types';
-import { BlogDetailsStyle } from '../Style';
-import { Main } from '../../../styled';
+import { useState } from 'react'
+import UilFacebook from '@iconscout/react-unicons/icons/uil-facebook-f'
+import UilLinkh from '@iconscout/react-unicons/icons/uil-link-h'
+import UilLinkedin from '@iconscout/react-unicons/icons/uil-linkedin'
+import UilTwitter from '@iconscout/react-unicons/icons/uil-twitter'
+import { Col, Row, Tooltip } from 'antd'
+import { Link } from 'react-router-dom'
+import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share'
+import propTypes from 'prop-types'
+import { BlogDetailsStyle } from '../Style'
+import { Main } from '../../../styled'
 
 // const { BlogCardData } = cardData;
 
-function BlogDetails2({ data }) {
-  console.log('data', data);
+function BlogDetails2 ({ data }) {
+  console.log('data', data)
 
-  const currentUrl = 'https://www.google.com/';
+  const currentUrl = 'https://www.google.com/'
 
-  const [isCopied, setIsCopied] = useState(false);
+  const [isCopied, setIsCopied] = useState(false)
   const handleCopy = () => {
-    setIsCopied(true);
-    navigator.clipboard.writeText(currentUrl);
+    setIsCopied(true)
+    navigator.clipboard.writeText(currentUrl)
     setTimeout(() => {
-      setIsCopied(false);
-    }, 1500);
-  };
+      setIsCopied(false)
+    }, 1500)
+  }
 
   return (
     <>
@@ -35,7 +35,7 @@ function BlogDetails2({ data }) {
               <div className="ninjadash-blog-details">
                 <div className="ninjadash-blog-featured-img">
                   <img
-                    src={require(`../../../../static/img/blogs/blog-details/blog-detail-main-2.jpg`)}
+                    src={require('../../../../static/img/blogs/blog-details/blog-detail-main-2.jpg')}
                     alt="ninjadash Blog"
                     style={{ height: '30vw' }}
                   />
@@ -45,7 +45,7 @@ function BlogDetails2({ data }) {
                     <h1 className="ninjadash-blog-title">{data?.title}?</h1>
                     <ul className="ninjadash-blog-meta">
                       <li className="ninjadash-blog-meta__author">
-                        <img src={require(`../../../../static/img/tether.png`)} alt="ninjadash blog author" />
+                        <img src={require('../../../../static/img/tether.png')} alt="ninjadash blog author" />
                         <span className="ninjadash-blog-authorname">{data?.author}</span>
                       </li>
                       <li className="ninjadash-blog-meta__date">{data?.postDate}</li>
@@ -233,11 +233,11 @@ function BlogDetails2({ data }) {
         </Row>
       </Main>
     </>
-  );
+  )
 }
 
 BlogDetails2.propTypes = {
-  data: propTypes.object,
-};
+  data: propTypes.object
+}
 
-export default BlogDetails2;
+export default BlogDetails2

@@ -23,21 +23,21 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-const { MailSlurp } = require('mailslurp-client');
+const { MailSlurp } = require('mailslurp-client')
 // set your api key with an environment variable `CYPRESS_API_KEY` or configure using `env` property in config file
 // (cypress prefixes environment variables with CYPRESS)
-const apiKey = Cypress.env('MAILSLURP_API');
-const mailslurp = new MailSlurp({ apiKey });
+const apiKey = Cypress.env('MAILSLURP_API')
+const mailslurp = new MailSlurp({ apiKey })
 
 Cypress.Commands.add('createInbox', () => {
-  return mailslurp.createInbox();
-});
+  return mailslurp.createInbox()
+})
 
 Cypress.Commands.add('waitForLatestEmail', (inboxId) => {
   // how long we should hold connection waiting for an email to arrive
-  const timeoutMillis = 30_000;
-  return mailslurp.waitForLatestEmail(inboxId, timeoutMillis);
-});
+  const timeoutMillis = 30_000
+  return mailslurp.waitForLatestEmail(inboxId, timeoutMillis)
+})
 Cypress.Commands.add('checkCaptcha', () => {
-  cy.get('[style="width: 304px; height: 78px;"] > div > iframe').should('exist'); // Replace 'your-captcha-selector' with the actual selector for the CAPTCHA element
-});
+  cy.get('[style="width: 304px; height: 78px;"] > div > iframe').should('exist') // Replace 'your-captcha-selector' with the actual selector for the CAPTCHA element
+})

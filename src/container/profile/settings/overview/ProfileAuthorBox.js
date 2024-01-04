@@ -1,55 +1,55 @@
-import React, { useState } from 'react';
-import { Upload, message } from 'antd';
-import PropTypes from 'prop-types';
-import UilCamera from '@iconscout/react-unicons/icons/uil-camera';
+import React, { useState } from 'react'
+import { Upload, message } from 'antd'
+import PropTypes from 'prop-types'
+import UilCamera from '@iconscout/react-unicons/icons/uil-camera'
 // import UilSetting from '@iconscout/react-unicons/icons/uil-setting';
 // import UilBell from '@iconscout/react-unicons/icons/uil-bell';
 // import UilUser from '@iconscout/react-unicons/icons/uil-user';
 // import UilUsersAlt from '@iconscout/react-unicons/icons/uil-users-alt';
-import { Link, NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ProfileAuthorBox } from './style';
-import Heading from '../../../../components/heading/heading';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import { DataService } from '../../../../config/dataService/dataService';
+import { Link, NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { ProfileAuthorBox } from './style'
+import Heading from '../../../../components/heading/heading'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
+import { DataService } from '../../../../config/dataService/dataService'
 
-function AuthorBox({ state, setState }) {
-  const initialSrc = 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png';
-  const [src, setSrc] = useState('');
+function AuthorBox ({ state, setState }) {
+  const initialSrc = 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png'
+  const [src, setSrc] = useState('')
 
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   const handleUpload = async (event) => {
-    const reader = new FileReader();
-    const { file, onSuccess, onError } = event;
+    const reader = new FileReader()
+    const { file, onSuccess, onError } = event
     try {
       reader.onload = (e) => {
-        const base64Data = e.target.result;
-        setSrc(base64Data);
-        const dataToSend = { profilepic: base64Data };
+        const base64Data = e.target.result
+        setSrc(base64Data)
+        const dataToSend = { profilepic: base64Data }
         DataService.patch('/profile', dataToSend)
           .then(() => {
-            message.success(`${file.name} file uploaded successfully`);
+            message.success(`${file.name} file uploaded successfully`)
             setState((prev) => {
-              return { ...prev, ...{ profilePic: base64Data, profilepicName: file } };
-            });
+              return { ...prev, ...{ profilePic: base64Data, profilepicName: file } }
+            })
           })
           .catch((err) => {
-            console.log(err);
-          });
-      };
-      onSuccess('Ok');
-      reader.readAsDataURL(file);
+            console.log(err)
+          })
+      }
+      onSuccess('Ok')
+      reader.readAsDataURL(file)
     } catch (error) {
-      console.error('Custom request error:', error);
-      onError(error);
+      console.error('Custom request error:', error)
+      onError(error)
     }
-  };
+  }
 
   const handleImageErr = () => {
-    console.log('Calllled');
-    setSrc(initialSrc);
-  };
+    console.log('Calllled')
+    setSrc(initialSrc)
+  }
 
   return (
     <ProfileAuthorBox>
@@ -126,12 +126,12 @@ function AuthorBox({ state, setState }) {
         </nav>
       </Cards>
     </ProfileAuthorBox>
-  );
+  )
 }
 
 AuthorBox.propTypes = {
   setState: PropTypes.func,
-  state: PropTypes.object,
-};
+  state: PropTypes.object
+}
 
-export default AuthorBox;
+export default AuthorBox

@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const BuildFutureWrapper = Styled.div`
   background-color: #0000ff3d;
@@ -91,6 +91,6 @@ const BuildFutureWrapper = Styled.div`
       }
     }
   }
-`;
+`
 
-export { BuildFutureWrapper };
+export { BuildFutureWrapper }

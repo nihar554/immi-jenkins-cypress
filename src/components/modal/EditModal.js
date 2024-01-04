@@ -1,53 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Form, Modal, Select, message, Input } from 'antd';
-import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import { DataService } from '../../config/dataService/dataService';
+import React, { useEffect, useState } from 'react'
+import { Button, Form, Modal, Select, message, Input } from 'antd'
+import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
+import { DataService } from '../../config/dataService/dataService'
 
-export default function EditModal({ isModalOpen, setIsModalOpen, selelectedRow, getUsersApplicationDetails }) {
-  const [form] = Form.useForm();
-  const { t } = useTranslation();
-  const { Option } = Select;
-  const [loading, setLoading] = useState(false);
-  const [submittable, setSubmittable] = React.useState(false);
-  const [bitfinexUrl, setBitfinexUrl] = useState('');
-  const [data, setData] = useState();
+export default function EditModal ({ isModalOpen, setIsModalOpen, selelectedRow, getUsersApplicationDetails }) {
+  const [form] = Form.useForm()
+  const { t } = useTranslation()
+  const { Option } = Select
+  const [loading, setLoading] = useState(false)
+  const [submittable, setSubmittable] = React.useState(false)
+  const [bitfinexUrl, setBitfinexUrl] = useState('')
+  const [data, setData] = useState()
 
   // Watch all values
-  const watch = Form.useWatch([], form);
+  const watch = Form.useWatch([], form)
 
   React.useEffect(() => {
     form.validateFields({ validateOnly: true }).then(
       () => {
-        setSubmittable(true);
+        setSubmittable(true)
       },
       () => {
-        setSubmittable(false);
-      },
-    );
-  }, [watch]);
+        setSubmittable(false)
+      }
+    )
+  }, [watch])
 
   useEffect(() => {
-    console.log('selected row', selelectedRow);
+    console.log('selected row', selelectedRow)
     if (
       selelectedRow?.paymentDetails?.paymentType &&
       selelectedRow?.paymentDetails?.TransactionId &&
       selelectedRow?.paymentDetails?.residentType
     ) {
-      form.setFieldValue('residentType', selelectedRow.paymentDetails.residentType);
-      form.setFieldValue('paymentType', selelectedRow.paymentDetails.paymentType);
-      form.setFieldValue('TransactionId', selelectedRow.paymentDetails.TransactionId);
+      form.setFieldValue('residentType', selelectedRow.paymentDetails.residentType)
+      form.setFieldValue('paymentType', selelectedRow.paymentDetails.paymentType)
+      form.setFieldValue('TransactionId', selelectedRow.paymentDetails.TransactionId)
     } else {
-      form.setFieldValue('residentType', '');
-      form.setFieldValue('paymentType', '');
-      form.setFieldValue('TransactionId', '');
+      form.setFieldValue('residentType', '')
+      form.setFieldValue('paymentType', '')
+      form.setFieldValue('TransactionId', '')
     }
-  }, [selelectedRow]);
+  }, [selelectedRow])
 
   const handleUpdate = () => {
     if (data.paymentType === '') {
-      message.error('Please choose the payment type');
-      return;
+      message.error('Please choose the payment type')
+      return
     }
     const body = {
       email: selelectedRow.email,
@@ -55,14 +55,14 @@ export default function EditModal({ isModalOpen, setIsModalOpen, selelectedRow, 
       phoneNumber: selelectedRow.phoneNumber,
       paymentDetails: {
         residentType: data.residentType,
-        paymentType: data.paymentType,
-      },
-    };
-    setLoading(true);
+        paymentType: data.paymentType
+      }
+    }
+    setLoading(true)
     DataService.patch(`/userApplications/${selelectedRow._id}`, body)
       .then(async () => {
-        const nationData = await DataService.get(`/country/code/${selelectedRow.nationality}`);
-        const countryData = await DataService.get(`/country/code/${selelectedRow.resid_country}`);
+        const nationData = await DataService.get(`/country/code/${selelectedRow.nationality}`)
+        const countryData = await DataService.get(`/country/code/${selelectedRow.resid_country}`)
         const invoiceData = {
           // amount: 0.1,
           amount: String(data.amount),
@@ -81,56 +81,56 @@ export default function EditModal({ isModalOpen, setIsModalOpen, selelectedRow, 
           fullName: selelectedRow.name,
           email: selelectedRow.email,
           paymentType: 'PassportPayment',
-          userId: selelectedRow.userId,
-        };
-        console.log('invoice data', invoiceData);
+          userId: selelectedRow.userId
+        }
+        console.log('invoice data', invoiceData)
         await DataService.post('/bitfinex/submitInvoice', invoiceData)
           .then((resInvoice) => {
             if (resInvoice.status === 201) {
-              const url = `https://pay.bitfinex.com/gateway/order/${resInvoice.data}`;
-              setBitfinexUrl(url);
+              const url = `https://pay.bitfinex.com/gateway/order/${resInvoice.data}`
+              setBitfinexUrl(url)
             } else {
-              message.error('Please validate your data.');
+              message.error('Please validate your data.')
             }
             // const windowFeatures = 'width=600,height=800,resizable,scrollbars';
             // window.open(url, '_blank', windowFeatures);
-            setLoading(false);
+            setLoading(false)
           })
           .catch(() => {
-            setLoading(false);
-          });
+            setLoading(false)
+          })
 
         // setIsModalOpen(false);
-        getUsersApplicationDetails();
-        form.resetFields();
+        getUsersApplicationDetails()
+        form.resetFields()
       })
       .catch(() => {
-        setLoading(false);
-      });
-  };
+        setLoading(false)
+      })
+  }
 
   const handleChange = (value) => {
     setData((prev) => {
-      return { ...prev, ...value };
-    });
-  };
+      return { ...prev, ...value }
+    })
+  }
 
   useEffect(() => {
     if (!isModalOpen) {
-      setBitfinexUrl('');
+      setBitfinexUrl('')
     }
-  }, [isModalOpen]);
+  }, [isModalOpen])
 
   const validateNumber = (rule, value, callback) => {
-    const upperLimit = Number(process.env.REACT_APP_APPLICATION_FEE);
-    const regexPattern = `^(?!0\\d)(\\d{1,3}(\\.\\d+)?|${upperLimit}(\\.0+)?)$`;
-    const regex = new RegExp(regexPattern);
+    const upperLimit = Number(process.env.REACT_APP_APPLICATION_FEE)
+    const regexPattern = `^(?!0\\d)(\\d{1,3}(\\.\\d+)?|${upperLimit}(\\.0+)?)$`
+    const regex = new RegExp(regexPattern)
     if (!value || (value > 0 && value <= process.env.REACT_APP_APPLICATION_FEE && regex.test(value))) {
-      callback();
+      callback()
     } else {
-      callback(t(`Please enter a number between 1 and ${process.env.REACT_APP_APPLICATION_FEE}`));
+      callback(t(`Please enter a number between 1 and ${process.env.REACT_APP_APPLICATION_FEE}`))
     }
-  };
+  }
 
   return (
     <Modal
@@ -139,8 +139,8 @@ export default function EditModal({ isModalOpen, setIsModalOpen, selelectedRow, 
       open={isModalOpen}
       footer={null}
       onCancel={() => {
-        setIsModalOpen(false);
-        form.resetFields();
+        setIsModalOpen(false)
+        form.resetFields()
       }}
     >
       {bitfinexUrl ? (
@@ -169,8 +169,8 @@ export default function EditModal({ isModalOpen, setIsModalOpen, selelectedRow, 
               style={{ width: '100%' }}
               rules={[
                 {
-                  required: true,
-                },
+                  required: true
+                }
               ]}
             >
               <Select style={{ width: '100%' }}>
@@ -187,8 +187,8 @@ export default function EditModal({ isModalOpen, setIsModalOpen, selelectedRow, 
               style={{ width: '100%' }}
               rules={[
                 {
-                  required: true,
-                },
+                  required: true
+                }
               ]}
             >
               <Select style={{ width: '100%' }}>
@@ -206,9 +206,9 @@ export default function EditModal({ isModalOpen, setIsModalOpen, selelectedRow, 
               rules={[
                 {
                   required: true,
-                  message: 'Please Input Amount',
+                  message: 'Please Input Amount'
                 },
-                { validator: validateNumber },
+                { validator: validateNumber }
               ]}
             >
               <Input placeholder={t('Amount')} />
@@ -231,7 +231,7 @@ export default function EditModal({ isModalOpen, setIsModalOpen, selelectedRow, 
         </Form>
       )}
     </Modal>
-  );
+  )
 }
 
 EditModal.propTypes = {
@@ -239,5 +239,5 @@ EditModal.propTypes = {
   setIsModalOpen: PropTypes.func,
   // form: PropTypes.any,
   selelectedRow: PropTypes.any,
-  getUsersApplicationDetails: PropTypes.func,
-};
+  getUsersApplicationDetails: PropTypes.func
+}

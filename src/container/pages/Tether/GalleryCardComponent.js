@@ -1,8 +1,8 @@
-import React from 'react';
-import { Col } from 'antd';
-import PropTypes from 'prop-types';
-import { GalleryCard } from './Style';
-import Heading from '../../../components/heading/heading';
+import React from 'react'
+import { Col } from 'antd'
+import PropTypes from 'prop-types'
+import { GalleryCard } from './Style'
+import Heading from '../../../components/heading/heading'
 
 const GalleryCardComponent = React.memo(({ img, title, text }) => {
   return (
@@ -24,11 +24,11 @@ const GalleryCardComponent = React.memo(({ img, title, text }) => {
         </figure>
       </GalleryCard>
     </Col>
-  );
-});
+  )
+})
 GalleryCardComponent.propTypes = {
   img: PropTypes.string,
   title: PropTypes.string,
-  text: PropTypes.string,
-};
-export default GalleryCardComponent;
+  text: PropTypes.string
+}
+export default GalleryCardComponent

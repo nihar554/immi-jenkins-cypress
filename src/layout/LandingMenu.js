@@ -1,29 +1,29 @@
-import React, { useLayoutEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import React, { useLayoutEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
-import { TopMenuStyle } from './Style';
+import { TopMenuStyle } from './Style'
 
-function LandingMenu() {
-  const { t } = useTranslation();
+function LandingMenu () {
+  const { t } = useTranslation()
 
   // const path  = '/admin';
 
   useLayoutEffect(() => {
-    const active = document.querySelector('.ninjadash-top-menu a.active');
+    const active = document.querySelector('.ninjadash-top-menu a.active')
     const activeDefault = () => {
-      const megaMenu = active.closest('.megaMenu-wrapper');
-      const hasSubMenuLeft = active.closest('.has-subMenu-left');
+      const megaMenu = active.closest('.megaMenu-wrapper')
+      const hasSubMenuLeft = active.closest('.has-subMenu-left')
       if (!megaMenu) {
-        active.closest('ul').previousSibling.classList.add('active');
-        if (hasSubMenuLeft) hasSubMenuLeft.closest('ul').previousSibling.classList.add('active');
+        active.closest('ul').previousSibling.classList.add('active')
+        if (hasSubMenuLeft) hasSubMenuLeft.closest('ul').previousSibling.classList.add('active')
       } else {
-        active.closest('.megaMenu-wrapper').previousSibling.classList.add('active');
+        active.closest('.megaMenu-wrapper').previousSibling.classList.add('active')
       }
-    };
-    window.addEventListener('load', active && activeDefault);
-    return () => window.removeEventListener('load', activeDefault);
-  }, []);
+    }
+    window.addEventListener('load', active && activeDefault)
+    return () => window.removeEventListener('load', activeDefault)
+  }, [])
 
   return (
     <TopMenuStyle>
@@ -55,7 +55,7 @@ function LandingMenu() {
         </ul>
       </div>
     </TopMenuStyle>
-  );
+  )
 }
 
-export default LandingMenu;
+export default LandingMenu

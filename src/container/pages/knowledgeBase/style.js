@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const KnowledgebaseTopWrap = Styled.div`
     .ninjadash-knowledgetop{
@@ -174,7 +174,7 @@ const KnowledgebaseTopWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const KnowledgebaseArticleWrap = Styled.div`
     background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
@@ -250,7 +250,7 @@ const KnowledgebaseArticleWrap = Styled.div`
             visibility: visible;
         }
     }
-`;
+`
 
 const ArticleTabWrap = Styled.div`
     margin-bottom: 10px;
@@ -299,7 +299,7 @@ const ArticleTabWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const ArticleTabContentWrap = Styled.div`
     .ninjadash-article-tab-signle{
@@ -359,7 +359,7 @@ const ArticleTabContentWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const PopularArticleWrap = Styled.div`
     padding-top: 65px;
@@ -455,7 +455,7 @@ const PopularArticleWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const CtaWrap = Styled.div`
     margin-top: 15px;
@@ -477,7 +477,7 @@ const CtaWrap = Styled.div`
             padding: 0px 30.71px;
         }
     }
-`;
+`
 
 const ArticleListWrap = Styled.div`
     .ninjadash-articlelist{
@@ -586,7 +586,7 @@ const ArticleListWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const SingleKnowledgeContent = Styled.div`
     display: flex;
@@ -622,7 +622,7 @@ const SingleKnowledgeContent = Styled.div`
             top: 15px;
         }
     }
-`;
+`
 
 const SidebarNavWrap = Styled.div`
     min-width: 330px;
@@ -718,7 +718,7 @@ const SidebarNavWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const KnowledgeDetailsWrap = Styled.div`
     .knowledge-details{
@@ -1047,7 +1047,7 @@ const KnowledgeDetailsWrap = Styled.div`
             font-weight: 500;
         }
     }
-`;
+`
 
 export {
   KnowledgebaseTopWrap,
@@ -1059,5 +1059,5 @@ export {
   ArticleListWrap,
   SingleKnowledgeContent,
   SidebarNavWrap,
-  KnowledgeDetailsWrap,
-};
+  KnowledgeDetailsWrap
+}

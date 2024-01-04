@@ -1,8 +1,8 @@
 /* eslint-disable no-shadow */
-import { Button } from 'antd';
-import Styled from 'styled-components';
+import { Button } from 'antd'
+import Styled from 'styled-components'
 
-const ButtonGroup = Button.Group;
+const ButtonGroup = Button.Group
 
 const outline = (theme, type) => {
   return `
@@ -20,8 +20,8 @@ const outline = (theme, type) => {
             color: ${type !== 'light' ? theme[`${type}-color`] : theme['primary-color']};
           }
         }
-    `;
-};
+    `
+}
 
 const ghosts = (theme) => {
   return `
@@ -33,8 +33,8 @@ const ghosts = (theme) => {
             border: 1px solid transparent !important;
             color: ${theme['border-color-normal']} !important;
         }
-    `;
-};
+    `
+}
 
 const transparents = (theme, type) => {
   return `
@@ -46,14 +46,14 @@ const transparents = (theme, type) => {
             border-width: 0px;
             color: ${type !== 'default' && theme[`${type}-hover`]}; 
         }
-    `;
-};
+    `
+}
 
 const raise = (theme, type) => {
   return `
         box-shadow: 0 8px 13px ${type !== 'white' ? theme[`${type}-color`] : theme['light-color']}20;
-    `;
-};
+    `
+}
 
 const square = (theme, type) => `
     background: ${type !== 'default' && theme[`${type}-color`]};
@@ -67,7 +67,7 @@ const square = (theme, type) => `
         border: 1px solid ${type !== 'default' && theme[`${type}-hover`]};
         color: ${type !== 'default' && '#ffffff'};
     }
-`;
+`
 
 const squareOutline = (theme, type) => `
     background: transparent;
@@ -80,7 +80,7 @@ const squareOutline = (theme, type) => `
         border: 1px solid ${type !== 'default' && theme[`${type}-hover`]};
         color: ${({ theme, type }) => type !== 'default' && theme['white-color']};
     }
-`;
+`
 
 const socialButton = (color, shape) => `
     background: ${color};
@@ -99,7 +99,7 @@ const socialButton = (color, shape) => `
         border: 1px solid ${color}90;
         color: ${({ theme }) => theme['white-color']};
     }
-`;
+`
 
 const ButtonStyled = Styled(Button)`
     font-size: 14px;
@@ -136,7 +136,7 @@ ${({ raised, theme, type }) => raised && raise(theme, type)};
 ${({ squared, theme, type }) => squared && square(theme, type)};
 ${({ squared, outlined, theme, type }) => squared && outlined && squareOutline(theme, type)};
 ${({ social, color, shape }) => social && socialButton(color, shape)};
-`;
+`
 
 const ButtonStyledGroup = Styled(ButtonGroup)`
     >.ant-btn:first-child{
@@ -153,6 +153,6 @@ button {
 .ant-btn-light:hover{
     background: ${({ theme }) => theme[theme.mainContent].bgNormal};
 }
-`;
+`
 
-export { ButtonStyled, ButtonStyledGroup };
+export { ButtonStyled, ButtonStyledGroup }

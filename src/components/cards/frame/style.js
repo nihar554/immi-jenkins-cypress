@@ -1,5 +1,5 @@
-import { Card } from 'antd';
-import Styled from 'styled-components';
+import { Card } from 'antd'
+import Styled from 'styled-components'
 
 const BtnWraper = (theme) => `
     .ant-card-head {
@@ -58,7 +58,7 @@ const BtnWraper = (theme) => `
       height: 73px;
       padding-top: 8px;
   }
-`;
+`
 
 const CardFrame = Styled(Card)`
 
@@ -146,6 +146,6 @@ const CardFrame = Styled(Card)`
     ${({ theme }) => (!theme.rtl ? ' left' : ' right')}: 5px;
   }
  
-`;
+`
 
-export { CardFrame };
+export { CardFrame }

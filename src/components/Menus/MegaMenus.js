@@ -1,10 +1,10 @@
-import { Col, Row } from 'antd';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { SettingDropdwon } from './auth-info-style';
-import Heading from '../heading/heading';
-import { Popover } from '../popup/popup';
+import { Col, Row } from 'antd'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { SettingDropdwon } from './auth-info-style'
+import Heading from '../heading/heading'
+import { Popover } from '../popup/popup'
 
 const MegaMenus = React.memo(({ data, title }) => {
   const content = (
@@ -24,12 +24,12 @@ const MegaMenus = React.memo(({ data, title }) => {
                   </figure>
                 </Link>
               </Col>
-            );
+            )
           })}
         </Row>
       </div>
     </SettingDropdwon>
-  );
+  )
   return (
     <Popover placement="bottomLeft" content={content} action="hover">
       <Link className="parent" style={{ color: '#2F3241' }}>
@@ -37,10 +37,10 @@ const MegaMenus = React.memo(({ data, title }) => {
         {/* <img src={ArrowDownIcon} className="menu-arrow-down" style={{ marginLeft:'5px', marginTop:'5px', alignSelf:'center' }} /> */}
       </Link>
     </Popover>
-  );
-});
+  )
+})
 MegaMenus.propTypes = {
   title: PropTypes.string,
-  data: PropTypes.string,
-};
-export default MegaMenus;
+  data: PropTypes.string
+}
+export default MegaMenus

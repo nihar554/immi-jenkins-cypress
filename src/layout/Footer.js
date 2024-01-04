@@ -1,14 +1,14 @@
-import React from 'react';
-import { Col, Row } from 'antd';
-import { FooterStyle } from './Style';
-import ProductsMenu from './FooterMenuSection/ProductsMenu';
-import SolutionsMenu from './FooterMenuSection/SolutionMenu';
-import InsightsMenu from './FooterMenuSection/InsightsMenu';
-import CompanyMenu from './FooterMenuSection/CompanyMenu';
-import NewsLetter from './FooterMenuSection/NewsLetter';
-import DevelopersMenu from './FooterMenuSection/DevelopersMenu';
+import React from 'react'
+import { Col, Row } from 'antd'
+import { FooterStyle } from './Style'
+import ProductsMenu from './FooterMenuSection/ProductsMenu'
+import SolutionsMenu from './FooterMenuSection/SolutionMenu'
+import InsightsMenu from './FooterMenuSection/InsightsMenu'
+import CompanyMenu from './FooterMenuSection/CompanyMenu'
+import NewsLetter from './FooterMenuSection/NewsLetter'
+import DevelopersMenu from './FooterMenuSection/DevelopersMenu'
 
-function Footer() {
+function Footer () {
   return (
     <FooterStyle className="admin-footer">
       <Row gutter={25}>
@@ -41,7 +41,7 @@ function Footer() {
             width={200}
             height={60}
             style={{ marginTop: '-2rem' }}
-            src={require(`../static/img/logo_dark.svg`).default}
+            src={require('../static/img/logo_dark.svg').default}
             alt="logo_dark"
           />
         </Col>
@@ -50,7 +50,7 @@ function Footer() {
         </Col>
       </Row>
     </FooterStyle>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

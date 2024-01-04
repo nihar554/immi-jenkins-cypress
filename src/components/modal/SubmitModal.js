@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Form, Modal, Row, Col, message } from 'antd';
-import PropTypes from 'prop-types';
-import Cookies from 'js-cookie';
-import { useTranslation } from 'react-i18next';
+import React, { useState } from 'react'
+import { Form, Modal, Row, Col, message } from 'antd'
+import PropTypes from 'prop-types'
+import Cookies from 'js-cookie'
+import { useTranslation } from 'react-i18next'
 // import InfoCard from '../cards/InfoCard';
-import { Button } from '../buttons/buttons';
-import BitcoinIcon from '../../static/img/bitcoin-icon.png';
-import UsdtIcon from '../../static/img/usdt-icon.png';
-import { DataService } from '../../config/dataService/dataService';
+import { Button } from '../buttons/buttons'
+import BitcoinIcon from '../../static/img/bitcoin-icon.png'
+import UsdtIcon from '../../static/img/usdt-icon.png'
+import { DataService } from '../../config/dataService/dataService'
 
-export default function SubmitModal({
+export default function SubmitModal ({
   isModalOpen,
   setIsModalOpen,
   // isResident,
@@ -17,10 +17,10 @@ export default function SubmitModal({
   details,
   paymentType,
   setPaymentType,
-  getUserPaymentDetails,
+  getUserPaymentDetails
 }) {
-  const [loading, setLoading] = useState(false);
-  const [bitfinexUrl, setBitfinexUrl] = useState('');
+  const [loading, setLoading] = useState(false)
+  const [bitfinexUrl, setBitfinexUrl] = useState('')
   const submitInvoice = async () => {
     const invoiceData = {
       amount: process.env.REACT_APP_APPLICATION_FEE,
@@ -38,28 +38,28 @@ export default function SubmitModal({
       residCity: details.resid_city,
       fullName: `${`${details.first_name} ${details.middle_name ? details.middle_name : ''} ${details.last_name}`}`,
       email: JSON.parse(Cookies.get('user')).email,
-      paymentType: 'ApplicationPayment',
-    };
+      paymentType: 'ApplicationPayment'
+    }
     await DataService.post('/bitfinex/submitInvoice', invoiceData)
       .then((resInvoice) => {
         if (resInvoice.status === 201) {
-          const url = `https://pay.bitfinex.com/gateway/order/${resInvoice.data}`;
-          setBitfinexUrl(url);
-          const windowFeatures = 'width=600,height=800,resizable,scrollbars';
-          window.open(url, '_blank', windowFeatures);
+          const url = `https://pay.bitfinex.com/gateway/order/${resInvoice.data}`
+          setBitfinexUrl(url)
+          const windowFeatures = 'width=600,height=800,resizable,scrollbars'
+          window.open(url, '_blank', windowFeatures)
         } else {
-          message.error('Please validate your data.');
+          message.error('Please validate your data.')
         }
-        setLoading(false);
-        getUserPaymentDetails();
+        setLoading(false)
+        getUserPaymentDetails()
       })
       .catch(() => {
-        message.error('Please validate your data.');
-        getUserPaymentDetails();
-        setLoading(false);
-      });
-  };
-  const { t } = useTranslation();
+        message.error('Please validate your data.')
+        getUserPaymentDetails()
+        setLoading(false)
+      })
+  }
+  const { t } = useTranslation()
   return (
     <Modal
       width="50%"
@@ -67,7 +67,7 @@ export default function SubmitModal({
       open={isModalOpen}
       footer={null}
       onCancel={() => {
-        setIsModalOpen(false);
+        setIsModalOpen(false)
       }}
     >
       <div>
@@ -127,7 +127,7 @@ export default function SubmitModal({
                                   marginBottom: '2rem',
                                   color: '#fff',
                                   padding: '12px',
-                                  cursor: 'pointer',
+                                  cursor: 'pointer'
                                 }
                               : {
                                   border: '1px solid #041E5F',
@@ -137,7 +137,7 @@ export default function SubmitModal({
                                   marginBottom: '2rem',
                                   color: '#041E5F',
                                   padding: '12px',
-                                  cursor: 'pointer',
+                                  cursor: 'pointer'
                                 }
                           }
                           className="payment-card-block"
@@ -164,7 +164,7 @@ export default function SubmitModal({
                                   marginBottom: '2rem',
                                   color: '#fff',
                                   padding: '12px',
-                                  cursor: 'pointer',
+                                  cursor: 'pointer'
                                 }
                               : {
                                   border: '1px solid #041E5F',
@@ -174,7 +174,7 @@ export default function SubmitModal({
                                   marginBottom: '2rem',
                                   color: '#041E5F',
                                   padding: '12px',
-                                  cursor: 'pointer',
+                                  cursor: 'pointer'
                                 }
                           }
                           className="payment-card-block"
@@ -199,7 +199,7 @@ export default function SubmitModal({
         </div>
       </div>
     </Modal>
-  );
+  )
 }
 
 SubmitModal.propTypes = {
@@ -210,5 +210,5 @@ SubmitModal.propTypes = {
   paymentType: PropTypes.string,
   setPaymentType: PropTypes.func,
   details: PropTypes.object,
-  getUserPaymentDetails: PropTypes.func,
-};
+  getUserPaymentDetails: PropTypes.func
+}

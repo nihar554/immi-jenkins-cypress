@@ -1,41 +1,41 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState, useRef } from 'react';
-import { Row, Col, Form, Input, Button, message } from 'antd';
+import React, { useState, useRef } from 'react'
+import { Row, Col, Form, Input, Button, message } from 'antd'
 
-import ReCAPTCHA from 'react-google-recaptcha';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { AuthFormWrap, LoginWrap } from './style';
+import ReCAPTCHA from 'react-google-recaptcha'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { AuthFormWrap, LoginWrap } from './style'
 
-import { register } from '../../../../redux/authentication/actionCreator';
-import { Checkbox } from '../../../../components/checkbox/checkbox';
-import PassPopUp from '../../../../components/dropdown/PassPopUp';
-import { checkPasswordValid } from '../../../../utility/utility';
+import { register } from '../../../../redux/authentication/actionCreator'
+import { Checkbox } from '../../../../components/checkbox/checkbox'
+import PassPopUp from '../../../../components/dropdown/PassPopUp'
+import { checkPasswordValid } from '../../../../utility/utility'
 
-function SignUp() {
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const recaptcha = useRef();
-  const isLoading = useSelector((state) => state?.auth?.loading);
-  const [tooltip, setTooltip] = React.useState(false);
+function SignUp () {
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const recaptcha = useRef()
+  const isLoading = useSelector((state) => state?.auth?.loading)
+  const [tooltip, setTooltip] = React.useState(false)
   // const [isvalid, setisvalid] = React.useState(false);
   const [state, setState] = useState({
     minimumChar: false,
     specialCharValid: false,
     uppercaseValid: false,
     lowercaseValid: false,
-    numberValid: false,
-  });
-  const [password, setPassword] = React.useState('');
+    numberValid: false
+  })
+  const [password, setPassword] = React.useState('')
 
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
 
   const onChange = () => {
-    navigate('/verify-otp');
-  };
+    navigate('/verify-otp')
+  }
 
   const areAllValidationsComplete = () => {
     if (
@@ -45,55 +45,55 @@ function SignUp() {
       state.numberValid &&
       state.uppercaseValid
     ) {
-      return true;
+      return true
     }
-    return false;
-  };
+    return false
+  }
 
   const handleSubmit = (values) => {
     if (process.env.REACT_APP_IS_RECAPTCHA_ENABLED === 'true') {
-      const captchaValue = recaptcha.current.getValue();
+      const captchaValue = recaptcha.current.getValue()
       const body = {
         ...values,
         passportCountry: 'IND',
         roleId: 'USER',
-        captcha: captchaValue,
-      };
+        captcha: captchaValue
+      }
       if (!captchaValue) {
-        message.error(t('registration_captcha_required'));
+        message.error(t('registration_captcha_required'))
       } else {
-        dispatch(register(body, onChange));
+        dispatch(register(body, onChange))
       }
     } else {
       const body = {
         ...values,
         passportCountry: 'IND',
-        roleId: 'USER',
-      };
-      dispatch(register(body, onChange));
+        roleId: 'USER'
+      }
+      dispatch(register(body, onChange))
     }
-  };
+  }
 
   const validateCPassword = (rule, value, callback) => {
     if (value && value !== password) {
-      callback(t('registration_confirm_password_invalid'));
+      callback(t('registration_confirm_password_invalid'))
     } else {
-      callback();
+      callback()
     }
-  };
+  }
 
   const validatePassword = (rule, value, callback) => {
     // Password validation rules
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     if (regex.test(value)) {
-      callback(); // Validation passed
+      callback() // Validation passed
     } else {
       if (value) {
-        callback(t('registration_password_strong'));
+        callback(t('registration_password_strong'))
       }
-      callback(t('registration_password_required'));
+      callback(t('registration_password_required'))
     }
-  };
+  }
 
   return (
     <LoginWrap>
@@ -120,7 +120,7 @@ function SignUp() {
                         style={{
                           width: '100%',
                           display: 'flex',
-                          justifyContent: 'space-between',
+                          justifyContent: 'space-between'
                         }}
                       >
                         <Form.Item
@@ -132,7 +132,7 @@ function SignUp() {
                             placeholder={t('First_Name')}
                             onKeyPress={(event) => {
                               if (!/[a-zA-Z]/.test(event.key)) {
-                                event.preventDefault();
+                                event.preventDefault()
                               }
                             }}
                           />
@@ -146,7 +146,7 @@ function SignUp() {
                             placeholder={t('Last_Name')}
                             onKeyPress={(event) => {
                               if (!/[a-zA-Z]/.test(event.key)) {
-                                event.preventDefault();
+                                event.preventDefault()
                               }
                             }}
                           />
@@ -156,7 +156,7 @@ function SignUp() {
                         style={{
                           width: '100%',
                           display: 'flex',
-                          justifyContent: 'space-between',
+                          justifyContent: 'space-between'
                         }}
                       >
                         <Form.Item
@@ -172,7 +172,7 @@ function SignUp() {
                         style={{
                           width: '100%',
                           display: 'flex',
-                          justifyContent: 'space-between',
+                          justifyContent: 'space-between'
                         }}
                       >
                         <Form.Item style={{ width: '48%' }} name="password" rules={[{ validator: validatePassword }]}>
@@ -181,8 +181,8 @@ function SignUp() {
                             onBlur={() => setTooltip(false)}
                             onFocus={() => setTooltip(true)}
                             onChange={(e) => {
-                              setPassword(e.target.value);
-                              checkPasswordValid(e.target.value, setState, state);
+                              setPassword(e.target.value)
+                              checkPasswordValid(e.target.value, setState, state)
                             }}
                           />
                         </Form.Item>
@@ -192,7 +192,7 @@ function SignUp() {
                           style={{ width: '48%' }}
                           rules={[
                             { required: true, message: t('registration_confirm_password_required') },
-                            { validator: validateCPassword },
+                            { validator: validateCPassword }
                           ]}
                         >
                           <Input.Password placeholder={t('Confirm Password')} />
@@ -214,10 +214,10 @@ function SignUp() {
                             {
                               validator: async (_, checked) => {
                                 if (!checked) {
-                                  return Promise.reject(new Error(t('registration_temrs_condition_required')));
+                                  return Promise.reject(new Error(t('registration_temrs_condition_required')))
                                 }
-                              },
-                            },
+                              }
+                            }
                           ]}
                         >
                           <Checkbox>
@@ -228,13 +228,15 @@ function SignUp() {
                           </Checkbox>
                         </Form.Item>
                       </div>
-                      {process.env.REACT_APP_IS_RECAPTCHA_ENABLED === 'true' ? (
+                      {process.env.REACT_APP_IS_RECAPTCHA_ENABLED === 'true'
+                        ? (
                         <div className="recaptcha-block">
                           <ReCAPTCHA ref={recaptcha} sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} />
                         </div>
-                      ) : (
+                          )
+                        : (
                         <></>
-                      )}
+                          )}
                       <Form.Item className="recaptcha-signup-block">
                         <Button className="btn-create" htmlType="submit" type="primary" size="large">
                           {isLoading ? 'Loading...' : 'Sign Up'}
@@ -258,7 +260,7 @@ function SignUp() {
         </Link>
       </div>
     </LoginWrap>
-  );
+  )
 }
 
-export default SignUp;
+export default SignUp

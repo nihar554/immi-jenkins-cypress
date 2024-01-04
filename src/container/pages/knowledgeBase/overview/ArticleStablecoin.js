@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col } from 'antd';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import { Link, NavLink } from 'react-router-dom';
-import { ArticleTabContentWrap } from '../style';
-import productsDetails from '../../../../demoData/products-article.json';
+import React, { useEffect, useState } from 'react'
+import { Row, Col } from 'antd'
+import { ArrowRightOutlined } from '@ant-design/icons'
+import { Link, NavLink } from 'react-router-dom'
+import { ArticleTabContentWrap } from '../style'
+import productsDetails from '../../../../demoData/products-article.json'
 
-function ArticleStablecoin() {
-  const [data, setData] = useState({});
+function ArticleStablecoin () {
+  const [data, setData] = useState({})
   const filterData = () => {
-    const [result] = productsDetails.filter((e) => e.keyName === 'stablecoin');
-    setData(result);
-  };
+    const [result] = productsDetails.filter((e) => e.keyName === 'stablecoin')
+    setData(result)
+  }
   useEffect(() => {
-    filterData();
-  }, []);
+    filterData()
+  }, [])
 
   return (
     <ArticleTabContentWrap>
@@ -31,7 +31,7 @@ function ArticleStablecoin() {
                           <li key={key2}>
                             <NavLink to={`/stablecoin-details/${s}`}>{s}</NavLink>
                           </li>
-                        );
+                        )
                       })}
                     </ul>
                     <Link to={`/stablecoin-details/${e?.subCategoryName[0]}`} className="btn-link">
@@ -39,12 +39,12 @@ function ArticleStablecoin() {
                     </Link>
                   </div>
                 </Col>
-              );
+              )
             })}
         </Row>
       </div>
     </ArticleTabContentWrap>
-  );
+  )
 }
 
-export default ArticleStablecoin;
+export default ArticleStablecoin

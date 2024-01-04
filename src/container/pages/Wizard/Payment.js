@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
-import { Col, Form, Row } from 'antd';
-import propTypes from 'prop-types';
+import React from 'react'
+import { Col, Form, Row } from 'antd'
+import propTypes from 'prop-types'
 // import { useTranslation } from 'react-i18next';
 // import InfoCard from '../../../components/cards/InfoCard';
-import PayBitcoinActive from '../../../static/img/pay-bitcoin-active.svg';
-import PayBitcoinInActive from '../../../static/img/pay-bitcoin-inactive.svg';
-import PayUsdtActive from '../../../static/img/pay-usdt-active.svg';
-import PayUsdtInActive from '../../../static/img/pay-usdt-inactive.svg';
-import { PaymentWrapper } from '../style';
+import PayBitcoinActive from '../../../static/img/pay-bitcoin-active.svg'
+import PayBitcoinInActive from '../../../static/img/pay-bitcoin-inactive.svg'
+import PayUsdtActive from '../../../static/img/pay-usdt-active.svg'
+import PayUsdtInActive from '../../../static/img/pay-usdt-inactive.svg'
+import { PaymentWrapper } from '../style'
 
-export default function Payment({ form, setPaymentType, paymentType }) {
+export default function Payment ({ form, setPaymentType, paymentType }) {
   // const { t } = useTranslation();
   return (
     <PaymentWrapper>
@@ -155,11 +155,11 @@ export default function Payment({ form, setPaymentType, paymentType }) {
         </Row>
       </div>
     </PaymentWrapper>
-  );
+  )
 }
 
 Payment.propTypes = {
   form: propTypes.object,
   paymentType: propTypes.string,
-  setPaymentType: propTypes.func,
-};
+  setPaymentType: propTypes.func
+}

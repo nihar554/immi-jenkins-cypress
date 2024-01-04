@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const ViewStatusWraper = styled.div`
   .assets-detail-paragraph-head {
@@ -30,7 +30,7 @@ const ViewStatusWraper = styled.div`
   .ant-input::placeholder {
     text-align: left !important;
   }
-`;
+`
 
 const OverviewDataStyleWrap = styled.div`
   &.card-mesh-wrap {
@@ -52,6 +52,6 @@ const OverviewDataStyleWrap = styled.div`
       }
     }
   }
-`;
+`
 
-export { ViewStatusWraper, OverviewDataStyleWrap };
+export { ViewStatusWraper, OverviewDataStyleWrap }

@@ -13,6 +13,6 @@ phases:
       - rm -rf .yarncache
       - yarn build
 artifacts:
-  files: 
+  files:
     - '**/*'
   base-directory: 'build'

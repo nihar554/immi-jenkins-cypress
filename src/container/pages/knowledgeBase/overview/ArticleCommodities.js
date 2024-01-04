@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col } from 'antd';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import { Link, NavLink } from 'react-router-dom';
-import { ArticleTabContentWrap } from '../style';
-import productsDetails from '../../../../demoData/products-article.json';
+import React, { useEffect, useState } from 'react'
+import { Row, Col } from 'antd'
+import { ArrowRightOutlined } from '@ant-design/icons'
+import { Link, NavLink } from 'react-router-dom'
+import { ArticleTabContentWrap } from '../style'
+import productsDetails from '../../../../demoData/products-article.json'
 
-function ArticleCommodities() {
-  const [data, setData] = useState({});
+function ArticleCommodities () {
+  const [data, setData] = useState({})
   const filterData = () => {
-    const [result] = productsDetails.filter((e) => e.keyName === 'commodities');
-    setData(result);
-  };
+    const [result] = productsDetails.filter((e) => e.keyName === 'commodities')
+    setData(result)
+  }
   useEffect(() => {
-    filterData();
-  }, []);
-  const path = 'commodities-details';
+    filterData()
+  }, [])
+  const path = 'commodities-details'
   return (
     <ArticleTabContentWrap>
       <div className="ninjadash-article-tab-content">
@@ -31,7 +31,7 @@ function ArticleCommodities() {
                           <li key={key2}>
                             <NavLink to={`/${path}/${s}`}>{s}</NavLink>
                           </li>
-                        );
+                        )
                       })}
                     </ul>
                     <Link to={`/${path}/${e?.subCategoryName[0]}`} className="btn-link">
@@ -39,12 +39,12 @@ function ArticleCommodities() {
                     </Link>
                   </div>
                 </Col>
-              );
+              )
             })}
         </Row>
       </div>
     </ArticleTabContentWrap>
-  );
+  )
 }
 
-export default ArticleCommodities;
+export default ArticleCommodities

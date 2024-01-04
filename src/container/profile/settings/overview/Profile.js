@@ -1,74 +1,74 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Row, Col, Form, Input, Select, message } from 'antd';
-import { useTranslation } from 'react-i18next';
-import Cookies from 'js-cookie';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import { Button } from '../../../../components/buttons/buttons';
-import { BasicFormWrapper } from '../../../styled';
-import Heading from '../../../../components/heading/heading';
-import { DataService } from '../../../../config/dataService/dataService';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { Row, Col, Form, Input, Select, message } from 'antd'
+import { useTranslation } from 'react-i18next'
+import Cookies from 'js-cookie'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
+import { Button } from '../../../../components/buttons/buttons'
+import { BasicFormWrapper } from '../../../styled'
+import Heading from '../../../../components/heading/heading'
+import { DataService } from '../../../../config/dataService/dataService'
 
-const { Option } = Select;
+const { Option } = Select
 
-function Profile({ state, setState }) {
-  const { t } = useTranslation();
-  const [loading, setLoading] = useState(false);
-  const [btnText, setBtnText] = useState('Update Profile');
-  const [disableBtn, setDisableBtn] = useState(true);
-  const [country, setCountry] = useState([]);
-  const [form] = Form.useForm();
+function Profile ({ state, setState }) {
+  const { t } = useTranslation()
+  const [loading, setLoading] = useState(false)
+  const [btnText, setBtnText] = useState('Update Profile')
+  const [disableBtn, setDisableBtn] = useState(true)
+  const [country, setCountry] = useState([])
+  const [form] = Form.useForm()
 
   const handleSubmit = (values) => {
     const dataToSend = {
       ...state,
-      ...values,
-    };
-    setLoading(true);
-    setBtnText('Processing');
+      ...values
+    }
+    setLoading(true)
+    setBtnText('Processing')
     DataService.patch('/profile', dataToSend)
       .then((res) => {
         if (res && res.status === 200) {
-          setLoading(false);
-          setBtnText('Updated');
-          Cookies.set('user', res.data);
-          message.success(t('Your profile has been updated'));
+          setLoading(false)
+          setBtnText('Updated')
+          Cookies.set('user', res.data)
+          message.success(t('Your profile has been updated'))
           setTimeout(() => {
-            setBtnText('Update Profile');
-            setState(res.data);
-            setDisableBtn(true);
-          }, 3000);
+            setBtnText('Update Profile')
+            setState(res.data)
+            setDisableBtn(true)
+          }, 3000)
         } else {
-          const errorMsg = typeof res.data.errors.msg === 'string' ? res.data.errors.msg : res.data.errors.msg[0].msg;
-          message.error(errorMsg);
-          setLoading(false);
-          setDisableBtn(false);
+          const errorMsg = typeof res.data.errors.msg === 'string' ? res.data.errors.msg : res.data.errors.msg[0].msg
+          message.error(errorMsg)
+          setLoading(false)
+          setDisableBtn(false)
         }
       })
       .catch((err) => {
-        setLoading(false);
-        setDisableBtn(false);
-        setBtnText('Update Profile');
-        message.error(t('Something wrong'));
-        console.log(err);
-      });
-  };
+        setLoading(false)
+        setDisableBtn(false)
+        setBtnText('Update Profile')
+        message.error(t('Something wrong'))
+        console.log(err)
+      })
+  }
 
   const handleCancel = (e) => {
-    e.preventDefault();
-    form.resetFields();
-    setDisableBtn(true);
-  };
+    e.preventDefault()
+    form.resetFields()
+    setDisableBtn(true)
+  }
 
   useEffect(() => {
     DataService.get('/country/all')
       .then((res) => {
-        setCountry(res.data);
+        setCountry(res.data)
       })
       .catch((err) => {
-        console.log('error', err);
-      });
-  }, []);
+        console.log('error', err)
+      })
+  }, [])
   // const validatePhoneNumber = (rule, value, callback) => {
   //   const phoneRegex = /^[0-9]{10}$/;
   //   if (phoneRegex.test(value)) {
@@ -95,7 +95,7 @@ function Profile({ state, setState }) {
               name="editProfile"
               onFinish={handleSubmit}
               onValuesChange={() => {
-                setDisableBtn(false);
+                setDisableBtn(false)
               }}
             >
               <Row gutter={40}>
@@ -124,12 +124,12 @@ function Profile({ state, setState }) {
                     rules={[
                       {
                         type: 'email',
-                        message: t('Please_enter_a_valid_email_address'),
+                        message: t('Please_enter_a_valid_email_address')
                       },
                       {
                         required: true,
-                        message: t('Email_is_required'),
-                      },
+                        message: t('Email_is_required')
+                      }
                     ]}
                     name="email"
                     initialValue={state?.email}
@@ -144,7 +144,7 @@ function Profile({ state, setState }) {
                       <Option value="">Please Select</Option>
                       {country?.length &&
                         country?.map((item) => {
-                          return <Option value={item.code}>{item.name}</Option>;
+                          return <Option value={item.code}>{item.name}</Option>
                         })}
                     </Select>
                   </Form.Item>
@@ -205,12 +205,12 @@ function Profile({ state, setState }) {
         </Col>
       </Row>
     </Cards>
-  );
+  )
 }
 
 Profile.propTypes = {
   setState: PropTypes.func,
-  state: PropTypes.object,
-};
+  state: PropTypes.object
+}
 
-export default Profile;
+export default Profile

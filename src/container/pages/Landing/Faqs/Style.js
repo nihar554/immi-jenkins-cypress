@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const FaqsStyle = Styled.div`
 .container{
@@ -166,6 +166,6 @@ const FaqsStyle = Styled.div`
   .ant-checkbox-checked .ant-checkbox-inner {
     background-color: #0042A8; 
     border-color: #0042A8; 
-}`;
+}`
 
-export { FaqsStyle };
+export { FaqsStyle }

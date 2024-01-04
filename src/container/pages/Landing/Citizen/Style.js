@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const CitizenStyle = Styled.div`
 margin-bottom: 20px;
@@ -107,7 +107,7 @@ video {
     font-size: 20px;
   }
 }
-`;
+`
 
 const MainStyle = Styled.div`
     padding: 0px 30px 20px;
@@ -445,7 +445,7 @@ const MainStyle = Styled.div`
         }
                 
     }
-`;
+`
 const CardStyle = Styled.div`
 
 img {
@@ -492,6 +492,6 @@ figure{
         }
     }
   }
-`;
+`
 
-export { CitizenStyle, CardStyle, MainStyle };
+export { CitizenStyle, CardStyle, MainStyle }

@@ -1,13 +1,13 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const MainSection = Styled.div`
     margin: 0px 170px 20px;
-`;
+`
 const BannerStyle = Styled.div`
     padding: 0px 170px 20px;
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
-    }`;
+    }`
 
 const HeadTitle = Styled.div`
     height: 90%;
@@ -32,7 +32,7 @@ const HeadTitle = Styled.div`
       background: ${({ theme }) => theme[theme.mainContent]['main-primary-color']};
     }
 
-`;
+`
 
 const UserCard = Styled.div`
 
@@ -433,7 +433,7 @@ const UserCard = Styled.div`
       }
     }
   }
-`;
+`
 
 const GalleryCard = Styled.nav`
 
@@ -476,7 +476,7 @@ const GalleryCard = Styled.nav`
     }
 
   }
-`;
+`
 
 const BorderBottom = Styled.div`
 .position{
@@ -506,7 +506,7 @@ h3 {
   background-color: ${({ theme }) => theme[theme.mainContent]['main-primary-color']}; 
 }
 ;
-`;
+`
 const ImageTitle = Styled.div`
 
 @media (max-width: 767px) {
@@ -515,7 +515,7 @@ const ImageTitle = Styled.div`
    height: 22rem !important;
   }
 }
-`;
+`
 const CapabilitySection = Styled.div`
 margin-top: -30%;
 padding-bottom: 4rem;
@@ -531,7 +531,7 @@ p.description {
   }
 }
 
-`;
+`
 const BrandSection = Styled.div`
   background: #ecf0f8;
   padding:2rem;
@@ -616,7 +616,7 @@ const BrandSection = Styled.div`
       }
 
   }
-`;
+`
 
 const ProductCard = Styled.div`
     border-radius: 10px;
@@ -861,7 +861,7 @@ const ProductCard = Styled.div`
             }
         }
     }
-`;
+`
 
 const BenefitsSection = Styled.div`
     .reveal{
@@ -881,7 +881,7 @@ const BenefitsSection = Styled.div`
       }
     }
 
-`;
+`
 const InsightSection = Styled.div`
 .bottom .ant-col {
   margin-bottom: 20px;
@@ -889,7 +889,7 @@ const InsightSection = Styled.div`
   margin-bottom: 20px;
   }
 }
-`;
+`
 export {
   BannerStyle,
   HeadTitle,
@@ -902,5 +902,5 @@ export {
   BenefitsSection,
   MainSection,
   ImageTitle,
-  InsightSection,
-};
+  InsightSection
+}

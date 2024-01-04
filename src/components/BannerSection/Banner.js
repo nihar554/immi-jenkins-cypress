@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from 'prop-types'
+import React from 'react'
 // import { Link } from 'react-router-dom';
-import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation } from 'react-type-animation'
 
-function BannerSection(props) {
-  const { firstWord, middleWord, lastWord, description } = props;
+function BannerSection (props) {
+  const { firstWord, middleWord, lastWord, description } = props
   return (
     <>
       <h1 className="typography-h1">
@@ -14,8 +14,8 @@ function BannerSection(props) {
             middleWord,
             1000,
             () => {
-              console.log('Sequence completed');
-            },
+              console.log('Sequence completed')
+            }
           ]}
           wrapper="span"
           cursor="true"
@@ -28,14 +28,14 @@ function BannerSection(props) {
       </p>
       <p className="description typography-body-regular-medium">{description}</p>
     </>
-  );
+  )
 }
 
 BannerSection.propTypes = {
   firstWord: PropTypes.any,
   middleWord: PropTypes.any,
   lastWord: PropTypes.any,
-  description: PropTypes.any,
-};
+  description: PropTypes.any
+}
 
-export default BannerSection;
+export default BannerSection

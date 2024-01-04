@@ -1,11 +1,11 @@
-import { Row, Col, Button } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router';
-import { BoardStyle } from './Style';
+import { Row, Col, Button } from 'antd'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router'
+import { BoardStyle } from './Style'
 
-export default function Board() {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
+export default function Board () {
+  const navigate = useNavigate()
+  const { t } = useTranslation()
   return (
     <BoardStyle>
       <video autoPlay playsInline muted loop className="top-video">
@@ -40,7 +40,7 @@ export default function Board() {
                   <div className="action-block">
                     <Button
                       onClick={() => {
-                        navigate('/register');
+                        navigate('/register')
                       }}
                       className="btn-signin font-regular logo-block"
                       style={{ marginRight: '32px' }}
@@ -50,7 +50,7 @@ export default function Board() {
                     >
                       {t('Get_Your_Freedom_Passport')}
                     </Button>
-                    <img src={require(`../../../../static/img/extranjeria-logo.svg`).default} alt="" />
+                    <img src={require('../../../../static/img/extranjeria-logo.svg').default} alt="" />
                   </div>
                 </div>
               </Col>
@@ -64,5 +64,5 @@ export default function Board() {
         </div>
       </div>
     </BoardStyle>
-  );
+  )
 }

@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/react-in-jsx-scope */
-import { Col, Form, Input, Row } from 'antd';
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { ComingsoonStyleWrapper, BannerStyle } from './style';
-import { Button } from '../../components/buttons/buttons';
-import { Cards } from '../../components/cards/frame/cards-frame';
-import { Main } from '../styled';
+import { Col, Form, Input, Row } from 'antd'
+import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { ComingsoonStyleWrapper, BannerStyle } from './style'
+import { Button } from '../../components/buttons/buttons'
+import { Cards } from '../../components/cards/frame/cards-frame'
+import { Main } from '../styled'
 
-function ComingSoon() {
+function ComingSoon () {
   // const PageRoutes = [
   //   {
   //     path: 'index',
@@ -21,15 +21,15 @@ function ComingSoon() {
   // ];
   const { mainContent } = useSelector((state) => {
     return {
-      mainContent: state.ChangeLayoutMode.mode,
-    };
-  });
-  function Completionist() {
-    return <span>You are good to go!</span>;
+      mainContent: state.ChangeLayoutMode.mode
+    }
+  })
+  function Completionist () {
+    return <span>You are good to go!</span>
   }
-  function renderer({ completed }) {
+  function renderer ({ completed }) {
     if (completed) {
-      return <Completionist />;
+      return <Completionist />
     }
     return (
       <div className="countdwon-data">
@@ -48,7 +48,7 @@ function ComingSoon() {
           <div className="countdown-time">{seconds}</div> <span className="countdown-title">Seconds</span>
         </span> */}
       </div>
-    );
+    )
   }
 
   renderer.propTypes = {
@@ -56,8 +56,8 @@ function ComingSoon() {
     hours: PropTypes.number,
     minutes: PropTypes.number,
     seconds: PropTypes.number,
-    completed: PropTypes.node,
-  };
+    completed: PropTypes.node
+  }
 
   return (
     <>
@@ -69,11 +69,13 @@ function ComingSoon() {
               <ComingsoonStyleWrapper>
                 <Cards headless>
                   <div className="ninjaDash-logo">
-                    {mainContent === 'lightMode' ? (
+                    {mainContent === 'lightMode'
+                      ? (
                       <img src={require('../../static/img/logo_dark.svg').default} alt="" />
-                    ) : (
+                        )
+                      : (
                       <img src={require('../../static/img/logo_white.svg').default} alt="" />
-                    )}
+                        )}
                   </div>
                   <div className="coming-soon-content">
                     <h1>We are coming soon</h1>
@@ -129,7 +131,7 @@ function ComingSoon() {
         </BannerStyle>
       </Main>
     </>
-  );
+  )
 }
 
-export default ComingSoon;
+export default ComingSoon

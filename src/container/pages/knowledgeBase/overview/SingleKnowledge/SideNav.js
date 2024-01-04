@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import UilTimes from '@iconscout/react-unicons/icons/uil-times';
-import UilAngleUp from '@iconscout/react-unicons/icons/uil-angle-up';
-import UilAngleDown from '@iconscout/react-unicons/icons/uil-angle-down';
-import { Link } from 'react-router-dom';
-import { SidebarNavWrap } from '../../style';
+import React, { useState } from 'react'
+import UilTimes from '@iconscout/react-unicons/icons/uil-times'
+import UilAngleUp from '@iconscout/react-unicons/icons/uil-angle-up'
+import UilAngleDown from '@iconscout/react-unicons/icons/uil-angle-down'
+import { Link } from 'react-router-dom'
+import { SidebarNavWrap } from '../../style'
 
-function SideNav() {
-  const [open, setOpen] = useState('menu1');
+function SideNav () {
+  const [open, setOpen] = useState('menu1')
   return (
     <SidebarNavWrap>
       <div className="knowledge-sidebar">
@@ -184,7 +184,7 @@ function SideNav() {
         </ul>
       </div>
     </SidebarNavWrap>
-  );
+  )
 }
 
-export default SideNav;
+export default SideNav

@@ -1,11 +1,11 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const BannerStyle = Styled.div`
     padding: 0px 170px 20px;
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
     }
-`;
+`
 const HeadContainer = Styled.div`
 background-image: url(${require('../../../static/img/images/background-corve.png')});
 background-size: 20rem 50rem;
@@ -17,7 +17,7 @@ img{
         width:25rem !important;
         margin-left: -61px !important;}
     }
-`;
+`
 
 const HeadTitle = Styled.div`
     height: 90%;
@@ -44,7 +44,7 @@ const HeadTitle = Styled.div`
         background: ${({ theme }) => theme[theme.mainContent]['blue-color']};
     }
 
-`;
+`
 const CardWrapper = Styled.figure`
   display: flex;
   margin: 0;
@@ -72,7 +72,7 @@ const CardWrapper = Styled.figure`
     }
    
   }
-`;
+`
 
 const BannerWrapper = Styled.figure`
 .position{
@@ -278,6 +278,6 @@ h3{
             border-radius: 4px;
         }
     }
-`;
+`
 
-export { HeadContainer, HeadTitle, CardWrapper, BannerWrapper, BannerStyle };
+export { HeadContainer, HeadTitle, CardWrapper, BannerWrapper, BannerStyle }

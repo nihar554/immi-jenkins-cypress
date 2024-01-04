@@ -1,7 +1,7 @@
-import React from 'react';
-import { Steps } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { BitcoinWizardDesktop } from './Style';
+import React from 'react'
+import { Steps } from 'antd'
+import { useTranslation } from 'react-i18next'
+import { BitcoinWizardDesktop } from './Style'
 
 // const description = 'This is a description.';
 // const items = [
@@ -19,8 +19,8 @@ import { BitcoinWizardDesktop } from './Style';
 //   },
 // ];
 
-function Steper() {
-  const { t } = useTranslation();
+function Steper () {
+  const { t } = useTranslation()
 
   return (
     <BitcoinWizardDesktop>
@@ -41,7 +41,7 @@ function Steper() {
                       <strong>{t('Fee_Payment')}: </strong>
                       <span>
                         {t(
-                          'Submit_a_non-refundable_application_fee_of_999_USD_in_Bitcoin_(BTC)_or_USDt_to_commence_the_evaluation_process.',
+                          'Submit_a_non-refundable_application_fee_of_999_USD_in_Bitcoin_(BTC)_or_USDt_to_commence_the_evaluation_process.'
                         )}
                       </span>
                     </li>
@@ -52,7 +52,7 @@ function Steper() {
                   </ul>
                 </div>
               </div>
-            ),
+            )
           },
           {
             title: 'Proceeding upon Approval',
@@ -81,7 +81,7 @@ function Steper() {
                   </ul>
                 </div>
               </div>
-            ),
+            )
           },
           {
             title: 'Receiving Freedom Visa',
@@ -104,11 +104,11 @@ function Steper() {
                   </ul>
                 </div>
               </div>
-            ),
-          },
+            )
+          }
         ]}
       />
     </BitcoinWizardDesktop>
-  );
+  )
 }
-export default Steper;
+export default Steper

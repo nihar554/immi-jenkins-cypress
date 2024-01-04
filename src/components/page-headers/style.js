@@ -1,5 +1,5 @@
-import { PageHeader } from 'antd';
-import Styled from 'styled-components';
+import { PageHeader } from 'antd'
+import Styled from 'styled-components'
 
 const PageHeaderStyle = Styled(PageHeader)`
   
@@ -245,7 +245,7 @@ const PageHeaderStyle = Styled(PageHeader)`
       }
     }
   }
-`;
+`
 
 const HeaderWrapper = Styled.div`
   margin-top: 32px;
@@ -256,6 +256,6 @@ const HeaderWrapper = Styled.div`
   .ant-page-header-heading-sub-title{
     color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
   }
-`;
+`
 
-export { PageHeaderStyle, HeaderWrapper };
+export { PageHeaderStyle, HeaderWrapper }

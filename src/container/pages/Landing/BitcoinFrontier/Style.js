@@ -1,5 +1,5 @@
-import Styled from 'styled-components';
-import BitcoinFrontierBgImage from '../../../../static/img/bitcoin-frontier.png';
+import Styled from 'styled-components'
+import BitcoinFrontierBgImage from '../../../../static/img/bitcoin-frontier.png'
 
 const BitcoinFrontierWrapper = Styled.div`
   background-image: url(${BitcoinFrontierBgImage});
@@ -72,7 +72,7 @@ const BitcoinFrontierWrapper = Styled.div`
       }
     }
   }
-`;
+`
 
 const BitcoinFrontierWizardBlock = Styled.div`
     width: 100%;
@@ -196,7 +196,7 @@ const BitcoinFrontierWizardBlock = Styled.div`
           padding-left: 1rem;
         }
       }
-`;
+`
 
 const BitcoinWizardDesktop = Styled.div`
 display: none;
@@ -230,7 +230,7 @@ display: none;
 .ant-steps-icon {
   color: #0042A8 !Important;
 }
-`;
+`
 
 const BitcoinFrontierWrapperMobile = Styled.div`
 display: block;
@@ -265,7 +265,7 @@ display: block;
   text-align: justify;
   color: white;
 }
-`;
+`
 
 const BitcoinFrontierWrapperNewVersion = Styled.div`
 .container{
@@ -428,12 +428,12 @@ const BitcoinFrontierWrapperNewVersion = Styled.div`
     }
   }
 }
-`;
+`
 
 export {
   BitcoinFrontierWizardBlock,
   BitcoinFrontierWrapper,
   BitcoinFrontierWrapperMobile,
   BitcoinWizardDesktop,
-  BitcoinFrontierWrapperNewVersion,
-};
+  BitcoinFrontierWrapperNewVersion
+}

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-export default function Mark() {
+export default function Mark () {
   return (
     <svg width="18" height="18" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -8,5 +8,5 @@ export default function Mark() {
         fill="#2F3241"
       />
     </svg>
-  );
+  )
 }

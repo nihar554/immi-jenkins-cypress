@@ -1,50 +1,50 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Button, Col, Input, Layout, Row, message } from 'antd';
-import { NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import React, { useState } from 'react';
-import PoweredBy from './PowerdBy';
-import { FooterStyle } from '../../../layout/Style';
+import { Button, Col, Input, Layout, Row, message } from 'antd'
+import { NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import React, { useState } from 'react'
+import PoweredBy from './PowerdBy'
+import { FooterStyle } from '../../../layout/Style'
 // import icons from '../../../static/img/footer-social-icons.png';
-import icons from '../../../static/img/icon/twitter-x.svg';
-import footerLogo from '../../../static/img/icon/footer-logo.svg';
-import { DataService } from '../../../config/dataService/dataService';
-import { getItem } from '../../../utility/localStorageControl';
+import icons from '../../../static/img/icon/twitter-x.svg'
+import footerLogo from '../../../static/img/icon/footer-logo.svg'
+import { DataService } from '../../../config/dataService/dataService'
+import { getItem } from '../../../utility/localStorageControl'
 
-const { Content } = Layout;
-function LandingFooter() {
-  const { t } = useTranslation();
-  const userInfo = getItem('access_token');
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
+const { Content } = Layout
+function LandingFooter () {
+  const { t } = useTranslation()
+  const userInfo = getItem('access_token')
+  const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleSubscribe = async () => {
     try {
       if (email) {
-        setLoading(true);
-        const response = await DataService.post(`/newsletter/subscribe`, { email });
+        setLoading(true)
+        const response = await DataService.post('/newsletter/subscribe', { email })
         if (response && response.data && response.data.subscribedAt) {
-          message.success(t('subscribed_thank_subscribe'));
-          setLoading(false);
-          setEmail(null);
+          message.success(t('subscribed_thank_subscribe'))
+          setLoading(false)
+          setEmail(null)
         } else {
           if (response?.data?.errors?.msg === 'EMAIL_ALREADY_SUBSCRIBED') {
-            message.error(t('subscribed_email'));
+            message.error(t('subscribed_email'))
           } else {
-            message.error(t('subscribed_Invalid_Email'));
+            message.error(t('subscribed_Invalid_Email'))
           }
-          setLoading(false);
+          setLoading(false)
         }
       } else {
-        message.error(t('subscribed_please_enter_email'));
-        setLoading(false);
+        message.error(t('subscribed_please_enter_email'))
+        setLoading(false)
       }
     } catch (error) {
-      console.error(error); // Handle the error
-      setLoading(false);
+      console.error(error) // Handle the error
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <Layout className={userInfo ? 'atbd-main-layout login-footer' : 'atbd-main-layout'}>
@@ -124,7 +124,7 @@ function LandingFooter() {
         <PoweredBy />
       </Content>
     </Layout>
-  );
+  )
 }
 
-export default LandingFooter;
+export default LandingFooter

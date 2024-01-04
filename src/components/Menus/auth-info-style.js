@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const InfoWraper = Styled.div`
     display: flex;
@@ -186,7 +186,7 @@ const InfoWraper = Styled.div`
             }
         }
     }
-`;
+`
 
 const SettingDropdwon = Styled.div`
     .setting-dropdwon{
@@ -243,7 +243,7 @@ const SettingDropdwon = Styled.div`
             }
         }
     }
-`;
+`
 
 const NestedDropdwon = Styled.div`
     .support-dropdwon{
@@ -273,7 +273,7 @@ const NestedDropdwon = Styled.div`
             }
         }
     }
-`;
+`
 
 const UserDropDwon = Styled.div`
     .user-dropdwon{
@@ -356,7 +356,7 @@ const UserDropDwon = Styled.div`
             }
         }
     }
-`;
+`
 
 const UserActionDropDown = Styled.div`
     .ninjadash-top-dropdown__title .title-text {        
@@ -420,12 +420,12 @@ const UserActionDropDown = Styled.div`
         margin-bottom: 0;
         text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')}
     }
-`;
+`
 
 const NavAuth = Styled.span`
     i, svg, img {
         ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
     }
-`;
+`
 
-export { InfoWraper, SettingDropdwon, NestedDropdwon, UserDropDwon, UserActionDropDown, NavAuth };
+export { InfoWraper, SettingDropdwon, NestedDropdwon, UserDropDwon, UserActionDropDown, NavAuth }

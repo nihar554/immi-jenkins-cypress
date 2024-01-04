@@ -1,9 +1,9 @@
-import { Link, useLocation } from 'react-router-dom';
-import { TetheFooterStyle } from '../../../layout/Style';
-import tetherIcons from '../../../static/img/icons/tetherlogo.png';
+import { Link, useLocation } from 'react-router-dom'
+import { TetheFooterStyle } from '../../../layout/Style'
+import tetherIcons from '../../../static/img/icons/tetherlogo.png'
 
-function PoweredBy() {
-  const { pathname } = useLocation();
+function PoweredBy () {
+  const { pathname } = useLocation()
 
   return (
     <TetheFooterStyle style={pathname === '/terms' ? { position: 'fixed', bottom: 0 } : { position: 'static' }}>
@@ -14,7 +14,7 @@ function PoweredBy() {
         </Link>
       </div>
     </TetheFooterStyle>
-  );
+  )
 }
 
-export default PoweredBy;
+export default PoweredBy

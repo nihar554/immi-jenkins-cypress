@@ -1,44 +1,44 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 // eslint-disable-next-line import/no-extraneous-dependencies
-import React, { useState, useCallback } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Form, Input, Row, Col } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import { AuthFormWrap, LoginWrap } from './style';
-import { login } from '../../../../redux/authentication/actionCreator';
-import { Checkbox } from '../../../../components/checkbox/checkbox';
+import React, { useState, useCallback } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Form, Input, Row, Col } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+import { AuthFormWrap, LoginWrap } from './style'
+import { login } from '../../../../redux/authentication/actionCreator'
+import { Checkbox } from '../../../../components/checkbox/checkbox'
 
-function SignIn() {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const isLoading = useSelector((state) => state.auth.loading);
-  const [form] = Form.useForm();
+function SignIn () {
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const isLoading = useSelector((state) => state.auth.loading)
+  const [form] = Form.useForm()
   const [state, setState] = useState({
     email: '',
-    password: '',
-  });
+    password: ''
+  })
 
   const onChange = (checked) => {
-    setState({ ...state, checked });
-  };
+    setState({ ...state, checked })
+  }
 
   const handleSubmit = useCallback(
     (values) => {
       dispatch(
         login(values, (isLogin) => {
           if (isLogin) {
-            navigate('/');
+            navigate('/')
           } else {
-            navigate('/verify-otp');
+            navigate('/verify-otp')
           }
-        }),
-      );
+        })
+      )
     },
-    [navigate, dispatch],
-  );
+    [navigate, dispatch]
+  )
 
   return (
     <LoginWrap>
@@ -107,7 +107,7 @@ function SignIn() {
         </p>
       </div>
     </LoginWrap>
-  );
+  )
 }
 
-export default SignIn;
+export default SignIn

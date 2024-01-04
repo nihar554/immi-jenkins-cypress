@@ -108,7 +108,7 @@
 //       "DELETE",
 //       `https://javascript.api.mailslurp.com/emptyInbox?inboxId=${inboxId}`
 //     ).as("deleteInbox");
-    
+
 //     mailslurp.emptyInbox(inboxId);
 //     cy.wait(2000)
 //       // .its("response.statusCode")

@@ -1,41 +1,41 @@
-import { Col, Form, Input, Row } from 'antd';
-import React, { useState, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
+import { Col, Form, Input, Row } from 'antd'
+import React, { useState, useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { AuthFormWrap, LoginWrap } from './style';
-import { verifyOTP } from '../../../../redux/authentication/actionCreator';
+import { AuthFormWrap, LoginWrap } from './style'
+import { verifyOTP } from '../../../../redux/authentication/actionCreator'
 
-function OtpVerify() {
-  const { t } = useTranslation();
+function OtpVerify () {
+  const { t } = useTranslation()
   // const user = useSelector((state) => state.auth.data.user);
-  const userData = JSON.parse(Cookies.get('user_data'));
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const isLoading = useSelector((state) => state?.auth?.loading);
-  const [form] = Form.useForm();
+  const userData = JSON.parse(Cookies.get('user_data'))
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const isLoading = useSelector((state) => state?.auth?.loading)
+  const [form] = Form.useForm()
   const [state, setState] = useState({
     otp: '',
     email: '',
-    id: '',
-  });
+    id: ''
+  })
 
   const onSuccess = () => {
-    navigate('/login');
-  };
+    navigate('/login')
+  }
 
   const handleSubmit = useCallback(
     (values) => {
       const dataToSend = {
         otp: values.otp,
-        email: userData?.email,
-      };
-      dispatch(verifyOTP(dataToSend, () => onSuccess()));
+        email: userData?.email
+      }
+      dispatch(verifyOTP(dataToSend, () => onSuccess()))
     },
-    [navigate, dispatch],
-  );
+    [navigate, dispatch]
+  )
 
   return (
     <LoginWrap>
@@ -69,7 +69,7 @@ function OtpVerify() {
                           onChange={(e) => setState({ ...state, otp: e.target.value })}
                           onKeyPress={(event) => {
                             if (!/[0-9]/.test(event.key)) {
-                              event.preventDefault();
+                              event.preventDefault()
                             }
                           }}
                         />
@@ -90,7 +90,7 @@ function OtpVerify() {
         </div>
       </div>
     </LoginWrap>
-  );
+  )
 }
 
-export default OtpVerify;
+export default OtpVerify

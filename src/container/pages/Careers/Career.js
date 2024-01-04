@@ -1,9 +1,9 @@
-import { Col, Row } from 'antd';
-import { BlogDetailsStyle } from './Style';
-import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Main } from '../../styled';
+import { Col, Row } from 'antd'
+import { BlogDetailsStyle } from './Style'
+import { Cards } from '../../../components/cards/frame/cards-frame'
+import { Main } from '../../styled'
 
-function Career() {
+function Career () {
   return (
     <>
       <Main>
@@ -19,12 +19,12 @@ function Career() {
                       <p>We are looking for talented people to join our team.</p>
                       <p>
                         Over the last few years, stablecoins have promoted economic growth, reduced poverty, and
-                        improved financial stability by transforming the way money moves. Tether is on a mission to
-                        help institutions bring stablecoins and other assets to the blockchain to transform money as we
-                        know it.
+                        improved financial stability by transforming the way money moves. Tether is on a mission to help
+                        institutions bring stablecoins and other assets to the blockchain to transform money as we know
+                        it.
                       </p>
                       <p>
-                      Tether offers a comprehensive suite of services to facilitate the tokenization of assets by
+                        Tether offers a comprehensive suite of services to facilitate the tokenization of assets by
                         institutions.
                       </p>
                     </div>
@@ -36,7 +36,7 @@ function Career() {
         </Row>
       </Main>
     </>
-  );
+  )
 }
 
-export default Career;
+export default Career

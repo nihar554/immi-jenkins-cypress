@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Button, Col, Row } from 'antd';
-import { TypeAnimation } from 'react-type-animation';
-import BrandLogoSection from './BrandLogoSection';
+import React, { useEffect } from 'react'
+import { Button, Col, Row } from 'antd'
+import { TypeAnimation } from 'react-type-animation'
+import BrandLogoSection from './BrandLogoSection'
 import {
   HeadTitle,
   BorderBottom,
@@ -10,62 +10,62 @@ import {
   BenefitsSection,
   ImageTitle,
   InsightSection,
-  BannerStyle,
-} from './Style';
-import ProductCards from './ProductCards';
-import BenefitsCards from './BenefitsCards';
-import GalleryCardComponent from './GalleryCardComponent';
-import Cryptocollection from '../../../static/img/images/teather-head.svg';
+  BannerStyle
+} from './Style'
+import ProductCards from './ProductCards'
+import BenefitsCards from './BenefitsCards'
+import GalleryCardComponent from './GalleryCardComponent'
+import Cryptocollection from '../../../static/img/images/teather-head.svg'
 // import Heading from '../../../components/heading/heading';
-import BackgroundCorve from '../../../static/img/images/backgroundCorve.png';
-import SenatusIcon from '../../../static/img/icons/senatus_blue.svg';
-import AssetLanuchPadIcon from '../../../static/img/icons/asset_launchpad_orange.svg';
-import StableconinsIcon from '../../../static/img/icons/stablecoins_blue.svg';
-import CommoditesIcon from '../../../static/img/icons/comodities_green.svg';
-import SenatusArrow from '../../../static/img/icons/left_arrow_blue.svg';
-import AssetLanchpadArrow from '../../../static/img/icons/left_arrow_orange.svg';
-import StablecoinsArrow from '../../../static/img/icons/left_arrow_purple.svg';
-import CommoditiesArrow from '../../../static/img/icons/left_arrow_green.svg';
-import BenefitsIcon1 from '../../../static/img/images/benefits-icon1.png';
-import BenefitsIcon2 from '../../../static/img/images/benefits-icon2.png';
-import BenefitsIcon3 from '../../../static/img/images/benefits-icon3.png';
-import BenefitsIcon4 from '../../../static/img/images/benefits-icon4.png';
-import { Main } from '../../styled';
-import eliment from '../../../static/img/eliment.svg';
-import eliment1 from '../../../static/img/eliment (1).svg';
-import eliment2 from '../../../static/img/eliment (2).svg';
-import eliment3 from '../../../static/img/eliment (3).svg';
-import bitShape from '../../../static/img/bit-shape.svg';
-import angel from '../../../static/img/angel.svg';
-import dots from '../../../static/img/dots.svg';
-import blueAngel from '../../../static/img/blue-angel.svg';
-import vector from '../../../static/img/Vector (2).svg';
+import BackgroundCorve from '../../../static/img/images/backgroundCorve.png'
+import SenatusIcon from '../../../static/img/icons/senatus_blue.svg'
+import AssetLanuchPadIcon from '../../../static/img/icons/asset_launchpad_orange.svg'
+import StableconinsIcon from '../../../static/img/icons/stablecoins_blue.svg'
+import CommoditesIcon from '../../../static/img/icons/comodities_green.svg'
+import SenatusArrow from '../../../static/img/icons/left_arrow_blue.svg'
+import AssetLanchpadArrow from '../../../static/img/icons/left_arrow_orange.svg'
+import StablecoinsArrow from '../../../static/img/icons/left_arrow_purple.svg'
+import CommoditiesArrow from '../../../static/img/icons/left_arrow_green.svg'
+import BenefitsIcon1 from '../../../static/img/images/benefits-icon1.png'
+import BenefitsIcon2 from '../../../static/img/images/benefits-icon2.png'
+import BenefitsIcon3 from '../../../static/img/images/benefits-icon3.png'
+import BenefitsIcon4 from '../../../static/img/images/benefits-icon4.png'
+import { Main } from '../../styled'
+import eliment from '../../../static/img/eliment.svg'
+import eliment1 from '../../../static/img/eliment (1).svg'
+import eliment2 from '../../../static/img/eliment (2).svg'
+import eliment3 from '../../../static/img/eliment (3).svg'
+import bitShape from '../../../static/img/bit-shape.svg'
+import angel from '../../../static/img/angel.svg'
+import dots from '../../../static/img/dots.svg'
+import blueAngel from '../../../static/img/blue-angel.svg'
+import vector from '../../../static/img/Vector (2).svg'
 
-function Tether() {
+function Tether () {
   useEffect(() => {
     const reveal = () => {
-      const reveals = document.querySelectorAll('.reveal');
+      const reveals = document.querySelectorAll('.reveal')
 
       reveals.forEach((element) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
+        const windowHeight = window.innerHeight
+        const elementTop = element.getBoundingClientRect().top
+        const elementVisible = 150
 
         if (elementTop < windowHeight - elementVisible) {
-          element.classList.add('active');
+          element.classList.add('active')
         } else {
-          element.classList.remove('active');
+          element.classList.remove('active')
         }
-      });
-    };
+      })
+    }
 
-    window.addEventListener('scroll', reveal);
-    reveal();
+    window.addEventListener('scroll', reveal)
+    reveal()
 
     return () => {
-      window.removeEventListener('scroll', reveal);
-    };
-  }, []);
+      window.removeEventListener('scroll', reveal)
+    }
+  }, [])
 
   return (
     <>
@@ -93,8 +93,8 @@ function Tether() {
                       // 2000, // Waits 2s
                       // 'Two Three', // Types 'Three' without deleting 'Two'
                       () => {
-                        console.log('Sequence completed');
-                      },
+                        console.log('Sequence completed')
+                      }
                     ]}
                     wrapper="span"
                     cursor="true"
@@ -126,7 +126,7 @@ function Tether() {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left',
             backgroundOrigin: 'content-box',
-            transform: 'rotate(3deg)',
+            transform: 'rotate(3deg)'
             // marginTop: '4%',
           }}
         />
@@ -266,7 +266,7 @@ function Tether() {
         </BannerStyle>
       </Main>
     </>
-  );
+  )
 }
 
-export default Tether;
+export default Tether

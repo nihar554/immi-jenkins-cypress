@@ -1,10 +1,10 @@
-import { Col, Row } from 'antd';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ReactSVG } from 'react-svg';
-import { SettingDropdwon } from './auth-info-style';
-import Heading from '../../heading/heading';
-import { Popover } from '../../popup/popup';
+import { Col, Row } from 'antd'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { ReactSVG } from 'react-svg'
+import { SettingDropdwon } from './auth-info-style'
+import Heading from '../../heading/heading'
+import { Popover } from '../../popup/popup'
 
 const Settings = React.memo(() => {
   const content = (
@@ -68,7 +68,7 @@ const Settings = React.memo(() => {
         </Row>
       </div>
     </SettingDropdwon>
-  );
+  )
 
   return (
     <div className="ninjadash-nav-actions__settings">
@@ -78,7 +78,7 @@ const Settings = React.memo(() => {
         </Link>
       </Popover>
     </div>
-  );
-});
+  )
+})
 
-export default Settings;
+export default Settings

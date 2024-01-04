@@ -1,67 +1,67 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
-import { Col, Form, Row, message } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import Cookies from 'js-cookie';
-import moment from 'moment';
-import NameContact from './NameContact';
-import Address from './Address';
-import Identity from './Identity';
-import Review from './Review';
-import Payment from './Payment';
-import Summary from './Summary';
-import { BasicFormWrapper } from '../../styled';
-import { ContainerStyle, RightBlockStyle, MainStyle, ReviewWrapper, WizardWrapper } from '../style';
-import { Steps } from '../../../components/steps/steps';
-import { DataService } from '../../../config/dataService/dataService';
-import PoweredBy from '../Landing/PowerdBy';
+import React, { useState, useEffect } from 'react'
+import { Col, Form, Row, message } from 'antd'
+import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import Cookies from 'js-cookie'
+import moment from 'moment'
+import NameContact from './NameContact'
+import Address from './Address'
+import Identity from './Identity'
+import Review from './Review'
+import Payment from './Payment'
+import Summary from './Summary'
+import { BasicFormWrapper } from '../../styled'
+import { ContainerStyle, RightBlockStyle, MainStyle, ReviewWrapper, WizardWrapper } from '../style'
+import { Steps } from '../../../components/steps/steps'
+import { DataService } from '../../../config/dataService/dataService'
+import PoweredBy from '../Landing/PowerdBy'
 
-function Wizards() {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-  const [isResident, setIsResident] = useState('Buy Resident Card');
-  const [paymentType, setPaymentType] = useState('bitcoin');
-  const [data, setData] = useState({});
-  const [country, setCountry] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [bitfinexUrl, setBitfinexUrl] = useState('');
-  const countryList = [];
-  const [countries, setCountries] = useState([]);
-  const [form] = Form.useForm();
+function Wizards () {
+  const navigate = useNavigate()
+  const { t } = useTranslation()
+  const [isResident, setIsResident] = useState('Buy Resident Card')
+  const [paymentType, setPaymentType] = useState('bitcoin')
+  const [data, setData] = useState({})
+  const [country, setCountry] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [bitfinexUrl, setBitfinexUrl] = useState('')
+  const countryList = []
+  const [countries, setCountries] = useState([])
+  const [form] = Form.useForm()
 
   const [state, setState] = useState({
     status: 'process',
     isFinished: false,
-    current: 0,
-  });
+    current: 0
+  })
 
   useEffect(() => {
     if (JSON.parse(Cookies.get('user')).email) {
-      form.setFieldValue('email', JSON.parse(Cookies.get('user')).email);
+      form.setFieldValue('email', JSON.parse(Cookies.get('user')).email)
     }
-  }, [JSON.parse(Cookies.get('user')).email]);
+  }, [JSON.parse(Cookies.get('user')).email])
 
-  const { status, isFinished, current } = state;
+  const { status, isFinished, current } = state
 
   const next = () => {
     setState({
       ...state,
       status: 'process',
-      current: current + 1,
-    });
-  };
+      current: current + 1
+    })
+  }
 
   useEffect(() => {
     DataService.get('/country/all')
       .then((res) => {
-        setCountry(res.data);
+        setCountry(res.data)
       })
       .catch((err) => {
-        console.log('error', err);
-      });
-  }, []);
+        console.log('error', err)
+      })
+  }, [])
 
   useEffect(() => {
     if (country && country.length) {
@@ -71,23 +71,23 @@ function Wizards() {
           code: country[i].code,
           _id: country[i]._id,
           value: country[i].code,
-          label: country[i].name,
-        });
+          label: country[i].name
+        })
       }
-      setCountries(countryList);
+      setCountries(countryList)
     }
-  }, [country]);
+  }, [country])
 
   const prev = () => {
     setState({
       ...state,
       status: 'process',
-      current: current - 1,
-    });
-  };
+      current: current - 1
+    })
+  }
 
   const createApplicationHandler = async () => {
-    setLoading(true);
+    setLoading(true)
     const body = {
       name: `${`${data.first_name} ${data.middle_name ? data.middle_name : ''} ${data.last_name}`}`,
       phoneNumber: data.phone,
@@ -100,48 +100,48 @@ function Wizards() {
         {
           type: 'wealth',
           data: 'data:image/png;base64,58e17c4ba3f42f91399f15bdee7beeed6cdada9b=',
-          filename: 'test.png',
+          filename: 'test.png'
         },
         {
           type: 'criminal',
           data: 'data:image/png;base64,58e17c4ba3f42f91399f15bdee7beeed6cdada9b=',
-          filename: 'test.png',
+          filename: 'test.png'
         },
         {
           type: 'bank_statement',
           data: 'data:image/png;base64,58e17c4ba3f42f91399f15bdee7beeed6cdada9b=',
-          filename: 'test.png',
+          filename: 'test.png'
         },
         {
           type: 'selfie',
           data: 'data:image/png;base64,3fac6d2245311292d1d7af8496703f23e847e88d=',
-          filename: 'test.png',
+          filename: 'test.png'
         },
         {
           type: 'passport',
           data: data?.passport,
-          filename: data?.passport_url?.name,
+          filename: data?.passport_url?.name
         },
         {
           type: 'identity_front',
           data: 'data:image/png;base64,3fac6d2245311292d1d7af8496703f23e847e88d=',
-          filename: 'test.png',
+          filename: 'test.png'
         },
         {
           type: 'identity_back',
           data: 'data:image/png;base64,3fac6d2245311292d1d7af8496703f23e847e88d=',
-          filename: 'test.png',
+          filename: 'test.png'
         },
         {
           type: 'proof_of_res',
           data: data?.proof_of_res_data,
-          filename: data?.proof_of_res_url?.name,
+          filename: data?.proof_of_res_url?.name
         },
         {
           type: 'kyc',
           data: 'data:image/png;base64,3fac6d2245311292d1d7af8496703f23e847e88d=',
-          filename: 'test.png',
-        },
+          filename: 'test.png'
+        }
       ],
       first_name: data.first_name,
       middle_name: data?.middle_name ? data?.middle_name : '',
@@ -200,28 +200,28 @@ function Wizards() {
       bank_country: '032',
       type_account: 'individual',
       is_main_account: true,
-      proof_resid_date: moment(data.issue_date).format('YYYY-MM-DD hh:mm:ss'),
-    };
+      proof_resid_date: moment(data.issue_date).format('YYYY-MM-DD hh:mm:ss')
+    }
 
     await DataService.post('/userApplications', body)
       .then(async (res) => {
         if (res.status === 201) {
-          setLoading(false);
-          message.success('Application created!');
-          next();
+          setLoading(false)
+          message.success('Application created!')
+          next()
         } else {
-          setLoading(false);
-          message.error('Please validate your data.');
+          setLoading(false)
+          message.error('Please validate your data.')
         }
       })
       .catch((error) => {
-        setLoading(false);
+        setLoading(false)
         if (error.response && error.response.data && error.response.data.errors) {
-          const errorMsg = error.response.data.errors.msg;
-          message.error(errorMsg);
+          const errorMsg = error.response.data.errors.msg
+          message.error(errorMsg)
         }
-      });
-  };
+      })
+  }
 
   const createInvoiceHandler = async () => {
     const invoiceData = {
@@ -240,43 +240,43 @@ function Wizards() {
       residCity: data.resid_city,
       fullName: `${`${data.first_name} ${data.middle_name ? data.middle_name : ''} ${data.last_name}`}`,
       email: JSON.parse(Cookies.get('user')).email,
-      paymentType: 'ApplicationPayment',
-    };
+      paymentType: 'ApplicationPayment'
+    }
     await DataService.post('/bitfinex/submitInvoice', invoiceData)
       .then((resInvoice) => {
         if (resInvoice.status === 201) {
-          const url = `https://pay.bitfinex.com/gateway/order/${resInvoice.data}`;
-          setBitfinexUrl(url);
-          const windowFeatures = 'width=600,height=800,resizable,scrollbars';
-          window.open(url, '_blank', windowFeatures);
-          next();
+          const url = `https://pay.bitfinex.com/gateway/order/${resInvoice.data}`
+          setBitfinexUrl(url)
+          const windowFeatures = 'width=600,height=800,resizable,scrollbars'
+          window.open(url, '_blank', windowFeatures)
+          next()
         } else {
-          message.error('Please validate your data.');
+          message.error('Please validate your data.')
         }
-        setLoading(false);
+        setLoading(false)
       })
       .catch(() => {
-        setLoading(false);
-        message.error('Please validate your data.');
-      });
-  };
+        setLoading(false)
+        message.error('Please validate your data.')
+      })
+  }
   const submitApplication = (values) => {
     form
       .validateFields()
       .then(() => {
-        createApplicationHandler(values);
+        createApplicationHandler(values)
       })
       .catch((err) => {
-        console.log('err', err);
-      });
-  };
+        console.log('err', err)
+      })
+  }
 
   const submitInvoice = (values) => {
-    createInvoiceHandler(values);
-  };
+    createInvoiceHandler(values)
+  }
   const done = () => {
-    navigate('/');
-  };
+    navigate('/')
+  }
 
   return (
     <>
@@ -287,21 +287,29 @@ function Wizards() {
               <h1 className="left-heading">
                 Step {state.current + 1}:
                 <br />
-                {state.current === 0 ? (
+                {state.current === 0
+                  ? (
                   <>
                     name & <br /> contact
                   </>
-                ) : state.current === 1 ? (
-                  'ADDRESS'
-                ) : state.current === 2 ? (
+                    )
+                  : state.current === 1
+                    ? (
+                        'ADDRESS'
+                      )
+                    : state.current === 2
+                      ? (
                   <>
                     ID <br /> Verification
                   </>
-                ) : state.current === 3 ? (
-                  'Review'
-                ) : (
-                  'Payment'
-                )}
+                        )
+                      : state.current === 3
+                        ? (
+                            'Review'
+                          )
+                        : (
+                            'Payment'
+                          )}
               </h1>
             </div>
           </div>
@@ -324,7 +332,7 @@ function Wizards() {
                                 title: t('Name & Contact'),
                                 content: (
                                   <NameContact form={form} setData={setData} countries={countries} next={next} />
-                                ),
+                                )
                               },
                               {
                                 title: t('Address'),
@@ -336,7 +344,7 @@ function Wizards() {
                                     data={data}
                                     next={next}
                                   />
-                                ),
+                                )
                               },
                               {
                                 title: t('Identity'),
@@ -344,7 +352,7 @@ function Wizards() {
                                   <BasicFormWrapper>
                                     <Identity form={form} setData={setData} data={data} next={next} />
                                   </BasicFormWrapper>
-                                ),
+                                )
                               },
                               {
                                 title: t('Review'),
@@ -359,7 +367,7 @@ function Wizards() {
                                       data={data}
                                     />
                                   </ReviewWrapper>
-                                ),
+                                )
                               },
                               {
                                 title: t('Payment'),
@@ -374,7 +382,7 @@ function Wizards() {
                                       setData={setData}
                                     />
                                   </BasicFormWrapper>
-                                ),
+                                )
                               },
                               {
                                 title: t('Summary'),
@@ -382,8 +390,8 @@ function Wizards() {
                                   <ReviewWrapper>
                                     <Summary bitfinexUrl={bitfinexUrl} />
                                   </ReviewWrapper>
-                                ),
-                              },
+                                )
+                              }
                             ]}
                             onNext={next}
                             onPrev={prev}
@@ -410,7 +418,7 @@ function Wizards() {
         <PoweredBy />
       </ContainerStyle>
     </>
-  );
+  )
 }
 
-export default Wizards;
+export default Wizards

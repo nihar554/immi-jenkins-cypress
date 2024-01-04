@@ -1,11 +1,11 @@
-import React from 'react';
-import { MobileViewStyle } from './Style';
-import { LandingPage } from '../Landing/Style';
-import LandingHeader from '../Landing/Header';
-import LaptopImg from '../../../static/img/laptop-img.png';
-import { LoginWrap } from '../../profile/authentication/overview/style';
+import React from 'react'
+import { MobileViewStyle } from './Style'
+import { LandingPage } from '../Landing/Style'
+import LandingHeader from '../Landing/Header'
+import LaptopImg from '../../../static/img/laptop-img.png'
+import { LoginWrap } from '../../profile/authentication/overview/style'
 
-export default function UseLaptop() {
+export default function UseLaptop () {
   return (
     <LoginWrap>
       <LandingPage>
@@ -22,5 +22,5 @@ export default function UseLaptop() {
         </MobileViewStyle>
       </LandingPage>
     </LoginWrap>
-  );
+  )
 }

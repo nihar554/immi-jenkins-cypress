@@ -1,123 +1,123 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-debugger */
 /* eslint-disable react/self-closing-comp */
-import React, { Suspense, useEffect, useState } from 'react';
-import { Button, Card, Col, Modal, Row, Skeleton, Spin, Table, Tabs, Select, Input, Form, message } from 'antd';
-import { FormOutlined, EyeOutlined } from '@ant-design/icons';
-import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { OverviewDataStyleWrap, ViewStatusWraper } from './Style';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import EditModal from '../../../components/modal/EditModal';
-import { DataService } from '../../../config/dataService/dataService';
-import { Cards } from '../../../components/cards/frame/cards-frame';
-import OverviewCard from '../../../components/cards/OverviewCard';
+import React, { Suspense, useEffect, useState } from 'react'
+import { Button, Card, Col, Modal, Row, Skeleton, Spin, Table, Tabs, Select, Input, Form, message } from 'antd'
+import { FormOutlined, EyeOutlined } from '@ant-design/icons'
+import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { OverviewDataStyleWrap, ViewStatusWraper } from './Style'
+import { PageHeader } from '../../../components/page-headers/page-headers'
+import EditModal from '../../../components/modal/EditModal'
+import { DataService } from '../../../config/dataService/dataService'
+import { Cards } from '../../../components/cards/frame/cards-frame'
+import OverviewCard from '../../../components/cards/OverviewCard'
 
-const { TextArea } = Input;
+const { TextArea } = Input
 
-export default function Admin() {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-  const [form] = Form.useForm();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [allApplicationDetails, setAllApplicationDetails] = useState([]);
-  const [totalApplications, setTotalApplications] = useState({});
-  const [totalNewApplication, setTotalNewApplication] = useState({});
-  const [totalPayment, setTotalPayment] = useState({});
-  const [selelectedRow, setSelelectedRow] = useState({});
-  const [pageNumber, setPageNumber] = useState(1);
-  const [limit, setLimit] = useState(10);
+export default function Admin () {
+  const navigate = useNavigate()
+  const { t } = useTranslation()
+  const [form] = Form.useForm()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [allApplicationDetails, setAllApplicationDetails] = useState([])
+  const [totalApplications, setTotalApplications] = useState({})
+  const [totalNewApplication, setTotalNewApplication] = useState({})
+  const [totalPayment, setTotalPayment] = useState({})
+  const [selelectedRow, setSelelectedRow] = useState({})
+  const [pageNumber, setPageNumber] = useState(1)
+  const [limit, setLimit] = useState(10)
   // const [sortedInfo, setSortedInfo] = useState({});
 
   const handleEditPopup = (record) => {
-    setIsModalOpen(true);
+    setIsModalOpen(true)
     DataService.get(`/userApplications/uid/${record.uid}`)
       .then((res) => {
-        setLoading(false);
-        setSelelectedRow({ ...res.data, _id: record._id });
+        setLoading(false)
+        setSelelectedRow({ ...res.data, _id: record._id })
       })
       .catch(() => {
-        setLoading(false);
-      });
+        setLoading(false)
+      })
     // setSelelectedRow(record);
-  };
+  }
 
   const navigateToExplorer = () => {
-    const link = `${process.env.REACT_APP_ADMIN_PANEL_URL}`;
-    window.open(link, '_blank');
-  };
+    const link = `${process.env.REACT_APP_ADMIN_PANEL_URL}`
+    window.open(link, '_blank')
+  }
 
   const fetchData = (endpoint, setData) => {
-    setLoading(true);
+    setLoading(true)
     DataService.get(`/userApplications/${endpoint}`)
       .then(({ data: { docs, totalDocs } }) => {
         const modifiedDocs = docs.map((doc, index) => {
-          return { ...doc, key: index.toString() };
-        });
-        setData({ ...allApplicationDetails, docs: modifiedDocs, totalDocs });
-        setLoading(false);
+          return { ...doc, key: index.toString() }
+        })
+        setData({ ...allApplicationDetails, docs: modifiedDocs, totalDocs })
+        setLoading(false)
       })
       .catch(() => {
-        setLoading(false);
-      });
-  };
+        setLoading(false)
+      })
+  }
 
   const fetchCouts = (endpoint, setData) => {
-    setLoading(true);
+    setLoading(true)
     DataService.get(`/userApplications/${endpoint}`)
       .then((res) => {
-        setData(res.data);
-        setLoading(false);
+        setData(res.data)
+        setLoading(false)
       })
       .catch(() => {
-        setLoading(false);
-      });
-  };
+        setLoading(false)
+      })
+  }
 
   const getUsersApplicationDetails = () => {
-    fetchData(`?sort=createdAt&order=-1&limit=${limit}&page=${pageNumber}`, setAllApplicationDetails);
-  };
+    fetchData(`?sort=createdAt&order=-1&limit=${limit}&page=${pageNumber}`, setAllApplicationDetails)
+  }
 
   // Fetch total applications
   const getTotalApplications = () => {
-    fetchCouts('getTotalApplications', setTotalApplications);
-  };
+    fetchCouts('getTotalApplications', setTotalApplications)
+  }
 
   // Fetch total payment
   const getTotalPayment = () => {
-    fetchCouts('getTotalPayment', setTotalPayment);
-  };
+    fetchCouts('getTotalPayment', setTotalPayment)
+  }
 
   // Fetch total new applications
   const getTotalNewApplication = () => {
-    fetchCouts('getTotalNewApplication', setTotalNewApplication);
-  };
+    fetchCouts('getTotalNewApplication', setTotalNewApplication)
+  }
 
   useEffect(() => {
-    getTotalApplications();
-    getTotalPayment();
-    getTotalNewApplication();
-  }, []);
+    getTotalApplications()
+    getTotalPayment()
+    getTotalNewApplication()
+  }, [])
 
-  const [applicationPaymentVlaue, setApplicationPaymentVlaue] = useState();
+  const [applicationPaymentVlaue, setApplicationPaymentVlaue] = useState()
 
   const handleApplicationPaymentChange = (value) => {
-    setApplicationPaymentVlaue(value);
+    setApplicationPaymentVlaue(value)
     fetchData(
       `?sort=createdAt&order=-1&limit=${limit}&page=${pageNumber}&paymentStatus=${value}`,
-      setAllApplicationDetails,
-    );
-  };
+      setAllApplicationDetails
+    )
+  }
 
   useEffect(() => {
     if (applicationPaymentVlaue) {
-      handleApplicationPaymentChange(applicationPaymentVlaue);
+      handleApplicationPaymentChange(applicationPaymentVlaue)
     } else {
-      getUsersApplicationDetails();
+      getUsersApplicationDetails()
     }
-  }, [pageNumber, limit]);
+  }, [pageNumber, limit])
 
   const paginationConfig = {
     pageSize: limit,
@@ -125,37 +125,37 @@ export default function Admin() {
     total: allApplicationDetails.totalDocs,
     showSizeChanger: true,
     onChange: (current, size) => {
-      setPageNumber(current);
-      setLimit(size);
-    },
-  };
+      setPageNumber(current)
+      setLimit(size)
+    }
+  }
 
   const columns = [
     {
       title: 'Full Name',
       dataIndex: 'name',
       key: 'name',
-      sorter: (a, b) => a?.name?.localeCompare(b?.name),
+      sorter: (a, b) => a?.name?.localeCompare(b?.name)
     },
     {
       title: 'Email Address',
       dataIndex: 'email',
       key: 'email',
-      sorter: (a, b) => a?.email?.localeCompare(b?.email),
+      sorter: (a, b) => a?.email?.localeCompare(b?.email)
     },
     {
       title: 'Application Payment',
       dataIndex: 'applicationPaymentStatus',
       key: 'paymentStatus',
       render: (item, record) => <div>{record?.paymentStatus ? record?.paymentStatus : 'PENDING'}</div>,
-      sorter: (a, b) => a?.paymentStatus?.localeCompare(b?.paymentStatus),
+      sorter: (a, b) => a?.paymentStatus?.localeCompare(b?.paymentStatus)
     },
     {
       title: 'KYC Application ID',
       dataIndex: 'applicationId',
       key: 'applicationId',
       sorter: (a, b) => a?.applicationId?.localeCompare(b?.applicationId),
-      render: (item, record) => <div>{record?.applicationId ? record?.applicationId : 'NOT SUBMITTED'}</div>,
+      render: (item, record) => <div>{record?.applicationId ? record?.applicationId : 'NOT SUBMITTED'}</div>
     },
     {
       title: 'KYC User',
@@ -163,23 +163,25 @@ export default function Admin() {
       key: 'uid',
       render: (uid) => (
         <div>
-          {uid ? (
+          {uid
+            ? (
             <Link to={`${process.env.REACT_APP_KYC_USER_URL}${uid}`} target="_blank">
               {uid}
             </Link>
-          ) : (
+              )
+            : (
             <span>NOT SUBMITTED</span>
-          )}
+              )}
         </div>
       ),
-      sorter: (a, b) => a.uid - b.uid,
+      sorter: (a, b) => a.uid - b.uid
     },
     {
       title: 'KYC Status',
       dataIndex: 'status',
       key: 'status',
       sorter: (a, b) => a?.name?.localeCompare(b?.name),
-      render: (item, record) => <div>{record?.status ? record?.status.toUpperCase() : 'NOT SUBMITTED'}</div>,
+      render: (item, record) => <div>{record?.status ? record?.status.toUpperCase() : 'NOT SUBMITTED'}</div>
     },
     {
       title: 'Passport Payment',
@@ -189,20 +191,22 @@ export default function Admin() {
         <div>
           {record?.paymentDetails?.paymentType &&
           record?.paymentDetails?.TransactionId &&
-          record?.paymentDetails?.residentType ? (
+          record?.paymentDetails?.residentType
+            ? (
             <Button
               onClick={() => {
-                setIsViewModalOpen(true);
-                setSelelectedRow(record);
+                setIsViewModalOpen(true)
+                setSelelectedRow(record)
               }}
             >
               View
             </Button>
-          ) : (
+              )
+            : (
             <span>{record?.passportPaymentStatus || 'PENDING'}</span>
-          )}
+              )}
         </div>
-      ),
+      )
     },
     {
       title: 'Actions',
@@ -217,19 +221,19 @@ export default function Admin() {
           />
           <EyeOutlined
             style={{
-              paddingLeft: '10px',
+              paddingLeft: '10px'
             }}
             className="icon"
             onClick={() => navigate('/user-application-details', { state: { isAdmin: true, uid: record?.uid } })}
           />
         </div>
-      ),
-    },
-  ];
+      )
+    }
+  ]
 
   const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
-  };
+    console.log('params', pagination, filters, sorter, extra)
+  }
 
   const SupportOverview = [
     {
@@ -241,7 +245,7 @@ export default function Admin() {
       suffix: '',
       prefix: '',
       statusRate: totalApplications?.percentageIncrease,
-      dataPeriod: 'Since last month',
+      dataPeriod: 'Since last month'
     },
     {
       id: 2,
@@ -252,7 +256,7 @@ export default function Admin() {
       suffix: '',
       prefix: '',
       statusRate: totalPayment?.percentageIncrease,
-      dataPeriod: 'Since last month',
+      dataPeriod: 'Since last month'
     },
     {
       id: 3,
@@ -263,70 +267,70 @@ export default function Admin() {
       suffix: '',
       prefix: '',
       statusRate: totalNewApplication?.percentageIncrease,
-      dataPeriod: 'Since last month',
-    },
-  ];
+      dataPeriod: 'Since last month'
+    }
+  ]
 
   const PageRoutes = [
     {
       path: 'index',
-      breadcrumbName: 'Dashboard',
+      breadcrumbName: 'Dashboard'
     },
     {
       path: 'first',
-      breadcrumbName: 'Immigration',
-    },
-  ];
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-  const [sendEmailModelIsOpen, setSendEmailModelIsOpen] = useState(false);
-  const [emailLoader, setEmailLoader] = useState(false);
+      breadcrumbName: 'Immigration'
+    }
+  ]
+  const [selectedRowKeys, setSelectedRowKeys] = useState([])
+  const [sendEmailModelIsOpen, setSendEmailModelIsOpen] = useState(false)
+  const [emailLoader, setEmailLoader] = useState(false)
 
   const onSelectChange = (newSelectedRowKeys) => {
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
+    setSelectedRowKeys(newSelectedRowKeys)
+  }
 
   const rowSelection = {
     preserveSelectedRowKeys: true,
     selectedRowKeys,
-    onChange: onSelectChange,
-  };
+    onChange: onSelectChange
+  }
 
   const [emailBody, setEmailBody] = useState({
     subject: '',
-    message: '',
-  });
+    message: ''
+  })
 
   const updateEmailBody = (e) => {
-    setEmailBody({ ...emailBody, [e.target.name]: e.target.value });
-  };
+    setEmailBody({ ...emailBody, [e.target.name]: e.target.value })
+  }
 
   const notifyUsers = () => {
-    setEmailBody({ subject: '', message: '' });
-    setSendEmailModelIsOpen(true);
-  };
+    setEmailBody({ subject: '', message: '' })
+    setSendEmailModelIsOpen(true)
+  }
 
   const sendNotificationToUsers = async () => {
     try {
-      setEmailLoader(true);
+      setEmailLoader(true)
       // const selectedData = selectedRowKeys.map((key) => allApplicationDetails?.docs[key]?.userId);
       DataService.post('/userApplications/sendNotifications', {
         userIds: selectedRowKeys,
         subject: emailBody.subject,
-        message: emailBody.message,
+        message: emailBody.message
       }).then((res) => {
         if (res) {
-          setSelectedRowKeys([]);
-          setEmailLoader(false);
-          setSendEmailModelIsOpen(false);
-          form.resetFields();
-          message.success(t('admin_send_email_notification_message_success'));
+          setSelectedRowKeys([])
+          setEmailLoader(false)
+          setSendEmailModelIsOpen(false)
+          form.resetFields()
+          message.success(t('admin_send_email_notification_message_success'))
         }
-      });
+      })
     } catch (error) {
-      console.log(error);
-      message.error(t(error.response.data.errors.msg));
+      console.log(error)
+      message.error(t(error.response.data.errors.msg))
     }
-  };
+  }
 
   return (
     <>
@@ -346,7 +350,7 @@ export default function Admin() {
                   <Col xxl={6} sm={6} xs={24} key={i}>
                     <OverviewCard className="ninjadash-overview-card-support" data={item} bottomStatus contentFirst />
                   </Col>
-                );
+                )
               })}
             </Row>
           </OverviewDataStyleWrap>
@@ -354,10 +358,10 @@ export default function Admin() {
         <Tabs
           defaultActiveKey="1"
           onChange={(activeKey) => {
-            getUsersApplicationDetails();
+            getUsersApplicationDetails()
             if (activeKey === '2') {
-              setSelectedRowKeys([]);
-              setApplicationPaymentVlaue(undefined);
+              setSelectedRowKeys([])
+              setApplicationPaymentVlaue(undefined)
             }
           }}
           items={[
@@ -373,19 +377,21 @@ export default function Admin() {
                       style={{ cursor: 'pointer' }}
                       type="info"
                       onClick={(e) => {
-                        e.preventDefault();
-                        navigateToExplorer();
+                        e.preventDefault()
+                        navigateToExplorer()
                       }}
                     >
                       → View in Admin Panel
                     </Button>
                   }
                 >
-                  {loading ? (
+                  {loading
+                    ? (
                     <div className="spin">
                       <Spin />
                     </div>
-                  ) : (
+                      )
+                    : (
                     <Table
                       className="table-responsive"
                       pagination={paginationConfig}
@@ -394,9 +400,9 @@ export default function Admin() {
                       onChange={onChange}
                       sortDirections={['ascend', 'descend', 'ascend']}
                     />
-                  )}
+                      )}
                 </Card>
-              ),
+              )
             },
             {
               label: 'Email',
@@ -424,17 +430,19 @@ export default function Admin() {
                           { value: 'PENDING', label: 'PENDING' },
                           { value: 'CREATED', label: 'CREATED' },
                           { value: 'COMPLETED', label: 'COMPLETED' },
-                          { value: 'EXPIRED', label: 'EXPIRED' },
+                          { value: 'EXPIRED', label: 'EXPIRED' }
                         ]}
                       />
                     </div>
                   }
                 >
-                  {loading ? (
+                  {loading
+                    ? (
                     <div className="spin">
                       <Spin />
                     </div>
-                  ) : (
+                      )
+                    : (
                     <Table
                       className="table-responsive"
                       rowSelection={rowSelection}
@@ -445,10 +453,10 @@ export default function Admin() {
                       sortDirections={['ascend', 'descend', 'ascend']}
                       rowKey={(record) => record.userId}
                     />
-                  )}
+                      )}
                 </Card>
-              ),
-            },
+              )
+            }
           ]}
           type="card"
           size="large"
@@ -496,7 +504,7 @@ export default function Admin() {
           open={isViewModalOpen}
           footer={null}
           onCancel={() => {
-            setIsViewModalOpen(false);
+            setIsViewModalOpen(false)
           }}
         >
           <ViewStatusWraper>
@@ -524,7 +532,7 @@ export default function Admin() {
           open={sendEmailModelIsOpen}
           footer={null}
           onCancel={() => {
-            setSendEmailModelIsOpen(false);
+            setSendEmailModelIsOpen(false)
           }}
           destroyOnClose
         >
@@ -580,7 +588,7 @@ export default function Admin() {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: '100%',
+                    width: '100%'
                   }}
                 >
                   <Button
@@ -589,16 +597,18 @@ export default function Admin() {
                     type="primary"
                     style={{
                       backgroundColor: emailLoader ? 'white' : '#0042A8',
-                      color: emailLoader ? 'black' : 'white',
+                      color: emailLoader ? 'black' : 'white'
                     }}
                   >
-                    {emailLoader ? (
+                    {emailLoader
+                      ? (
                       <div className="spin">
                         <Spin />
                       </div>
-                    ) : (
-                      'Send Notification'
-                    )}
+                        )
+                      : (
+                          'Send Notification'
+                        )}
                   </Button>
                 </div>
               </Form.Item>
@@ -637,5 +647,5 @@ export default function Admin() {
         </Modal>
       </div>
     </>
-  );
+  )
 }

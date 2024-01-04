@@ -1,9 +1,9 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import ReviewCard from '../../../components/cards/ReviewCard';
+import React from 'react'
+import propTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
+import ReviewCard from '../../../components/cards/ReviewCard'
 
-function stepOneIcon() {
+function stepOneIcon () {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
       <circle opacity="0.15" cx="30" cy="30" r="30" fill="#2F3241" />
@@ -14,9 +14,9 @@ function stepOneIcon() {
         fill="#2F3241"
       />
     </svg>
-  );
+  )
 }
-function stepTwoIcon() {
+function stepTwoIcon () {
   return (
     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle opacity="0.15" cx="30" cy="30" r="30" fill="#2F3241" />
@@ -25,9 +25,9 @@ function stepTwoIcon() {
         fill="#2F3241"
       />
     </svg>
-  );
+  )
 }
-function stepThreeIcon() {
+function stepThreeIcon () {
   return (
     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle opacity="0.15" cx="30" cy="30" r="30" fill="#2F3241" />
@@ -42,11 +42,11 @@ function stepThreeIcon() {
         fill="#2F3241"
       />
     </svg>
-  );
+  )
 }
 
-export default function Review({ state, setState }) {
-  const { t } = useTranslation();
+export default function Review ({ state, setState }) {
+  const { t } = useTranslation()
 
   return (
     <>
@@ -54,10 +54,10 @@ export default function Review({ state, setState }) {
       <ReviewCard title={t('Address')} state={state} setState={setState} Icon={stepTwoIcon} />
       <ReviewCard title={t('Identity Documentation')} state={state} setState={setState} Icon={stepThreeIcon} />
     </>
-  );
+  )
 }
 
 Review.propTypes = {
   state: propTypes.object,
-  setState: propTypes.func,
-};
+  setState: propTypes.func
+}

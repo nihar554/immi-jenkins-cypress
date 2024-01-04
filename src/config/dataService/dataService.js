@@ -1,48 +1,48 @@
-import axios from 'axios';
-import { getItem } from '../../utility/localStorageControl';
+import axios from 'axios'
+import { getItem } from '../../utility/localStorageControl'
 
-const API_ENDPOINT = `${process.env.REACT_APP_API_ENDPOINT}`;
+const API_ENDPOINT = `${process.env.REACT_APP_API_ENDPOINT}`
 
 const client = axios.create({
   baseURL: API_ENDPOINT,
   headers: {
     Authorization: `Bearer ${getItem('access_token')}`,
     'Content-Type': 'application/json',
-    Accept: 'application/json',
-  },
-});
+    Accept: 'application/json'
+  }
+})
 
 class DataService {
-  static get(path = '') {
+  static get (path = '') {
     return client({
       method: 'GET',
-      url: path,
-    });
+      url: path
+    })
   }
 
-  static post(path = '', data = {}, optionalHeader = {}) {
+  static post (path = '', data = {}, optionalHeader = {}) {
     return client({
       method: 'POST',
       url: path,
       data,
-      headers: { ...optionalHeader },
-    });
+      headers: { ...optionalHeader }
+    })
   }
 
-  static patch(path = '', data = {}) {
+  static patch (path = '', data = {}) {
     return client({
       method: 'PATCH',
       url: path,
-      data: JSON.stringify(data),
-    });
+      data: JSON.stringify(data)
+    })
   }
 
-  static put(path = '', data = {}) {
+  static put (path = '', data = {}) {
     return client({
       method: 'PUT',
       url: path,
-      data: JSON.stringify(data),
-    });
+      data: JSON.stringify(data)
+    })
   }
 }
 
@@ -53,12 +53,12 @@ class DataService {
 client.interceptors.request.use((config) => {
   // do something before executing the request
   // For example tag along the bearer access token to request header or set a cookie
-  const requestConfig = config;
-  const { headers } = config;
-  requestConfig.headers = { ...headers, Authorization: `Bearer ${getItem('access_token')}` };
+  const requestConfig = config
+  const { headers } = config
+  requestConfig.headers = { ...headers, Authorization: `Bearer ${getItem('access_token')}` }
 
-  return requestConfig;
-});
+  return requestConfig
+})
 
 client.interceptors.response.use(
   (response) => response,
@@ -67,7 +67,7 @@ client.interceptors.response.use(
      * Do something in case the response returns an error code [3**, 4**, 5**] etc
      * For example, on token expiration retrieve a new access token, retry a failed request etc
      */
-    const { response } = error;
+    const { response } = error
     // const originalRequest = error.config;
     // if (response) {
     //   if (response.status === 500) {
@@ -79,10 +79,10 @@ client.interceptors.response.use(
 
     if (response && response.data && response.data.errors) {
       // const errorMsg = response.data.errors.msg;
-      return response;
+      return response
     }
 
-    return Promise.reject(error);
-  },
-);
-export { DataService };
+    return Promise.reject(error)
+  }
+)
+export { DataService }

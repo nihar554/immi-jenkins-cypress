@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { Form, Input, Select, Button } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
-import { KnowledgebaseTopWrap } from '../../style';
-import ProductData from '../../../../../demoData/products-article.json';
+import React, { useState } from 'react'
+import { Form, Input, Select, Button } from 'antd'
+import { Link, useNavigate } from 'react-router-dom'
+import { KnowledgebaseTopWrap } from '../../style'
+import ProductData from '../../../../../demoData/products-article.json'
 
-function KnowledgeBaseTop() {
-  const navigate = useNavigate();
+function KnowledgeBaseTop () {
+  const navigate = useNavigate()
 
   const [state, setState] = useState({
-    produts: 'All Products',
-  });
+    produts: 'All Products'
+  })
   const handleProdutsOnchange = (value) => {
     setState((prevState) => {
-      return { ...prevState, produts: value };
-    });
-    navigate(value);
-  };
+      return { ...prevState, produts: value }
+    })
+    navigate(value)
+  }
 
   // const handleProdutsSearchOnchange = (event) => {
   //   const { value } = event.target;
@@ -24,7 +24,7 @@ function KnowledgeBaseTop() {
   //   });
   // };
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('')
 
   const handleProdutsSearch = () => {
     // if (state.produts !== 'All Products') {
@@ -35,40 +35,40 @@ function KnowledgeBaseTop() {
     const result = ProductData.reduce((acc, item) => {
       if (acc) {
         // If a match is already found, keep the result and exit the loop.
-        return acc;
+        return acc
       }
 
-      const queryLower = searchQuery.trim().toLowerCase();
+      const queryLower = searchQuery.trim().toLowerCase()
 
       if (item.productName.toLowerCase().includes(queryLower)) {
-        return { productName: item.productName };
+        return { productName: item.productName }
       }
       const matchingCategory = item.category.find((cat) => {
-        return cat.categoryName.toLowerCase().includes(queryLower);
-      });
+        return cat.categoryName.toLowerCase().includes(queryLower)
+      })
 
       if (matchingCategory) {
-        return { categoryName: matchingCategory.categoryName, productName: item.productName };
+        return { categoryName: matchingCategory.categoryName, productName: item.productName }
       }
       const matchingSubCategory = item.category.reduce((subAcc, cat) => {
         if (subAcc) {
-          return subAcc; // If a match is already found, keep the result and exit the loop.
+          return subAcc // If a match is already found, keep the result and exit the loop.
         }
-        const subCategory = cat.subCategoryName.find((subCat) => subCat.toLowerCase().includes(queryLower));
-        return subCategory ? { subCategoryName: subCategory, productName: item.productName } : null;
-      }, null);
+        const subCategory = cat.subCategoryName.find((subCat) => subCat.toLowerCase().includes(queryLower))
+        return subCategory ? { subCategoryName: subCategory, productName: item.productName } : null
+      }, null)
 
-      return matchingSubCategory;
-    }, null);
+      return matchingSubCategory
+    }, null)
 
     // setSearchResults(result);
-    console.log(result);
+    console.log(result)
     if (result?.productName === 'Stablecoin' && result?.subCategoryName) {
-      navigate(`/stablecoin-details/${result.subCategoryName}`);
+      navigate(`/stablecoin-details/${result.subCategoryName}`)
     } else if (result?.productName === 'Commodities' && result?.subCategoryName) {
-      navigate(`/commodities-details/${result.subCategoryName}`);
+      navigate(`/commodities-details/${result.subCategoryName}`)
     }
-  };
+  }
 
   return (
     <KnowledgebaseTopWrap>
@@ -118,7 +118,7 @@ function KnowledgeBaseTop() {
         </div>
       </div>
     </KnowledgebaseTopWrap>
-  );
+  )
 }
 
-export default KnowledgeBaseTop;
+export default KnowledgeBaseTop

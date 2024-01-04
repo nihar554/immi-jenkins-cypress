@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Col, Collapse } from 'antd';
-import { ChangelogWrapper, VersionHistoryList } from './style';
-import { Main } from '../../styled';
-import { Cards } from '../../../components/cards/frame/cards-frame';
-import { DataService } from '../../../config/dataService/dataService';
-import NotFound from '../404';
+import React, { useState, useEffect } from 'react'
+import { Row, Col, Collapse } from 'antd'
+import { ChangelogWrapper, VersionHistoryList } from './style'
+import { Main } from '../../styled'
+import { Cards } from '../../../components/cards/frame/cards-frame'
+import { DataService } from '../../../config/dataService/dataService'
+import NotFound from '../404'
 
-const { Panel } = Collapse;
+const { Panel } = Collapse
 
-function ChangeLog() {
-  const [changeLogData, setChangeLogData] = useState([]);
+function ChangeLog () {
+  const [changeLogData, setChangeLogData] = useState([])
 
   useEffect(() => {
     try {
       DataService.get('/changelog').then((res) => {
-        setChangeLogData(res.data);
-      });
+        setChangeLogData(res.data)
+      })
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  }, []);
+  }, [])
 
   return (
     <>
-      {changeLogData && changeLogData.length ? (
+      {changeLogData && changeLogData.length
+        ? (
         <Main style={{ overflow: 'visible', marginTop: '5%' }}>
           <Row gutter={25}>
             <Col xxl={19} md={16} xs={24}>
@@ -45,7 +46,7 @@ function ChangeLog() {
                           </div>
                           <ul className="version-success">
                             {changeLogData[0]?.new?.map((item, key) => {
-                              return <li key={key + 1}>{item}</li>;
+                              return <li key={key + 1}>{item}</li>
                             })}
                           </ul>
                         </div>
@@ -57,7 +58,7 @@ function ChangeLog() {
                           </div>
                           <ul className="version-info">
                             {changeLogData[0]?.fixed?.map((item, key) => {
-                              return <li key={key + 1}>{item}</li>;
+                              return <li key={key + 1}>{item}</li>
                             })}
                           </ul>
                         </div>
@@ -70,7 +71,7 @@ function ChangeLog() {
                           </div>
                           <ul className="version-primary">
                             {changeLogData[0]?.bugs?.map((item, key) => {
-                              return <li key={key + 1}>{item}</li>;
+                              return <li key={key + 1}>{item}</li>
                             })}
                           </ul>
                         </div>
@@ -102,7 +103,7 @@ function ChangeLog() {
                                       </div>
                                       <ul className="version-success">
                                         {version?.new?.map((item, key) => {
-                                          return <li key={key + 1}>{item}</li>;
+                                          return <li key={key + 1}>{item}</li>
                                         })}
                                       </ul>
                                     </div>
@@ -114,7 +115,7 @@ function ChangeLog() {
                                       </div>
                                       <ul className="version-primary">
                                         {version?.bugs?.map((item, key) => {
-                                          return <li key={key + 1}>{item}</li>;
+                                          return <li key={key + 1}>{item}</li>
                                         })}
                                       </ul>
                                     </div>
@@ -122,7 +123,7 @@ function ChangeLog() {
                                 </div>
                               </Panel>
                             )
-                          );
+                          )
                         })}
                     </Collapse>
                   </div>
@@ -142,7 +143,7 @@ function ChangeLog() {
                             <span className="version-name">Version {version?.version}</span>
                             <span className="version-date">{version?.date}</span>
                           </li>
-                        );
+                        )
                       })}
                   </ul>
                 </Cards>
@@ -150,13 +151,16 @@ function ChangeLog() {
             </Col>
           </Row>
         </Main>
-      ) : changeLogData && changeLogData?.errors ? (
+          )
+        : changeLogData && changeLogData?.errors
+          ? (
         <NotFound />
-      ) : (
+            )
+          : (
         <></>
-      )}
+            )}
     </>
-  );
+  )
 }
 
-export default ChangeLog;
+export default ChangeLog

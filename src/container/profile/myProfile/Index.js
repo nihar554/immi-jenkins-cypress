@@ -1,30 +1,30 @@
-import React, { lazy, Suspense } from 'react';
-import { Row, Col, Skeleton } from 'antd';
-import { NavLink, Route, Routes } from 'react-router-dom';
-import { SettingWrapper } from './overview/Style';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import React, { lazy, Suspense } from 'react'
+import { Row, Col, Skeleton } from 'antd'
+import { NavLink, Route, Routes } from 'react-router-dom'
+import { SettingWrapper } from './overview/Style'
+import { PageHeader } from '../../../components/page-headers/page-headers'
+import { Main } from '../../styled'
+import { Cards } from '../../../components/cards/frame/cards-frame'
 
-const UserCards = lazy(() => import('../../pages/overview/UserCard'));
-const CoverSection = lazy(() => import('../overview/CoverSection'));
-const UserBio = lazy(() => import('./overview/UserBio'));
-const Overview = lazy(() => import('./overview/Overview'));
-const Timeline = lazy(() => import('./overview/Timeline'));
-const Activity = lazy(() => import('./overview/Activity'));
+const UserCards = lazy(() => import('../../pages/overview/UserCard'))
+const CoverSection = lazy(() => import('../overview/CoverSection'))
+const UserBio = lazy(() => import('./overview/UserBio'))
+const Overview = lazy(() => import('./overview/Overview'))
+const Timeline = lazy(() => import('./overview/Timeline'))
+const Activity = lazy(() => import('./overview/Activity'))
 
-function MyProfile() {
+function MyProfile () {
   const PageRoutes = [
     {
       path: '/admin',
-      breadcrumbName: 'Dashboard',
+      breadcrumbName: 'Dashboard'
     },
     {
       path: '',
-      breadcrumbName: 'My Profile',
-    },
-  ];
-  const path = '.';
+      breadcrumbName: 'My Profile'
+    }
+  ]
+  const path = '.'
   return (
     <>
       <PageHeader className="ninjadash-page-header-main" title="My Profile" routes={PageRoutes} />
@@ -96,11 +96,11 @@ function MyProfile() {
         </Row>
       </Main>
     </>
-  );
+  )
 }
 
 MyProfile.propTypes = {
   // match: propTypes.object,
-};
+}
 
-export default MyProfile;
+export default MyProfile

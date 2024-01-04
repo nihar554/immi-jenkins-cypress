@@ -1,31 +1,31 @@
 /* eslint-disable array-callback-return */
-import React, { useState, useEffect } from 'react';
-import { Spin, Row, Col, Table } from 'antd';
-import moment from 'moment';
-import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
-import { ContainerStyle, ApplicationDetailsWrapper, MainStyle } from './Style';
-import { DataService } from '../../../config/dataService/dataService';
-import { Button } from '../../../components/buttons/buttons';
-import ReissueModal from '../../../components/modal/ReissueModal';
-import SubmitModal from '../../../components/modal/SubmitModal';
-import { RightBlockStyle } from '../style';
-import PoweredBy from '../Landing/PowerdBy';
+import React, { useState, useEffect } from 'react'
+import { Spin, Row, Col, Table } from 'antd'
+import moment from 'moment'
+import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
+import { ContainerStyle, ApplicationDetailsWrapper, MainStyle } from './Style'
+import { DataService } from '../../../config/dataService/dataService'
+import { Button } from '../../../components/buttons/buttons'
+import ReissueModal from '../../../components/modal/ReissueModal'
+import SubmitModal from '../../../components/modal/SubmitModal'
+import { RightBlockStyle } from '../style'
+import PoweredBy from '../Landing/PowerdBy'
 
 // const { TabPane } = Tabs;
-export default function ApplicationDetails() {
-  const { t } = useTranslation();
-  const location = useLocation();
-  const [details, setDetails] = useState({});
-  const [paydetails, setPaydetails] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export default function ApplicationDetails () {
+  const { t } = useTranslation()
+  const location = useLocation()
+  const [details, setDetails] = useState({})
+  const [paydetails, setPaydetails] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
   // const [isResident, setIsResident] = useState('Buy Resident Card');
-  const [paymentType, setPaymentType] = useState('bitcoin');
-  const [invoiceCreatable, setInvoiceCreatable] = useState(false);
-  const [isReissue, setIsReissue] = useState(false);
-  const [reissueInvoice, setReissueInvoice] = useState();
-  const [loading, setLoading] = useState(true);
-  const [countryName, setCountryName] = useState('');
+  const [paymentType, setPaymentType] = useState('bitcoin')
+  const [invoiceCreatable, setInvoiceCreatable] = useState(false)
+  const [isReissue, setIsReissue] = useState(false)
+  const [reissueInvoice, setReissueInvoice] = useState()
+  const [loading, setLoading] = useState(true)
+  const [countryName, setCountryName] = useState('')
   // setReissueInvoice();
 
   const getUserPaymentDetails = () => {
@@ -34,68 +34,68 @@ export default function ApplicationDetails() {
         .then((res) => {
           DataService.get(`/bitfinex/getUserPayments/${res.data.userId}`).then((resPayments) => {
             if (resPayments.data.length === 0) {
-              setInvoiceCreatable(true);
+              setInvoiceCreatable(true)
             } else {
-              setInvoiceCreatable(false);
+              setInvoiceCreatable(false)
             }
-            const tempPay = [];
+            const tempPay = []
             resPayments.data.map((item) => {
               tempPay.push({
                 ...item,
-                invoiceID: item?.invoiceData[0].invoiceID,
-              });
-              return tempPay;
-            });
-            setPaydetails(tempPay);
-          });
-          setLoading(false);
-          setDetails(res.data);
+                invoiceID: item?.invoiceData[0].invoiceID
+              })
+              return tempPay
+            })
+            setPaydetails(tempPay)
+          })
+          setLoading(false)
+          setDetails(res.data)
         })
         .catch(() => {
-          setLoading(false);
-        });
+          setLoading(false)
+        })
     } else {
-      DataService.get(`/userApplications/user?sort=createdAt&order=-1&limit=1`)
+      DataService.get('/userApplications/user?sort=createdAt&order=-1&limit=1')
         .then((res) => {
           DataService.post('/bitfinex/getUserPayments').then((resPayments) => {
             if (resPayments.data.length === 0) {
-              setInvoiceCreatable(true);
+              setInvoiceCreatable(true)
             } else {
-              setInvoiceCreatable(false);
+              setInvoiceCreatable(false)
             }
-            const tempPay = [];
+            const tempPay = []
             resPayments.data.map((item) => {
               tempPay.push({
                 ...item,
-                invoiceID: item?.invoiceData[0].invoiceID,
-              });
-              return tempPay;
-            });
-            setPaydetails(tempPay);
-            setLoading(false);
-            setDetails(res.data[0]);
-          });
+                invoiceID: item?.invoiceData[0].invoiceID
+              })
+              return tempPay
+            })
+            setPaydetails(tempPay)
+            setLoading(false)
+            setDetails(res.data[0])
+          })
         })
         .catch(() => {
-          setLoading(false);
-        });
+          setLoading(false)
+        })
     }
-  };
+  }
 
   useEffect(() => {
-    setLoading(true);
-    getUserPaymentDetails();
-  }, []);
+    setLoading(true)
+    getUserPaymentDetails()
+  }, [])
 
   useEffect(() => {
     if (details && details.resid_country) {
       DataService.get(`/country/code/${details.resid_country}`)
         .then((res) => {
-          setCountryName(res.data.name);
+          setCountryName(res.data.name)
         })
-        .catch(() => {});
+        .catch(() => {})
     }
-  }, [details]);
+  }, [details])
 
   const paymentColumns = [
     {
@@ -103,17 +103,19 @@ export default function ApplicationDetails() {
       dataIndex: 'status',
       key: 'status',
       render: (item, record) =>
-        item === 'EXPIRED' ? (
+        item === 'EXPIRED'
+          ? (
           <Button
             type="primary"
             onClick={() => {
-              setIsReissue(true);
-              setReissueInvoice(record);
+              setIsReissue(true)
+              setReissueInvoice(record)
             }}
           >
             Generate New Payment Link
           </Button>
-        ) : (
+            )
+          : (
           <a
             target="_blank"
             href={record?.invoiceData[0].invoiceURL}
@@ -122,74 +124,74 @@ export default function ApplicationDetails() {
           >
             Payment Link
           </a>
-        ),
+            )
     },
     {
       title: 'Status',
       dataIndex: 'status',
-      key: 'status',
+      key: 'status'
     },
     {
       title: 'Amount',
       dataIndex: 'amount',
-      key: 'amount',
+      key: 'amount'
     },
     {
       title: 'Payment Date',
       dataIndex: 't',
       key: 't',
-      render: (item) => moment(item).format('MM-DD-YYYY | hh:mm:ss'),
+      render: (item) => moment(item).format('MM-DD-YYYY | hh:mm:ss')
     },
     {
       title: 'Payment Method',
       dataIndex: 'paymentType',
-      key: 'paymentType',
-    },
-  ];
+      key: 'paymentType'
+    }
+  ]
 
   const verifiedColumns = [
     {
       title: 'S.No',
       dataIndex: 'sno',
       key: 'sno',
-      render: (text, record, index) => index + 1,
+      render: (text, record, index) => index + 1
     },
     {
       title: 'Document Type',
       dataIndex: 'type',
-      key: 'type',
+      key: 'type'
     },
     {
       title: 'File Name',
       dataIndex: 'filename',
-      key: 'filename',
+      key: 'filename'
     },
     {
       title: 'Uploaded At',
       dataIndex: 'upload_at',
       key: 'upload_at',
-      render: () => moment().format('MM-DD-YYYY | hh:mm:ss'),
+      render: () => moment().format('MM-DD-YYYY | hh:mm:ss')
     },
     {
       title: 'Active',
       dataIndex: 'active',
       key: 'active',
-      render: (text) => (text ? 'Yes' : 'No'),
-    },
-  ];
+      render: (text) => (text ? 'Yes' : 'No')
+    }
+  ]
 
   const filteredData = details?.documents?.filter((record) => {
     if (record.type === 'passport' || record.type === 'proof_of_res') {
-      return record;
+      return record
     }
-  });
+  })
 
   if (loading) {
     return (
       <div className="spin">
         <Spin />
       </div>
-    );
+    )
   }
 
   return (
@@ -310,5 +312,5 @@ export default function ApplicationDetails() {
       <div className="bottom" />
       <PoweredBy />
     </ContainerStyle>
-  );
+  )
 }

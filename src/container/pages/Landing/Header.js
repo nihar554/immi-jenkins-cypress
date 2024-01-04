@@ -1,28 +1,28 @@
 // import UilEllipsisV from '@iconscout/react-unicons/icons/uil-ellipsis-v';
-import { Button, Layout } from 'antd';
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ThemeProvider } from 'styled-components';
-import { Scrollbars } from '@pezhmanparsaee/react-custom-scrollbars';
+import { Button, Layout } from 'antd'
+import React, { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { ThemeProvider } from 'styled-components'
+import { Scrollbars } from '@pezhmanparsaee/react-custom-scrollbars'
 // import Search from '../../../components/utilities/auth-info/Search';
-import LandingMenu from '../../../layout/LandingMenu';
-import LandingMenuItems from '../../../layout/LandingMenueItems';
-import { Dropdown } from '../../../components/dropdown/dropdown';
-import { NavAuth } from '../../../components/utilities/auth-info/auth-info-style';
-import { LayoutContainer, TopMenuSearch } from '../../../layout/Style';
-import AuthInfo from '../../../components/utilities/auth-info/info';
-import { getItem } from '../../../utility/localStorageControl';
+import LandingMenu from '../../../layout/LandingMenu'
+import LandingMenuItems from '../../../layout/LandingMenueItems'
+import { Dropdown } from '../../../components/dropdown/dropdown'
+import { NavAuth } from '../../../components/utilities/auth-info/auth-info-style'
+import { LayoutContainer, TopMenuSearch } from '../../../layout/Style'
+import AuthInfo from '../../../components/utilities/auth-info/info'
+import { getItem } from '../../../utility/localStorageControl'
 
-const { theme } = require('../../../config/theme/themeVariables');
+const { theme } = require('../../../config/theme/themeVariables')
 
-const { Header, Sider } = Layout;
-const topMenu = true;
-const layoutMode = 'lightMode';
-const ChangeLayoutMode = true;
-const rtl = false;
-const left = !rtl ? 'left' : 'right';
+const { Header, Sider } = Layout
+const topMenu = true
+const layoutMode = 'lightMode'
+const ChangeLayoutMode = true
+const rtl = false
+const left = !rtl ? 'left' : 'right'
 const SideBarStyle = {
   margin: '63px 0 0 0',
   padding: `${!rtl ? '20px 20px 55px 0' : '20px 0 55px 20px'}`,
@@ -30,8 +30,8 @@ const SideBarStyle = {
   height: '100vh',
   position: 'fixed',
   [left]: 0,
-  zIndex: 988,
-};
+  zIndex: 988
+}
 
 const SideBarStyle1 = {
   margin: '0px 0 0 0',
@@ -40,61 +40,61 @@ const SideBarStyle1 = {
   height: '100vh',
   position: 'fixed',
   [left]: 0,
-  zIndex: 988,
-};
+  zIndex: 988
+}
 
-function LandingHeader() {
-  const Navigate = useNavigate();
-  const userInfo = getItem('access_token');
-  const { pathname } = useLocation();
-  const { i18n, t } = useTranslation();
+function LandingHeader () {
+  const Navigate = useNavigate()
+  const userInfo = getItem('access_token')
+  const { pathname } = useLocation()
+  const { i18n, t } = useTranslation()
   const [state, setState] = useState({
-    flag: i18n.language,
-  });
-  const [collapsed, setCollapsed] = useState(true);
-  const { flag } = state;
+    flag: i18n.language
+  })
+  const [collapsed, setCollapsed] = useState(true)
+  const { flag } = state
 
   const onFlagChangeHandle = (value, e) => {
-    e.preventDefault();
+    e.preventDefault()
     setState({
       ...state,
-      flag: value,
-    });
-    i18n.changeLanguage(value);
-  };
+      flag: value
+    })
+    i18n.changeLanguage(value)
+  }
 
   const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
+    setCollapsed(!collapsed)
+  }
   const toggleCollapsedMobile = () => {
     if (window.innerWidth <= 990) {
-      setCollapsed(!collapsed);
+      setCollapsed(!collapsed)
     }
-  };
+  }
   const renderView = ({ style }) => {
     const customStyle = {
       marginRight: 'auto',
-      [rtl ? 'marginLeft' : 'marginRight']: '-17px',
-    };
-    return <div style={{ ...style, ...customStyle }} />;
-  };
+      [rtl ? 'marginLeft' : 'marginRight']: '-17px'
+    }
+    return <div style={{ ...style, ...customStyle }} />
+  }
 
   const renderThumbVertical = ({ style }) => {
     const thumbStyle = {
       borderRadius: 6,
       backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
-      [left]: '2px',
-    };
-    return <div style={{ ...style, ...thumbStyle }} />;
-  };
+      [left]: '2px'
+    }
+    return <div style={{ ...style, ...thumbStyle }} />
+  }
 
   const renderThumbHorizontal = ({ style }) => {
     const thumbStyle = {
       borderRadius: 6,
-      backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
-    };
-    return <div style={{ ...style, ...thumbStyle }} />;
-  };
+      backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6'
+    }
+    return <div style={{ ...style, ...thumbStyle }} />
+  }
   const country = (
     <NavAuth>
       <Link onClick={(e) => onFlagChangeHandle('en', e)} to="#">
@@ -110,7 +110,7 @@ function LandingHeader() {
         <span>Arabic</span>
       </Link> */}
     </NavAuth>
-  );
+  )
 
   return (
     <LayoutContainer>
@@ -123,7 +123,7 @@ function LandingHeader() {
                   className={topMenu && window.innerWidth > 991 ? 'ninjadash-logo top-menu' : 'ninjadash-logo'}
                   to="/welcome"
                 >
-                  <img src={require(`../../../static/img/logo_dark.svg`).default} alt="" />
+                  <img src={require('../../../static/img/logo_dark.svg').default} alt="" />
                 </Link>
                 <Button type="link" className="mobile-menu-icon" onClick={toggleCollapsed}>
                   <img
@@ -170,7 +170,8 @@ function LandingHeader() {
         </Header>
       </Layout>
       <Layout>
-        {!topMenu || window.innerWidth <= 991 ? (
+        {!topMenu || window.innerWidth <= 991
+          ? (
           <ThemeProvider theme={theme}>
             <Sider
               width={280}
@@ -192,10 +193,11 @@ function LandingHeader() {
               </Scrollbars>
             </Sider>
           </ThemeProvider>
-        ) : null}
+            )
+          : null}
       </Layout>
     </LayoutContainer>
-  );
+  )
 }
 
-export default LandingHeader;
+export default LandingHeader

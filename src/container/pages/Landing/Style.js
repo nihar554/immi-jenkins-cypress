@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const LandingPage = Styled.div`
     height: 100%;
@@ -300,6 +300,6 @@ const LandingPage = Styled.div`
             padding-left: 10rem;
         }
     }
-`;
+`
 
-export { LandingPage };
+export { LandingPage }

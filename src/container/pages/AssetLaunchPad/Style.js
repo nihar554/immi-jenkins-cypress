@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const BannerStyle = Styled.div`
     padding: 0px 170px 20px;
@@ -41,7 +41,7 @@ const BannerStyle = Styled.div`
               transform: translateX(0);
             }
           }
-`;
+`
 const HeadTitle = Styled.div`
     height: 90%;
     padding-top: 7rem;
@@ -76,7 +76,7 @@ const HeadTitle = Styled.div`
         box-shadow: 0px 0px;
     }
 
-`;
+`
 const CardWrapper = Styled.figure`
   display: flex;
   margin: 0;
@@ -107,7 +107,7 @@ const CardWrapper = Styled.figure`
     }
    
   }
-`;
+`
 
 const BannerWrapper = Styled.figure`
 .position{
@@ -314,7 +314,7 @@ h3{
             border-radius: 4px;
         }
     }
-`;
+`
 
 const HeadContainer = Styled.div`
     background-image: url("/static/media/background-corve.fba9eb74a5ffae119308.png");
@@ -329,7 +329,7 @@ const HeadContainer = Styled.div`
             width:25rem !important;
             margin-left: -61px !important;
     }
-}`;
+}`
 
 const BorderBottom = Styled.div`
     padding: 0px 170px 20px;
@@ -358,5 +358,5 @@ h3 {
   width: 43%;
   height: 3px;
   background-color: ${({ theme }) => theme[theme.mainContent]['orange-color']}; 
-}`;
-export { HeadTitle, CardWrapper, BannerWrapper, HeadContainer, BorderBottom, BannerStyle };
+}`
+export { HeadTitle, CardWrapper, BannerWrapper, HeadContainer, BorderBottom, BannerStyle }

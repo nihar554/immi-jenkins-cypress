@@ -1,12 +1,12 @@
-import UilellipsisH from '@iconscout/react-unicons/icons/uil-ellipsis-h';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { CardFrame } from './style';
-import { Dropdown } from '../../dropdown/dropdown';
-import Heading from '../../heading/heading';
+import UilellipsisH from '@iconscout/react-unicons/icons/uil-ellipsis-h'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { CardFrame } from './style'
+import { Dropdown } from '../../dropdown/dropdown'
+import Heading from '../../heading/heading'
 
-function Cards(props) {
+function Cards (props) {
   const {
     title,
     children,
@@ -20,11 +20,12 @@ function Cards(props) {
     headStyle,
     border,
     bodypadding,
-    className,
-  } = props;
+    className
+  } = props
   return (
     <>
-      {!headless ? (
+      {!headless
+        ? (
         <CardFrame
           size={size}
           title={title}
@@ -50,7 +51,8 @@ function Cards(props) {
         >
           {children}
         </CardFrame>
-      ) : (
+          )
+        : (
         <CardFrame
           bodypadding={bodypadding && bodypadding}
           bodyStyle={bodyStyle && bodyStyle}
@@ -63,14 +65,14 @@ function Cards(props) {
           {caption && <p>{caption}</p>}
           {children}
         </CardFrame>
-      )}
+          )}
     </>
-  );
+  )
 }
 
 Cards.defaultProps = {
-  border: false,
-};
+  border: false
+}
 
 Cards.propTypes = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.node]),
@@ -85,7 +87,7 @@ Cards.propTypes = {
   bodypadding: PropTypes.string,
   className: PropTypes.string,
   moreText: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
-};
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node])
+}
 
-export { Cards };
+export { Cards }

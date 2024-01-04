@@ -1,5 +1,5 @@
-import Styled from 'styled-components';
-import BottomImage from '../../../../static/img/icon/botomsvg.svg';
+import Styled from 'styled-components'
+import BottomImage from '../../../../static/img/icon/botomsvg.svg'
 
 const LoginWrap = Styled.div`
   width: 100%;
@@ -144,7 +144,7 @@ ul, .term{
   background-color: #041E5F;
 }
 
-`;
+`
 
 const FAQWrap = Styled.div`
   width: 100%;
@@ -283,7 +283,7 @@ ul, .term{
   background-color: #041E5F;
 }
 
-`;
+`
 
 const AuthenticationWrapBottom = Styled.div`
   width: 100%;
@@ -292,7 +292,7 @@ const AuthenticationWrapBottom = Styled.div`
   background-image : url(${BottomImage});
   float: bottom;
 }
-`;
+`
 
 const AboutUsWrap = Styled.div`
   text-align: center;
@@ -310,7 +310,7 @@ const AboutUsWrap = Styled.div`
   //   }
   // }
 }
-`;
+`
 const AuthenticationWrap = Styled.div`
 height:100%;
  
@@ -411,7 +411,7 @@ height:100%;
     }
     }
 
-`;
+`
 
 const Content = Styled.div`
     padding: 100px;
@@ -432,7 +432,7 @@ const Content = Styled.div`
         max-width: 100%;
       }
     }
-`;
+`
 
 const AuthFormWrap = Styled.div`
   display: flex;
@@ -879,6 +879,6 @@ const AuthFormWrap = Styled.div`
       }
   }
 }
-`;
+`
 
-export { AuthenticationWrap, Content, AuthFormWrap, LoginWrap, AuthenticationWrapBottom, AboutUsWrap, FAQWrap };
+export { AuthenticationWrap, Content, AuthFormWrap, LoginWrap, AuthenticationWrapBottom, AboutUsWrap, FAQWrap }

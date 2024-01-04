@@ -32,7 +32,7 @@ const themeVariable = {
     'chat-bg': '#F4F5F7',
     'chat-reply-bg': '#404040',
     'chat-reply-text': '#ffffff',
-    'input-bg': '#ffffff',
+    'input-bg': '#ffffff'
   },
   darkMode: {
     'main-background': '#010413',
@@ -67,8 +67,8 @@ const themeVariable = {
     'chat-bg': '#282B37',
     'chat-reply-bg': '#282B37',
     'chat-reply-text': '#A4A5AA',
-    'input-bg': '#282B37',
-  },
-};
+    'input-bg': '#282B37'
+  }
+}
 
-export default themeVariable;
+export default themeVariable

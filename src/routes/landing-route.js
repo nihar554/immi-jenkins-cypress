@@ -1,11 +1,11 @@
-import { Spin } from 'antd';
-import React, { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Spin } from 'antd'
+import React, { Suspense, lazy } from 'react'
+import { Route, Routes } from 'react-router-dom'
 
-const AboutUs = lazy(() => import('../container/pages/CompanyPolicy/AboutUs'));
-const FAQs = lazy(() => import('../container/pages/CompanyPolicy/FAQs'));
-const ContactUs = lazy(() => import('../container/pages/CompanyPolicy/ContactUs'));
-const TermsConditions = lazy(() => import('../container/pages/CompanyPolicy/TermsConditions'));
+const AboutUs = lazy(() => import('../container/pages/CompanyPolicy/AboutUs'))
+const FAQs = lazy(() => import('../container/pages/CompanyPolicy/FAQs'))
+const ContactUs = lazy(() => import('../container/pages/CompanyPolicy/ContactUs'))
+const TermsConditions = lazy(() => import('../container/pages/CompanyPolicy/TermsConditions'))
 const LandingRoutes = React.memo(() => {
   return (
     <Suspense
@@ -22,6 +22,6 @@ const LandingRoutes = React.memo(() => {
         <Route path="contact" element={<ContactUs />} />
       </Routes>
     </Suspense>
-  );
-});
-export default LandingRoutes;
+  )
+})
+export default LandingRoutes

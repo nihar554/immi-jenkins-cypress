@@ -1,6 +1,5 @@
-
-import { theme } from './src/config/theme/themeVariables';
-const CracoLessPlugin = require('craco-less');
+import { theme } from './src/config/theme/themeVariables'
+const CracoLessPlugin = require('craco-less')
 
 module.exports = {
   webpack: {
@@ -8,9 +7,9 @@ module.exports = {
       resolve: {
         fallback: {
           path: false
-        },
-      },
-    },
+        }
+      }
+    }
   },
   plugins: [
     {
@@ -21,10 +20,10 @@ module.exports = {
             modifyVars: {
               ...theme
             },
-            javascriptEnabled: true,
-          },
-        },
-      },
-    },
-  ],
-};
+            javascriptEnabled: true
+          }
+        }
+      }
+    }
+  ]
+}

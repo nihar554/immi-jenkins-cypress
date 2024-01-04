@@ -1,33 +1,33 @@
-import UilSearch from '@iconscout/react-unicons/icons/uil-search';
-import UilTimes from '@iconscout/react-unicons/icons/uil-times';
-import { Form, Input } from 'antd';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import UilSearch from '@iconscout/react-unicons/icons/uil-search'
+import UilTimes from '@iconscout/react-unicons/icons/uil-times'
+import { Form, Input } from 'antd'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 // import { useSelector } from 'react-redux';
 
 const SearchBar = React.memo(() => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
 
   const [state, setState] = useState({
-    openSearch: false,
-  });
+    openSearch: false
+  })
 
   const openSearchbar = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     setState({
       ...state,
-      openSearch: true,
-    });
-  };
+      openSearch: true
+    })
+  }
   const closeSearchbar = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     setState({
       ...state,
-      openSearch: false,
-    });
-  };
+      openSearch: false
+    })
+  }
 
-  const { openSearch } = state;
+  const { openSearch } = state
 
   return (
     <div
@@ -51,7 +51,7 @@ const SearchBar = React.memo(() => {
         <UilTimes />
       </Link>
     </div>
-  );
-});
+  )
+})
 
-export default SearchBar;
+export default SearchBar

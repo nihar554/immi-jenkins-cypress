@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const OverviewCardWrap = Styled.div`
     margin-bottom: 25px;
@@ -217,7 +217,7 @@ const OverviewCardWrap = Styled.div`
             padding: 40.5px 25px !important;
         }
     }
-`;
+`
 
 const OverviewCardMeshWrap = Styled.div`
     &.ninjadash-overview-card-single{
@@ -473,7 +473,7 @@ const OverviewCardMeshWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const InfoCardStyle = Styled.article`
     ${({ theme, type }) => `
@@ -513,7 +513,7 @@ const InfoCardStyle = Styled.article`
             color: var(--El-Salvador-Blue, #041E5F);
         }
     `}
-`;
+`
 
 const NewsletterStyle = Styled.figure`
     &.ninjadash-newsletter-theme-2{
@@ -587,7 +587,7 @@ const NewsletterStyle = Styled.figure`
             }
         }
     `}
-`;
+`
 
 const CourseCardWrap = Styled.div`
     &.ninjadash-course-card-single{
@@ -688,7 +688,7 @@ const CourseCardWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const ProfileCardWrapper = Styled.figure`
   ${({ theme }) => `
@@ -775,7 +775,7 @@ const ProfileCardWrapper = Styled.figure`
     }
     
   `}
-`;
+`
 
 const BlogCardStyleWrap = Styled.figure`
     .ninjadash-blog{
@@ -916,7 +916,7 @@ const BlogCardStyleWrap = Styled.figure`
             }
         }
     }
-`;
+`
 
 export {
   OverviewCardWrap,
@@ -925,5 +925,5 @@ export {
   NewsletterStyle,
   CourseCardWrap,
   BlogCardStyleWrap,
-  ProfileCardWrapper,
-};
+  ProfileCardWrapper
+}

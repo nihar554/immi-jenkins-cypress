@@ -1,14 +1,14 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Button } from 'antd';
-import { useNavigate } from 'react-router';
-import { BitcoinFrontierWizardBlock, BitcoinFrontierWrapper } from './Style';
-import MobileBitcoinFrontier from './MobileView/MobileBitcoinFrontier';
-import Steper from './Steper';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Button } from 'antd'
+import { useNavigate } from 'react-router'
+import { BitcoinFrontierWizardBlock, BitcoinFrontierWrapper } from './Style'
+import MobileBitcoinFrontier from './MobileView/MobileBitcoinFrontier'
+import Steper from './Steper'
 
-function BitcoinFrontier() {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+function BitcoinFrontier () {
+  const { t } = useTranslation()
+  const navigate = useNavigate()
 
   return (
     <BitcoinFrontierWrapper>
@@ -18,7 +18,7 @@ function BitcoinFrontier() {
         <div className="descripion">
           <p className="font-regular">
             {t(
-              'As_the_trailblazer_in_adopting_Bitcoin_as_legal_tender,_El_Salvador_offers_unparalleled_advantages_for_enthusiasts_of_the_cryptocurrency_and_forward-thinking_entrepreneurs._Enjoy_the_freedom_of_using_Bitcoin_effortlessly,_complemented_by_tax_laws_that_support_your_ventures.',
+              'As_the_trailblazer_in_adopting_Bitcoin_as_legal_tender,_El_Salvador_offers_unparalleled_advantages_for_enthusiasts_of_the_cryptocurrency_and_forward-thinking_entrepreneurs._Enjoy_the_freedom_of_using_Bitcoin_effortlessly,_complemented_by_tax_laws_that_support_your_ventures.'
             )}
           </p>
         </div>
@@ -33,13 +33,13 @@ function BitcoinFrontier() {
       <div className="center">
         <Button
           onClick={() => {
-            navigate('/register');
+            navigate('/register')
           }}
         >
           {t('Start_the_Process')}
         </Button>
       </div>
     </BitcoinFrontierWrapper>
-  );
+  )
 }
-export default BitcoinFrontier;
+export default BitcoinFrontier

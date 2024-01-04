@@ -9,16 +9,16 @@ const actions = {
 
   loginBegin: () => {
     return {
-      type: actions.LOGIN_BEGIN,
-    };
+      type: actions.LOGIN_BEGIN
+    }
   },
 
   loginSuccess: (data, login) => {
     return {
       type: actions.LOGIN_SUCCESS,
       value: data,
-      isLogin: login,
-    };
+      isLogin: login
+    }
   },
 
   loginErr: (err) => {
@@ -26,29 +26,29 @@ const actions = {
       type: actions.LOGIN_ERR,
       value: '',
       isLogin: false,
-      err,
-    };
+      err
+    }
   },
 
   logoutBegin: () => {
     return {
-      type: actions.LOGOUT_BEGIN,
-    };
+      type: actions.LOGOUT_BEGIN
+    }
   },
 
   logoutSuccess: (data) => {
     return {
       type: actions.LOGOUT_SUCCESS,
-      data,
-    };
+      data
+    }
   },
 
   logoutErr: (err) => {
     return {
       type: actions.LOGOUT_ERR,
-      err,
-    };
-  },
-};
+      err
+    }
+  }
+}
 
-export default actions;
+export default actions

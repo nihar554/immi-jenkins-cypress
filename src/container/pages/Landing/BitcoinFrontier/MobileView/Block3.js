@@ -1,8 +1,8 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
-function Block3() {
-  const { t } = useTranslation();
+function Block3 () {
+  const { t } = useTranslation()
   return (
     <div className="block-container">
       <div className="block-icon">
@@ -30,7 +30,7 @@ function Block3() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Block3;
+export default Block3

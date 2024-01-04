@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const ChangelogWrapper = Styled.div`
    .ant-card-head{
@@ -150,7 +150,7 @@ const ChangelogWrapper = Styled.div`
       }
     }
   }
-`;
+`
 
 const VersionHistoryList = Styled.div`
   .history-title{
@@ -176,6 +176,6 @@ const VersionHistoryList = Styled.div`
       }
     }
   }
-`;
+`
 
-export { ChangelogWrapper, VersionHistoryList };
+export { ChangelogWrapper, VersionHistoryList }

@@ -1,10 +1,10 @@
 // import UilBriefcaseAlt from '@iconscout/react-unicons/icons/uil-briefcase-alt';
 // import UilAward from '@iconscout/react-unicons/icons/uil-award';
-import propTypes from 'prop-types';
-import React from 'react';
-import { InfoCardStyle } from './Style';
+import propTypes from 'prop-types'
+import React from 'react'
+import { InfoCardStyle } from './Style'
 
-function InfoCard({ text, counter, type, isResident, setIsResident }) {
+function InfoCard ({ text, counter, type, isResident, setIsResident }) {
   return (
     <div
       className=""
@@ -13,13 +13,14 @@ function InfoCard({ text, counter, type, isResident, setIsResident }) {
           ? {
               border: '2px solid #0042A8',
               cursor: 'pointer',
-              boxShadow: '2px 2px 11px 1px rgba(0, 0, 0, 0.35)',
+              boxShadow: '2px 2px 11px 1px rgba(0, 0, 0, 0.35)'
             }
           : { cursor: 'pointer', border: '2px solid #9D9D9D' }
       }
     >
       <InfoCardStyle type={type} onClick={() => setIsResident(text)}>
-        {text === 'Buy Resident Card' ? (
+        {text === 'Buy Resident Card'
+          ? (
           <svg width="84" height="74" viewBox="0 0 84 74" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M27.183 27.1824C31.3146 27.1824 34.6638 23.8331 34.6638 19.7016C34.6638 15.57 31.3146 12.2207 27.183 12.2207C23.0514 12.2207 19.7021 15.57 19.7021 19.7016C19.7021 23.8331 23.0514 27.1824 27.183 27.1824Z"
@@ -59,7 +60,8 @@ function InfoCard({ text, counter, type, isResident, setIsResident }) {
               strokeLinejoin="round"
             />
           </svg>
-        ) : (
+            )
+          : (
           <svg width="85" height="73" viewBox="0 0 85 73" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
@@ -80,12 +82,12 @@ function InfoCard({ text, counter, type, isResident, setIsResident }) {
               strokeWidth="1.7"
             />
           </svg>
-        )}
+            )}
         <p className="ninjadash-infocard-text">{text}</p>
         <h6 className="ninjadash-infocard-label">{counter}</h6>
       </InfoCardStyle>
     </div>
-  );
+  )
 }
 
 InfoCard.propTypes = {
@@ -93,13 +95,13 @@ InfoCard.propTypes = {
   text: propTypes.string,
   type: propTypes.oneOf(['primary', 'secondary']),
   isResident: propTypes.bool,
-  setIsResident: propTypes.bool,
-};
+  setIsResident: propTypes.bool
+}
 
 InfoCard.defaultProps = {
   counter: '21k',
   text: 'Total Products',
-  type: 'primary',
-};
+  type: 'primary'
+}
 
-export default InfoCard;
+export default InfoCard

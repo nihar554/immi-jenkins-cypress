@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const MobileViewStyle = Styled.div`
     width: 100%;
@@ -48,6 +48,6 @@ const MobileViewStyle = Styled.div`
         position: absolute;
         text-align: right;
     }
-`;
+`
 
-export { MobileViewStyle };
+export { MobileViewStyle }

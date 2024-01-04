@@ -1,5 +1,5 @@
-import { Dropdown } from 'antd';
-import Styled from 'styled-components';
+import { Dropdown } from 'antd'
+import Styled from 'styled-components'
 
 const Content = Styled.div`
     background: ${({ theme }) => theme[theme.mainContent]['white-background']};
@@ -27,16 +27,16 @@ const Content = Styled.div`
             color: ${({ theme }) => theme.pink}
         }
     }
-`;
+`
 
 const DropdownStyle = Styled(Dropdown)`
     
-`;
+`
 
 const PassPopUpStyle = Styled.div`
     .msg-container {
         height:20px;
     }
-`;
+`
 
-export { Content, DropdownStyle, PassPopUpStyle };
+export { Content, DropdownStyle, PassPopUpStyle }

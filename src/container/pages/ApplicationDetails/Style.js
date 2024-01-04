@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import BottomImage from '../../../static/img/icon/botomsvg.svg';
+import styled from 'styled-components'
+import BottomImage from '../../../static/img/icon/botomsvg.svg'
 
 const ApplicationDetailWrapper = styled.div`
   .main {
     background-color: ${({ theme }) => theme[theme.mainContent]['main-background']};
     min-height: 80vh;
   }
-`;
+`
 
 const ContainerStyle = styled.div`
   height:100%;
@@ -96,7 +96,7 @@ const ContainerStyle = styled.div`
     }
     }
 
-`;
+`
 
 const MainStyle = styled.div`
   width: 100%;
@@ -213,7 +213,7 @@ const MainStyle = styled.div`
     background-color: #0042a8;
     border-color: #0042a8;
   }
-`;
+`
 
 const ApplicationDetailsWrapper = styled.div`
   width: 100%;
@@ -301,6 +301,6 @@ const ApplicationDetailsWrapper = styled.div`
       line-height: 27.987px;
     }
   }
-`;
+`
 
-export { ApplicationDetailWrapper, ContainerStyle, MainStyle, ApplicationDetailsWrapper };
+export { ApplicationDetailWrapper, ContainerStyle, MainStyle, ApplicationDetailsWrapper }

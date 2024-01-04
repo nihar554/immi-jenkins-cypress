@@ -1,5 +1,5 @@
-import { Steps } from 'antd';
-import Styled from 'styled-components';
+import { Steps } from 'antd'
+import Styled from 'styled-components'
 
 const StepsStyle = Styled(Steps)`
     .anticon {
@@ -56,7 +56,7 @@ const StepsStyle = Styled(Steps)`
         border: 2px solid var(--El-Salvador-Blue, #041E5F);
         color: var(--El-Salvador-Blue, #041E5F);
     }
-`;
+`
 
 const ActionWrapper = Styled.div`
     width: 100%;
@@ -121,7 +121,7 @@ const ActionWrapper = Styled.div`
             color: white;
         }
     }
-`;
+`
 
 const FigureWizards = Styled.figure`
 
@@ -129,7 +129,7 @@ const FigureWizards = Styled.figure`
     img {
         ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
     }
-`;
+`
 
 const OrderSummary = Styled.div`
     max-width: 650px;
@@ -289,6 +289,6 @@ const OrderSummary = Styled.div`
             ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
         }
     }
-`;
+`
 
-export { StepsStyle, ActionWrapper, FigureWizards, OrderSummary };
+export { StepsStyle, ActionWrapper, FigureWizards, OrderSummary }

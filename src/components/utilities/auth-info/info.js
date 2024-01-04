@@ -1,32 +1,32 @@
-import UilAngleDown from '@iconscout/react-unicons/icons/uil-angle-down';
-import UilSignout from '@iconscout/react-unicons/icons/uil-signout';
-import UilUser from '@iconscout/react-unicons/icons/uil-user';
-import UilDashboard from '@iconscout/react-unicons/icons/uil-dashboard';
-import { Avatar } from 'antd';
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
-import { InfoWraper, NavAuth, UserDropDwon } from './auth-info-style';
-import { Popover } from '../../popup/popup';
-import Heading from '../../heading/heading';
-import { Dropdown } from '../../dropdown/dropdown';
-import { logOut } from '../../../redux/authentication/actionCreator';
+import UilAngleDown from '@iconscout/react-unicons/icons/uil-angle-down'
+import UilSignout from '@iconscout/react-unicons/icons/uil-signout'
+import UilUser from '@iconscout/react-unicons/icons/uil-user'
+import UilDashboard from '@iconscout/react-unicons/icons/uil-dashboard'
+import { Avatar } from 'antd'
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { InfoWraper, NavAuth, UserDropDwon } from './auth-info-style'
+import { Popover } from '../../popup/popup'
+import Heading from '../../heading/heading'
+import { Dropdown } from '../../dropdown/dropdown'
+import { logOut } from '../../../redux/authentication/actionCreator'
 
 const AuthInfo = React.memo(() => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const [state, setState] = useState({
-    flag: 'en',
-  });
-  const navigate = useNavigate();
-  const { i18n, t } = useTranslation();
-  const { flag } = state;
+    flag: 'en'
+  })
+  const navigate = useNavigate()
+  const { i18n, t } = useTranslation()
+  const { flag } = state
 
   const SignOut = (e) => {
-    e.preventDefault();
-    dispatch(logOut(() => navigate('/')));
-  };
+    e.preventDefault()
+    dispatch(logOut(() => navigate('/')))
+  }
 
   const userContent = (
     <UserDropDwon>
@@ -62,16 +62,16 @@ const AuthInfo = React.memo(() => {
         </Link>
       </div>
     </UserDropDwon>
-  );
+  )
 
   const onFlagChangeHandle = (value, e) => {
-    e.preventDefault();
+    e.preventDefault()
     setState({
       ...state,
-      flag: value,
-    });
-    i18n.changeLanguage(value);
-  };
+      flag: value
+    })
+    i18n.changeLanguage(value)
+  }
 
   const country = (
     <NavAuth>
@@ -88,7 +88,7 @@ const AuthInfo = React.memo(() => {
         <span>Arabic</span>
       </Link> */}
     </NavAuth>
-  );
+  )
 
   return (
     <InfoWraper>
@@ -112,7 +112,7 @@ const AuthInfo = React.memo(() => {
         </Popover>
       </div>
     </InfoWraper>
-  );
-});
+  )
+})
 
-export default AuthInfo;
+export default AuthInfo

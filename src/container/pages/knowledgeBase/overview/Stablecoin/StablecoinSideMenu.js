@@ -1,60 +1,60 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState, useLayoutEffect, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import UilTimes from '@iconscout/react-unicons/icons/uil-times';
-import UilAngleUp from '@iconscout/react-unicons/icons/uil-angle-up';
-import UilAngleDown from '@iconscout/react-unicons/icons/uil-angle-down';
-import UilAlignLeft from '@iconscout/react-unicons/icons/uil-align-left';
-import UilAlignRight from '@iconscout/react-unicons/icons/uil-align-right';
-import StablecoinKnowledgeDetails from './StablecoinKnowledgeDetails';
-import GeneralKnowledgeTop from '../GeneralKnowledgeTop';
-import { KnowledgebaseArticleWrap, SingleKnowledgeContent, SidebarNavWrap } from '../../style';
-import { Button } from '../../../../../components/buttons/buttons';
-import { Main } from '../../../../styled';
+import React, { useState, useLayoutEffect, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import UilTimes from '@iconscout/react-unicons/icons/uil-times'
+import UilAngleUp from '@iconscout/react-unicons/icons/uil-angle-up'
+import UilAngleDown from '@iconscout/react-unicons/icons/uil-angle-down'
+import UilAlignLeft from '@iconscout/react-unicons/icons/uil-align-left'
+import UilAlignRight from '@iconscout/react-unicons/icons/uil-align-right'
+import StablecoinKnowledgeDetails from './StablecoinKnowledgeDetails'
+import GeneralKnowledgeTop from '../GeneralKnowledgeTop'
+import { KnowledgebaseArticleWrap, SingleKnowledgeContent, SidebarNavWrap } from '../../style'
+import { Button } from '../../../../../components/buttons/buttons'
+import { Main } from '../../../../styled'
 // import KnowledgeBaseTop from '../Knowledgebase/knowledgeTop';
-import productsDetails from '../../../../../demoData/products-article.json';
+import productsDetails from '../../../../../demoData/products-article.json'
 
-function StablecoinSideMenu() {
+function StablecoinSideMenu () {
   const [state, setState] = useState({
     responsive: 0,
-    collapsed: false,
-  });
-  const [data, setData] = useState();
-  const [open, setOpen] = useState('menu1');
-  const { responsive, collapsed } = state;
-  const { id } = useParams();
+    collapsed: false
+  })
+  const [data, setData] = useState()
+  const [open, setOpen] = useState('menu1')
+  const { responsive, collapsed } = state
+  const { id } = useParams()
 
   useLayoutEffect(() => {
-    function updateSize() {
-      const width = window.innerWidth;
-      setState({ responsive: width });
+    function updateSize () {
+      const width = window.innerWidth
+      setState({ responsive: width })
     }
-    window.addEventListener('resize', updateSize);
-    updateSize();
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
+    window.addEventListener('resize', updateSize)
+    updateSize()
+    return () => window.removeEventListener('resize', updateSize)
+  }, [])
 
   const toggleCollapsed = () => {
     setState({
       ...state,
-      collapsed: !collapsed,
-    });
-  };
+      collapsed: !collapsed
+    })
+  }
 
   const filterData = () => {
-    const [result] = productsDetails.filter((e) => e.keyName === 'stablecoin');
-    setData(result);
+    const [result] = productsDetails.filter((e) => e.keyName === 'stablecoin')
+    setData(result)
     // eslint-disable-next-line array-callback-return
     result.category.map((event, i) => {
       if (event.subCategoryName.includes(id)) {
-        setOpen(`menu${i + 1}`);
+        setOpen(`menu${i + 1}`)
       }
-    });
-  };
+    })
+  }
 
   useEffect(() => {
-    filterData();
-  }, []);
+    filterData()
+  }, [])
   return (
     <>
       <Main>
@@ -89,7 +89,8 @@ function StablecoinSideMenu() {
               )}
             </div>
             <SingleKnowledgeContent>
-              {responsive > 991 ? (
+              {responsive > 991
+                ? (
                 <SidebarNavWrap>
                   <div className="knowledge-sidebar">
                     <h4 className="knowledge-sidebar__title">{data?.productName}</h4>
@@ -114,16 +115,17 @@ function StablecoinSideMenu() {
                                         {sub}
                                       </Link>
                                     </li>
-                                  );
+                                  )
                                 })}
                               </ul>
                             </li>
-                          );
+                          )
                         })}
                     </ul>
                   </div>
                 </SidebarNavWrap>
-              ) : (
+                  )
+                : (
                 <div className={collapsed ? 'knowledge-sidebar-wrap show' : 'knowledge-sidebar-wrap hide'}>
                   <SidebarNavWrap>
                     <div className="knowledge-sidebar">
@@ -236,7 +238,7 @@ function StablecoinSideMenu() {
                     </div>
                   </SidebarNavWrap>
                 </div>
-              )}
+                  )}
 
               <StablecoinKnowledgeDetails title={id} />
             </SingleKnowledgeContent>
@@ -251,7 +253,7 @@ function StablecoinSideMenu() {
         </KnowledgebaseArticleWrap>
       </Main>
     </>
-  );
+  )
 }
 
-export default StablecoinSideMenu;
+export default StablecoinSideMenu

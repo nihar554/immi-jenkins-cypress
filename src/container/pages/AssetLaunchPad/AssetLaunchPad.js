@@ -1,60 +1,60 @@
-import React, { useEffect } from 'react';
-import { Button, Col, Row } from 'antd';
-import { Link } from 'react-router-dom';
-import { HeadTitle, BannerWrapper, HeadContainer, BorderBottom, BannerStyle } from './Style';
-import BottomCard from './BottomCard';
-import { Main } from '../../styled';
-import useAnalyticsEventTracker from '../../../config/dataService/GoogleAnalyticsService';
-import Cryptocollection from '../../../static/img/images/asset-launchpad-head.svg';
-import OnePlatform from '../../../static/img/images/one-platform.png';
-import TpLogo from '../../../static/img/logo_white.svg';
-import DownCorve from '../../../static/img/images/background-corve-down.svg';
-import blueAngel from '../../../static/img/blue-angel.svg';
-import angel from '../../../static/img/angel.svg';
-import BannerSection from '../../../components/BannerSection/Banner';
-import BannerImage from '../../../components/BannerSection/BannerImage';
+import React, { useEffect } from 'react'
+import { Button, Col, Row } from 'antd'
+import { Link } from 'react-router-dom'
+import { HeadTitle, BannerWrapper, HeadContainer, BorderBottom, BannerStyle } from './Style'
+import BottomCard from './BottomCard'
+import { Main } from '../../styled'
+import useAnalyticsEventTracker from '../../../config/dataService/GoogleAnalyticsService'
+import Cryptocollection from '../../../static/img/images/asset-launchpad-head.svg'
+import OnePlatform from '../../../static/img/images/one-platform.png'
+import TpLogo from '../../../static/img/logo_white.svg'
+import DownCorve from '../../../static/img/images/background-corve-down.svg'
+import blueAngel from '../../../static/img/blue-angel.svg'
+import angel from '../../../static/img/angel.svg'
+import BannerSection from '../../../components/BannerSection/Banner'
+import BannerImage from '../../../components/BannerSection/BannerImage'
 
-function AssetLaunchPad() {
+function AssetLaunchPad () {
   useEffect(() => {
     const reveal = () => {
-      const reveals = document.querySelectorAll('.reveal,.scale-animation,.reveal-right,.reveal-top');
+      const reveals = document.querySelectorAll('.reveal,.scale-animation,.reveal-right,.reveal-top')
 
       reveals.forEach((element) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
+        const windowHeight = window.innerHeight
+        const elementTop = element.getBoundingClientRect().top
+        const elementVisible = 150
 
         if (elementTop < windowHeight - elementVisible) {
-          element.classList.add('active');
+          element.classList.add('active')
         } else {
-          element.classList.remove('active');
+          element.classList.remove('active')
         }
-      });
-    };
+      })
+    }
 
-    window.addEventListener('scroll', reveal);
-    reveal();
+    window.addEventListener('scroll', reveal)
+    reveal()
 
     return () => {
-      window.removeEventListener('scroll', reveal);
-    };
-  }, []);
+      window.removeEventListener('scroll', reveal)
+    }
+  }, [])
 
-  const gaEventTracker = useAnalyticsEventTracker('Asset issuance', `Landed on Asset issuance `, 'Landed');
+  const gaEventTracker = useAnalyticsEventTracker('Asset issuance', 'Landed on Asset issuance ', 'Landed')
   useEffect(() => {
-    gaEventTracker();
-  }, [window.location.pathname]);
-  const gaClickIssueAssetNowTracker = useAnalyticsEventTracker('Asset issuance', `Click on Issue Asset Now`, 'Clicked');
+    gaEventTracker()
+  }, [window.location.pathname])
+  const gaClickIssueAssetNowTracker = useAnalyticsEventTracker('Asset issuance', 'Click on Issue Asset Now', 'Clicked')
   const gaClickIssueAssetNowPrototypeTracker = useAnalyticsEventTracker(
     'Asset issuance',
-    `Click on Issue Asset Now (Prototype)`,
-    'Clicked',
-  );
+    'Click on Issue Asset Now (Prototype)',
+    'Clicked'
+  )
   const gaClickBridgePrototypeTracker = useAnalyticsEventTracker(
     'Asset issuance',
-    `Click on Bridge (Prototype)`,
-    'Clicked',
-  );
+    'Click on Bridge (Prototype)',
+    'Clicked'
+  )
 
   return (
     <>
@@ -128,7 +128,7 @@ function AssetLaunchPad() {
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'left bottom',
-              backgroundOrigin: 'content-box',
+              backgroundOrigin: 'content-box'
             }}
           >
             <img src={blueAngel} alt="" className=" absolute" style={{ marginTop: '-6%' }} />
@@ -172,7 +172,7 @@ function AssetLaunchPad() {
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'left bottom',
-              backgroundOrigin: 'content-box',
+              backgroundOrigin: 'content-box'
             }}
           >
             <BannerStyle>
@@ -209,7 +209,7 @@ function AssetLaunchPad() {
                 height: '15em',
                 width: '100%',
                 // position: 'absolute',
-                marginTop: '-8%',
+                marginTop: '-8%'
               }}
             />
             <img src={blueAngel} alt="" className=" absolute" style={{ right: '16%' }} />
@@ -218,7 +218,7 @@ function AssetLaunchPad() {
         </BannerStyle>
       </Main>
     </>
-  );
+  )
 }
 
-export default AssetLaunchPad;
+export default AssetLaunchPad

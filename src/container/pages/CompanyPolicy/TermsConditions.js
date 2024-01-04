@@ -1,13 +1,13 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Row, Col } from 'antd';
-import { AuthFormWrap, LoginWrap } from './Style';
-import termsconditions from '../../../demoData/terms-conditions.json';
-import { LandingPage } from '../Landing/Style';
-import LandingHeader from '../Landing/Header';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Row, Col } from 'antd'
+import { AuthFormWrap, LoginWrap } from './Style'
+import termsconditions from '../../../demoData/terms-conditions.json'
+import { LandingPage } from '../Landing/Style'
+import LandingHeader from '../Landing/Header'
 
-function TermsConditions() {
-  const { t } = useTranslation();
+function TermsConditions () {
+  const { t } = useTranslation()
   return (
     <LandingPage>
       <LandingHeader />
@@ -34,7 +34,7 @@ function TermsConditions() {
                               </h3>
                               <p className="">{t(data.description)}</p>
                             </>
-                          );
+                          )
                         })}
                         <p>{t('Last update')}: Dec 7, 2023</p>
                       </div>
@@ -47,7 +47,7 @@ function TermsConditions() {
         </div>
       </LoginWrap>
     </LandingPage>
-  );
+  )
 }
 
-export default TermsConditions;
+export default TermsConditions

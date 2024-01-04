@@ -51,11 +51,11 @@
 //       .should('be.visible')
 //       .click();
 //       cy.intercept("POST", "https://www.google.com/recaptcha/api2/userverify**").as("captchaRequest");
-  
+
 //       cy.wait('@captchaRequest').its('response.statusCode').should('eq', 200).then(() => {
 //         cy.get(".btn-create").click();
 //       });
-      
+
 //     cy.wrap(mailslurp.waitForLatestEmail(ID)).then((email) => {
 //       const parser = new DOMParser();
 //       const doc = parser.parseFromString(email.body, "text/html");
@@ -360,7 +360,7 @@
 //   //     //   "POST",
 //   //     //   "https://betaapi.adoptingelsalvador.gob.sv/changePassword"
 //   //     //   ).as("changePassword");
-        
+
 //   //   // Wait for the changePassword API request and access the response
 //   //   // cy.wait("@changePassword").then((interception) => {
 //   //   //   // Access the response body

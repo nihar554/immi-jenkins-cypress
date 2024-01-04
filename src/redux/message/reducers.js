@@ -1,37 +1,37 @@
-import actions from './actions';
-import initialState from '../../demoData/message-list.json';
+import actions from './actions'
+import initialState from '../../demoData/message-list.json'
 
-const { READ_MESSAGE_BEGIN, READ_MESSAGE_SUCCESS, READ_MESSAGE_ERR } = actions;
+const { READ_MESSAGE_BEGIN, READ_MESSAGE_SUCCESS, READ_MESSAGE_ERR } = actions
 
 const initialStateFilter = {
   data: initialState,
   loading: false,
-  error: null,
-};
+  error: null
+}
 
 const readMessageReducer = (state = initialStateFilter, action) => {
-  const { type, data, err } = action;
+  const { type, data, err } = action
   switch (type) {
     case READ_MESSAGE_BEGIN:
       return {
         ...initialState,
-        loading: true,
-      };
+        loading: true
+      }
     case READ_MESSAGE_SUCCESS:
       return {
         ...initialState,
         data,
-        loading: false,
-      };
+        loading: false
+      }
     case READ_MESSAGE_ERR:
       return {
         ...initialState,
         error: err,
-        loading: false,
-      };
+        loading: false
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export { readMessageReducer };
+export { readMessageReducer }

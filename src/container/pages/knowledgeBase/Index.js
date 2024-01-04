@@ -1,41 +1,41 @@
-import React, { lazy, Suspense } from 'react';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { Spin } from 'antd';
-import { Routes, NavLink, Route, Link } from 'react-router-dom';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import KnowledgeBaseTop from './overview/Knowledgebase/knowledgeTop';
-import { KnowledgebaseArticleWrap, ArticleTabWrap, PopularArticleWrap, CtaWrap } from './style';
-import { Button } from '../../../components/buttons/buttons';
-import { Main } from '../../styled';
+import React, { lazy, Suspense } from 'react'
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+import { Spin } from 'antd'
+import { Routes, NavLink, Route, Link } from 'react-router-dom'
+import { ArrowRightOutlined } from '@ant-design/icons'
+import KnowledgeBaseTop from './overview/Knowledgebase/knowledgeTop'
+import { KnowledgebaseArticleWrap, ArticleTabWrap, PopularArticleWrap, CtaWrap } from './style'
+import { Button } from '../../../components/buttons/buttons'
+import { Main } from '../../styled'
 
-import articles from '../../../demoData/article.json';
+import articles from '../../../demoData/article.json'
 
 // const Plugins = lazy(() => import('./overview/ArticlePlugin'));
 // const Themes = lazy(() => import('./overview/ArticleTheme'));
 // const Extensions = lazy(() => import('./overview/ArticleExtension'));
-const Stablecoin = lazy(() => import('./overview/ArticleStablecoin'));
-const ArticleCommodities = lazy(() => import('./overview/ArticleCommodities'));
+const Stablecoin = lazy(() => import('./overview/ArticleStablecoin'))
+const ArticleCommodities = lazy(() => import('./overview/ArticleCommodities'))
 
-function KnowledgeBase() {
-  const path = '/knowledgebase';
+function KnowledgeBase () {
+  const path = '/knowledgebase'
   const products = [
     {
       name: 'Stablecoin',
-      to: 'stablecoin',
+      to: 'stablecoin'
     },
     {
       name: 'Commodities',
-      to: 'commodities',
+      to: 'commodities'
     },
     {
       name: 'Senatus',
-      to: 'senatus',
+      to: 'senatus'
     },
     {
       name: 'Asset issuance',
-      to: 'assetissuance',
-    },
-  ];
+      to: 'assetissuance'
+    }
+  ]
   return (
     <>
       <Main>
@@ -51,7 +51,7 @@ function KnowledgeBase() {
                         <li key={key}>
                           <NavLink to={`${path}/${prod.to}`}>{prod.name}</NavLink>
                         </li>
-                      );
+                      )
                     })}
                     {/* <li>
                       <NavLink to={`${path}/plugins`}>Plugins</NavLink>
@@ -117,7 +117,7 @@ function KnowledgeBase() {
         </KnowledgebaseArticleWrap>
       </Main>
     </>
-  );
+  )
 }
 
-export default KnowledgeBase;
+export default KnowledgeBase

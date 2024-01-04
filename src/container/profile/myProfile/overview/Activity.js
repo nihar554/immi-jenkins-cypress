@@ -1,11 +1,11 @@
-import React, { lazy, Suspense } from 'react';
-import { Row, Col, Skeleton } from 'antd';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
+import React, { lazy, Suspense } from 'react'
+import { Row, Col, Skeleton } from 'antd'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
 
-const RightAside = lazy(() => import('./RightAside'));
-const ActivityContent = lazy(() => import('./ActivityContent'));
+const RightAside = lazy(() => import('./RightAside'))
+const ActivityContent = lazy(() => import('./ActivityContent'))
 
-function Activity() {
+function Activity () {
   return (
     <Row gutter={25}>
       <Col md={16} xs={24}>
@@ -31,7 +31,7 @@ function Activity() {
         </Suspense>
       </Col>
     </Row>
-  );
+  )
 }
 
-export default Activity;
+export default Activity

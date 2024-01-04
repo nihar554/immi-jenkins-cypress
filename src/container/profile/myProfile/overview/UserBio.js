@@ -1,14 +1,14 @@
-import React from 'react';
-import UilPhone from '@iconscout/react-unicons/icons/uil-phone';
-import UilGlobe from '@iconscout/react-unicons/icons/uil-globe';
-import UilEnvelope from '@iconscout/react-unicons/icons/uil-envelope';
-import FontAwesome from 'react-fontawesome';
-import { Link } from 'react-router-dom';
-import { UserBioBox } from './Style';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import { Button } from '../../../../components/buttons/buttons';
+import React from 'react'
+import UilPhone from '@iconscout/react-unicons/icons/uil-phone'
+import UilGlobe from '@iconscout/react-unicons/icons/uil-globe'
+import UilEnvelope from '@iconscout/react-unicons/icons/uil-envelope'
+import FontAwesome from 'react-fontawesome'
+import { Link } from 'react-router-dom'
+import { UserBioBox } from './Style'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
+import { Button } from '../../../../components/buttons/buttons'
 
-function UserBio() {
+function UserBio () {
   return (
     <UserBioBox>
       <Cards headless>
@@ -72,7 +72,7 @@ function UserBio() {
         </div>
       </Cards>
     </UserBioBox>
-  );
+  )
 }
 
-export default UserBio;
+export default UserBio

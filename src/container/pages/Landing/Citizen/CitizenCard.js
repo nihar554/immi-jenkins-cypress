@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import { CardStyle } from './Style';
+import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
+import { CardStyle } from './Style'
 // import CitizenCardHeading from '../../../components/heading/heading';
-function CitizenCard({ item }) {
-  const { t } = useTranslation();
-  const { name, img, text } = item;
+function CitizenCard ({ item }) {
+  const { t } = useTranslation()
+  const { name, img, text } = item
   return (
     <CardStyle>
       <figure>
@@ -17,9 +17,9 @@ function CitizenCard({ item }) {
         </figcaption>
       </figure>
     </CardStyle>
-  );
+  )
 }
 CitizenCard.propTypes = {
-  item: PropTypes.object,
-};
-export default CitizenCard;
+  item: PropTypes.object
+}
+export default CitizenCard

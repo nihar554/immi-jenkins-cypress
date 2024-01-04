@@ -5,23 +5,23 @@ const actions = {
 
   readMessageBegin: () => {
     return {
-      type: actions.READ_MESSAGE_BEGIN,
-    };
+      type: actions.READ_MESSAGE_BEGIN
+    }
   },
 
   readMessageSuccess: (data) => {
     return {
       type: actions.READ_MESSAGE_SUCCESS,
-      data,
-    };
+      data
+    }
   },
 
   readMessageErr: (err) => {
     return {
       type: actions.READ_MESSAGE_ERR,
-      err,
-    };
-  },
-};
+      err
+    }
+  }
+}
 
-export default actions;
+export default actions

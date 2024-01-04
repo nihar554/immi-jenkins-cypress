@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import { ButtonStyled, ButtonStyledGroup } from './styled';
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { ButtonStyled, ButtonStyledGroup } from './styled'
 
 // @Todo props spreading
 
-function Button(props) {
+function Button (props) {
   const {
     type,
     shape,
@@ -20,14 +20,14 @@ function Button(props) {
     load,
     children,
     ...rest
-  } = props;
+  } = props
   const [state, setState] = useState({
-    loading: false,
-  });
+    loading: false
+  })
 
   const enterLoading = () => {
-    setState({ loading: true });
-  };
+    setState({ loading: true })
+  }
 
   return (
     <ButtonStyled
@@ -49,12 +49,12 @@ function Button(props) {
     >
       {children}
     </ButtonStyled>
-  );
+  )
 }
 
 Button.defaultProps = {
-  type: 'default',
-};
+  type: 'default'
+}
 
 Button.propTypes = {
   type: PropTypes.oneOf([
@@ -72,7 +72,7 @@ Button.propTypes = {
     'dashed',
     'error',
     'extra-light',
-    'default',
+    'default'
   ]),
   shape: PropTypes.string,
   icon: PropTypes.string,
@@ -85,15 +85,15 @@ Button.propTypes = {
   social: PropTypes.bool,
   load: PropTypes.bool,
   ghost: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
-};
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node])
+}
 
-function BtnGroup({ children }) {
-  return <ButtonStyledGroup>{children}</ButtonStyledGroup>;
+function BtnGroup ({ children }) {
+  return <ButtonStyledGroup>{children}</ButtonStyledGroup>
 }
 
 BtnGroup.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.node).isRequired,
-};
+  children: PropTypes.arrayOf(PropTypes.node).isRequired
+}
 
-export { Button, BtnGroup };
+export { Button, BtnGroup }

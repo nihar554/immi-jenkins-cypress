@@ -1,28 +1,28 @@
-import { useState } from 'react';
-import UilFacebook from '@iconscout/react-unicons/icons/uil-facebook-f';
-import UilLinkh from '@iconscout/react-unicons/icons/uil-link-h';
-import UilLinkedin from '@iconscout/react-unicons/icons/uil-linkedin';
-import UilTwitter from '@iconscout/react-unicons/icons/uil-twitter';
-import { Col, Row, Tooltip } from 'antd';
-import { Link } from 'react-router-dom';
-import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
-import propTypes from 'prop-types';
-import { BlogDetailsStyle } from '../Style';
-import { Main } from '../../../styled';
+import { useState } from 'react'
+import UilFacebook from '@iconscout/react-unicons/icons/uil-facebook-f'
+import UilLinkh from '@iconscout/react-unicons/icons/uil-link-h'
+import UilLinkedin from '@iconscout/react-unicons/icons/uil-linkedin'
+import UilTwitter from '@iconscout/react-unicons/icons/uil-twitter'
+import { Col, Row, Tooltip } from 'antd'
+import { Link } from 'react-router-dom'
+import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share'
+import propTypes from 'prop-types'
+import { BlogDetailsStyle } from '../Style'
+import { Main } from '../../../styled'
 // const { BlogCardData } = cardData;
 
-function BlogDetails1({ data }) {
-  console.log('data', data);
-  const currentUrl = 'https://www.google.com/';
+function BlogDetails1 ({ data }) {
+  console.log('data', data)
+  const currentUrl = 'https://www.google.com/'
 
-  const [isCopied, setIsCopied] = useState(false);
+  const [isCopied, setIsCopied] = useState(false)
   const handleCopy = () => {
-    setIsCopied(true);
-    navigator.clipboard.writeText(currentUrl);
+    setIsCopied(true)
+    navigator.clipboard.writeText(currentUrl)
     setTimeout(() => {
-      setIsCopied(false);
-    }, 1500);
-  };
+      setIsCopied(false)
+    }, 1500)
+  }
 
   return (
     <>
@@ -33,7 +33,7 @@ function BlogDetails1({ data }) {
               <div className="ninjadash-blog-details">
                 <div className="ninjadash-blog-featured-img">
                   <img
-                    src={require(`../../../../static/img/blogs/blog-details/blog-detail-main-1.jpg`)}
+                    src={require('../../../../static/img/blogs/blog-details/blog-detail-main-1.jpg')}
                     alt="ninjadash Blog"
                     style={{ height: '30vw' }}
                   />
@@ -61,10 +61,10 @@ function BlogDetails1({ data }) {
                     </p>
                     <h2>What is Tokenization-as-a-Service?</h2>
                     <p>
-                    Tether offers Tokenization-as-a-Service (TaaS), a financial innovation that allows
-                      organizations to harness the power of blockchain technology to tokenize assets and commodities.
-                      Designed with the specific needs of financial institutions, nation states, and stable coin issuers
-                      in mind, TaaS offers a range of services to facilitate asset tokenization:
+                      Tether offers Tokenization-as-a-Service (TaaS), a financial innovation that allows organizations
+                      to harness the power of blockchain technology to tokenize assets and commodities. Designed with
+                      the specific needs of financial institutions, nation states, and stable coin issuers in mind, TaaS
+                      offers a range of services to facilitate asset tokenization:
                     </p>
                     <p>
                       Asset Representation: TaaS enables organizations to create digital tokens on the blockchain
@@ -228,11 +228,11 @@ function BlogDetails1({ data }) {
         </Row>
       </Main>
     </>
-  );
+  )
 }
 
 BlogDetails1.propTypes = {
-  data: propTypes.object,
-};
+  data: propTypes.object
+}
 
-export default BlogDetails1;
+export default BlogDetails1

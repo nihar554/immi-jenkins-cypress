@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import UilSmile from '@iconscout/react-unicons/icons/uil-smile';
-import UilFrown from '@iconscout/react-unicons/icons/uil-frown';
-import FontAwesome from 'react-fontawesome';
-import { Collapse, Row, Col, Form, Input } from 'antd';
-import { Link } from 'react-router-dom';
-import { Button } from '../../../../../components/buttons/buttons';
-import { KnowledgeDetailsWrap } from '../../style';
+import React, { useState } from 'react'
+import UilSmile from '@iconscout/react-unicons/icons/uil-smile'
+import UilFrown from '@iconscout/react-unicons/icons/uil-frown'
+import FontAwesome from 'react-fontawesome'
+import { Collapse, Row, Col, Form, Input } from 'antd'
+import { Link } from 'react-router-dom'
+import { Button } from '../../../../../components/buttons/buttons'
+import { KnowledgeDetailsWrap } from '../../style'
 
-const { Panel } = Collapse;
-const { TextArea } = Input;
-function SingleKnowledgeDetails() {
+const { Panel } = Collapse
+const { TextArea } = Input
+function SingleKnowledgeDetails () {
   const [state, setstate] = useState({
-    key: 0,
-  });
+    key: 0
+  })
   const callback = (key) => {
-    setstate({ ...state, key });
-  };
+    setstate({ ...state, key })
+  }
   return (
     <KnowledgeDetailsWrap>
       <div className="knowledge-details">
@@ -43,7 +43,7 @@ function SingleKnowledgeDetails() {
             clita kasd gubergren, no sea takimata sanctus.
           </p>
           <div className="knowledge-details-img">
-            <img src={require(`../../../../../static/img/knowledgebase/wp-research.png`)} alt="StrikingDash" />
+            <img src={require('../../../../../static/img/knowledgebase/wp-research.png')} alt="StrikingDash" />
           </div>
         </div>
         <div className="knowledge-details__single--block">
@@ -238,7 +238,7 @@ function SingleKnowledgeDetails() {
         </Form>
       </div>
     </KnowledgeDetailsWrap>
-  );
+  )
 }
 
-export default SingleKnowledgeDetails;
+export default SingleKnowledgeDetails

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Button, Col, Row } from 'antd';
-import PropTypes from 'prop-types';
-import { CardWrapper } from './Style';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import React from 'react'
+import { Button, Col, Row } from 'antd'
+import PropTypes from 'prop-types'
+import { CardWrapper } from './Style'
+import { Cards } from '../../../components/cards/frame/cards-frame'
 
 const BottomCard = React.memo(({ logo, text, buttonTitle }) => {
   return (
@@ -12,7 +12,7 @@ const BottomCard = React.memo(({ logo, text, buttonTitle }) => {
         bodyStyle={{
           content: '',
           border: '3px dashed #53AE94',
-          borderRadius: '20px',
+          borderRadius: '20px'
         }}
       >
         <CardWrapper>
@@ -40,11 +40,11 @@ const BottomCard = React.memo(({ logo, text, buttonTitle }) => {
         </CardWrapper>
       </Cards>
     </Col>
-  );
-});
+  )
+})
 BottomCard.propTypes = {
   logo: PropTypes.string,
   text: PropTypes.string,
-  buttonTitle: PropTypes.string,
-};
-export default BottomCard;
+  buttonTitle: PropTypes.string
+}
+export default BottomCard

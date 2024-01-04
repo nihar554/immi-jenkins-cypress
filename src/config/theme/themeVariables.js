@@ -1,49 +1,49 @@
-import themes from './themeConfigure';
+import themes from './themeConfigure'
 
-const { lightMode, darkMode } = themes;
+const { lightMode, darkMode } = themes
 
-const primaryColor = '#0042A8';
-const primaryHover = '#4269A5';
-const secondaryColor = '#0042A8';
-const secondaryHover = '#3520C8';
-const linkColor = '#1890ff';
-const linkHover = '#0d79df';
-const successColor = '#01B81A';
-const successHover = '#0D811D';
-const warningColor = '#FA8B0C';
-const warningHover = '#D9790A';
-const errorColor = '#FF0F0F';
-const errorHover = '#CB0000';
-const infoColor = '#00AAFF';
-const infoHover = '#0787C7';
-const darkColor = '#0A0A0A';
-const darkHover = '#272525';
-const grayColor = '#404040';
-const grayHover = '#585858';
-const lightColor = '#747474';
-const lightHover = '#747474';
-const whiteColor = '#ffffff';
-const whiteHover = '#ADB5D9';
-const dangerColor = '#FF0F0F';
-const dangerHover = '#CB0000';
-const extraLightColor = '#A0A0A0';
-const extraLightHover = '#ADB5D9';
-const headingColor = 'rgba(0, 0, 0, 0.85)';
-const dashColor = '#E3E6EF';
-const borderLight = '#F1F2F6';
-const borderNormal = '#E3E6EF';
-const borderDeep = '#C6D0DC';
-const bgGrayLight = '#F8F9FB';
-const bgGrayNormal = '#F4F5F7';
-const bgGrayDeep = '#EFF0F3';
-const lightGrayColor = '#868EAE';
-const sliderRailColor = 'rgba(130,49,211,.20)';
-const graySolid = '#9299b8';
-const pinkColor = '#F63178';
-const textColor = '#666D92';
-const btnlg = '50px';
-const btnsm = '38px';
-const btnxs = '32px';
+const primaryColor = '#0042A8'
+const primaryHover = '#4269A5'
+const secondaryColor = '#0042A8'
+const secondaryHover = '#3520C8'
+const linkColor = '#1890ff'
+const linkHover = '#0d79df'
+const successColor = '#01B81A'
+const successHover = '#0D811D'
+const warningColor = '#FA8B0C'
+const warningHover = '#D9790A'
+const errorColor = '#FF0F0F'
+const errorHover = '#CB0000'
+const infoColor = '#00AAFF'
+const infoHover = '#0787C7'
+const darkColor = '#0A0A0A'
+const darkHover = '#272525'
+const grayColor = '#404040'
+const grayHover = '#585858'
+const lightColor = '#747474'
+const lightHover = '#747474'
+const whiteColor = '#ffffff'
+const whiteHover = '#ADB5D9'
+const dangerColor = '#FF0F0F'
+const dangerHover = '#CB0000'
+const extraLightColor = '#A0A0A0'
+const extraLightHover = '#ADB5D9'
+const headingColor = 'rgba(0, 0, 0, 0.85)'
+const dashColor = '#E3E6EF'
+const borderLight = '#F1F2F6'
+const borderNormal = '#E3E6EF'
+const borderDeep = '#C6D0DC'
+const bgGrayLight = '#F8F9FB'
+const bgGrayNormal = '#F4F5F7'
+const bgGrayDeep = '#EFF0F3'
+const lightGrayColor = '#868EAE'
+const sliderRailColor = 'rgba(130,49,211,.20)'
+const graySolid = '#9299b8'
+const pinkColor = '#F63178'
+const textColor = '#666D92'
+const btnlg = '50px'
+const btnsm = '38px'
+const btnxs = '32px'
 
 const theme = {
   lightMode,
@@ -200,8 +200,8 @@ const theme = {
 
   // Progress
   'progress-default-color': primaryColor,
-  'progress-text-font-size': '14px',
-};
+  'progress-text-font-size': '14px'
+}
 
 const themeColor = {
   lightMode,
@@ -252,7 +252,7 @@ const themeColor = {
   'light-gray-color': lightGrayColor,
   'btn-height-large': btnlg,
   'btn-height-small': btnsm,
-  'btn-height-extra-small': btnxs,
-};
+  'btn-height-extra-small': btnxs
+}
 
-export { theme, themeColor };
+export { theme, themeColor }

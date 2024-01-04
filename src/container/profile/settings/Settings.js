@@ -1,56 +1,56 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { Row, Col, Skeleton, Spin } from 'antd';
-import { Routes, Route } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { SettingWrapper } from './overview/style';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
-import { Cards } from '../../../components/cards/frame/cards-frame';
-import { DataService } from '../../../config/dataService/dataService';
-import { Background } from '../../pages/style';
+import React, { lazy, Suspense, useEffect, useState } from 'react'
+import { Row, Col, Skeleton, Spin } from 'antd'
+import { Routes, Route } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { SettingWrapper } from './overview/style'
+import { PageHeader } from '../../../components/page-headers/page-headers'
+import { Main } from '../../styled'
+import { Cards } from '../../../components/cards/frame/cards-frame'
+import { DataService } from '../../../config/dataService/dataService'
+import { Background } from '../../pages/style'
 
-const Profile = lazy(() => import('./overview/Profile'));
+const Profile = lazy(() => import('./overview/Profile'))
 // const Account = lazy(() => import('./overview/Account'));
-const Password = lazy(() => import('./overview/ChangePassword'));
+const Password = lazy(() => import('./overview/ChangePassword'))
 // const SocialProfiles = lazy(() => import('./overview/SocialProfile'));
-const Notification = lazy(() => import('./overview/Notification'));
-const AuthorBox = lazy(() => import('./overview/ProfileAuthorBox'));
+const Notification = lazy(() => import('./overview/Notification'))
+const AuthorBox = lazy(() => import('./overview/ProfileAuthorBox'))
 // const CoverSection = lazy(() => import('../overview/CoverSection'));
 
-const AWS = require('aws-sdk');
+const AWS = require('aws-sdk')
 
-const S3_BUCKET = process.env.REACT_APP_S3_BUCKET;
-const AWS_ACCESS_KEY_ID = process.env.REACT_APP_AWS_ACCESS_KEY_ID;
-const AWS_SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
+const S3_BUCKET = process.env.REACT_APP_S3_BUCKET
+const AWS_ACCESS_KEY_ID = process.env.REACT_APP_AWS_ACCESS_KEY_ID
+const AWS_SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
 
 export const s3 = new AWS.S3({
   Bucket: S3_BUCKET,
   accessKeyId: AWS_ACCESS_KEY_ID,
   secretAccessKey: AWS_SECRET_ACCESS_KEY,
-  region: 'eu-central-1',
-});
+  region: 'eu-central-1'
+})
 
-function Settings() {
-  const { t } = useTranslation();
-  const [state, setState] = useState({});
-  const [loading, setLoading] = useState(true);
+function Settings () {
+  const { t } = useTranslation()
+  const [state, setState] = useState({})
+  const [loading, setLoading] = useState(true)
 
   const PageRoutes = [
     {
       path: '/',
-      breadcrumbName: t('dashboard'),
+      breadcrumbName: t('dashboard')
     },
     {
       path: 'profile',
-      breadcrumbName: t('My Profile'),
-    },
-  ];
+      breadcrumbName: t('My Profile')
+    }
+  ]
 
   const getUserProfile = () => {
-    setLoading(true);
+    setLoading(true)
     DataService.get('/profile')
       .then((res) => {
-        setState(res.data);
+        setState(res.data)
         // if (res?.data?.profilepic) {
         //   const key = res?.data?.profilepic?.split('amazonaws.com/')[1];
         //   if (key) {
@@ -66,17 +66,17 @@ function Settings() {
         //     });
         //   }
         // }
-        setLoading(false);
+        setLoading(false)
       })
       .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
-  };
+        console.log(err)
+        setLoading(false)
+      })
+  }
 
   useEffect(() => {
-    getUserProfile();
-  }, []);
+    getUserProfile()
+  }, [])
 
   return (
     <>
@@ -135,7 +135,7 @@ function Settings() {
         </>
       )}
     </>
-  );
+  )
 }
 
-export default Settings;
+export default Settings

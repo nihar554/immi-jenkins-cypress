@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const HeadContainer = styled.div`
   padding: 0px 170px 20px;
@@ -25,7 +25,7 @@ const HeadContainer = styled.div`
   .product-single-info {
     padding-top: 0.5rem;
   }
-`;
+`
 
 const ProjectCard = styled.div`
   padding: 0px 170px 20px;
@@ -164,7 +164,7 @@ const ProjectCard = styled.div`
       }
     }
   }
-`;
+`
 const NotificationWrapper = styled.div`
   padding: 0px 170px 20px;
   @media only screen and (max-width: 1199px) {
@@ -235,6 +235,6 @@ const NotificationWrapper = styled.div`
       }
     }
   }
-`;
+`
 
-export { HeadContainer, ProjectCard, NotificationWrapper };
+export { HeadContainer, ProjectCard, NotificationWrapper }

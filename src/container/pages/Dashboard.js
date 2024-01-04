@@ -1,41 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { Col, Row, Spin } from 'antd';
-import { ContainerStyle, MainStyle, RightBlockStyle } from './style';
-import PoweredBy from './Landing/PowerdBy';
-import { DataService } from '../../config/dataService/dataService';
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { Col, Row, Spin } from 'antd'
+import { ContainerStyle, MainStyle, RightBlockStyle } from './style'
+import PoweredBy from './Landing/PowerdBy'
+import { DataService } from '../../config/dataService/dataService'
 
-function Dashboard() {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
-  const [applicationDetails, setApplicationDetails] = useState('');
-  const [loading, setLoading] = useState(true);
+function Dashboard () {
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const [applicationDetails, setApplicationDetails] = useState('')
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setLoading(true);
-    DataService.get(`/userApplications/user?sort=createdAt&order=-1&limit=1 `)
+    setLoading(true)
+    DataService.get('/userApplications/user?sort=createdAt&order=-1&limit=1 ')
       .then((res) => {
-        setLoading(false);
-        setApplicationDetails(res.data);
+        setLoading(false)
+        setApplicationDetails(res.data)
       })
       .catch(() => {
-        setLoading(false);
-      });
-  }, []);
+        setLoading(false)
+      })
+  }, [])
 
   if (loading) {
     return (
       <div className="spin">
         <Spin />
       </div>
-    );
+    )
   }
   return (
     <>
       <ContainerStyle>
         <MainStyle>
-          {applicationDetails && applicationDetails.length ? (
+          {applicationDetails && applicationDetails.length
+            ? (
             <>
               <div className="left-container">
                 <div className="left-main">
@@ -91,7 +92,8 @@ function Dashboard() {
                 </div>
               </div>
             </>
-          ) : (
+              )
+            : (
             <>
               <div className="left-container">
                 <div className="left-main">
@@ -124,13 +126,13 @@ function Dashboard() {
                 </div>
               </div>
             </>
-          )}
+              )}
         </MainStyle>
         <div className="bottom" />
         <PoweredBy />
       </ContainerStyle>
     </>
-  );
+  )
 }
 
-export default Dashboard;
+export default Dashboard

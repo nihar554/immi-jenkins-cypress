@@ -1,7 +1,7 @@
-import { Layout } from 'antd';
-import Styled from 'styled-components';
+import { Layout } from 'antd'
+import Styled from 'styled-components'
 
-const { Footer } = Layout;
+const { Footer } = Layout
 
 const NavTitle = Styled.p`
     font-size: 12px;
@@ -10,7 +10,7 @@ const NavTitle = Styled.p`
     color: rgb(146, 153, 184);
     padding: 0px 15px;
     display: flex;
-`;
+`
 
 const LayoutContainer = Styled.div`
     .ant-layout {
@@ -779,7 +779,7 @@ const LayoutContainer = Styled.div`
             z-index: 101;
         }
     }
-`;
+`
 
 const SmallScreenAuthInfo = Styled.div`
     background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
@@ -799,7 +799,7 @@ const SmallScreenAuthInfo = Styled.div`
     .ninjadash-nav-actions__searchbar{
         display: none !important;
     }
-`;
+`
 
 const SmallScreenSearch = Styled.div`
         background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
@@ -813,7 +813,7 @@ const SmallScreenSearch = Styled.div`
         z-index: ${({ hide }) => (hide ? -1 : 999)};
         box-shadow: 0 2px 30px #9299b810;
 
-`;
+`
 
 const ModeSwitch = Styled.div`
     background: #ddd;
@@ -830,7 +830,7 @@ const ModeSwitch = Styled.div`
     button{
         margin-top: 5px;
     }
-`;
+`
 
 const TopMenuSearch = Styled.div`
     .top-right-wrap{
@@ -911,7 +911,7 @@ const TopMenuSearch = Styled.div`
             }
         }
     }
-`;
+`
 
 const TopMenuStyle = Styled.div`
     .ninjadash-top-menu{
@@ -1217,7 +1217,7 @@ const TopMenuStyle = Styled.div`
             }
         }
     }
-`;
+`
 
 const FooterStyle = Styled(Footer)`
     padding: 20px 30px 18px;    
@@ -1262,7 +1262,7 @@ const FooterStyle = Styled(Footer)`
             width: 30px;
         }
     }
-`;
+`
 
 const TetheFooterStyle = Styled(Footer)`
     padding: 20px 30px 18px;    
@@ -1305,7 +1305,7 @@ const TetheFooterStyle = Styled(Footer)`
         }
     }
     
-`;
+`
 
 export {
   NavTitle,
@@ -1316,5 +1316,5 @@ export {
   ModeSwitch,
   TopMenuStyle,
   TopMenuSearch,
-  TetheFooterStyle,
-};
+  TetheFooterStyle
+}

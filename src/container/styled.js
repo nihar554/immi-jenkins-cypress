@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const Main = Styled.div`
     width: 100%;
@@ -537,7 +537,7 @@ const Main = Styled.div`
     .ant-card-grid{
         color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
         box-shadow: 1px 0 0 0 ${({ theme }) => theme[theme.mainContent]['border-color-default']}, 0 1px 0 0 ${({
-  theme,
+  theme
 }) => theme[theme.mainContent]['border-color-default']}, 1px 1px 0 0 ${({ theme }) =>
   theme[theme.mainContent]['border-color-default']}, 1px 0 0 0 ${({ theme }) =>
   theme[theme.mainContent]['border-color-default']} inset, 0 1px 0 0 ${({ theme }) =>
@@ -1673,7 +1673,7 @@ const Main = Styled.div`
     .ninjadash-action-count{
         ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 8px;
     }
-`;
+`
 
 const BorderLessHeading = Styled.div`
     .ant-card{
@@ -1684,7 +1684,7 @@ const BorderLessHeading = Styled.div`
             padding-top: 0 !important;
         }
     }
-`;
+`
 const ChartPointHorizontal = Styled.div`
     .ninjadash-chartpoint{
         display: flex;
@@ -1708,7 +1708,7 @@ const ChartPointHorizontal = Styled.div`
             }
         }
     }
-`;
+`
 const TableDefaultStyle = Styled.div`
     &.ninjadash-having-header-bg{
         .ant-table-content{
@@ -1848,7 +1848,7 @@ const TableDefaultStyle = Styled.div`
     .ant-empty-description{
         color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};
     }
-`;
+`
 
 const ButtonsGroupWrapper = Styled.div`
     margin-bottom: -25px;
@@ -1896,19 +1896,19 @@ const ButtonsGroupWrapper = Styled.div`
             }
         }
     }
-`;
+`
 
 const BlockButtonsWrapper = Styled.div`
     .ant-btn-block{
         margin-bottom: 10px;
     }
-`;
+`
 
 const ButtonSizeWrapper = Styled.div`
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
-`;
+`
 
 const BtnWithIcon = Styled.div`
     display: inline;
@@ -1921,7 +1921,7 @@ const BtnWithIcon = Styled.div`
     .ant-btn-group button.active{
         ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0px;
     }
-`;
+`
 
 const AlertList = Styled.div`
     margin-top: -15px;
@@ -1939,7 +1939,7 @@ const AlertList = Styled.div`
             display: none !important;
         }
     }
-`;
+`
 
 const AutoCompleteWrapper = Styled.div`
     .ant-select:not(:last-child){
@@ -1953,7 +1953,7 @@ const AutoCompleteWrapper = Styled.div`
             }
         }
     }
-`;
+`
 
 const CalendarWrapper = Styled.div`
     .ant-picker-calendar{
@@ -2041,7 +2041,7 @@ const CalendarWrapper = Styled.div`
             line-height: 28px !important;
         }
     }
-`;
+`
 
 const DatePickerWrapper = Styled.div`
     .ant-picker{
@@ -2065,7 +2065,7 @@ const DatePickerWrapper = Styled.div`
     .ant-picker-range .ant-picker-input > input{
         text-align: center;
     }
-`;
+`
 
 const NotificationListWrapper = Styled.div`
     margin: -4px;
@@ -2075,7 +2075,7 @@ const NotificationListWrapper = Styled.div`
             color: #fff;
         }
     }
-`;
+`
 
 const TagInput = Styled.div`
     padding: 12px;
@@ -2091,7 +2091,7 @@ const TagInput = Styled.div`
         display: inline-flex;
         align-items: center;
     }
-`;
+`
 
 const PageHeaderWrapper = Styled.div`
     .ant-page-header{
@@ -2101,13 +2101,13 @@ const PageHeaderWrapper = Styled.div`
     .ant-page-header .ant-page-header-heading-left{
         margin: 2px 0;
     }
-`;
+`
 
 const MessageStyleWrapper = Styled.div`
     .ant-btn-lg{
         font-size: 14px;
     }
-`;
+`
 
 const BasicFormWrapper = Styled.div`
 
@@ -2419,7 +2419,7 @@ const BasicFormWrapper = Styled.div`
              background-color: transparent;
        }
        
-`;
+`
 
 const CardToolbox = Styled.div`
     margin: 16px 0 10px;
@@ -2582,7 +2582,7 @@ const CardToolbox = Styled.div`
             }
         }
     }
-`;
+`
 
 const FormGroupWrapper = Styled.div`
     .ant-card-body{
@@ -2590,12 +2590,12 @@ const FormGroupWrapper = Styled.div`
             padding: 0 !important;
         }
     }
-`;
+`
 const BannerCardStyleWrap = Styled.div`
     .ant-card-body{
         padding: 25px 25px 0 25px !important;
     }
-`;
+`
 
 const FileCardWrapper = Styled.div`
     .file-list{
@@ -2646,7 +2646,7 @@ const FileCardWrapper = Styled.div`
             }
         }
     }
-`;
+`
 
 const TableWrapper = Styled.div`
     .ant-pagination-prev, .ant-pagination-next {
@@ -2937,7 +2937,7 @@ const TableWrapper = Styled.div`
             background-color: ${({ theme }) => theme['danger-color']}15;
         }
     }
-`;
+`
 
 const DragDropStyle = Styled.div`
     .ant-card-body{
@@ -2991,7 +2991,7 @@ const DragDropStyle = Styled.div`
             }
         }
     }
-`;
+`
 
 const ImportStyleWrap = Styled.div`
     @media only screen and (max-width: 575px){
@@ -3033,7 +3033,7 @@ const ImportStyleWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const ExportStyleWrap = Styled.div`
     .ninjadash_export-box{
@@ -3111,7 +3111,7 @@ const ExportStyleWrap = Styled.div`
             min-height: 44px;
         }
     }
-`;
+`
 
 const CollapseStyleWrap = Styled.div`
     .ant-collapse{
@@ -3155,7 +3155,7 @@ const CollapseStyleWrap = Styled.div`
             }
         }
     }
-`;
+`
 
 const TopToolBox = Styled.div`
     margin-bottom: 30px;
@@ -3478,7 +3478,7 @@ const TopToolBox = Styled.div`
             }
         }
     }
-`;
+`
 
 export {
   Main,
@@ -3507,5 +3507,5 @@ export {
   ExportStyleWrap,
   ChartPointHorizontal,
   CollapseStyleWrap,
-  TopToolBox,
-};
+  TopToolBox
+}

@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { Row, Col, Form, Input } from 'antd';
-import FontAwesome from 'react-fontawesome';
-import { SocialProfileForm } from './style';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import { Button } from '../../../../components/buttons/buttons';
-import Heading from '../../../../components/heading/heading';
-import { BasicFormWrapper } from '../../../styled';
+import React, { useState } from 'react'
+import { Row, Col, Form, Input } from 'antd'
+import FontAwesome from 'react-fontawesome'
+import { SocialProfileForm } from './style'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
+import { Button } from '../../../../components/buttons/buttons'
+import Heading from '../../../../components/heading/heading'
+import { BasicFormWrapper } from '../../../styled'
 
-function SocialProfile() {
-  const [form] = Form.useForm();
+function SocialProfile () {
+  const [form] = Form.useForm()
   const [state, setState] = useState({
-    values: null,
-  });
+    values: null
+  })
 
   const handleSubmit = (values) => {
-    setState({ ...state, values });
-  };
+    setState({ ...state, values })
+  }
 
   const handleCancel = (e) => {
-    e.preventDefault();
-    form.resetFields();
-  };
+    e.preventDefault()
+    form.resetFields()
+  }
 
   return (
     <Cards
@@ -135,7 +135,7 @@ function SocialProfile() {
         </Row>
       </SocialProfileForm>
     </Cards>
-  );
+  )
 }
 
-export default SocialProfile;
+export default SocialProfile

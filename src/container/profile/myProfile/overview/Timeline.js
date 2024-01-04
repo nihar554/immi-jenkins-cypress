@@ -1,18 +1,18 @@
-import React, { lazy, Suspense } from 'react';
-import { Row, Col, Skeleton } from 'antd';
-import { useSelector } from 'react-redux';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
+import React, { lazy, Suspense } from 'react'
+import { Row, Col, Skeleton } from 'antd'
+import { useSelector } from 'react-redux'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
 
-const RightAside = lazy(() => import('./RightAside'));
-const CreatePost = lazy(() => import('./timeline/CreatePost'));
-const AllPosts = lazy(() => import('./timeline/Posts'));
+const RightAside = lazy(() => import('./RightAside'))
+const CreatePost = lazy(() => import('./timeline/CreatePost'))
+const AllPosts = lazy(() => import('./timeline/Posts'))
 
-function Timeline() {
+function Timeline () {
   const { posts } = useSelector((state) => {
     return {
-      posts: state.Profile.posts,
-    };
-  });
+      posts: state.Profile.posts
+    }
+  })
   return (
     <Row gutter={25}>
       <Col lg={16} xs={24}>
@@ -39,7 +39,7 @@ function Timeline() {
               >
                 <AllPosts {...post} />
               </Suspense>
-            );
+            )
           })}
       </Col>
       <Col lg={8} xs={24}>
@@ -54,7 +54,7 @@ function Timeline() {
         </Suspense>
       </Col>
     </Row>
-  );
+  )
 }
 
-export default Timeline;
+export default Timeline

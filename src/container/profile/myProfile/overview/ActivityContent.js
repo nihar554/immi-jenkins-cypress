@@ -1,17 +1,17 @@
-import React from 'react';
-import UilAt from '@iconscout/react-unicons/icons/uil-at';
-import UilHeart from '@iconscout/react-unicons/icons/uil-heart';
-import UilInbox from '@iconscout/react-unicons/icons/uil-inbox';
-import UilUpload from '@iconscout/react-unicons/icons/uil-upload';
-import UilSignout from '@iconscout/react-unicons/icons/uil-signout';
-import UilEllipsisH from '@iconscout/react-unicons/icons/uil-ellipsis-h';
-import UilCommentAlt from '@iconscout/react-unicons/icons/uil-comment-alt';
-import { Link } from 'react-router-dom';
-import { ActivityContents } from './Style';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import { Dropdown } from '../../../../components/dropdown/dropdown';
+import React from 'react'
+import UilAt from '@iconscout/react-unicons/icons/uil-at'
+import UilHeart from '@iconscout/react-unicons/icons/uil-heart'
+import UilInbox from '@iconscout/react-unicons/icons/uil-inbox'
+import UilUpload from '@iconscout/react-unicons/icons/uil-upload'
+import UilSignout from '@iconscout/react-unicons/icons/uil-signout'
+import UilEllipsisH from '@iconscout/react-unicons/icons/uil-ellipsis-h'
+import UilCommentAlt from '@iconscout/react-unicons/icons/uil-comment-alt'
+import { Link } from 'react-router-dom'
+import { ActivityContents } from './Style'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
+import { Dropdown } from '../../../../components/dropdown/dropdown'
 
-function ActivityContent() {
+function ActivityContent () {
   return (
     <ActivityContents>
       <Cards headless>
@@ -329,7 +329,7 @@ function ActivityContent() {
         </ul>
       </Cards>
     </ActivityContents>
-  );
+  )
 }
 
-export default ActivityContent;
+export default ActivityContent

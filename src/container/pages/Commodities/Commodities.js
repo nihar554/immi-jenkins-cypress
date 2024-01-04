@@ -1,28 +1,28 @@
-import React, { useEffect } from 'react';
-import { Col, Row } from 'antd';
-import { Link } from 'react-router-dom';
-import { HeadTitle, HeadContainer, BannerStyle } from './Style';
-import useAnalyticsEventTracker from '../../../config/dataService/GoogleAnalyticsService';
-import { Main } from '../../styled';
-import Cryptocollection from '../../../static/img/images/asset-launchpad-head.svg';
-import BannerSection from '../../../components/BannerSection/Banner';
-import BannerImage from '../../../components/BannerSection/BannerImage';
+import React, { useEffect } from 'react'
+import { Col, Row } from 'antd'
+import { Link } from 'react-router-dom'
+import { HeadTitle, HeadContainer, BannerStyle } from './Style'
+import useAnalyticsEventTracker from '../../../config/dataService/GoogleAnalyticsService'
+import { Main } from '../../styled'
+import Cryptocollection from '../../../static/img/images/asset-launchpad-head.svg'
+import BannerSection from '../../../components/BannerSection/Banner'
+import BannerImage from '../../../components/BannerSection/BannerImage'
 
-function AssetLaunchPad() {
-  const gaEventTracker = useAnalyticsEventTracker('Commodities', `Landed on Commodities`, 'Landed');
+function AssetLaunchPad () {
+  const gaEventTracker = useAnalyticsEventTracker('Commodities', 'Landed on Commodities', 'Landed')
   useEffect(() => {
-    gaEventTracker();
-  }, [window.location.pathname]);
+    gaEventTracker()
+  }, [window.location.pathname])
   const gaClickGetStartedTracker = useAnalyticsEventTracker(
     'Commodities',
-    `Click on Commodities get started`,
-    'Clicked',
-  );
+    'Click on Commodities get started',
+    'Clicked'
+  )
   const gaClickOtherClientsTracker = useAnalyticsEventTracker(
     'Commodities',
-    `Click on Commodities Other Clients`,
-    'Clicked',
-  );
+    'Click on Commodities Other Clients',
+    'Clicked'
+  )
   return (
     <>
       <Main>
@@ -79,7 +79,7 @@ function AssetLaunchPad() {
         </HeadContainer>
       </Main>
     </>
-  );
+  )
 }
 
-export default AssetLaunchPad;
+export default AssetLaunchPad

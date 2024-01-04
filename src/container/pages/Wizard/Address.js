@@ -1,82 +1,82 @@
-import React, { useState } from 'react';
-import { Button, Col, DatePicker, Form, Input, Row, Select, Upload, message } from 'antd';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import { useTranslation } from 'react-i18next';
-import { BasicFormWrapper } from '../../styled';
-import Heading from '../../../components/heading/heading';
-import ChooseFileIcon from '../../../static/img/icon/ChooseFileIcon';
-import { validImageTypes } from '../../../utility/utility';
+import React, { useState } from 'react'
+import { Button, Col, DatePicker, Form, Input, Row, Select, Upload, message } from 'antd'
+import PropTypes from 'prop-types'
+import moment from 'moment'
+import { useTranslation } from 'react-i18next'
+import { BasicFormWrapper } from '../../styled'
+import Heading from '../../../components/heading/heading'
+import ChooseFileIcon from '../../../static/img/icon/ChooseFileIcon'
+import { validImageTypes } from '../../../utility/utility'
 
-function Address(props) {
-  const { t } = useTranslation();
-  const { form, setData, countries, next, data } = props;
-  const [errorMsg, setErrorMsg] = useState('');
+function Address (props) {
+  const { t } = useTranslation()
+  const { form, setData, countries, next, data } = props
+  const [errorMsg, setErrorMsg] = useState('')
 
   const customRequest = async ({ file, onSuccess, onError }) => {
     try {
       if (!validImageTypes(file)) {
-        message.error('Select only PDF or JPG or PNG image');
-        onError('Select only PDF or JPG or PNG image');
-        setErrorMsg('Select only PDF or JPG or PNG image');
+        message.error('Select only PDF or JPG or PNG image')
+        onError('Select only PDF or JPG or PNG image')
+        setErrorMsg('Select only PDF or JPG or PNG image')
         form.setFieldsValue({
-          proof_of_res: undefined,
-        });
-        return false;
+          proof_of_res: undefined
+        })
+        return false
       }
 
-      const reader = new FileReader();
+      const reader = new FileReader()
       reader.onload = (e) => {
-        const base64Data = e.target.result;
+        const base64Data = e.target.result
 
         if (file.size <= process.env.REACT_APP_FILE_SIZE_LIMIT) {
           setData((prev) => {
-            return { ...prev, ...{ proof_of_res_data: base64Data, proof_of_res_url: file } };
-          });
-          onSuccess();
-          setErrorMsg('');
+            return { ...prev, ...{ proof_of_res_data: base64Data, proof_of_res_url: file } }
+          })
+          onSuccess()
+          setErrorMsg('')
         } else {
-          onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+          onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
           form.setFieldsValue({
-            proof_of_res: undefined,
-          });
-          setErrorMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+            proof_of_res: undefined
+          })
+          setErrorMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
         }
-      };
+      }
 
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file)
     } catch (error) {
-      console.error('Custom request error:', error);
-      onError(error);
+      console.error('Custom request error:', error)
+      onError(error)
     }
-  };
+  }
 
   const normFile = (e) => {
     if (Array.isArray(e)) {
-      return e;
+      return e
     }
     if (e.fileList.length === 0) {
-      return null;
+      return null
     }
-    return e && e.fileList;
-  };
+    return e && e.fileList
+  }
 
   const onChange = (value) => {
     setData((prev) => {
-      return { ...prev, ...value };
-    });
-  };
+      return { ...prev, ...value }
+    })
+  }
 
   const onChangeSearch = (value) => {
-    console.log(`selected ${value}`);
-  };
+    console.log(`selected ${value}`)
+  }
 
   const onSearch = (value) => {
-    console.log('search:', value);
-  };
+    console.log('search:', value)
+  }
 
   // Filter `option.label` match the user type `input`
-  const filterOption = (input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
+  const filterOption = (input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
 
   return (
     <BasicFormWrapper className="basic-form-inner">
@@ -93,8 +93,8 @@ function Address(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Building Name / Number',
-                      },
+                        message: 'Please Input Building Name / Number'
+                      }
                     ]}
                   >
                     <Input placeholder={t('Enter Your Building Name / Number')} />
@@ -107,8 +107,8 @@ function Address(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your Street Name',
-                      },
+                        message: 'Please Input Your Street Name'
+                      }
                     ]}
                   >
                     <Input placeholder={t('Enter Your Street Name')} />
@@ -121,8 +121,8 @@ function Address(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your City Name',
-                      },
+                        message: 'Please Input Your City Name'
+                      }
                     ]}
                   >
                     <Input placeholder={t('Enter Your City Name')} />
@@ -135,8 +135,8 @@ function Address(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your Area Name',
-                      },
+                        message: 'Please Input Your Area Name'
+                      }
                     ]}
                   >
                     <Input placeholder={t('Enter Your Area Code')} />
@@ -154,8 +154,8 @@ function Address(props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Select Your Country Name',
-                      },
+                        message: 'Please Select Your Country Name'
+                      }
                     ]}
                   >
                     <Select
@@ -188,8 +188,8 @@ function Address(props) {
                 rules={[
                   {
                     required: true,
-                    message: 'Please Select Your Issue Date',
-                  },
+                    message: 'Please Select Your Issue Date'
+                  }
                 ]}
               >
                 <DatePicker
@@ -198,7 +198,7 @@ function Address(props) {
                     return (
                       current &&
                       (current > moment().endOf('day') || current < moment().subtract(6, 'months').startOf('day'))
-                    );
+                    )
                   }}
                 />
               </Form.Item>
@@ -216,8 +216,8 @@ function Address(props) {
                   rules={[
                     {
                       required: true,
-                      message: 'Please Upload Proof of Residence',
-                    },
+                      message: 'Please Upload Proof of Residence'
+                    }
                   ]}
                 >
                   <Upload
@@ -227,15 +227,17 @@ function Address(props) {
                     maxCount={1}
                     onRemove={() =>
                       setData((prev) => {
-                        return { ...prev, ...{ proof_of_res_data: '', proof_of_res_url: '' } };
+                        return { ...prev, ...{ proof_of_res_data: '', proof_of_res_url: '' } }
                       })
                     }
                   >
-                    {data?.proof_of_res_data ? null : (
+                    {data?.proof_of_res_data
+                      ? null
+                      : (
                       <Button className="passport-btn">
                         <ChooseFileIcon /> Choose File
                       </Button>
-                    )}
+                        )}
                   </Upload>
                 </Form.Item>
                 {errorMsg && (
@@ -249,7 +251,7 @@ function Address(props) {
         </div>
       </Form>
     </BasicFormWrapper>
-  );
+  )
 }
 
 Address.propTypes = {
@@ -257,6 +259,6 @@ Address.propTypes = {
   form: PropTypes.object,
   setData: PropTypes.func,
   next: PropTypes.func,
-  data: PropTypes.string,
-};
-export default Address;
+  data: PropTypes.string
+}
+export default Address

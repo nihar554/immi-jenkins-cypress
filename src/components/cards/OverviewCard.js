@@ -1,23 +1,23 @@
-import UilDown from '@iconscout/react-unicons/icons/uil-arrow-down';
-import UilUp from '@iconscout/react-unicons/icons/uil-arrow-up';
-import { Card } from 'antd';
-import propTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
-import CountUp from 'react-countup';
-import { useLocation } from 'react-router-dom';
-import { ReactSVG } from 'react-svg';
-import { OverviewCardWrap } from './Style';
+import UilDown from '@iconscout/react-unicons/icons/uil-arrow-down'
+import UilUp from '@iconscout/react-unicons/icons/uil-arrow-up'
+import { Card } from 'antd'
+import propTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import CountUp from 'react-countup'
+import { useLocation } from 'react-router-dom'
+import { ReactSVG } from 'react-svg'
+import { OverviewCardWrap } from './Style'
 
-function OverviewCard({ data, className, bottomStatus, contentFirst, halfCircleIcon }) {
-  const [didViewCountUp, setDidViewCountUp] = useState(false);
+function OverviewCard ({ data, className, bottomStatus, contentFirst, halfCircleIcon }) {
+  const [didViewCountUp, setDidViewCountUp] = useState(false)
 
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
   useEffect(() => {
-    setDidViewCountUp(true);
-  }, [pathname]);
+    setDidViewCountUp(true)
+  }, [pathname])
 
-  const { type, icon, label, total, status, statusRate, dataPeriod, suffix, prefix, decimels, separator } = data;
-  const totalNumber = Number(total);
+  const { type, icon, label, total, status, statusRate, dataPeriod, suffix, prefix, decimels, separator } = data
+  const totalNumber = Number(total)
   return (
     <OverviewCardWrap className={className}>
       <Card bordered={false} className={halfCircleIcon ? 'ninjadash-overview-halfCircle-card' : null}>
@@ -39,7 +39,8 @@ function OverviewCard({ data, className, bottomStatus, contentFirst, halfCircleI
                   : 'ninjadash-overview-card__top--content text-right'
               }
             >
-              {halfCircleIcon ? (
+              {halfCircleIcon
+                ? (
                 <>
                   <span className="ninjadahs-overview-label">{label}</span>
                   <h4 className="ninjadash-overview-total">
@@ -55,7 +56,8 @@ function OverviewCard({ data, className, bottomStatus, contentFirst, halfCircleI
                     />
                   </h4>
                 </>
-              ) : (
+                  )
+                : (
                 <>
                   <h4 className="ninjadash-overview-total">
                     <CountUp
@@ -71,10 +73,11 @@ function OverviewCard({ data, className, bottomStatus, contentFirst, halfCircleI
                   </h4>
                   <span className="ninjadahs-overview-label">{label}</span>
                 </>
-              )}
+                  )}
             </div>
           </div>
-          {bottomStatus && statusRate ? (
+          {bottomStatus && statusRate
+            ? (
             <div className="ninjadash-overview-card__bottom">
               <span className={`ninjadash-overview-status ninjadash-status-${status}`}>
                 <span className="ninjadash-status-rate" style={{ color: '#01B81A' }}>
@@ -84,27 +87,28 @@ function OverviewCard({ data, className, bottomStatus, contentFirst, halfCircleI
                 <span className="ninjadash-status-label">{dataPeriod}</span>
               </span>
             </div>
-          ) : (
-            ''
-          )}
+              )
+            : (
+                ''
+              )}
         </div>
       </Card>
     </OverviewCardWrap>
-  );
+  )
 }
 OverviewCard.defaultProps = {
   data: {},
   className: 'ninjadash-overview-card-box',
   bottomStatus: true,
   contentFirst: false,
-  halfCircleIcon: false,
-};
+  halfCircleIcon: false
+}
 OverviewCard.propTypes = {
   data: propTypes.object,
   className: propTypes.string,
   bottomStatus: propTypes.bool,
   contentFirst: propTypes.bool,
-  halfCircleIcon: propTypes.bool,
-};
+  halfCircleIcon: propTypes.bool
+}
 
-export default OverviewCard;
+export default OverviewCard

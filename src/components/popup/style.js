@@ -1,5 +1,5 @@
-import { Popover } from 'antd';
-import Styled from 'styled-components';
+import { Popover } from 'antd'
+import Styled from 'styled-components'
 
 const Content = Styled.div`  
   a, .span {
@@ -17,12 +17,12 @@ const Content = Styled.div`
     color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
   }
   
-`;
+`
 const Title = Styled.p`
   text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
   margin: 0;
-`;
+`
 const PopoverStyle = Styled(Popover)` 
   
-`;
-export { Content, PopoverStyle, Title };
+`
+export { Content, PopoverStyle, Title }

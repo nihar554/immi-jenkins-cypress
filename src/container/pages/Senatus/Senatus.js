@@ -1,49 +1,49 @@
-import React, { useEffect } from 'react';
-import { Col, Row } from 'antd';
-import { Link } from 'react-router-dom';
-import { HeadContainer, HeadTitle, DownloadSection, BannerStyle } from './Style';
-import { Main } from '../../styled';
-import Cryptocollection from '../../../static/img/images/senatus-head.svg';
-import Heading from '../../../components/heading/heading';
-import { UserCard } from '../Tether/Style';
-import useAnalyticsEventTracker from '../../../config/dataService/GoogleAnalyticsService';
-import { Cards } from '../../../components/cards/frame/cards-frame';
-import WindowsIcon from '../../../static/img/icons/windows.svg';
-import MacIcon from '../../../static/img/icons/mac.svg';
-import LinuxIcon from '../../../static/img/icons/linux.svg';
-import DownloadIcon from '../../../static/img/icons/download.svg';
-import BannerSection from '../../../components/BannerSection/Banner';
+import React, { useEffect } from 'react'
+import { Col, Row } from 'antd'
+import { Link } from 'react-router-dom'
+import { HeadContainer, HeadTitle, DownloadSection, BannerStyle } from './Style'
+import { Main } from '../../styled'
+import Cryptocollection from '../../../static/img/images/senatus-head.svg'
+import Heading from '../../../components/heading/heading'
+import { UserCard } from '../Tether/Style'
+import useAnalyticsEventTracker from '../../../config/dataService/GoogleAnalyticsService'
+import { Cards } from '../../../components/cards/frame/cards-frame'
+import WindowsIcon from '../../../static/img/icons/windows.svg'
+import MacIcon from '../../../static/img/icons/mac.svg'
+import LinuxIcon from '../../../static/img/icons/linux.svg'
+import DownloadIcon from '../../../static/img/icons/download.svg'
+import BannerSection from '../../../components/BannerSection/Banner'
 
-function Senatus() {
+function Senatus () {
   const data = [
     {
       section: 'windows-section',
       title: 'Windows',
       icon: WindowsIcon,
       description: '',
-      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-win.exe',
+      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-win.exe'
     },
     {
       section: 'mac-section',
       title: 'Mac',
       icon: MacIcon,
       description: '',
-      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-mac.dmg',
+      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-mac.dmg'
     },
     {
       section: 'linux-section',
       title: 'Linux',
       icon: LinuxIcon,
       description: '',
-      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-linux.deb',
-    },
-  ];
-  const gaEventTracker = useAnalyticsEventTracker('Senatus', `Landed on Senatus `, 'Landed');
+      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-linux.deb'
+    }
+  ]
+  const gaEventTracker = useAnalyticsEventTracker('Senatus', 'Landed on Senatus ', 'Landed')
   useEffect(() => {
-    gaEventTracker();
-  }, [window.location.pathname]);
-  const gaClickGetStartedTracker = useAnalyticsEventTracker('Senatus', `Click on Senatus get started`, 'Clicked');
-  const gaClickDownloadTracker = useAnalyticsEventTracker('Senatus', `Click on Senatus Download`, 'Clicked');
+    gaEventTracker()
+  }, [window.location.pathname])
+  const gaClickGetStartedTracker = useAnalyticsEventTracker('Senatus', 'Click on Senatus get started', 'Clicked')
+  const gaClickDownloadTracker = useAnalyticsEventTracker('Senatus', 'Click on Senatus Download', 'Clicked')
 
   return (
     <>
@@ -79,7 +79,7 @@ function Senatus() {
                   height: '100%',
                   width: '85%',
                   position: 'absolute',
-                  marginTop: '20%',
+                  marginTop: '20%'
                 }}
               />
             </Row>
@@ -118,14 +118,14 @@ function Senatus() {
                     </div>
                   </UserCard>
                 </Col>
-              );
+              )
             })}
             <Col xxl={6} lg={3} sm={12} xs={24} />
           </Row>
         </DownloadSection>
       </Main>
     </>
-  );
+  )
 }
 
-export default Senatus;
+export default Senatus

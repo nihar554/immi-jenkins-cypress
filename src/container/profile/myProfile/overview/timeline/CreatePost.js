@@ -1,33 +1,33 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState } from 'react';
-import UilEllipsisH from '@iconscout/react-unicons/icons/uil-ellipsis-h';
-import { Input, Upload } from 'antd';
-import { useSelector, useDispatch } from 'react-redux';
-import { BackShadow, CreatePost } from './style';
-import { Cards } from '../../../../../components/cards/frame/cards-frame';
-import { Button } from '../../../../../components/buttons/buttons';
-import { submitPost } from '../../../../../redux/profile/actionCreator';
+import React, { useState } from 'react'
+import UilEllipsisH from '@iconscout/react-unicons/icons/uil-ellipsis-h'
+import { Input, Upload } from 'antd'
+import { useSelector, useDispatch } from 'react-redux'
+import { BackShadow, CreatePost } from './style'
+import { Cards } from '../../../../../components/cards/frame/cards-frame'
+import { Button } from '../../../../../components/buttons/buttons'
+import { submitPost } from '../../../../../redux/profile/actionCreator'
 
-function Post() {
-  const dispatch = useDispatch();
+function Post () {
+  const dispatch = useDispatch()
   const { posts } = useSelector((state) => {
     return {
-      posts: state.Profile.posts,
-    };
-  });
+      posts: state.Profile.posts
+    }
+  })
 
-  const [drawer, setDrawer] = useState(false);
-  const [textValue, setTextValue] = useState('');
+  const [drawer, setDrawer] = useState(false)
+  const [textValue, setTextValue] = useState('')
 
   const onCreate = () => {
-    const arrayData = [];
+    const arrayData = []
     posts.map((data) => {
-      return arrayData.push(data.postId);
-    });
-    const max = Math.max(...arrayData);
+      return arrayData.push(data.postId)
+    })
+    const max = Math.max(...arrayData)
     if (textValue === '') {
-      alert('Please input minumum content');
+      alert('Please input minumum content')
     } else {
       dispatch(
         submitPost([
@@ -40,20 +40,20 @@ function Post() {
             author: 'static/img/chat-author/t4.jpg',
             content: textValue,
             like: 0,
-            comment: [],
-          },
-        ]),
-      );
-      setTextValue('');
+            comment: []
+          }
+        ])
+      )
+      setTextValue('')
     }
     setTimeout(() => {
-      setDrawer(false);
-    }, 500);
-  };
+      setDrawer(false)
+    }, 500)
+  }
 
   const onTextChange = (e) => {
-    return setTextValue(e.target.value);
-  };
+    return setTextValue(e.target.value)
+  }
 
   return (
     <CreatePost>
@@ -85,7 +85,7 @@ function Post() {
         </div>
       </Cards>
     </CreatePost>
-  );
+  )
 }
 
-export default Post;
+export default Post

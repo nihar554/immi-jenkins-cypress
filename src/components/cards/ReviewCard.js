@@ -1,20 +1,20 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
-import propTypes from 'prop-types';
+import React from 'react'
+import propTypes from 'prop-types'
 
-export default function ReviewCard({ title, setState, state, Icon }) {
+export default function ReviewCard ({ title, setState, state, Icon }) {
   return (
     <div
       className="card-block"
       style={{ marginBottom: '12px' }}
       onClick={() => {
         if (title === 'Name & Contact') {
-          setState({ ...state, current: 0 });
+          setState({ ...state, current: 0 })
         } else if (title === 'Address') {
-          setState({ ...state, current: 1 });
+          setState({ ...state, current: 1 })
         } else {
-          setState({ ...state, current: 2 });
+          setState({ ...state, current: 2 })
         }
       }}
     >
@@ -32,12 +32,12 @@ export default function ReviewCard({ title, setState, state, Icon }) {
         />
       </svg>
     </div>
-  );
+  )
 }
 
 ReviewCard.propTypes = {
   title: propTypes.string,
   state: propTypes.object,
   setState: propTypes.func,
-  Icon: propTypes.func,
-};
+  Icon: propTypes.func
+}

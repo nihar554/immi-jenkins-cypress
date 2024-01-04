@@ -1,23 +1,23 @@
 /* eslint-disable prefer-destructuring */
-import { Spin } from 'antd';
-import React, { Suspense } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { AuthenticationWrap } from './overview/style';
+import { Spin } from 'antd'
+import React, { Suspense } from 'react'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { AuthenticationWrap } from './overview/style'
 // import logo from '../../../static/img/icon/both-logos.svg';
-import logo1 from '../../../static/img/logo_dark.svg';
-import logo2 from '../../../static/img/icon/branding-logo.svg';
+import logo1 from '../../../static/img/logo_dark.svg'
+import logo2 from '../../../static/img/icon/branding-logo.svg'
 
-import PoweredBy from '../../pages/Landing/PowerdBy';
-import LandingHeader from '../../pages/Landing/Header';
-import { LandingPage } from '../../pages/Landing/Style';
+import PoweredBy from '../../pages/Landing/PowerdBy'
+import LandingHeader from '../../pages/Landing/Header'
+import { LandingPage } from '../../pages/Landing/Style'
 
 const AuthLayout = (WraperContent) => {
   return function () {
-    const { pathname } = useLocation();
+    const { pathname } = useLocation()
 
-    const navigate = useNavigate();
-    const { t } = useTranslation();
+    const navigate = useNavigate()
+    const { t } = useTranslation()
     return (
       <Suspense
         fallback={
@@ -84,8 +84,8 @@ const AuthLayout = (WraperContent) => {
           <PoweredBy />
         </AuthenticationWrap>
       </Suspense>
-    );
-  };
-};
+    )
+  }
+}
 
-export default AuthLayout;
+export default AuthLayout

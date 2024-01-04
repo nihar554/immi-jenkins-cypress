@@ -1,13 +1,13 @@
-import React from 'react';
-import { Col } from 'antd';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { UserCard } from './Style';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import React from 'react'
+import { Col } from 'antd'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { UserCard } from './Style'
+import { Cards } from '../../../components/cards/frame/cards-frame'
 
 const ProductCards = React.memo(({ logo, icon, title, text, bordercolor, textcolor, routelink }) => {
-  const borderColor = `card team-card ${bordercolor}`;
-  const textColor = `card__name typography-h3 ${textcolor}`;
+  const borderColor = `card team-card ${bordercolor}`
+  const textColor = `card__name typography-h3 ${textcolor}`
   return (
     <Col xxl={6} lg={6} sm={12} xs={24} className="bottom">
       <UserCard>
@@ -33,8 +33,8 @@ const ProductCards = React.memo(({ logo, icon, title, text, bordercolor, textcol
         </div>
       </UserCard>
     </Col>
-  );
-});
+  )
+})
 ProductCards.propTypes = {
   logo: PropTypes.string,
   icon: PropTypes.string,
@@ -42,6 +42,6 @@ ProductCards.propTypes = {
   text: PropTypes.string,
   textcolor: PropTypes.string,
   bordercolor: PropTypes.string,
-  routelink: PropTypes.string,
-};
-export default ProductCards;
+  routelink: PropTypes.string
+}
+export default ProductCards

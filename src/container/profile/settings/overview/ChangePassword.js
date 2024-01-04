@@ -1,47 +1,47 @@
-import React, { useState } from 'react';
-import { Row, Col, Form, Input, message } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { ChangePasswordWrapper } from './style';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import { BasicFormWrapper } from '../../../styled';
-import Heading from '../../../../components/heading/heading';
-import { DataService } from '../../../../config/dataService/dataService';
-import { Button } from '../../../../components/buttons/buttons';
-import PassPopUp from '../../../../components/dropdown/PassPopUp';
-import { checkPasswordValid } from '../../../../utility/utility';
+import React, { useState } from 'react'
+import { Row, Col, Form, Input, message } from 'antd'
+import { useTranslation } from 'react-i18next'
+import { ChangePasswordWrapper } from './style'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
+import { BasicFormWrapper } from '../../../styled'
+import Heading from '../../../../components/heading/heading'
+import { DataService } from '../../../../config/dataService/dataService'
+import { Button } from '../../../../components/buttons/buttons'
+import PassPopUp from '../../../../components/dropdown/PassPopUp'
+import { checkPasswordValid } from '../../../../utility/utility'
 
-function Password() {
-  const { t } = useTranslation();
-  const [form] = Form.useForm();
-  const [loading, setLoading] = useState(false);
-  const [btnText, setBtnText] = useState('Change Password');
-  const [tooltip, setTooltip] = React.useState(false);
-  const [submittable, setSubmittable] = React.useState(false);
-  const [password, setPassword] = React.useState('');
-  const [isvalid, setisvalid] = React.useState(false);
-  const [oldpassword, setoldPassword] = React.useState('');
+function Password () {
+  const { t } = useTranslation()
+  const [form] = Form.useForm()
+  const [loading, setLoading] = useState(false)
+  const [btnText, setBtnText] = useState('Change Password')
+  const [tooltip, setTooltip] = React.useState(false)
+  const [submittable, setSubmittable] = React.useState(false)
+  const [password, setPassword] = React.useState('')
+  const [isvalid, setisvalid] = React.useState(false)
+  const [oldpassword, setoldPassword] = React.useState('')
   const [state1, setState1] = useState({
     minimumChar: false,
     specialCharValid: false,
     uppercaseValid: false,
     lowercaseValid: false,
-    numberValid: false,
-  });
-  const watch = Form.useWatch([], form);
+    numberValid: false
+  })
+  const watch = Form.useWatch([], form)
   React.useEffect(() => {
     form.validateFields({ validateOnly: true }).then(
       (res) => {
         if (res.confirmPass && res.newPass && res.oldPass) {
-          setSubmittable(true);
+          setSubmittable(true)
         } else {
-          setSubmittable(false);
+          setSubmittable(false)
         }
       },
       () => {
-        setSubmittable(false);
-      },
-    );
-  }, [watch]);
+        setSubmittable(false)
+      }
+    )
+  }, [watch])
   React.useEffect(() => {
     if (
       !state1.lowercaseValid ||
@@ -50,57 +50,57 @@ function Password() {
       !state1.specialCharValid ||
       !state1.uppercaseValid
     ) {
-      setisvalid(false);
+      setisvalid(false)
     } else {
-      setisvalid(true);
+      setisvalid(true)
     }
-  }, [watch]);
+  }, [watch])
   const handleSubmit = () => {
-    setLoading(true);
-    setBtnText(t('Processing...'));
+    setLoading(true)
+    setBtnText(t('Processing...'))
     const body = {
       oldPassword: oldpassword,
-      newPassword: password,
-    };
+      newPassword: password
+    }
     DataService.post('/changePassword', body)
       .then((res) => {
         if (res.data.msg === 'PASSWORD_CHANGED') {
-          message.success(t('changed_password_password_has_been_changed'));
-          form.resetFields();
+          message.success(t('changed_password_password_has_been_changed'))
+          form.resetFields()
         } else if (res.data.errors.msg === 'WRONG_PASSWORD') {
-          message.error(t('changed_password_incorrect_old_password'));
+          message.error(t('changed_password_incorrect_old_password'))
         }
-        setBtnText(t('Change Password'));
-        setLoading(false);
+        setBtnText(t('Change Password'))
+        setLoading(false)
       })
       .catch(() => {
-        setLoading(false);
-        setBtnText(t('Change Password'));
-        message.error(t('Something went wrong'));
-      });
-  };
+        setLoading(false)
+        setBtnText(t('Change Password'))
+        message.error(t('Something went wrong'))
+      })
+  }
 
   const validateCPassword = (rule, value, callback) => {
     if (value && value !== password) {
-      callback('Password and Confirm password must be same.');
+      callback('Password and Confirm password must be same.')
     } else {
-      callback();
+      callback()
     }
-  };
+  }
 
   const validatePassword = (rule, value, callback) => {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     if (regex.test(value)) {
-      callback();
+      callback()
     } else {
-      callback();
+      callback()
     }
-  };
+  }
 
   const handleCancel = (e) => {
-    e.preventDefault();
-    form.resetFields();
-  };
+    e.preventDefault()
+    form.resetFields()
+  }
 
   const areAllValidationsComplete = () => {
     if (
@@ -110,10 +110,10 @@ function Password() {
       state1.numberValid &&
       state1.uppercaseValid
     ) {
-      return true;
+      return true
     }
-    return false;
-  };
+    return false
+  }
 
   return (
     <ChangePasswordWrapper>
@@ -137,7 +137,7 @@ function Password() {
                   label={t('New_Password')}
                   rules={[
                     { required: true, message: 'Please input your email!', type: 'password' },
-                    { validator: validatePassword },
+                    { validator: validatePassword }
                   ]}
                 >
                   <Input.Password
@@ -145,8 +145,8 @@ function Password() {
                     onFocus={() => setTooltip(true)}
                     placeholder="**********"
                     onChange={(e) => {
-                      setPassword(e.target.value);
-                      checkPasswordValid(e.target.value, setState1);
+                      setPassword(e.target.value)
+                      checkPasswordValid(e.target.value, setState1)
                     }}
                   />
                 </Form.Item>
@@ -158,7 +158,7 @@ function Password() {
                   label={t('Confirm_New_Password')}
                   rules={[
                     { required: true, message: 'Please input your email!', type: 'password' },
-                    { validator: validateCPassword },
+                    { validator: validateCPassword }
                   ]}
                 >
                   <Input.Password placeholder="**********" />
@@ -185,7 +185,7 @@ function Password() {
         </BasicFormWrapper>
       </Cards>
     </ChangePasswordWrapper>
-  );
+  )
 }
 
-export default Password;
+export default Password

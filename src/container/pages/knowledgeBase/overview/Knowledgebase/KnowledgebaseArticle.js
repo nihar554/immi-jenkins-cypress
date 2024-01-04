@@ -1,7 +1,7 @@
-import React from 'react';
-import { KnowledgebaseArticleWrap, ArticleTabWrap } from '../../style';
+import React from 'react'
+import { KnowledgebaseArticleWrap, ArticleTabWrap } from '../../style'
 
-function KnowledgebaseArticle() {
+function KnowledgebaseArticle () {
   return (
     <KnowledgebaseArticleWrap>
       <ArticleTabWrap className="ninjadash-article-tab">
@@ -10,7 +10,7 @@ function KnowledgebaseArticle() {
         </div>
       </ArticleTabWrap>
     </KnowledgebaseArticleWrap>
-  );
+  )
 }
 
-export default KnowledgebaseArticle;
+export default KnowledgebaseArticle

@@ -1,15 +1,15 @@
-import React from 'react';
-import { Row, Col } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { AuthFormWrap, LoginWrap, AboutUsWrap } from '../../profile/authentication/overview/style';
-import OfficialSeal from '../../../static/img/landing/OfficalSeal.svg';
-import { getItem } from '../../../utility/localStorageControl';
-import { LandingPage } from '../Landing/Style';
-import LandingHeader from '../Landing/Header';
+import React from 'react'
+import { Row, Col } from 'antd'
+import { useTranslation } from 'react-i18next'
+import { AuthFormWrap, LoginWrap, AboutUsWrap } from '../../profile/authentication/overview/style'
+import OfficialSeal from '../../../static/img/landing/OfficalSeal.svg'
+import { getItem } from '../../../utility/localStorageControl'
+import { LandingPage } from '../Landing/Style'
+import LandingHeader from '../Landing/Header'
 
-function ContactUs() {
-  const { t } = useTranslation();
-  const userInfo = getItem('access_token');
+function ContactUs () {
+  const { t } = useTranslation()
+  const userInfo = getItem('access_token')
   return (
     <LandingPage>
       <LandingHeader />
@@ -45,7 +45,7 @@ function ContactUs() {
         </div>
       </LoginWrap>
     </LandingPage>
-  );
+  )
 }
 
-export default ContactUs;
+export default ContactUs

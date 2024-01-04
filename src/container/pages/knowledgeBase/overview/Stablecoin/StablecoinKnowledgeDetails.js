@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import UilSmile from '@iconscout/react-unicons/icons/uil-smile';
-import UilFrown from '@iconscout/react-unicons/icons/uil-frown';
-import FontAwesome from 'react-fontawesome';
-import { Collapse, Row, Col, Form, Input } from 'antd';
-import { Link } from 'react-router-dom';
-import { Button } from '../../../../../components/buttons/buttons';
-import { KnowledgeDetailsWrap } from '../../style';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import UilSmile from '@iconscout/react-unicons/icons/uil-smile'
+import UilFrown from '@iconscout/react-unicons/icons/uil-frown'
+import FontAwesome from 'react-fontawesome'
+import { Collapse, Row, Col, Form, Input } from 'antd'
+import { Link } from 'react-router-dom'
+import { Button } from '../../../../../components/buttons/buttons'
+import { KnowledgeDetailsWrap } from '../../style'
 
-const { Panel } = Collapse;
-const { TextArea } = Input;
-function StablecoinKnowledgeDetails({ title }) {
+const { Panel } = Collapse
+const { TextArea } = Input
+function StablecoinKnowledgeDetails ({ title }) {
   const [state, setstate] = useState({
-    key: 0,
-  });
+    key: 0
+  })
   const callback = (key) => {
-    setstate({ ...state, key });
-  };
+    setstate({ ...state, key })
+  }
   return (
     <KnowledgeDetailsWrap>
       <div className="knowledge-details">
         <h2 className="knowledge-details__title">{title}</h2>
-        {title === 'Switch between accounts' ? (
+        {title === 'Switch between accounts'
+          ? (
           <div className="knowledge-details__single--block">
             <h4>
               <Link to="#">Configuration</Link>
@@ -35,8 +36,10 @@ function StablecoinKnowledgeDetails({ title }) {
               Read More
             </Link>
           </div>
-        ) : null}
-        {title === 'Change your email' ? (
+            )
+          : null}
+        {title === 'Change your email'
+          ? (
           <div className="knowledge-details__single--block">
             <h4>
               <Link to="#">Research and experiments</Link>
@@ -47,10 +50,11 @@ function StablecoinKnowledgeDetails({ title }) {
               Stet clita kasd gubergren, no sea takimata sanctus.
             </p>
             <div className="knowledge-details-img">
-              <img src={require(`../../../../../static/img/knowledgebase/wp-research.png`)} alt="StrikingDash" />
+              <img src={require('../../../../../static/img/knowledgebase/wp-research.png')} alt="StrikingDash" />
             </div>
           </div>
-        ) : null}
+            )
+          : null}
         <div className="knowledge-details__single--block">
           <div className="knowledge-details-collapse">
             <Collapse defaultActiveKey={['1']} onChange={callback}>
@@ -243,10 +247,10 @@ function StablecoinKnowledgeDetails({ title }) {
         </Form>
       </div>
     </KnowledgeDetailsWrap>
-  );
+  )
 }
 StablecoinKnowledgeDetails.propTypes = {
-  title: PropTypes.string,
-};
+  title: PropTypes.string
+}
 
-export default StablecoinKnowledgeDetails;
+export default StablecoinKnowledgeDetails

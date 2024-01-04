@@ -1,10 +1,10 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const BannerStyle = Styled.div`
 padding: 0px 170px 20px;
   @media only screen and (max-width: 1199px) {
     padding: 0px 15px;
-  }`;
+  }`
 
 const BlogDetailsStyle = Styled.div`
 padding: 0px 170px 20px;
@@ -421,5 +421,5 @@ padding: 0px 170px 20px;
             }
         }
     }
-`;
-export { BlogDetailsStyle, BannerStyle };
+`
+export { BlogDetailsStyle, BannerStyle }

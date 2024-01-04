@@ -1,20 +1,20 @@
-import React from 'react';
-import { Row, Col, Switch } from 'antd';
-import { Link } from 'react-router-dom';
-import { NotificationWrapper } from './style';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import { Button } from '../../../../components/buttons/buttons';
-import Heading from '../../../../components/heading/heading';
+import React from 'react'
+import { Row, Col, Switch } from 'antd'
+import { Link } from 'react-router-dom'
+import { NotificationWrapper } from './style'
+import { Cards } from '../../../../components/cards/frame/cards-frame'
+import { Button } from '../../../../components/buttons/buttons'
+import Heading from '../../../../components/heading/heading'
 
 const listStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   margin: 0,
-  padding: 0,
-};
+  padding: 0
+}
 
-function Notification() {
+function Notification () {
   return (
     <NotificationWrapper>
       <Cards
@@ -34,7 +34,7 @@ function Notification() {
                     height: '50px',
                     display: 'flex',
                     justifyContent: 'space-between',
-                    alignItems: 'center',
+                    alignItems: 'center'
                   }}
                   className="notification-header"
                 >
@@ -51,7 +51,7 @@ function Notification() {
                       <ul
                         style={{
                           margin: 0,
-                          padding: 0,
+                          padding: 0
                         }}
                       >
                         <li style={listStyle}>
@@ -106,7 +106,7 @@ function Notification() {
                     height: '50px',
                     display: 'flex',
                     justifyContent: 'space-between',
-                    alignItems: 'center',
+                    alignItems: 'center'
                   }}
                   className="notification-header"
                 >
@@ -123,7 +123,7 @@ function Notification() {
                       <ul
                         style={{
                           margin: 0,
-                          padding: 0,
+                          padding: 0
                         }}
                       >
                         <li style={listStyle}>
@@ -181,7 +181,7 @@ function Notification() {
         </div>
       </Cards>
     </NotificationWrapper>
-  );
+  )
 }
 
-export default Notification;
+export default Notification

@@ -6,8 +6,8 @@
 const API = {
   auth: {
     login: '/login',
-    signUp: '/signup',
-  },
-};
+    signUp: '/signup'
+  }
+}
 
-export { API };
+export { API }

@@ -1,30 +1,30 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import { PassPopUpStyle } from './dropdown-style';
+import React from 'react'
+import propTypes from 'prop-types'
+import { PassPopUpStyle } from './dropdown-style'
 
 const valid = {
   color: '#1CD94B',
   fontSize: '14px',
   fontStyle: 'normal',
   fontWeight: 500,
-  lineHeight: '25px',
-};
+  lineHeight: '25px'
+}
 
 const invalid = {
   color: 'red',
   fontSize: '14px',
   fontStyle: 'normal',
   fontWeight: 500,
-  lineHeight: '25px',
-};
+  lineHeight: '25px'
+}
 
-export default function PassPopUp({ state }) {
+export default function PassPopUp ({ state }) {
   return (
     <PassPopUpStyle>
       <div
         style={{
           padding: '0px 20px',
-          paddingBottom: '15px',
+          paddingBottom: '15px'
         }}
       >
         <div className="msg-container d-flex justify-content-between">
@@ -60,9 +60,9 @@ export default function PassPopUp({ state }) {
         </div>
       </div>
     </PassPopUpStyle>
-  );
+  )
 }
 
 PassPopUp.propTypes = {
-  state: propTypes.object,
-};
+  state: propTypes.object
+}

@@ -1,9 +1,9 @@
-import React from 'react';
-import { BitcoinFrontierWrapperNewVersion } from './Style';
-import BitcoinFrontierWizardNewVersion from './BitcoinFrontierWizardNewVersion';
-import BitcoinFrontierRight from './BitcoinFrontierRight';
+import React from 'react'
+import { BitcoinFrontierWrapperNewVersion } from './Style'
+import BitcoinFrontierWizardNewVersion from './BitcoinFrontierWizardNewVersion'
+import BitcoinFrontierRight from './BitcoinFrontierRight'
 
-function BitcoinFrontierNewVersion() {
+function BitcoinFrontierNewVersion () {
   return (
     <BitcoinFrontierWrapperNewVersion>
       <div className="container">
@@ -16,6 +16,6 @@ function BitcoinFrontierNewVersion() {
         <div className="clearfix" />
       </div>
     </BitcoinFrontierWrapperNewVersion>
-  );
+  )
 }
-export default BitcoinFrontierNewVersion;
+export default BitcoinFrontierNewVersion

@@ -1,29 +1,29 @@
-import UilHdd from '@iconscout/react-unicons/icons/uil-hdd';
-import UilUpload from '@iconscout/react-unicons/icons/uil-upload';
-import { Badge } from 'antd';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Scrollbars } from '@pezhmanparsaee/react-custom-scrollbars';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { ReactSVG } from 'react-svg';
-import { UserActionDropDown } from './auth-info-style';
-import Heading from '../../heading/heading';
-import { Popover } from '../../popup/popup';
+import UilHdd from '@iconscout/react-unicons/icons/uil-hdd'
+import UilUpload from '@iconscout/react-unicons/icons/uil-upload'
+import { Badge } from 'antd'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Scrollbars } from '@pezhmanparsaee/react-custom-scrollbars'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { ReactSVG } from 'react-svg'
+import { UserActionDropDown } from './auth-info-style'
+import Heading from '../../heading/heading'
+import { Popover } from '../../popup/popup'
 
 const NotificationBox = React.memo(() => {
   const { rtl } = useSelector((state) => {
     return {
-      rtl: state.ChangeLayoutMode.rtlData,
-    };
-  });
+      rtl: state.ChangeLayoutMode.rtlData
+    }
+  })
 
-  function renderThumb({ style }) {
+  function renderThumb ({ style }) {
     const thumbStyle = {
       borderRadius: 6,
-      backgroundColor: '#F1F2F6',
-    };
-    return <div style={{ ...style, ...thumbStyle }} />;
+      backgroundColor: '#F1F2F6'
+    }
+    return <div style={{ ...style, ...thumbStyle }} />
   }
 
   const renderTrackVertical = () => {
@@ -35,26 +35,26 @@ const NotificationBox = React.memo(() => {
       [rtl ? 'left' : 'right']: '2px',
       bottom: '2px',
       top: '2px',
-      borderRadius: '3px',
-    };
-    return <div className="hello" style={thumbStyle} />;
-  };
+      borderRadius: '3px'
+    }
+    return <div className="hello" style={thumbStyle} />
+  }
 
-  function renderView({ style }) {
+  function renderView ({ style }) {
     const customStyle = {
       marginRight: rtl && 'auto',
-      [rtl ? 'marginLeft' : 'marginRight']: '-17px',
-    };
-    return <div style={{ ...style, ...customStyle }} />;
+      [rtl ? 'marginLeft' : 'marginRight']: '-17px'
+    }
+    return <div style={{ ...style, ...customStyle }} />
   }
 
   renderThumb.propTypes = {
-    style: PropTypes.shape(PropTypes.object),
-  };
+    style: PropTypes.shape(PropTypes.object)
+  }
 
   renderView.propTypes = {
-    style: PropTypes.shape(PropTypes.object),
-  };
+    style: PropTypes.shape(PropTypes.object)
+  }
 
   const content = (
     <UserActionDropDown className="ninjadash-top-dropdown">
@@ -181,7 +181,7 @@ const NotificationBox = React.memo(() => {
         See all incoming activity
       </Link>
     </UserActionDropDown>
-  );
+  )
 
   return (
     <div className="ninjadash-nav-actions__item ninjadash-nav-actions__notification">
@@ -193,7 +193,7 @@ const NotificationBox = React.memo(() => {
         </Badge>
       </Popover>
     </div>
-  );
-});
+  )
+})
 
-export default NotificationBox;
+export default NotificationBox

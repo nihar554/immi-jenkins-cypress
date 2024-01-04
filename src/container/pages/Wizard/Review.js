@@ -1,90 +1,90 @@
-import React, { useState } from 'react';
-import { Button, DatePicker, Form, Input, Select, Upload, message } from 'antd';
-import moment from 'moment';
-import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import { ReviewWrapper } from '../style';
-import ChooseFileIcon from '../../../static/img/icon/ChooseFileIcon';
-import { validImageTypes } from '../../../utility/utility';
+import React, { useState } from 'react'
+import { Button, DatePicker, Form, Input, Select, Upload, message } from 'antd'
+import moment from 'moment'
+import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
+import { ReviewWrapper } from '../style'
+import ChooseFileIcon from '../../../static/img/icon/ChooseFileIcon'
+import { validImageTypes } from '../../../utility/utility'
 
-function Review(props) {
-  const { form, countries, data, setData } = props;
-  const [errorMsg, setErrorMsg] = useState('');
-  const [passportMsg, setPassportMsg] = useState('');
-  const { t } = useTranslation();
-  const { Option } = Select;
+function Review (props) {
+  const { form, countries, data, setData } = props
+  const [errorMsg, setErrorMsg] = useState('')
+  const [passportMsg, setPassportMsg] = useState('')
+  const { t } = useTranslation()
+  const { Option } = Select
 
   const normFile = (e) => {
     if (Array.isArray(e)) {
-      return e;
+      return e
     }
     if (e.fileList.length === 0) {
-      return null;
+      return null
     }
-    return e && e.fileList;
-  };
+    return e && e.fileList
+  }
 
   const customRequest = async (event, id) => {
-    const reader = new FileReader();
-    const { file, onSuccess, onError } = event;
+    const reader = new FileReader()
+    const { file, onSuccess, onError } = event
     try {
       if (!validImageTypes(file)) {
-        message.error('Select only JPG or PNG image');
-        onError('Select only JPG or PNG image');
-        return false;
+        message.error('Select only JPG or PNG image')
+        onError('Select only JPG or PNG image')
+        return false
       }
       reader.onload = (e) => {
-        const base64Data = e.target.result;
+        const base64Data = e.target.result
         if (id === 'proof_of_res') {
           if (file.size <= process.env.REACT_APP_FILE_SIZE_LIMIT) {
             setData((prev) => {
-              return { ...prev, ...{ proof_of_res_data: base64Data, proof_of_res_url: file } };
-            });
-            onSuccess();
-            setErrorMsg('');
+              return { ...prev, ...{ proof_of_res_data: base64Data, proof_of_res_url: file } }
+            })
+            onSuccess()
+            setErrorMsg('')
           } else {
-            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              proof_of_res_data: undefined,
-            });
-            setErrorMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+              proof_of_res_data: undefined
+            })
+            setErrorMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
           }
         }
 
         if (id === 'passport') {
           if (file.size <= process.env.REACT_APP_FILE_SIZE_LIMIT) {
             setData((prev) => {
-              return { ...prev, ...{ passport: base64Data, passport_url: file } };
-            });
-            onSuccess();
-            setPassportMsg('');
+              return { ...prev, ...{ passport: base64Data, passport_url: file } }
+            })
+            onSuccess()
+            setPassportMsg('')
           } else {
-            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              passport: undefined,
-            });
-            setPassportMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+              passport: undefined
+            })
+            setPassportMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
           }
         }
-      };
-      onSuccess();
+      }
+      onSuccess()
 
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file)
     } catch (error) {
-      console.error('Custom request error:', error);
-      onError(error);
+      console.error('Custom request error:', error)
+      onError(error)
     }
-  };
+  }
 
   const handleFileChange = (e) => {
     if (Array.isArray(e)) {
-      return e;
+      return e
     }
     if (e.fileList.length === 0) {
-      return null;
+      return null
     }
-    return e && e.fileList;
-  };
+    return e && e.fileList
+  }
 
   return (
     <ReviewWrapper>
@@ -98,8 +98,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your First Name',
-              },
+                message: 'Please Input Your First Name'
+              }
             ]}
           >
             <Input placeholder={t('Enter Your First Name')} />
@@ -115,8 +115,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your Last Name',
-              },
+                message: 'Please Input Your Last Name'
+              }
             ]}
           >
             <Input placeholder={t('Enter Your Last Name')} />
@@ -127,8 +127,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Select Your Date of Birth',
-              },
+                message: 'Please Select Your Date of Birth'
+              }
             ]}
           >
             <DatePicker
@@ -138,8 +138,8 @@ function Review(props) {
               // className="material-input"
               format="YYYY-MM-DD"
               disabledDate={(current) => {
-                const customDate = moment().format('YYYY-MM-DD');
-                return current && current >= moment(customDate, 'YYYY-MM-DD');
+                const customDate = moment().format('YYYY-MM-DD')
+                return current && current >= moment(customDate, 'YYYY-MM-DD')
               }}
             />
           </Form.Item>
@@ -151,8 +151,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Select Your Nationality',
-              },
+                message: 'Please Select Your Nationality'
+              }
             ]}
           >
             <Select
@@ -171,8 +171,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Select Your Gender',
-              },
+                message: 'Please Select Your Gender'
+              }
             ]}
           >
             <Select style={{ width: '100%' }} placeholder="Please select your gender">
@@ -190,8 +190,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Enter Your Country Code',
-              },
+                message: 'Please Enter Your Country Code'
+              }
             ]}
           >
             <Input placeholder={t('91')} />
@@ -202,8 +202,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Enter Your Phone Number',
-              },
+                message: 'Please Enter Your Phone Number'
+              }
             ]}
           >
             <Input placeholder={t('Enter your mobile number')} />
@@ -220,8 +220,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Building Name / Number',
-              },
+                message: 'Please Input Building Name / Number'
+              }
             ]}
           >
             <Input placeholder={t('Enter Your Building Name / Number')} />
@@ -232,8 +232,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your Street Name',
-              },
+                message: 'Please Input Your Street Name'
+              }
             ]}
           >
             <Input placeholder={t('Enter Your Street Name')} />
@@ -246,8 +246,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your City Name',
-              },
+                message: 'Please Input Your City Name'
+              }
             ]}
           >
             <Input placeholder={t('Enter Your City Name')} />
@@ -258,8 +258,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your Area Name',
-              },
+                message: 'Please Input Your Area Name'
+              }
             ]}
           >
             <Input placeholder={t('Enter Your Area Code')} />
@@ -275,8 +275,8 @@ function Review(props) {
             rules={[
               {
                 required: true,
-                message: 'Please Select Your Country Name',
-              },
+                message: 'Please Select Your Country Name'
+              }
             ]}
           >
             <Select
@@ -293,11 +293,13 @@ function Review(props) {
         <h3 className="title-first">ID Verification</h3>
         <div className="verification-block">
           <div className="proof-block">
-            {data?.proof_of_res_data ? (
+            {data?.proof_of_res_data
+              ? (
               <img alt="proof_if_res" className="img-container" src={data?.proof_of_res_data} />
-            ) : (
+                )
+              : (
               <></>
-            )}
+                )}
             <Form.Item
               name="proof_of_res"
               valuePropName="fileList"
@@ -305,8 +307,8 @@ function Review(props) {
               rules={[
                 {
                   required: true,
-                  message: 'Please Upload Proof of Residence',
-                },
+                  message: 'Please Upload Proof of Residence'
+                }
               ]}
             >
               <Upload
@@ -316,15 +318,17 @@ function Review(props) {
                 maxCount={1}
                 onRemove={() =>
                   setData((prev) => {
-                    return { ...prev, ...{ proof_of_res_data: '', proof_of_res_url: '' } };
+                    return { ...prev, ...{ proof_of_res_data: '', proof_of_res_url: '' } }
                   })
                 }
               >
-                {data?.proof_of_res_data ? null : (
+                {data?.proof_of_res_data
+                  ? null
+                  : (
                   <Button className="passport-btn">
                     <ChooseFileIcon /> Choose File
                   </Button>
-                )}
+                    )}
               </Upload>
             </Form.Item>
             {errorMsg && (
@@ -342,8 +346,8 @@ function Review(props) {
               rules={[
                 {
                   required: true,
-                  message: 'Please Choose Passport',
-                },
+                  message: 'Please Choose Passport'
+                }
               ]}
             >
               <Upload
@@ -353,15 +357,17 @@ function Review(props) {
                 customRequest={(e) => customRequest(e, 'passport')}
                 onRemove={() =>
                   setData((prev) => {
-                    return { ...prev, ...{ passport: '', passport_url: '' } };
+                    return { ...prev, ...{ passport: '', passport_url: '' } }
                   })
                 }
               >
-                {data?.passport ? null : (
+                {data?.passport
+                  ? null
+                  : (
                   <Button className="passport-btn">
                     <ChooseFileIcon /> {t('Choose File')}
                   </Button>
-                )}
+                    )}
               </Upload>
             </Form.Item>
             {passportMsg && (
@@ -373,14 +379,14 @@ function Review(props) {
         </div>
       </Form>
     </ReviewWrapper>
-  );
+  )
 }
 
 Review.propTypes = {
   form: PropTypes.object,
   countries: PropTypes.array,
   data: PropTypes.string,
-  setData: PropTypes.func,
-};
+  setData: PropTypes.func
+}
 
-export default Review;
+export default Review

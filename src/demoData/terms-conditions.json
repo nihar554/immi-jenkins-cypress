@@ -20,19 +20,19 @@
     "description": "Analysis_Log_Information_Detail"
   },
   {
-    "name":"Purpose_personal_information",
+    "name": "Purpose_personal_information",
     "description": "Purpose_personal_information_detail"
   },
   {
-    "name":"Documents_requested",
+    "name": "Documents_requested",
     "description": "Documents_requested_detail"
   },
   {
-    "name":"Transfer_Personal_Information",
+    "name": "Transfer_Personal_Information",
     "description": "Transfer_Personal_Information_detail"
   },
   {
-    "name":"Nonrefundable_payment",
+    "name": "Nonrefundable_payment",
     "description": "Nonrefundable_payment_detail"
   },
   {

@@ -1,27 +1,27 @@
-import { Row } from 'antd';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import BlogDetails1 from './DetailsPages/BlogDetails1';
-import BlogDetails2 from './DetailsPages/BlogDetails2';
-import BlogDetails3 from './DetailsPages/BlogDetails3';
-import BlogDetails4 from './DetailsPages/BlogDetails4';
-import { Main } from '../../styled';
-import cardData from '../../../demoData/sampleCards.json';
+import { Row } from 'antd'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import BlogDetails1 from './DetailsPages/BlogDetails1'
+import BlogDetails2 from './DetailsPages/BlogDetails2'
+import BlogDetails3 from './DetailsPages/BlogDetails3'
+import BlogDetails4 from './DetailsPages/BlogDetails4'
+import { Main } from '../../styled'
+import cardData from '../../../demoData/sampleCards.json'
 
-const { BlogCardData } = cardData;
+const { BlogCardData } = cardData
 
-function BlogDetails() {
-  const { id } = useParams();
-  console.log('id', id);
-  const [data, setData] = useState({});
+function BlogDetails () {
+  const { id } = useParams()
+  console.log('id', id)
+  const [data, setData] = useState({})
   const filterData = () => {
-    const [result] = BlogCardData.filter((e) => e.title === id);
-    console.log('result', result);
-    setData(result);
-  };
+    const [result] = BlogCardData.filter((e) => e.title === id)
+    console.log('result', result)
+    setData(result)
+  }
   useEffect(() => {
-    filterData();
-  }, [id]);
+    filterData()
+  }, [id])
 
   return (
     <>
@@ -34,7 +34,7 @@ function BlogDetails() {
         </Row>
       </Main>
     </>
-  );
+  )
 }
 
-export default BlogDetails;
+export default BlogDetails

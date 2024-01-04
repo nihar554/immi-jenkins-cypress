@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import { Collapse } from 'antd';
-import { Link } from 'react-router-dom';
-import GeneralKnowledgeTop from './overview/GeneralKnowledgeTop';
-import { KnowledgebaseArticleWrap, ArticleListWrap, CtaWrap } from './style';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Button } from '../../../components/buttons/buttons';
-import { Main } from '../../styled';
+import React, { useState } from 'react'
+import { Collapse } from 'antd'
+import { Link } from 'react-router-dom'
+import GeneralKnowledgeTop from './overview/GeneralKnowledgeTop'
+import { KnowledgebaseArticleWrap, ArticleListWrap, CtaWrap } from './style'
+import { PageHeader } from '../../../components/page-headers/page-headers'
+import { Button } from '../../../components/buttons/buttons'
+import { Main } from '../../styled'
 
-const { Panel } = Collapse;
-function AllArticle() {
+const { Panel } = Collapse
+function AllArticle () {
   const PageRoutes = [
     {
       path: 'index',
-      breadcrumbName: 'Dashboard',
+      breadcrumbName: 'Dashboard'
     },
     {
       path: '',
-      breadcrumbName: 'All Article',
-    },
-  ];
+      breadcrumbName: 'All Article'
+    }
+  ]
   const [state, setstate] = useState({
-    key: 0,
-  });
+    key: 0
+  })
   const callback = (key) => {
-    setstate({ ...state, key });
-  };
+    setstate({ ...state, key })
+  }
   return (
     <>
       <PageHeader className="ninjadash-page-header-main" title="All Article" routes={PageRoutes} />
@@ -242,7 +242,7 @@ function AllArticle() {
         </KnowledgebaseArticleWrap>
       </Main>
     </>
-  );
+  )
 }
 
-export default AllArticle;
+export default AllArticle

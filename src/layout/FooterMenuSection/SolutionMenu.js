@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-function SolutionsMenu() {
+function SolutionsMenu () {
   return (
     <div className="footer-solution-menu">
       <p className="footer-menu-title typography-h4">Solutions</p>
@@ -20,6 +20,6 @@ function SolutionsMenu() {
         </li>
       </ul>
     </div>
-  );
+  )
 }
-export default SolutionsMenu;
+export default SolutionsMenu

@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Content, DropdownStyle } from './dropdown-style';
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Content, DropdownStyle } from './dropdown-style'
 
-function Dropdown(props) {
-  const { content, placement, title, action, children, style, className } = props;
+function Dropdown (props) {
+  const { content, placement, title, action, children, style, className } = props
 
   return (
     <DropdownStyle
@@ -17,7 +17,7 @@ function Dropdown(props) {
     >
       {children}
     </DropdownStyle>
-  );
+  )
 }
 
 const content = (
@@ -32,15 +32,15 @@ const content = (
       <span>Export to Drive</span>
     </Link>
   </>
-);
+)
 
 Dropdown.defaultProps = {
   action: ['hover'],
   placement: 'bottomRight',
   content,
   style: {},
-  className: 'ninjadash-dropdown',
-};
+  className: 'ninjadash-dropdown'
+}
 
 Dropdown.propTypes = {
   placement: PropTypes.string,
@@ -49,7 +49,7 @@ Dropdown.propTypes = {
   content: PropTypes.node,
   children: PropTypes.node,
   style: PropTypes.object,
-  className: PropTypes.string,
-};
+  className: PropTypes.string
+}
 
-export { Dropdown };
+export { Dropdown }

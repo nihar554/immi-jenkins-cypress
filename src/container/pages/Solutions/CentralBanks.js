@@ -1,39 +1,39 @@
-import React, { useEffect } from 'react';
-import { Col, Row } from 'antd';
-import { HeadTitle, ImageTitle, BannerStyle } from '../About/Style';
+import React, { useEffect } from 'react'
+import { Col, Row } from 'antd'
+import { HeadTitle, ImageTitle, BannerStyle } from '../About/Style'
 // import Heading from '../../../components/heading/heading';
-import BackgroundCorve from '../../../static/img/images/backgroundCorve.png';
-import CentralBanks from '../../../static/img/images/centralbanks.svg';
-import { Main } from '../../styled';
+import BackgroundCorve from '../../../static/img/images/backgroundCorve.png'
+import CentralBanks from '../../../static/img/images/centralbanks.svg'
+import { Main } from '../../styled'
 // import eliment from '../../../static/img/eliment.svg';
-import eliment1 from '../../../static/img/eliment (1).svg';
-import eliment2 from '../../../static/img/eliment (2).svg';
+import eliment1 from '../../../static/img/eliment (1).svg'
+import eliment2 from '../../../static/img/eliment (2).svg'
 
-function Tether() {
+function Tether () {
   useEffect(() => {
     const reveal = () => {
-      const reveals = document.querySelectorAll('.reveal');
+      const reveals = document.querySelectorAll('.reveal')
 
       reveals.forEach((element) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
+        const windowHeight = window.innerHeight
+        const elementTop = element.getBoundingClientRect().top
+        const elementVisible = 150
 
         if (elementTop < windowHeight - elementVisible) {
-          element.classList.add('active');
+          element.classList.add('active')
         } else {
-          element.classList.remove('active');
+          element.classList.remove('active')
         }
-      });
-    };
+      })
+    }
 
-    window.addEventListener('scroll', reveal);
-    reveal();
+    window.addEventListener('scroll', reveal)
+    reveal()
 
     return () => {
-      window.removeEventListener('scroll', reveal);
-    };
-  }, []);
+      window.removeEventListener('scroll', reveal)
+    }
+  }, [])
 
   return (
     <>
@@ -91,13 +91,13 @@ function Tether() {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left',
             backgroundOrigin: 'content-box',
-            transform: 'rotate(3deg)',
+            transform: 'rotate(3deg)'
             // marginTop: '4%',
           }}
         />
       </Main>
     </>
-  );
+  )
 }
 
-export default Tether;
+export default Tether

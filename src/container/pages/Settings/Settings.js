@@ -1,78 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Col, Row, Switch, message } from 'antd';
-import { HeadContainer, ProjectCard, NotificationWrapper } from './Style';
-import useAnalyticsEventTracker from '../../../config/dataService/GoogleAnalyticsService';
-import { Main } from '../../styled';
-import { CardWrapper } from '../AssetLaunchPad/Style';
-import { Cards } from '../../../components/cards/frame/cards-frame';
-import waitlist from '../../../static/img/icons/setting-waitlist.svg';
-import UserIcon from '../../../static/img/icons/user_with_blue_bg.svg';
-import EditIcon from '../../../static/img/icons/edit.svg';
-import email from '../../../static/img/icons/email-preference.svg';
-import { DataService } from '../../../config/dataService/dataService';
-import { getItem } from '../../../utility/localStorageControl';
+import React, { useEffect, useState } from 'react'
+import { Button, Col, Row, Switch, message } from 'antd'
+import { HeadContainer, ProjectCard, NotificationWrapper } from './Style'
+import useAnalyticsEventTracker from '../../../config/dataService/GoogleAnalyticsService'
+import { Main } from '../../styled'
+import { CardWrapper } from '../AssetLaunchPad/Style'
+import { Cards } from '../../../components/cards/frame/cards-frame'
+import waitlist from '../../../static/img/icons/setting-waitlist.svg'
+import UserIcon from '../../../static/img/icons/user_with_blue_bg.svg'
+import EditIcon from '../../../static/img/icons/edit.svg'
+import email from '../../../static/img/icons/email-preference.svg'
+import { DataService } from '../../../config/dataService/dataService'
+import { getItem } from '../../../utility/localStorageControl'
 
 const listStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   margin: 0,
-  padding: 0,
-};
+  padding: 0
+}
 
-function Settings() {
-  const userInfo = getItem('userInfo');
+function Settings () {
+  const userInfo = getItem('userInfo')
 
   const [emailPreference, setEmailPreference] = useState({
     newsAndUpdates: false,
     notifications: false,
     personalizedEmails: false,
-    surveysAndResearch: false,
-  });
+    surveysAndResearch: false
+  })
 
   const updateEmailPreference = (updatedPreferences) => {
     setEmailPreference((prevPreferences) => ({
       ...prevPreferences,
-      ...updatedPreferences,
-    }));
-  };
+      ...updatedPreferences
+    }))
+  }
 
   const getEmailPreference = async () => {
     try {
       // eslint-disable-next-line no-underscore-dangle
-      const response = await DataService.get(`/emailPreference/${userInfo._id}`);
-      const { newsAndUpdates, notifications, personalizedEmails, surveysAndResearch } = response.data;
+      const response = await DataService.get(`/emailPreference/${userInfo._id}`)
+      const { newsAndUpdates, notifications, personalizedEmails, surveysAndResearch } = response.data
       setEmailPreference({
         newsAndUpdates,
         notifications,
         personalizedEmails,
-        surveysAndResearch,
-      });
+        surveysAndResearch
+      })
     } catch (error) {
-      message.error(error?.response?.data?.errors.msg);
+      message.error(error?.response?.data?.errors.msg)
     }
-  };
+  }
 
   useEffect(() => {
-    getEmailPreference();
-  }, []);
+    getEmailPreference()
+  }, [])
 
   const handleEmailPreference = async (values, title) => {
     try {
       const gaClickNewsAndUpdatesTracker = useAnalyticsEventTracker(
         'Settings',
         `Click on Email Preference in ${title}`,
-        'Landed',
-      );
+        'Landed'
+      )
       // Update the state instantly
-      updateEmailPreference(values);
-      gaClickNewsAndUpdatesTracker();
+      updateEmailPreference(values)
+      gaClickNewsAndUpdatesTracker()
       // eslint-disable-next-line no-underscore-dangle
-      await DataService.patch(`/emailPreference/${userInfo._id}`, values);
+      await DataService.patch(`/emailPreference/${userInfo._id}`, values)
     } catch (error) {
-      message.error(error.message);
+      message.error(error.message)
     }
-  };
+  }
 
   return (
     <Main>
@@ -259,7 +259,7 @@ function Settings() {
         </NotificationWrapper>
       </>
     </Main>
-  );
+  )
 }
 
-export default Settings;
+export default Settings

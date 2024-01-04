@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { Form, Modal, Row, Col, Typography, message } from 'antd';
-import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import { DataService } from '../../config/dataService/dataService';
-import { Button } from '../buttons/buttons';
+import React, { useState } from 'react'
+import { Form, Modal, Row, Col, Typography, message } from 'antd'
+import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
+import { DataService } from '../../config/dataService/dataService'
+import { Button } from '../buttons/buttons'
 
-const { Text } = Typography;
+const { Text } = Typography
 
-export default function ReissueModal({ isReissue, setIsReissue, invoiceData }) {
-  const [loading, setLoading] = useState(false);
-  const [bitfinexUrl, setBitfinexUrl] = useState('');
-  const { t } = useTranslation();
+export default function ReissueModal ({ isReissue, setIsReissue, invoiceData }) {
+  const [loading, setLoading] = useState(false)
+  const [bitfinexUrl, setBitfinexUrl] = useState('')
+  const { t } = useTranslation()
 
   const submitInvoice = async () => {
     const data = {
@@ -30,25 +30,25 @@ export default function ReissueModal({ isReissue, setIsReissue, invoiceData }) {
       fullName: invoiceData.customerInfo.fullName,
       email: invoiceData.customerInfo.email,
       paymentType: 'ApplicationPayment',
-      userId: invoiceData.userId,
-    };
+      userId: invoiceData.userId
+    }
     await DataService.post('/bitfinex/submitInvoice', data)
       .then((resInvoice) => {
         if (resInvoice.status === 201) {
-          const url = `https://pay.bitfinex.com/gateway/order/${resInvoice.data}`;
-          setBitfinexUrl(url);
-          const windowFeatures = 'width=600,height=800,resizable,scrollbars';
-          window.open(url, '_blank', windowFeatures);
+          const url = `https://pay.bitfinex.com/gateway/order/${resInvoice.data}`
+          setBitfinexUrl(url)
+          const windowFeatures = 'width=600,height=800,resizable,scrollbars'
+          window.open(url, '_blank', windowFeatures)
         } else {
-          message.error('Please validate your data.');
+          message.error('Please validate your data.')
         }
-        setLoading(false);
+        setLoading(false)
       })
       .catch(() => {
-        message.error('Please validate your data.');
-        setLoading(false);
-      });
-  };
+        message.error('Please validate your data.')
+        setLoading(false)
+      })
+  }
   return (
     <Modal
       width="50%"
@@ -56,12 +56,13 @@ export default function ReissueModal({ isReissue, setIsReissue, invoiceData }) {
       open={isReissue}
       footer={null}
       onCancel={() => {
-        setIsReissue(false);
+        setIsReissue(false)
       }}
     >
       <div>
         <div className="atbd-form-checkout">
-          {bitfinexUrl ? (
+          {bitfinexUrl
+            ? (
             <div className="justify-content-center flex-col">
               <h3 className="">{t('You have submitted the Application.')}</h3>
               <p className="">
@@ -72,7 +73,9 @@ export default function ReissueModal({ isReissue, setIsReissue, invoiceData }) {
                 {t(', the application review process will begin.')}
               </p>
             </div>
-          ) : invoiceData ? (
+              )
+            : invoiceData
+              ? (
             <Row justify="center">
               <Col sm={22} xs={24}>
                 <div className="create-account-form">
@@ -84,8 +87,8 @@ export default function ReissueModal({ isReissue, setIsReissue, invoiceData }) {
                         rules={[
                           {
                             required: true,
-                            message: 'Please Input Amount',
-                          },
+                            message: 'Please Input Amount'
+                          }
                         ]}
                       >
                         <Text>{invoiceData.amount}</Text>
@@ -98,8 +101,8 @@ export default function ReissueModal({ isReissue, setIsReissue, invoiceData }) {
                         rules={[
                           {
                             required: true,
-                            message: 'Please Input Currency',
-                          },
+                            message: 'Please Input Currency'
+                          }
                         ]}
                       >
                         <Text>{invoiceData.currency}</Text>
@@ -112,8 +115,8 @@ export default function ReissueModal({ isReissue, setIsReissue, invoiceData }) {
                         rules={[
                           {
                             required: true,
-                            message: 'Please Input Pay Currency',
-                          },
+                            message: 'Please Input Pay Currency'
+                          }
                         ]}
                       >
                         {invoiceData.payCurrencies.map((item) => (
@@ -131,7 +134,8 @@ export default function ReissueModal({ isReissue, setIsReissue, invoiceData }) {
                 </div>
               </Col>
             </Row>
-          ) : (
+                )
+              : (
             <Row justify="center">
               <Col sm={22} xs={24}>
                 <div className="create-account-form">
@@ -139,15 +143,15 @@ export default function ReissueModal({ isReissue, setIsReissue, invoiceData }) {
                 </div>
               </Col>
             </Row>
-          )}
+                )}
         </div>
       </div>
     </Modal>
-  );
+  )
 }
 
 ReissueModal.propTypes = {
   isReissue: PropTypes.bool,
   setIsReissue: PropTypes.func,
-  invoiceData: PropTypes.object,
-};
+  invoiceData: PropTypes.object
+}

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-export default function ChooseFileIcon() {
+export default function ChooseFileIcon () {
   return (
     <span style={{ marginRight: '6px' }}>
       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,5 +10,5 @@ export default function ChooseFileIcon() {
         />
       </svg>
     </span>
-  );
+  )
 }

@@ -17,63 +17,63 @@ const actions = {
 
   changeLayoutBegin: () => {
     return {
-      type: actions.CHANGE_LAYOUT_MODE_BEGIN,
-    };
+      type: actions.CHANGE_LAYOUT_MODE_BEGIN
+    }
   },
 
   changeLayoutSuccess: (data) => {
     return {
       type: actions.CHANGE_LAYOUT_MODE_SUCCESS,
-      data,
-    };
+      data
+    }
   },
 
   changeLayoutErr: (err) => {
     return {
       type: actions.CHANGE_LAYOUT_MODE_ERR,
-      err,
-    };
+      err
+    }
   },
 
   changeRtlBegin: () => {
     return {
-      type: actions.CHANGE_RTL_MODE_BEGIN,
-    };
+      type: actions.CHANGE_RTL_MODE_BEGIN
+    }
   },
 
   changeRtlSuccess: (data) => {
     return {
       type: actions.CHANGE_RTL_MODE_SUCCESS,
-      data,
-    };
+      data
+    }
   },
 
   changeRtlErr: (err) => {
     return {
       type: actions.CHANGE_RTL_MODE_ERR,
-      err,
-    };
+      err
+    }
   },
 
   changeMenuBegin: () => {
     return {
-      type: actions.CHANGE_MENU_MODE_BEGIN,
-    };
+      type: actions.CHANGE_MENU_MODE_BEGIN
+    }
   },
 
   changeMenuSuccess: (data) => {
     return {
       type: actions.CHANGE_MENU_MODE_SUCCESS,
-      data,
-    };
+      data
+    }
   },
 
   changeMenuErr: (err) => {
     return {
       type: actions.CHANGE_MENU_MODE_ERR,
-      err,
-    };
-  },
-};
+      err
+    }
+  }
+}
 
-export default actions;
+export default actions

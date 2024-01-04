@@ -3,84 +3,84 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unused-state */
-import UilEllipsisV from '@iconscout/react-unicons/icons/uil-ellipsis-v';
-import { Col, Layout, Row } from 'antd';
-import propTypes from 'prop-types';
-import { Component } from 'react';
-import { Scrollbars } from '@pezhmanparsaee/react-custom-scrollbars';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import MenueItems from './MenueItems';
+import UilEllipsisV from '@iconscout/react-unicons/icons/uil-ellipsis-v'
+import { Col, Layout, Row } from 'antd'
+import propTypes from 'prop-types'
+import { Component } from 'react'
+import { Scrollbars } from '@pezhmanparsaee/react-custom-scrollbars'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import MenueItems from './MenueItems'
 
-import { LayoutContainer, SmallScreenAuthInfo, TopMenuSearch } from './Style';
-import TopMenu from './TopMenu';
-import Search from '../components/utilities/auth-info/Search';
-import AuthInfo from '../components/utilities/auth-info/info';
+import { LayoutContainer, SmallScreenAuthInfo, TopMenuSearch } from './Style'
+import TopMenu from './TopMenu'
+import Search from '../components/utilities/auth-info/Search'
+import AuthInfo from '../components/utilities/auth-info/info'
 
-import logo1 from '../static/img/logo_dark.svg';
-import logo2 from '../static/img/icon/branding-logo.svg';
-import PoweredBy from '../container/pages/Landing/PowerdBy';
-import { AuthenticationWrap } from '../container/profile/authentication/overview/style';
+import logo1 from '../static/img/logo_dark.svg'
+import logo2 from '../static/img/icon/branding-logo.svg'
+import PoweredBy from '../container/pages/Landing/PowerdBy'
+import { AuthenticationWrap } from '../container/profile/authentication/overview/style'
 
-const { theme } = require('../config/theme/themeVariables');
+const { theme } = require('../config/theme/themeVariables')
 
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout
 
 const ThemeLayout = (WrappedComponent) => {
   class LayoutComponent extends Component {
-    constructor(props) {
-      super(props);
+    constructor (props) {
+      super(props)
       this.state = {
         collapsed: false,
         hide: true,
         searchHide: true,
         customizerAction: false,
-        activeSearch: false,
-      };
-      this.updateDimensions = this.updateDimensions.bind(this);
+        activeSearch: false
+      }
+      this.updateDimensions = this.updateDimensions.bind(this)
     }
 
-    componentDidMount() {
-      window.addEventListener('resize', this.updateDimensions);
-      this.updateDimensions();
+    componentDidMount () {
+      window.addEventListener('resize', this.updateDimensions)
+      this.updateDimensions()
     }
 
-    componentWillUnmount() {
-      window.removeEventListener('resize', this.updateDimensions);
+    componentWillUnmount () {
+      window.removeEventListener('resize', this.updateDimensions)
     }
 
-    updateDimensions() {
+    updateDimensions () {
       this.setState({
-        collapsed: window.innerWidth <= 1200 && true,
-      });
+        collapsed: window.innerWidth <= 1200 && true
+      })
     }
 
-    render() {
-      const { collapsed, hide } = this.state;
-      const { layoutMode, rtl, topMenu } = this.props;
+    render () {
+      const { collapsed, hide } = this.state
+      const { layoutMode, rtl, topMenu } = this.props
 
-      const left = !rtl ? 'left' : 'right';
+      const left = !rtl ? 'left' : 'right'
       const toggleCollapsed = () => {
         this.setState({
-          collapsed: !collapsed,
-        });
-      };
+          collapsed: !collapsed
+        })
+      }
 
       const toggleCollapsedMobile = () => {
         if (window.innerWidth <= 990) {
           this.setState({
-            collapsed: !collapsed,
-          });
+            collapsed: !collapsed
+          })
         }
-      };
+      }
 
       const onShowHide = () => {
         this.setState({
           hide: !hide,
-          searchHide: true,
-        });
-      };
+          searchHide: true
+        })
+      }
 
       const SideBarStyle = {
         margin: '63px 0 0 0',
@@ -89,35 +89,35 @@ const ThemeLayout = (WrappedComponent) => {
         height: '100vh',
         position: 'fixed',
         [left]: 0,
-        zIndex: 988,
-      };
+        zIndex: 988
+      }
 
       const renderView = ({ style }) => {
         const customStyle = {
           marginRight: 'auto',
-          [rtl ? 'marginLeft' : 'marginRight']: '-17px',
-        };
-        return <div style={{ ...style, ...customStyle }} />;
-      };
+          [rtl ? 'marginLeft' : 'marginRight']: '-17px'
+        }
+        return <div style={{ ...style, ...customStyle }} />
+      }
 
       const renderThumbVertical = ({ style }) => {
-        const { ChangeLayoutMode } = this.props;
+        const { ChangeLayoutMode } = this.props
         const thumbStyle = {
           borderRadius: 6,
           backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
-          [left]: '2px',
-        };
-        return <div style={{ ...style, ...thumbStyle }} />;
-      };
+          [left]: '2px'
+        }
+        return <div style={{ ...style, ...thumbStyle }} />
+      }
 
       const renderThumbHorizontal = ({ style }) => {
-        const { ChangeLayoutMode } = this.props;
+        const { ChangeLayoutMode } = this.props
         const thumbStyle = {
           borderRadius: 6,
-          backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
-        };
-        return <div style={{ ...style, ...thumbStyle }} />;
-      };
+          backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6'
+        }
+        return <div style={{ ...style, ...thumbStyle }} />
+      }
       return (
         <LayoutContainer>
           <Layout className="layout">
@@ -129,7 +129,7 @@ const ThemeLayout = (WrappedComponent) => {
                 [!rtl ? 'left' : 'right']: 0,
                 display: ['/welcome', '/about', '/contact', '/faqs', '/terms'].includes(window.location.pathname)
                   ? 'none'
-                  : 'block',
+                  : 'block'
               }}
             >
               <div className="ninjadash-header-content d-flex">
@@ -173,16 +173,18 @@ const ThemeLayout = (WrappedComponent) => {
                     {topMenu && window.innerWidth > 991 ? <TopMenu /> : null}
                   </div>
                   <div className="ninjadash-nav-actions">
-                    {topMenu && window.innerWidth > 991 ? (
+                    {topMenu && window.innerWidth > 991
+                      ? (
                       <TopMenuSearch>
                         <div className="top-right-wrap d-flex">
                           <span />
                           <AuthInfo />
                         </div>
                       </TopMenuSearch>
-                    ) : (
+                        )
+                      : (
                       <AuthInfo />
-                    )}
+                        )}
                   </div>
                 </div>
                 <div className="ninjadash-header-content__mobile">
@@ -211,7 +213,8 @@ const ThemeLayout = (WrappedComponent) => {
               </Row>
             </div>
             <Layout>
-              {!topMenu || window.innerWidth <= 991 ? (
+              {!topMenu || window.innerWidth <= 991
+                ? (
                 <ThemeProvider theme={theme}>
                   <Sider
                     width={280}
@@ -233,36 +236,43 @@ const ThemeLayout = (WrappedComponent) => {
                     </Scrollbars>
                   </Sider>
                 </ThemeProvider>
-              ) : null}
+                  )
+                : null}
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent {...this.props} />
                 </Content>
               </Layout>
             </Layout>
-            {['/about', '/contact', '/faqs', '/terms'].includes(window.location.pathname) ? (
-              window.location.pathname === '/terms' ? (
+            {['/about', '/contact', '/faqs', '/terms'].includes(window.location.pathname)
+              ? (
+                  window.location.pathname === '/terms'
+                    ? (
                 <AuthenticationWrap style={{ zIndex: '1' }}>
                   <div className="bottom" style={{ position: 'fixed', bottom: 0 }} />
                   <PoweredBy />
                 </AuthenticationWrap>
-              ) : (
+                      )
+                    : (
                 <AuthenticationWrap style={{ zIndex: '1' }}>
                   <div className="bottom" />
                   <PoweredBy />
                 </AuthenticationWrap>
-              )
-            ) : (
+                      )
+                )
+              : (
               <></>
-            )}
+                )}
           </Layout>
-          {window.innerWidth <= 991 ? (
+          {window.innerWidth <= 991
+            ? (
             <span className={collapsed ? 'ninjadash-shade' : 'ninjadash-shade show'} onClick={toggleCollapsed} />
-          ) : (
-            ''
-          )}
+              )
+            : (
+                ''
+              )}
         </LayoutContainer>
-      );
+      )
     }
   }
 
@@ -270,16 +280,16 @@ const ThemeLayout = (WrappedComponent) => {
     return {
       layoutMode: state.ChangeLayoutMode.mode,
       rtl: state.ChangeLayoutMode.rtlData,
-      topMenu: state.ChangeLayoutMode.topMenu,
-    };
-  };
+      topMenu: state.ChangeLayoutMode.topMenu
+    }
+  }
 
   LayoutComponent.propTypes = {
     layoutMode: propTypes.string,
     rtl: propTypes.bool,
-    topMenu: propTypes.bool,
-  };
+    topMenu: propTypes.bool
+  }
 
-  return connect(mapStateToProps)(LayoutComponent);
-};
-export default ThemeLayout;
+  return connect(mapStateToProps)(LayoutComponent)
+}
+export default ThemeLayout

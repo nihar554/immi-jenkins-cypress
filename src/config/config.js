@@ -1,10 +1,10 @@
-import { themeColor } from './theme/themeVariables';
+import { themeColor } from './theme/themeVariables'
 
 const config = {
   topMenu: true,
   rtl: false,
   mainTemplate: 'lightMode',
-  themeColor,
-};
+  themeColor
+}
 
-export default config;
+export default config

@@ -1,29 +1,29 @@
-import { useState } from 'react';
-import UilFacebook from '@iconscout/react-unicons/icons/uil-facebook-f';
-import UilLinkh from '@iconscout/react-unicons/icons/uil-link-h';
-import UilLinkedin from '@iconscout/react-unicons/icons/uil-linkedin';
-import UilTwitter from '@iconscout/react-unicons/icons/uil-twitter';
-import { Col, Row, Tooltip } from 'antd';
-import { Link } from 'react-router-dom';
-import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
-import propTypes from 'prop-types';
-import { BlogDetailsStyle } from '../Style';
-import { Main } from '../../../styled';
+import { useState } from 'react'
+import UilFacebook from '@iconscout/react-unicons/icons/uil-facebook-f'
+import UilLinkh from '@iconscout/react-unicons/icons/uil-link-h'
+import UilLinkedin from '@iconscout/react-unicons/icons/uil-linkedin'
+import UilTwitter from '@iconscout/react-unicons/icons/uil-twitter'
+import { Col, Row, Tooltip } from 'antd'
+import { Link } from 'react-router-dom'
+import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share'
+import propTypes from 'prop-types'
+import { BlogDetailsStyle } from '../Style'
+import { Main } from '../../../styled'
 
 // const { BlogCardData } = cardData;
 
-function BlogDetails4({ data }) {
-  console.log('data', data);
-  const currentUrl = 'https://www.google.com/';
+function BlogDetails4 ({ data }) {
+  console.log('data', data)
+  const currentUrl = 'https://www.google.com/'
 
-  const [isCopied, setIsCopied] = useState(false);
+  const [isCopied, setIsCopied] = useState(false)
   const handleCopy = () => {
-    setIsCopied(true);
-    navigator.clipboard.writeText(currentUrl);
+    setIsCopied(true)
+    navigator.clipboard.writeText(currentUrl)
     setTimeout(() => {
-      setIsCopied(false);
-    }, 1500);
-  };
+      setIsCopied(false)
+    }, 1500)
+  }
 
   return (
     <>
@@ -34,7 +34,7 @@ function BlogDetails4({ data }) {
               <div className="ninjadash-blog-details">
                 <div className="ninjadash-blog-featured-img">
                   <img
-                    src={require(`../../../../static/img/blogs/blog-details/blog-details-4-1.jpg`)}
+                    src={require('../../../../static/img/blogs/blog-details/blog-details-4-1.jpg')}
                     alt="ninjadash Blog"
                     style={{ height: '30vw' }}
                   />
@@ -85,7 +85,7 @@ function BlogDetails4({ data }) {
                       ensuring sustained financial stability.
                     </p>
                     <img
-                      src={require(`../../../../static/img/blogs/blog-details/blog-details-4-2.jpg`)}
+                      src={require('../../../../static/img/blogs/blog-details/blog-details-4-2.jpg')}
                       alt="ninjadash Blog"
                     />
                     <p>
@@ -108,7 +108,7 @@ function BlogDetails4({ data }) {
                       Germany, Italy, and France rank among the top ten gold-holding nations worldwide.
                     </p>
                     <img
-                      src={require(`../../../../static/img/blogs/blog-details/blog-details-4-3.jpg`)}
+                      src={require('../../../../static/img/blogs/blog-details/blog-details-4-3.jpg')}
                       alt="ninjadash Blog"
                     />
                     <p>
@@ -230,11 +230,11 @@ function BlogDetails4({ data }) {
         </Row>
       </Main>
     </>
-  );
+  )
 }
 
 BlogDetails4.propTypes = {
-  data: propTypes.object,
-};
+  data: propTypes.object
+}
 
-export default BlogDetails4;
+export default BlogDetails4

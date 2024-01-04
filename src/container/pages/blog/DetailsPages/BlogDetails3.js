@@ -1,29 +1,29 @@
-import { useState } from 'react';
-import UilFacebook from '@iconscout/react-unicons/icons/uil-facebook-f';
-import UilLinkh from '@iconscout/react-unicons/icons/uil-link-h';
-import UilLinkedin from '@iconscout/react-unicons/icons/uil-linkedin';
-import UilTwitter from '@iconscout/react-unicons/icons/uil-twitter';
-import { Col, Row, Tooltip } from 'antd';
-import { Link } from 'react-router-dom';
-import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
-import propTypes from 'prop-types';
-import { BlogDetailsStyle } from '../Style';
-import { Main } from '../../../styled';
+import { useState } from 'react'
+import UilFacebook from '@iconscout/react-unicons/icons/uil-facebook-f'
+import UilLinkh from '@iconscout/react-unicons/icons/uil-link-h'
+import UilLinkedin from '@iconscout/react-unicons/icons/uil-linkedin'
+import UilTwitter from '@iconscout/react-unicons/icons/uil-twitter'
+import { Col, Row, Tooltip } from 'antd'
+import { Link } from 'react-router-dom'
+import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share'
+import propTypes from 'prop-types'
+import { BlogDetailsStyle } from '../Style'
+import { Main } from '../../../styled'
 
 // const { BlogCardData } = cardData;
 
-function BlogDetails3({ data }) {
-  console.log('data', data);
-  const currentUrl = 'https://www.google.com/';
+function BlogDetails3 ({ data }) {
+  console.log('data', data)
+  const currentUrl = 'https://www.google.com/'
 
-  const [isCopied, setIsCopied] = useState(false);
+  const [isCopied, setIsCopied] = useState(false)
   const handleCopy = () => {
-    setIsCopied(true);
-    navigator.clipboard.writeText(currentUrl);
+    setIsCopied(true)
+    navigator.clipboard.writeText(currentUrl)
     setTimeout(() => {
-      setIsCopied(false);
-    }, 1500);
-  };
+      setIsCopied(false)
+    }, 1500)
+  }
 
   return (
     <>
@@ -34,7 +34,7 @@ function BlogDetails3({ data }) {
               <div className="ninjadash-blog-details">
                 <div className="ninjadash-blog-featured-img">
                   <img
-                    src={require(`../../../../static/img/blogs/blog-details/blog-detail-main-3.jpg`)}
+                    src={require('../../../../static/img/blogs/blog-details/blog-detail-main-3.jpg')}
                     alt="ninjadash Blog"
                     style={{ height: '30vw' }}
                   />
@@ -44,7 +44,7 @@ function BlogDetails3({ data }) {
                     <h1 className="ninjadash-blog-title">{data?.title}</h1>
                     <ul className="ninjadash-blog-meta">
                       <li className="ninjadash-blog-meta__author">
-                        <img src={require(`../../../../static/img/tether.png`)} alt="ninjadash blog author" />
+                        <img src={require('../../../../static/img/tether.png')} alt="ninjadash blog author" />
                         <span className="ninjadash-blog-authorname">{data?.author}</span>
                       </li>
                       <li className="ninjadash-blog-meta__date">{data?.postDate}</li>
@@ -58,7 +58,7 @@ function BlogDetails3({ data }) {
                       generation for securities, will be tokenization of securities.&quot;
                     </p>
                     <p>
-                    Tether now offers Tokenization-as-a-service (TaaS), a financial innovation that allows
+                      Tether now offers Tokenization-as-a-service (TaaS), a financial innovation that allows
                       organizations to harness the power of blockchain technology to tokenize assets and commodities.
                       These digital assets are tethered to the value of tangible commodities such as gold, oil, or even
                       real estate.
@@ -82,9 +82,9 @@ function BlogDetails3({ data }) {
 
                     <h3>Liquidity</h3>
                     <p>
-                      Commodity-backed tokens are highly liquid assets. They can be easily traded on various
-                      crypto currency exchanges, providing investors with the flexibility to buy or sell at any time,
-                      enhancing market accessibility, and improving price discovery.
+                      Commodity-backed tokens are highly liquid assets. They can be easily traded on various crypto
+                      currency exchanges, providing investors with the flexibility to buy or sell at any time, enhancing
+                      market accessibility, and improving price discovery.
                     </p>
 
                     <h3>Transparency</h3>
@@ -117,7 +117,7 @@ function BlogDetails3({ data }) {
 
                     <h3>Regulatory Compliance</h3>
                     <p>
-                    Tether strictly adheres to regulations in all applicable jurisdictions. This ensures that the
+                      Tether strictly adheres to regulations in all applicable jurisdictions. This ensures that the
                       tokens are compliant with relevant financial regulations, providing a safe and regulated
                       investment avenue.
                     </p>
@@ -228,11 +228,11 @@ function BlogDetails3({ data }) {
         </Row>
       </Main>
     </>
-  );
+  )
 }
 
 BlogDetails3.propTypes = {
-  data: propTypes.object,
-};
+  data: propTypes.object
+}
 
-export default BlogDetails3;
+export default BlogDetails3

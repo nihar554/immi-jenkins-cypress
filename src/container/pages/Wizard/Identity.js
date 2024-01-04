@@ -1,46 +1,46 @@
-import { useState } from 'react';
-import { Button, Form, Upload, message } from 'antd';
-import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
-import Mark from '../../../static/img/icon/Mark';
-import ChooseFileIcon from '../../../static/img/icon/ChooseFileIcon';
-import { IdentityWrapper } from '../style';
-import { Checkbox } from '../../../components/checkbox/checkbox';
-import { validImageTypes } from '../../../utility/utility';
+import { useState } from 'react'
+import { Button, Form, Upload, message } from 'antd'
+import { useTranslation } from 'react-i18next'
+import PropTypes from 'prop-types'
+import Mark from '../../../static/img/icon/Mark'
+import ChooseFileIcon from '../../../static/img/icon/ChooseFileIcon'
+import { IdentityWrapper } from '../style'
+import { Checkbox } from '../../../components/checkbox/checkbox'
+import { validImageTypes } from '../../../utility/utility'
 
-export default function Identity(props) {
-  const [passportMsg, setPassportMsg] = useState('');
+export default function Identity (props) {
+  const [passportMsg, setPassportMsg] = useState('')
   // const [nationalFrontMsg, setNationalFrontMsg] = useState('');
   // const [nationalBackMsg, setNationalBackMsg] = useState('');
-  const { form, setData, data, next } = props;
-  const { t } = useTranslation();
+  const { form, setData, data, next } = props
+  const { t } = useTranslation()
 
   const customRequest = async (event, id) => {
-    const reader = new FileReader();
-    const { file, onSuccess, onError } = event;
+    const reader = new FileReader()
+    const { file, onSuccess, onError } = event
     try {
       if (!validImageTypes(file)) {
-        message.error('Select only JPG or PNG image');
-        onError('Select only JPG or PNG image');
-        return false;
+        message.error('Select only JPG or PNG image')
+        onError('Select only JPG or PNG image')
+        return false
       }
       reader.onload = (e) => {
-        const base64Data = e.target.result;
+        const base64Data = e.target.result
         if (id === 'front') {
           // setData((prev) => {
           //   return { ...prev, ...{ identity_front_base64: base64Data, identity_front: file } };
           // });
           if (file.size <= process.env.REACT_APP_FILE_SIZE_LIMIT) {
             setData((prev) => {
-              return { ...prev, ...{ identity_front_base64: base64Data, identity_front: file } };
-            });
-            onSuccess();
+              return { ...prev, ...{ identity_front_base64: base64Data, identity_front: file } }
+            })
+            onSuccess()
             // setNationalFrontMsg('');
           } else {
-            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              identity_front: undefined,
-            });
+              identity_front: undefined
+            })
             // setNationalFrontMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
           }
         }
@@ -51,23 +51,23 @@ export default function Identity(props) {
           // });
           if (file.size <= process.env.REACT_APP_FILE_SIZE_LIMIT) {
             setData((prev) => {
-              return { ...prev, ...{ identity_back_base64: base64Data, identity_back: file } };
-            });
-            onSuccess();
+              return { ...prev, ...{ identity_back_base64: base64Data, identity_back: file } }
+            })
+            onSuccess()
             // setNationalBackMsg('');
           } else {
-            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              identity_back: undefined,
-            });
+              identity_back: undefined
+            })
             // setNationalBackMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
           }
         }
 
         if (id === 'selfie') {
           setData((prev) => {
-            return { ...prev, ...{ photo_url: file, photo_data: base64Data } };
-          });
+            return { ...prev, ...{ photo_url: file, photo_data: base64Data } }
+          })
         }
 
         if (id === 'passport') {
@@ -76,16 +76,16 @@ export default function Identity(props) {
           // });
           if (file.size <= process.env.REACT_APP_FILE_SIZE_LIMIT) {
             setData((prev) => {
-              return { ...prev, ...{ passport: base64Data, passport_url: file } };
-            });
-            onSuccess();
-            setPassportMsg('');
+              return { ...prev, ...{ passport: base64Data, passport_url: file } }
+            })
+            onSuccess()
+            setPassportMsg('')
           } else {
-            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+            onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              passport: undefined,
-            });
-            setPassportMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
+              passport: undefined
+            })
+            setPassportMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
           }
         }
         // if (id === 'criminal') {
@@ -98,25 +98,25 @@ export default function Identity(props) {
         //     return { ...prev, ...{ wealth: base64Data, wealth_url: file } };
         //   });
         // }
-      };
-      onSuccess();
+      }
+      onSuccess()
 
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file)
     } catch (error) {
-      console.error('Custom request error:', error);
-      onError(error);
+      console.error('Custom request error:', error)
+      onError(error)
     }
-  };
+  }
 
   const handleFileChange = (e) => {
     if (Array.isArray(e)) {
-      return e;
+      return e
     }
     if (e.fileList.length === 0) {
-      return null;
+      return null
     }
-    return e && e.fileList;
-  };
+    return e && e.fileList
+  }
 
   return (
     <IdentityWrapper>
@@ -126,7 +126,7 @@ export default function Identity(props) {
         </h3>
         <p className="">
           {t(
-            'To expedite your request, we strongly recommend including a passport. If the back of your national ID, drivers license, or other document is blank, please upload it as well.',
+            'To expedite your request, we strongly recommend including a passport. If the back of your national ID, drivers license, or other document is blank, please upload it as well.'
           )}
         </p>
         <section className="">
@@ -169,8 +169,8 @@ export default function Identity(props) {
                 rules={[
                   {
                     required: true,
-                    message: 'Please Choose Passport',
-                  },
+                    message: 'Please Choose Passport'
+                  }
                 ]}
               >
                 <Upload
@@ -180,15 +180,17 @@ export default function Identity(props) {
                   customRequest={(e) => customRequest(e, 'passport')}
                   onRemove={() =>
                     setData((prev) => {
-                      return { ...prev, ...{ passport: '', passport_url: '' } };
+                      return { ...prev, ...{ passport: '', passport_url: '' } }
                     })
                   }
                 >
-                  {data?.passport ? null : (
+                  {data?.passport
+                    ? null
+                    : (
                     <Button className="passport-btn">
                       <ChooseFileIcon /> {t('Choose File')}
                     </Button>
-                  )}
+                      )}
                 </Upload>
               </Form.Item>
               {passportMsg && (
@@ -356,28 +358,28 @@ export default function Identity(props) {
               {
                 validator: async (_, checked) => {
                   if (!checked) {
-                    return Promise.reject(new Error('Please accept the terms & conditions'));
+                    return Promise.reject(new Error('Please accept the terms & conditions'))
                   }
-                },
-              },
+                }
+              }
             ]}
             valuePropName="checked"
           >
             <Checkbox name="termsAndConditon" checked={data?.termsAndConditon}>
               {t(
-                "I've attached valid self-attested copies of identity and address documents. The identity docs are valid for at least six months, and the address proof is not older than three months. I confirm the account is for my exclusive use, and I declare all information is accurate. I authorize Government of El Salvador to verify and confirm it.",
+                "I've attached valid self-attested copies of identity and address documents. The identity docs are valid for at least six months, and the address proof is not older than three months. I confirm the account is for my exclusive use, and I declare all information is accurate. I authorize Government of El Salvador to verify and confirm it."
               )}
             </Checkbox>
           </Form.Item>
         </section>
       </Form>
     </IdentityWrapper>
-  );
+  )
 }
 
 Identity.propTypes = {
   setData: PropTypes.func,
   next: PropTypes.func,
   data: PropTypes.object,
-  form: PropTypes.object,
-};
+  form: PropTypes.object
+}

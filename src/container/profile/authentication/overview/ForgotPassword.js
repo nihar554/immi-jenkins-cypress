@@ -1,42 +1,42 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Form, Input, Row, Col, message } from 'antd';
-import { useTranslation } from 'react-i18next';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Form, Input, Row, Col, message } from 'antd'
+import { useTranslation } from 'react-i18next'
 // import Cookies from 'js-cookie';
-import { AuthFormWrap, LoginWrap } from './style';
-import { DataService } from '../../../../config/dataService/dataService';
+import { AuthFormWrap, LoginWrap } from './style'
+import { DataService } from '../../../../config/dataService/dataService'
 
-function ForgotPassword() {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
+function ForgotPassword () {
+  const navigate = useNavigate()
+  const { t } = useTranslation()
   const [state, setState] = useState({
-    email: '',
-  });
-  const [loading, setLoading] = useState(false);
+    email: ''
+  })
+  const [loading, setLoading] = useState(false)
   const handleSubmit = async () => {
     try {
       const body = {
-        email: state.email,
-      };
-      setLoading(true);
-      const response = await DataService.post('/forgotOTP', body);
+        email: state.email
+      }
+      setLoading(true)
+      const response = await DataService.post('/forgotOTP', body)
       if (response?.data?.success === true) {
-        setLoading(false);
-        navigate('/reset-password', { state: state.email });
-        message.success(t('forgot_password_success'));
+        setLoading(false)
+        navigate('/reset-password', { state: state.email })
+        message.success(t('forgot_password_success'))
       } else if (response?.data?.errors?.msg === 'INVALID_DETAILS') {
-        setLoading(false);
-        message.error(t('forgot_password_invalid_email'));
+        setLoading(false)
+        message.error(t('forgot_password_invalid_email'))
       } else {
-        message.error(response?.data?.errors.msg);
+        message.error(response?.data?.errors.msg)
       }
     } catch (err) {
-      setLoading(false);
-      message.error(err?.response?.data?.errors.msg);
+      setLoading(false)
+      message.error(err?.response?.data?.errors.msg)
     }
-  };
+  }
 
   return (
     <LoginWrap>
@@ -60,7 +60,7 @@ function ForgotPassword() {
                   <div className="ninjadash-authentication-content">
                     <p className="forgot-text" style={{ textAlign: 'center' }}>
                       {t(
-                        'Enter_the_email_address_you_used_when_you_joined_and_we’ll_send_you_instructions_to_reset_your_password',
+                        'Enter_the_email_address_you_used_when_you_joined_and_we’ll_send_you_instructions_to_reset_your_password'
                       )}
                       .
                     </p>
@@ -97,7 +97,7 @@ function ForgotPassword() {
         </p>
       </div>
     </LoginWrap>
-  );
+  )
 }
 
-export default ForgotPassword;
+export default ForgotPassword

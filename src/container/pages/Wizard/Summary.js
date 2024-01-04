@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
-import { SummaryWrapper } from '../style';
+import { useTranslation } from 'react-i18next'
+import PropTypes from 'prop-types'
+import { SummaryWrapper } from '../style'
 
-export default function Summary(props) {
-  const { bitfinexUrl } = props;
-  const { t } = useTranslation();
+export default function Summary (props) {
+  const { bitfinexUrl } = props
+  const { t } = useTranslation()
   return (
     <SummaryWrapper>
       <h3 className="">{t('You have submitted the Application.')}</h3>
@@ -16,8 +16,8 @@ export default function Summary(props) {
         {t(' the application review process will begin.')}
       </p>
     </SummaryWrapper>
-  );
+  )
 }
 Summary.propTypes = {
-  bitfinexUrl: PropTypes.string,
-};
+  bitfinexUrl: PropTypes.string
+}

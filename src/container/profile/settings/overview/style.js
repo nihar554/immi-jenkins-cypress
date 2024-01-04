@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from 'styled-components'
 
 const ProfileAuthorBox = Styled.div`
     .ant-card-body{
@@ -90,7 +90,7 @@ const ProfileAuthorBox = Styled.div`
             }
         }
     }
-`;
+`
 
 const SettingWrapper = Styled.div`
     .cover-image{
@@ -154,7 +154,7 @@ const SettingWrapper = Styled.div`
             color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};
         }
     }
-`;
+`
 
 const AccountWrapper = Styled.div`
     .ant-card-body{
@@ -220,7 +220,7 @@ const AccountWrapper = Styled.div`
             border: 1px solid ${({ theme }) => theme['border-color-light']};
         }
     }
-`;
+`
 
 const ChangePasswordWrapper = Styled.div`
     .ant-card-body{
@@ -258,7 +258,7 @@ const ChangePasswordWrapper = Styled.div`
             }
         }
     }
-`;
+`
 
 const SocialProfileForm = Styled.div`
     .ant-form-item-control-input{
@@ -349,7 +349,7 @@ const SocialProfileForm = Styled.div`
     .social-form-actions{
         margin-top: 25px;
     }
-`;
+`
 
 const NotificationWrapper = Styled.div`
     .notification-box-single{
@@ -421,7 +421,7 @@ const NotificationWrapper = Styled.div`
             }
         }
     }
-`;
+`
 
 export {
   ProfileAuthorBox,
@@ -429,5 +429,5 @@ export {
   AccountWrapper,
   ChangePasswordWrapper,
   SocialProfileForm,
-  NotificationWrapper,
-};
+  NotificationWrapper
+}
