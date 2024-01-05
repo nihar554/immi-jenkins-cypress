@@ -18,7 +18,8 @@ pipeline {
         stage('NPM Start') {
             steps {
                 // Run npm install with the legacy-peer-deps flag on Windows
-                bat 'npm start '
+                 start /B npm start
+
             }
         }
     //     stage('Run ESLint and Prettier') {
