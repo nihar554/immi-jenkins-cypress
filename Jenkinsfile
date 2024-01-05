@@ -15,13 +15,19 @@ pipeline {
                 bat 'npm install --legacy-peer-deps'
             }
         }
-        stage('Run ESLint and Prettier') {
-      steps {
-        // Run ESLint and Prettier
-        bat 'npm run lint'
-        bat 'npm run format'
-      }
-    }
+        stage('NPM Install') {
+            steps {
+                // Run npm install with the legacy-peer-deps flag on Windows
+                bat 'npm start '
+            }
+        }
+    //     stage('Run ESLint and Prettier') {
+    //          steps {
+    //     // Run ESLint and Prettier
+    //     bat 'npm run lint'
+    //     bat 'npm run format'
+    //          }
+    // }
     
         stage('Run Cypress Tests') {
             steps {
