@@ -15,7 +15,7 @@ pipeline {
                 bat 'npm install --legacy-peer-deps'
             }
         }
-        stage('NPM Install') {
+        stage('NPM Start') {
             steps {
                 // Run npm install with the legacy-peer-deps flag on Windows
                 bat 'npm start '
