@@ -1,0 +1,13 @@
+- pipe: atlassian/jenkins-job-trigger:0.5.0
+  variables:
+    JENKINS_URL: 'http://192.168.1.86:7000/'
+    JENKINS_USER: 'nihar'
+    JENKINS_TOKEN: '11268081a45918d4d60ecad4f74fcc4026'
+    JOB_NAME: 'test git'
+    # JOB_PARAMETERS: '<json>' # Optional
+    # BUILD_FROM_FILE: '<string>' # Optional
+    # JENKINS_FILE_PATH: '<string>' # Optional
+    # CERTIFICATE: '<string>' # Optional
+    # WAIT: '<boolean>' # Optional
+    # WAIT_MAX_TIME: '<integer>' # Optional
+    # DEBUG: '<boolean>' # Optional
