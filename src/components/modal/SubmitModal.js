@@ -9,7 +9,7 @@ import BitcoinIcon from '../../static/img/bitcoin-icon.png'
 import UsdtIcon from '../../static/img/usdt-icon.png'
 import { DataService } from '../../config/dataService/dataService'
 
-export default function SubmitModal ({
+export default function SubmitModal({
   isModalOpen,
   setIsModalOpen,
   // isResident,
@@ -17,7 +17,7 @@ export default function SubmitModal ({
   details,
   paymentType,
   setPaymentType,
-  getUserPaymentDetails
+  getUserPaymentDetails,
 }) {
   const [loading, setLoading] = useState(false)
   const [bitfinexUrl, setBitfinexUrl] = useState('')
@@ -38,7 +38,7 @@ export default function SubmitModal ({
       residCity: details.resid_city,
       fullName: `${`${details.first_name} ${details.middle_name ? details.middle_name : ''} ${details.last_name}`}`,
       email: JSON.parse(Cookies.get('user')).email,
-      paymentType: 'ApplicationPayment'
+      paymentType: 'ApplicationPayment',
     }
     await DataService.post('/bitfinex/submitInvoice', invoiceData)
       .then((resInvoice) => {
@@ -127,7 +127,7 @@ export default function SubmitModal ({
                                   marginBottom: '2rem',
                                   color: '#fff',
                                   padding: '12px',
-                                  cursor: 'pointer'
+                                  cursor: 'pointer',
                                 }
                               : {
                                   border: '1px solid #041E5F',
@@ -137,7 +137,7 @@ export default function SubmitModal ({
                                   marginBottom: '2rem',
                                   color: '#041E5F',
                                   padding: '12px',
-                                  cursor: 'pointer'
+                                  cursor: 'pointer',
                                 }
                           }
                           className="payment-card-block"
@@ -164,7 +164,7 @@ export default function SubmitModal ({
                                   marginBottom: '2rem',
                                   color: '#fff',
                                   padding: '12px',
-                                  cursor: 'pointer'
+                                  cursor: 'pointer',
                                 }
                               : {
                                   border: '1px solid #041E5F',
@@ -174,7 +174,7 @@ export default function SubmitModal ({
                                   marginBottom: '2rem',
                                   color: '#041E5F',
                                   padding: '12px',
-                                  cursor: 'pointer'
+                                  cursor: 'pointer',
                                 }
                           }
                           className="payment-card-block"
@@ -210,5 +210,5 @@ SubmitModal.propTypes = {
   paymentType: PropTypes.string,
   setPaymentType: PropTypes.func,
   details: PropTypes.object,
-  getUserPaymentDetails: PropTypes.func
+  getUserPaymentDetails: PropTypes.func,
 }

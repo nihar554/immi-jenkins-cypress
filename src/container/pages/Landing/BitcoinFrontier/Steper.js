@@ -19,7 +19,7 @@ import { BitcoinWizardDesktop } from './Style'
 //   },
 // ];
 
-function Steper () {
+function Steper() {
   const { t } = useTranslation()
 
   return (
@@ -41,7 +41,7 @@ function Steper () {
                       <strong>{t('Fee_Payment')}: </strong>
                       <span>
                         {t(
-                          'Submit_a_non-refundable_application_fee_of_999_USD_in_Bitcoin_(BTC)_or_USDt_to_commence_the_evaluation_process.'
+                          'Submit_a_non-refundable_application_fee_of_999_USD_in_Bitcoin_(BTC)_or_USDt_to_commence_the_evaluation_process.',
                         )}
                       </span>
                     </li>
@@ -52,7 +52,7 @@ function Steper () {
                   </ul>
                 </div>
               </div>
-            )
+            ),
           },
           {
             title: 'Proceeding upon Approval',
@@ -81,7 +81,7 @@ function Steper () {
                   </ul>
                 </div>
               </div>
-            )
+            ),
           },
           {
             title: 'Receiving Freedom Visa',
@@ -104,8 +104,8 @@ function Steper () {
                   </ul>
                 </div>
               </div>
-            )
-          }
+            ),
+          },
         ]}
       />
     </BitcoinWizardDesktop>

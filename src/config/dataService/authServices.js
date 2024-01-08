@@ -19,14 +19,14 @@ const firebaseConfig = {
   storageBucket,
   messagingSenderId,
   appId,
-  measurementId
+  measurementId,
 }
 initializeApp(firebaseConfig)
 // const firebaseAuth = getAuth();
 
 const gaClickSignUpEvent = useAnalyticsEventTracker('Signup', 'Clicked signup button', 'Clicked', '/signup')
 
-async function signUp (dataToSend) {
+async function signUp(dataToSend) {
   // eslint-disable-next-line no-useless-catch
   try {
     gaClickSignUpEvent()
@@ -38,7 +38,7 @@ async function signUp (dataToSend) {
 }
 const gaClickLoginEvent = useAnalyticsEventTracker('Login', 'Clicked on login button', 'Clicked', '/login')
 
-async function login (dataToSend) {
+async function login(dataToSend) {
   // eslint-disable-next-line no-useless-catch
   try {
     gaClickLoginEvent()
@@ -49,7 +49,7 @@ async function login (dataToSend) {
   }
 }
 
-async function verifyOTP (dataToSend) {
+async function verifyOTP(dataToSend) {
   // eslint-disable-next-line no-useless-catch
   try {
     const response = await DataService.post('/verifyOTP', dataToSend)
@@ -62,21 +62,21 @@ async function verifyOTP (dataToSend) {
 export const authServices = {
   signUp,
   login,
-  verifyOTP
+  verifyOTP,
 }
 
 const gaClickSignUpWithGoogleEvent = useAnalyticsEventTracker(
   'SignUp with google',
   'Clicked on SignUp with Google button',
   'Clicked',
-  '/signUp'
+  '/signUp',
 )
 
 export const signUpGoogle = async () => {
   gaClickSignUpWithGoogleEvent()
   const provider = new GoogleAuthProvider()
   provider.setCustomParameters({
-    display: 'popup'
+    display: 'popup',
   })
   const auth = getAuth()
   const signUpGo = await signInWithPopup(auth, provider)
@@ -88,7 +88,7 @@ export const signUpGoogle = async () => {
         // eslint-disable-next-line no-underscore-dangle
         firstName: result._tokenResponse.firstName,
         // eslint-disable-next-line no-underscore-dangle
-        lastName: result._tokenResponse.lastName
+        lastName: result._tokenResponse.lastName,
       }
     })
     .catch((error) => {
@@ -101,13 +101,13 @@ export const signUpGoogle = async () => {
       token: signUpGo.token,
       firstName: signUpGo.firstName,
       lastName: signUpGo.lastName,
-      role: 'User'
+      role: 'User',
     }
     const result = await DataService.post('/register/google/', body)
       .then((res) => {
         const result1 = {
           status: true,
-          message: 'Login Successfully!'
+          message: 'Login Successfully!',
         }
         Cookies.set('userInfo', res.data.user)
         Cookies.set('access_token', res.data.token)
@@ -118,19 +118,19 @@ export const signUpGoogle = async () => {
         if (error.response.data.errors.msg === 'USER_ALREADY_EXISTS') {
           return {
             status: true,
-            message: 'Login Successfully!'
+            message: 'Login Successfully!',
           }
         }
         return {
           status: false,
-          message: error.response.data.errors.msg
+          message: error.response.data.errors.msg,
         }
       })
     return result
   }
   return {
     status: false,
-    message: 'Something went Wrong'
+    message: 'Something went Wrong',
   }
 }
 
@@ -138,7 +138,7 @@ const gaClickSignInWithGoogleEvent = useAnalyticsEventTracker(
   'SignIn with google',
   'Clicked on SignIn with Google button',
   'Clicked',
-  '/login'
+  '/login',
 )
 
 export const signInGoogle = async () => {
@@ -146,7 +146,7 @@ export const signInGoogle = async () => {
   const provider = new GoogleAuthProvider()
 
   provider.setCustomParameters({
-    display: 'popup'
+    display: 'popup',
   })
   const auth = getAuth()
   const signIn = await signInWithPopup(auth, provider)
@@ -158,7 +158,7 @@ export const signInGoogle = async () => {
         // eslint-disable-next-line no-underscore-dangle
         firstName: result._tokenResponse.firstName,
         // eslint-disable-next-line no-underscore-dangle
-        lastName: result._tokenResponse.lastName
+        lastName: result._tokenResponse.lastName,
       }
     })
     .catch((error) => {
@@ -169,13 +169,13 @@ export const signInGoogle = async () => {
 
   if (signIn.success === true) {
     const body = {
-      token: signIn.token
+      token: signIn.token,
     }
     const result = await DataService.post('/login/google', body)
       .then((res) => {
         const result1 = {
           status: true,
-          message: 'Login Successfully!'
+          message: 'Login Successfully!',
         }
         Cookies.set('userInfo', res.data.user)
         Cookies.set('access_token', res.data.token)
@@ -185,13 +185,13 @@ export const signInGoogle = async () => {
       .catch((error) => {
         return {
           status: false,
-          message: error.response.data.errors.msg
+          message: error.response.data.errors.msg,
         }
       })
     return result
   }
   return {
     status: false,
-    message: 'Something went Wrong'
+    message: 'Something went Wrong',
   }
 }

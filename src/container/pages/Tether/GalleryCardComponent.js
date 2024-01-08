@@ -29,6 +29,6 @@ const GalleryCardComponent = React.memo(({ img, title, text }) => {
 GalleryCardComponent.propTypes = {
   img: PropTypes.string,
   title: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
 }
 export default GalleryCardComponent

@@ -537,7 +537,7 @@ const Main = Styled.div`
     .ant-card-grid{
         color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
         box-shadow: 1px 0 0 0 ${({ theme }) => theme[theme.mainContent]['border-color-default']}, 0 1px 0 0 ${({
-  theme
+  theme,
 }) => theme[theme.mainContent]['border-color-default']}, 1px 1px 0 0 ${({ theme }) =>
   theme[theme.mainContent]['border-color-default']}, 1px 0 0 0 ${({ theme }) =>
   theme[theme.mainContent]['border-color-default']} inset, 0 1px 0 0 ${({ theme }) =>
@@ -3507,5 +3507,5 @@ export {
   ExportStyleWrap,
   ChartPointHorizontal,
   CollapseStyleWrap,
-  TopToolBox
+  TopToolBox,
 }

@@ -6,7 +6,7 @@ const { READ_NOTIFICATION_BEGIN, READ_NOTIFICATION_SUCCESS, READ_NOTIFICATION_ER
 const initialStateFilter = {
   data: initialState,
   loading: false,
-  error: null
+  error: null,
 }
 
 const readNotificationReducer = (state = initialStateFilter, action) => {
@@ -15,19 +15,19 @@ const readNotificationReducer = (state = initialStateFilter, action) => {
     case READ_NOTIFICATION_BEGIN:
       return {
         ...initialState,
-        loading: true
+        loading: true,
       }
     case READ_NOTIFICATION_SUCCESS:
       return {
         ...initialState,
         data,
-        loading: false
+        loading: false,
       }
     case READ_NOTIFICATION_ERR:
       return {
         ...initialState,
         error: err,
-        loading: false
+        loading: false,
       }
     default:
       return state

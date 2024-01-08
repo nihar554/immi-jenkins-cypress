@@ -1,7 +1,7 @@
 import propTypes from 'prop-types'
 import React from 'react'
 
-function SwRocket ({ size, color, stroke, strokeWidth }) {
+function SwRocket({ size, color, stroke, strokeWidth }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 20.209 16.841">
       <path
@@ -17,7 +17,7 @@ function SwRocket ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwShieldCheck ({ size, color, stroke, strokeWidth }) {
+function SwShieldCheck({ size, color, stroke, strokeWidth }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 20.867 24.504">
       <g id="surface1" transform="translate(0 0.001)">
@@ -44,7 +44,7 @@ function SwShieldCheck ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwPenTool ({ size, color, stroke, strokeWidth }) {
+function SwPenTool({ size, color, stroke, strokeWidth }) {
   return (
     <svg id="pen" xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 20.073 20.073">
       <g id="Group_1005" data-name="Group 1005">
@@ -102,7 +102,7 @@ function SwPenTool ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwNotification ({ size, color, stroke, strokeWidth }) {
+function SwNotification({ size, color, stroke, strokeWidth }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 16.486 20">
       <g id="notification_1_" data-name="notification (1)" transform="translate(-44.98 0)">
@@ -138,7 +138,7 @@ function SwNotification ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwUsers ({ size, color, stroke, strokeWidth }) {
+function SwUsers({ size, color, stroke, strokeWidth }) {
   return (
     <svg
       id="Group_1013"
@@ -189,7 +189,7 @@ function SwUsers ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwLayers ({ size, color, stroke, strokeWidth }) {
+function SwLayers({ size, color, stroke, strokeWidth }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 20.124 20.119">
       <g id="layers" transform="translate(0 -0.062)">
@@ -237,7 +237,7 @@ function SwLayers ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwPicture ({ size, color, stroke, strokeWidth }) {
+function SwPicture({ size, color, stroke, strokeWidth }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 20.092 16.64">
       <g id="picture" transform="translate(0 -43.979)">
@@ -285,7 +285,7 @@ function SwPicture ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwClock ({ size, color, stroke, strokeWidth }) {
+function SwClock({ size, color, stroke, strokeWidth }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 20.025 20.707">
       <g id="dashboard" transform="translate(-5.956 -5.812)">
@@ -379,7 +379,7 @@ function SwClock ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwSend ({ size, color, stroke, strokeWidth }) {
+function SwSend({ size, color, stroke, strokeWidth }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 20.063 11.899">
       <g id="send" transform="translate(-8.011 -11.167)">
@@ -426,7 +426,7 @@ function SwSend ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwGraph ({ size, color, stroke, strokeWidth }) {
+function SwGraph({ size, color, stroke, strokeWidth }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 20.043 19.925">
       <g id="graphic" transform="translate(0 -1.5)">
@@ -511,7 +511,7 @@ function SwGraph ({ size, color, stroke, strokeWidth }) {
   )
 }
 
-function SwEllipse ({ size, color, stroke, strokeWidth }) {
+function SwEllipse({ size, color, stroke, strokeWidth }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} viewBox="0 0 10 10">
       <circle
@@ -532,14 +532,14 @@ const defaults = {
   size: 16,
   color: '#ADB4D2',
   stroke: 'none',
-  strokeWidth: 'none'
+  strokeWidth: 'none',
 }
 
 const types = {
   size: propTypes.number,
   color: propTypes.string,
   stroke: propTypes.string,
-  strokeWidth: propTypes.string
+  strokeWidth: propTypes.string,
 }
 
 SwRocket.defaultProps = defaults
@@ -586,5 +586,5 @@ export {
   SwLayers,
   SwPicture,
   SwClock,
-  SwSend
+  SwSend,
 }

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { SummaryWrapper } from '../style'
 
-export default function Summary (props) {
+export default function Summary(props) {
   const { bitfinexUrl } = props
   const { t } = useTranslation()
   return (
@@ -19,5 +19,5 @@ export default function Summary (props) {
   )
 }
 Summary.propTypes = {
-  bitfinexUrl: PropTypes.string
+  bitfinexUrl: PropTypes.string,
 }

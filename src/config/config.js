@@ -4,7 +4,7 @@ const config = {
   topMenu: true,
   rtl: false,
   mainTemplate: 'lightMode',
-  themeColor
+  themeColor,
 }
 
 export default config

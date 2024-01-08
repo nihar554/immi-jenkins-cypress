@@ -9,22 +9,22 @@ import { NavLink } from 'react-router-dom'
 import UilEllipsisV from '@iconscout/react-unicons/icons/uil-ellipsis-v'
 import propTypes from 'prop-types'
 
-function MenuItems ({ toggleCollapsed }) {
+function MenuItems({ toggleCollapsed }) {
   const { t } = useTranslation()
 
-  function getItem (label, key, icon, children, type) {
+  function getItem(label, key, icon, children, type) {
     return {
       key,
       icon,
       children,
       label,
-      type
+      type,
     }
   }
 
   const { topMenu } = useSelector((state) => {
     return {
-      topMenu: state.ChangeLayoutMode.topMenu
+      topMenu: state.ChangeLayoutMode.topMenu,
     }
   })
 
@@ -36,7 +36,7 @@ function MenuItems ({ toggleCollapsed }) {
   const mainPathSplit = mainPath?.split('/')
 
   const [openKeys, setOpenKeys] = React.useState(
-    !topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : []
+    !topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : [],
   )
 
   const onOpenChange = (keys) => {
@@ -57,8 +57,8 @@ function MenuItems ({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/starter`}>
           <UilCircle />
         </NavLink>
-      )
-    )
+      ),
+    ),
   ]
 
   return (
@@ -72,7 +72,7 @@ function MenuItems ({ toggleCollapsed }) {
           ? [
               `${
                 mainPathSplit.length === 1 ? 'home' : mainPathSplit.length === 2 ? mainPathSplit[1] : mainPathSplit[2]
-              }`
+              }`,
             ]
           : []
       }
@@ -85,7 +85,7 @@ function MenuItems ({ toggleCollapsed }) {
 }
 
 MenuItems.propTypes = {
-  toggleCollapsed: propTypes.func
+  toggleCollapsed: propTypes.func,
 }
 
 export default MenuItems

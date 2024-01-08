@@ -4,11 +4,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import { KnowledgebaseTopWrap } from '../../style'
 import ProductData from '../../../../../demoData/products-article.json'
 
-function KnowledgeBaseTop () {
+function KnowledgeBaseTop() {
   const navigate = useNavigate()
 
   const [state, setState] = useState({
-    produts: 'All Products'
+    produts: 'All Products',
   })
   const handleProdutsOnchange = (value) => {
     setState((prevState) => {

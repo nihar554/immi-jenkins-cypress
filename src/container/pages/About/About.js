@@ -10,7 +10,7 @@ import { Main } from '../../styled'
 import eliment1 from '../../../static/img/eliment (1).svg'
 import eliment2 from '../../../static/img/eliment (2).svg'
 
-function Tether () {
+function Tether() {
   const { t } = useTranslation()
   useEffect(() => {
     const reveal = () => {
@@ -54,17 +54,17 @@ function Tether () {
                 <h1 className="typography-h1">{t('About_Us')}</h1>
                 <p className="description typography-body-regular-medium">
                   {t(
-                    'Tether_Plus_was_launched_with_the_goal_to_build_a_bridge_for_institutions,_central_banks_and_governments_around_the_world_to_move_money_in_ways_never_thought_possible.'
+                    'Tether_Plus_was_launched_with_the_goal_to_build_a_bridge_for_institutions,_central_banks_and_governments_around_the_world_to_move_money_in_ways_never_thought_possible.',
                   )}
                 </p>
                 <p className="description typography-body-regular-medium">
                   {t(
-                    'Tether_Plus_utilizes_some_of_the_top_innovations_of_the_Software-as-a-service_model_(SaaS)_in_its_Tokenization-as-a_Service_(TaaS)_model._Its_TaaS_offering_constitutes_a_comprehensive_suite_of_services_to_facilitate_the_tokenization_of_assets_by_institutions.'
+                    'Tether_Plus_utilizes_some_of_the_top_innovations_of_the_Software-as-a-service_model_(SaaS)_in_its_Tokenization-as-a_Service_(TaaS)_model._Its_TaaS_offering_constitutes_a_comprehensive_suite_of_services_to_facilitate_the_tokenization_of_assets_by_institutions.',
                   )}
                 </p>
                 <p className="description typography-body-regular-medium">
                   {t(
-                    'Tether_Plus_brings_together_a_sophisticated_tech_stack_and_years_of_experience_working_with_institutions,_market_participants_and_governments_across_traditional_and_new-age_finance_industries.'
+                    'Tether_Plus_brings_together_a_sophisticated_tech_stack_and_years_of_experience_working_with_institutions,_market_participants_and_governments_across_traditional_and_new-age_finance_industries.',
                   )}
                 </p>
               </HeadTitle>
@@ -86,7 +86,7 @@ function Tether () {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left',
             backgroundOrigin: 'content-box',
-            transform: 'rotate(3deg)'
+            transform: 'rotate(3deg)',
             // marginTop: '4%',
           }}
         />

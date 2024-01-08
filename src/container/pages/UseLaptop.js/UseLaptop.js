@@ -5,7 +5,7 @@ import LandingHeader from '../Landing/Header'
 import LaptopImg from '../../../static/img/laptop-img.png'
 import { LoginWrap } from '../../profile/authentication/overview/style'
 
-export default function UseLaptop () {
+export default function UseLaptop() {
   return (
     <LoginWrap>
       <LandingPage>

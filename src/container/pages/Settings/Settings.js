@@ -17,23 +17,23 @@ const listStyle = {
   justifyContent: 'space-between',
   alignItems: 'center',
   margin: 0,
-  padding: 0
+  padding: 0,
 }
 
-function Settings () {
+function Settings() {
   const userInfo = getItem('userInfo')
 
   const [emailPreference, setEmailPreference] = useState({
     newsAndUpdates: false,
     notifications: false,
     personalizedEmails: false,
-    surveysAndResearch: false
+    surveysAndResearch: false,
   })
 
   const updateEmailPreference = (updatedPreferences) => {
     setEmailPreference((prevPreferences) => ({
       ...prevPreferences,
-      ...updatedPreferences
+      ...updatedPreferences,
     }))
   }
 
@@ -46,7 +46,7 @@ function Settings () {
         newsAndUpdates,
         notifications,
         personalizedEmails,
-        surveysAndResearch
+        surveysAndResearch,
       })
     } catch (error) {
       message.error(error?.response?.data?.errors.msg)
@@ -62,7 +62,7 @@ function Settings () {
       const gaClickNewsAndUpdatesTracker = useAnalyticsEventTracker(
         'Settings',
         `Click on Email Preference in ${title}`,
-        'Landed'
+        'Landed',
       )
       // Update the state instantly
       updateEmailPreference(values)

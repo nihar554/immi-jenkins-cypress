@@ -6,7 +6,7 @@ import { CardFrame } from './style'
 import { Dropdown } from '../../dropdown/dropdown'
 import Heading from '../../heading/heading'
 
-function Cards (props) {
+function Cards(props) {
   const {
     title,
     children,
@@ -20,12 +20,11 @@ function Cards (props) {
     headStyle,
     border,
     bodypadding,
-    className
+    className,
   } = props
   return (
     <>
-      {!headless
-        ? (
+      {!headless ? (
         <CardFrame
           size={size}
           title={title}
@@ -51,8 +50,7 @@ function Cards (props) {
         >
           {children}
         </CardFrame>
-          )
-        : (
+      ) : (
         <CardFrame
           bodypadding={bodypadding && bodypadding}
           bodyStyle={bodyStyle && bodyStyle}
@@ -65,13 +63,13 @@ function Cards (props) {
           {caption && <p>{caption}</p>}
           {children}
         </CardFrame>
-          )}
+      )}
     </>
   )
 }
 
 Cards.defaultProps = {
-  border: false
+  border: false,
 }
 
 Cards.propTypes = {
@@ -87,7 +85,7 @@ Cards.propTypes = {
   bodypadding: PropTypes.string,
   className: PropTypes.string,
   moreText: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node])
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
 }
 
 export { Cards }

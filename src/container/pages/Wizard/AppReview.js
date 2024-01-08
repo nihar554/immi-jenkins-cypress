@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 import ReviewCard from '../../../components/cards/ReviewCard'
 
-function stepOneIcon () {
+function stepOneIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
       <circle opacity="0.15" cx="30" cy="30" r="30" fill="#2F3241" />
@@ -16,7 +16,7 @@ function stepOneIcon () {
     </svg>
   )
 }
-function stepTwoIcon () {
+function stepTwoIcon() {
   return (
     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle opacity="0.15" cx="30" cy="30" r="30" fill="#2F3241" />
@@ -27,7 +27,7 @@ function stepTwoIcon () {
     </svg>
   )
 }
-function stepThreeIcon () {
+function stepThreeIcon() {
   return (
     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle opacity="0.15" cx="30" cy="30" r="30" fill="#2F3241" />
@@ -45,7 +45,7 @@ function stepThreeIcon () {
   )
 }
 
-export default function Review ({ state, setState }) {
+export default function Review({ state, setState }) {
   const { t } = useTranslation()
 
   return (
@@ -59,5 +59,5 @@ export default function Review ({ state, setState }) {
 
 Review.propTypes = {
   state: propTypes.object,
-  setState: propTypes.func
+  setState: propTypes.func,
 }

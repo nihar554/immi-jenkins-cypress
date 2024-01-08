@@ -1,7 +1,7 @@
 import React from 'react'
 import { KnowledgebaseArticleWrap, ArticleTabWrap } from '../../style'
 
-function KnowledgebaseArticle () {
+function KnowledgebaseArticle() {
   return (
     <KnowledgebaseArticleWrap>
       <ArticleTabWrap className="ninjadash-article-tab">

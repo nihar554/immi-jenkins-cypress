@@ -11,7 +11,7 @@ import PayUsdtActive from '../../../static/img/pay-usdt-active.svg'
 import PayUsdtInActive from '../../../static/img/pay-usdt-inactive.svg'
 import { PaymentWrapper } from '../style'
 
-export default function Payment ({ form, setPaymentType, paymentType }) {
+export default function Payment({ form, setPaymentType, paymentType }) {
   // const { t } = useTranslation();
   return (
     <PaymentWrapper>
@@ -161,5 +161,5 @@ export default function Payment ({ form, setPaymentType, paymentType }) {
 Payment.propTypes = {
   form: propTypes.object,
   paymentType: propTypes.string,
-  setPaymentType: propTypes.func
+  setPaymentType: propTypes.func,
 }

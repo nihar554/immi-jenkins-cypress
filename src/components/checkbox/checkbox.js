@@ -5,21 +5,20 @@ import { CheckboxStyle } from './style'
 
 const CheckboxGroup = CheckboxStyle.Group
 
-function Checkbox (props) {
-  const { item, defaultSelect, checked, multiple, onChange, onChangeTriger, defaultChecked, disabled, children } =
-    props
+function Checkbox(props) {
+  const { item, defaultSelect, checked, multiple, onChange, onChangeTriger, defaultChecked, disabled, children } = props
   const plainOptions = item
   const [state, setState] = useState({
     checkedList: defaultSelect,
     indeterminate: true,
-    checkAll: false
+    checkAll: false,
   })
 
   const onMultiChange = (checkedList) => {
     setState({
       checkedList,
       indeterminate: !!checkedList.length && checkedList.length < plainOptions.length,
-      checkAll: checkedList.length === plainOptions.length
+      checkAll: checkedList.length === plainOptions.length,
     })
   }
 
@@ -28,13 +27,13 @@ function Checkbox (props) {
       onChangeTriger(state.checkedList)
     }
     // eslint-disable-next-line
-  }, [state]);
+  }, [state])
 
   const onCheckAllChange = (e) => {
     setState({
       checkedList: e.target.checked ? plainOptions : [],
       indeterminate: false,
-      checkAll: e.target.checked
+      checkAll: e.target.checked,
     })
   }
 
@@ -42,13 +41,11 @@ function Checkbox (props) {
     return onChange(e.target.checked, e.target.value)
   }
 
-  return !multiple
-    ? (
+  return !multiple ? (
     <CheckboxStyle checked={checked} onChange={onChecked} defaultChecked={defaultChecked} disabled={disabled}>
       {children}
     </CheckboxStyle>
-      )
-    : (
+  ) : (
     <div>
       <div style={{ borderBottom: '1px solid #E9E9E9' }}>
         <CheckboxStyle indeterminate={state.indeterminate} onChange={onCheckAllChange} checked={state.checkAll}>
@@ -58,11 +55,11 @@ function Checkbox (props) {
       <br />
       <CheckboxGroup options={plainOptions} value={state.checkedList} onChange={onMultiChange} />
     </div>
-      )
+  )
 }
 
 Checkbox.defaultProps = {
-  checked: false
+  checked: false,
 }
 
 Checkbox.propTypes = {
@@ -74,7 +71,7 @@ Checkbox.propTypes = {
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
   checked: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node])
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
 }
 
 export { Checkbox, CheckboxGroup }

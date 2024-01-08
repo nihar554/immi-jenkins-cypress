@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { TetheFooterStyle } from '../../../layout/Style'
 import tetherIcons from '../../../static/img/icons/tetherlogo.png'
 
-function PoweredBy () {
+function PoweredBy() {
   const { pathname } = useLocation()
 
   return (

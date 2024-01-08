@@ -4122,5 +4122,5 @@ export {
   ContainerStyle,
   RightBlockStyle,
   MainStyle,
-  PaymentWrapper
+  PaymentWrapper,
 }

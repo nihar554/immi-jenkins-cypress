@@ -11,12 +11,12 @@ import { Cards } from '../../../../components/cards/frame/cards-frame'
 import { profileFriendsChangeStatus } from '../../../../redux/profile/actionCreator'
 import './video-modal.css'
 
-function RightAside () {
+function RightAside() {
   const dispatch = useDispatch()
   const { friends, gallery } = useSelector((state) => {
     return {
       friends: state.Profile.friends,
-      gallery: state.gallery.data
+      gallery: state.gallery.data,
     }
   })
 
@@ -42,16 +42,14 @@ function RightAside () {
                   outlined={!status}
                   type={status ? 'primary' : 'white'}
                 >
-                  {!status
-                    ? (
-                        'Follow'
-                      )
-                    : (
+                  {!status ? (
+                    'Follow'
+                  ) : (
                     <>
                       <UilCheck />
                       Following
                     </>
-                      )}
+                  )}
                 </Button>
               </li>
             )

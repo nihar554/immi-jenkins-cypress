@@ -200,7 +200,7 @@ const theme = {
 
   // Progress
   'progress-default-color': primaryColor,
-  'progress-text-font-size': '14px'
+  'progress-text-font-size': '14px',
 }
 
 const themeColor = {
@@ -252,7 +252,7 @@ const themeColor = {
   'light-gray-color': lightGrayColor,
   'btn-height-large': btnlg,
   'btn-height-small': btnsm,
-  'btn-height-extra-small': btnxs
+  'btn-height-extra-small': btnxs,
 }
 
 export { theme, themeColor }

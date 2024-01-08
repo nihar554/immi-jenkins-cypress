@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 import { DataService } from '../../config/dataService/dataService'
 
-export default function EditModal ({ isModalOpen, setIsModalOpen, selelectedRow, getUsersApplicationDetails }) {
+export default function EditModal({ isModalOpen, setIsModalOpen, selelectedRow, getUsersApplicationDetails }) {
   const [form] = Form.useForm()
   const { t } = useTranslation()
   const { Option } = Select
@@ -23,7 +23,7 @@ export default function EditModal ({ isModalOpen, setIsModalOpen, selelectedRow,
       },
       () => {
         setSubmittable(false)
-      }
+      },
     )
   }, [watch])
 
@@ -55,8 +55,8 @@ export default function EditModal ({ isModalOpen, setIsModalOpen, selelectedRow,
       phoneNumber: selelectedRow.phoneNumber,
       paymentDetails: {
         residentType: data.residentType,
-        paymentType: data.paymentType
-      }
+        paymentType: data.paymentType,
+      },
     }
     setLoading(true)
     DataService.patch(`/userApplications/${selelectedRow._id}`, body)
@@ -81,7 +81,7 @@ export default function EditModal ({ isModalOpen, setIsModalOpen, selelectedRow,
           fullName: selelectedRow.name,
           email: selelectedRow.email,
           paymentType: 'PassportPayment',
-          userId: selelectedRow.userId
+          userId: selelectedRow.userId,
         }
         console.log('invoice data', invoiceData)
         await DataService.post('/bitfinex/submitInvoice', invoiceData)
@@ -169,8 +169,8 @@ export default function EditModal ({ isModalOpen, setIsModalOpen, selelectedRow,
               style={{ width: '100%' }}
               rules={[
                 {
-                  required: true
-                }
+                  required: true,
+                },
               ]}
             >
               <Select style={{ width: '100%' }}>
@@ -187,8 +187,8 @@ export default function EditModal ({ isModalOpen, setIsModalOpen, selelectedRow,
               style={{ width: '100%' }}
               rules={[
                 {
-                  required: true
-                }
+                  required: true,
+                },
               ]}
             >
               <Select style={{ width: '100%' }}>
@@ -206,9 +206,9 @@ export default function EditModal ({ isModalOpen, setIsModalOpen, selelectedRow,
               rules={[
                 {
                   required: true,
-                  message: 'Please Input Amount'
+                  message: 'Please Input Amount',
                 },
-                { validator: validateNumber }
+                { validator: validateNumber },
               ]}
             >
               <Input placeholder={t('Amount')} />
@@ -239,5 +239,5 @@ EditModal.propTypes = {
   setIsModalOpen: PropTypes.func,
   // form: PropTypes.any,
   selelectedRow: PropTypes.any,
-  getUsersApplicationDetails: PropTypes.func
+  getUsersApplicationDetails: PropTypes.func,
 }

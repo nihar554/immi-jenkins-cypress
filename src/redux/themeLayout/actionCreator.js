@@ -11,7 +11,7 @@ const {
 
   changeMenuBegin,
   changeMenuSuccess,
-  changeMenuErr
+  changeMenuErr,
 } = actions
 
 const changeLayoutMode = (value) => {

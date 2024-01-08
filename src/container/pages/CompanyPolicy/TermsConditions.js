@@ -6,7 +6,7 @@ import termsconditions from '../../../demoData/terms-conditions.json'
 import { LandingPage } from '../Landing/Style'
 import LandingHeader from '../Landing/Header'
 
-function TermsConditions () {
+function TermsConditions() {
   const { t } = useTranslation()
   return (
     <LandingPage>

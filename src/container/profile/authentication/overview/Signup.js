@@ -14,7 +14,7 @@ import { Checkbox } from '../../../../components/checkbox/checkbox'
 import PassPopUp from '../../../../components/dropdown/PassPopUp'
 import { checkPasswordValid } from '../../../../utility/utility'
 
-function SignUp () {
+function SignUp() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -27,7 +27,7 @@ function SignUp () {
     specialCharValid: false,
     uppercaseValid: false,
     lowercaseValid: false,
-    numberValid: false
+    numberValid: false,
   })
   const [password, setPassword] = React.useState('')
 
@@ -57,7 +57,7 @@ function SignUp () {
         ...values,
         passportCountry: 'IND',
         roleId: 'USER',
-        captcha: captchaValue
+        captcha: captchaValue,
       }
       if (!captchaValue) {
         message.error(t('registration_captcha_required'))
@@ -68,7 +68,7 @@ function SignUp () {
       const body = {
         ...values,
         passportCountry: 'IND',
-        roleId: 'USER'
+        roleId: 'USER',
       }
       dispatch(register(body, onChange))
     }
@@ -120,7 +120,7 @@ function SignUp () {
                         style={{
                           width: '100%',
                           display: 'flex',
-                          justifyContent: 'space-between'
+                          justifyContent: 'space-between',
                         }}
                       >
                         <Form.Item
@@ -156,7 +156,7 @@ function SignUp () {
                         style={{
                           width: '100%',
                           display: 'flex',
-                          justifyContent: 'space-between'
+                          justifyContent: 'space-between',
                         }}
                       >
                         <Form.Item
@@ -172,7 +172,7 @@ function SignUp () {
                         style={{
                           width: '100%',
                           display: 'flex',
-                          justifyContent: 'space-between'
+                          justifyContent: 'space-between',
                         }}
                       >
                         <Form.Item style={{ width: '48%' }} name="password" rules={[{ validator: validatePassword }]}>
@@ -192,7 +192,7 @@ function SignUp () {
                           style={{ width: '48%' }}
                           rules={[
                             { required: true, message: t('registration_confirm_password_required') },
-                            { validator: validateCPassword }
+                            { validator: validateCPassword },
                           ]}
                         >
                           <Input.Password placeholder={t('Confirm Password')} />
@@ -216,8 +216,8 @@ function SignUp () {
                                 if (!checked) {
                                   return Promise.reject(new Error(t('registration_temrs_condition_required')))
                                 }
-                              }
-                            }
+                              },
+                            },
                           ]}
                         >
                           <Checkbox>
@@ -228,15 +228,13 @@ function SignUp () {
                           </Checkbox>
                         </Form.Item>
                       </div>
-                      {process.env.REACT_APP_IS_RECAPTCHA_ENABLED === 'true'
-                        ? (
+                      {process.env.REACT_APP_IS_RECAPTCHA_ENABLED === 'true' ? (
                         <div className="recaptcha-block">
                           <ReCAPTCHA ref={recaptcha} sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} />
                         </div>
-                          )
-                        : (
+                      ) : (
                         <></>
-                          )}
+                      )}
                       <Form.Item className="recaptcha-signup-block">
                         <Button className="btn-create" htmlType="submit" type="primary" size="large">
                           {isLoading ? 'Loading...' : 'Sign Up'}

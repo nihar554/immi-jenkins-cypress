@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Content, DropdownStyle } from './dropdown-style'
 
-function Dropdown (props) {
+function Dropdown(props) {
   const { content, placement, title, action, children, style, className } = props
 
   return (
@@ -39,7 +39,7 @@ Dropdown.defaultProps = {
   placement: 'bottomRight',
   content,
   style: {},
-  className: 'ninjadash-dropdown'
+  className: 'ninjadash-dropdown',
 }
 
 Dropdown.propTypes = {
@@ -49,7 +49,7 @@ Dropdown.propTypes = {
   content: PropTypes.node,
   children: PropTypes.node,
   style: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 }
 
 export { Dropdown }

@@ -3,7 +3,7 @@ import useAnalyticsEventTracker from './GoogleAnalyticsService'
 
 const gaClickSubscribeTracker = useAnalyticsEventTracker('Subscribe', 'Click on Subscribe', 'Landed')
 
-async function createSubscribeEmail (dataToSend) {
+async function createSubscribeEmail(dataToSend) {
   gaClickSubscribeTracker()
   // eslint-disable-next-line no-useless-catch
   try {
@@ -14,7 +14,7 @@ async function createSubscribeEmail (dataToSend) {
   }
 }
 
-async function getSubscribeEmail (dataToSend) {
+async function getSubscribeEmail(dataToSend) {
   // eslint-disable-next-line no-useless-catch
   try {
     const response = await DataService.get('/subscribeEmail', dataToSend)
@@ -26,5 +26,5 @@ async function getSubscribeEmail (dataToSend) {
 
 export const subscribeEmailServices = {
   createSubscribeEmail,
-  getSubscribeEmail
+  getSubscribeEmail,
 }

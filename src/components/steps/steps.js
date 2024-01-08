@@ -10,7 +10,7 @@ import { Button } from '../buttons/buttons'
 
 const { Step } = StepsStyle
 
-function Steps ({
+function Steps({
   isvertical,
   size,
   current,
@@ -30,10 +30,10 @@ function Steps ({
   children,
   height,
   isfinished,
-  loading
+  loading,
 }) {
   const [state, setState] = useState({
-    currents: current
+    currents: current,
   })
 
   useEffect(() => {
@@ -65,7 +65,7 @@ function Steps ({
 
   const stepStyle = {
     marginBottom: 60,
-    boxShadow: '0px -1px 0 0 #e8e8e8 inset'
+    boxShadow: '0px -1px 0 0 #e8e8e8 inset',
   }
 
   // console.log(steps);
@@ -75,8 +75,7 @@ function Steps ({
     if (onChange) onChange(curr)
   }
 
-  return !isswitch
-    ? (
+  return !isswitch ? (
     <StepsStyle
       type={navigation && 'navigation'}
       style={navigation && stepStyle}
@@ -89,8 +88,7 @@ function Steps ({
     >
       {children}
     </StepsStyle>
-      )
-    : (
+  ) : (
     <>
       <StepsStyle current={currents} direction={direction} status={status} progressDot={progressDot} size={size}>
         {steps !== undefined &&
@@ -103,8 +101,7 @@ function Steps ({
             />
           ))}
       </StepsStyle>
-      {isvertical
-        ? (
+      {isvertical ? (
         <div className="steps-wrapper">
           <div className="steps-content" style={{ minHeight: height, display: 'flex', justifyContent: 'center' }}>
             {steps[state.currents].content}
@@ -144,8 +141,7 @@ function Steps ({
             </ActionWrapper>
           )}
         </div>
-          )
-        : (
+      ) : (
         <>
           <div className="steps-content" style={{ minHeight: height, display: 'flex', marginTop: 100 }}>
             {steps[state.currents]?.content}
@@ -198,16 +194,16 @@ function Steps ({
             </ActionWrapper>
           )}
         </>
-          )}
+      )}
     </>
-      )
+  )
 }
 
 Steps.defaultProps = {
   current: 0,
   height: 150,
   onDone: () => message.success('Processing complete!'),
-  isfinished: false
+  isfinished: false,
 }
 
 Steps.propTypes = {
@@ -230,7 +226,7 @@ Steps.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.node, PropTypes.string]),
   isvertical: PropTypes.bool,
   form: PropTypes.object,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
 }
 
 export { Step, Steps }

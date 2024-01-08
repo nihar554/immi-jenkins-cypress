@@ -8,40 +8,40 @@ const client = axios.create({
   headers: {
     Authorization: `Bearer ${getItem('access_token')}`,
     'Content-Type': 'application/json',
-    Accept: 'application/json'
-  }
+    Accept: 'application/json',
+  },
 })
 
 class DataService {
-  static get (path = '') {
+  static get(path = '') {
     return client({
       method: 'GET',
-      url: path
+      url: path,
     })
   }
 
-  static post (path = '', data = {}, optionalHeader = {}) {
+  static post(path = '', data = {}, optionalHeader = {}) {
     return client({
       method: 'POST',
       url: path,
       data,
-      headers: { ...optionalHeader }
+      headers: { ...optionalHeader },
     })
   }
 
-  static patch (path = '', data = {}) {
+  static patch(path = '', data = {}) {
     return client({
       method: 'PATCH',
       url: path,
-      data: JSON.stringify(data)
+      data: JSON.stringify(data),
     })
   }
 
-  static put (path = '', data = {}) {
+  static put(path = '', data = {}) {
     return client({
       method: 'PUT',
       url: path,
-      data: JSON.stringify(data)
+      data: JSON.stringify(data),
     })
   }
 }
@@ -83,6 +83,6 @@ client.interceptors.response.use(
     }
 
     return Promise.reject(error)
-  }
+  },
 )
 export { DataService }

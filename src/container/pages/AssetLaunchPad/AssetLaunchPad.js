@@ -14,7 +14,7 @@ import angel from '../../../static/img/angel.svg'
 import BannerSection from '../../../components/BannerSection/Banner'
 import BannerImage from '../../../components/BannerSection/BannerImage'
 
-function AssetLaunchPad () {
+function AssetLaunchPad() {
   useEffect(() => {
     const reveal = () => {
       const reveals = document.querySelectorAll('.reveal,.scale-animation,.reveal-right,.reveal-top')
@@ -48,12 +48,12 @@ function AssetLaunchPad () {
   const gaClickIssueAssetNowPrototypeTracker = useAnalyticsEventTracker(
     'Asset issuance',
     'Click on Issue Asset Now (Prototype)',
-    'Clicked'
+    'Clicked',
   )
   const gaClickBridgePrototypeTracker = useAnalyticsEventTracker(
     'Asset issuance',
     'Click on Bridge (Prototype)',
-    'Clicked'
+    'Clicked',
   )
 
   return (
@@ -128,7 +128,7 @@ function AssetLaunchPad () {
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'left bottom',
-              backgroundOrigin: 'content-box'
+              backgroundOrigin: 'content-box',
             }}
           >
             <img src={blueAngel} alt="" className=" absolute" style={{ marginTop: '-6%' }} />
@@ -172,7 +172,7 @@ function AssetLaunchPad () {
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'left bottom',
-              backgroundOrigin: 'content-box'
+              backgroundOrigin: 'content-box',
             }}
           >
             <BannerStyle>
@@ -209,7 +209,7 @@ function AssetLaunchPad () {
                 height: '15em',
                 width: '100%',
                 // position: 'absolute',
-                marginTop: '-8%'
+                marginTop: '-8%',
               }}
             />
             <img src={blueAngel} alt="" className=" absolute" style={{ right: '16%' }} />

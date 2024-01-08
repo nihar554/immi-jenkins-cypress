@@ -16,25 +16,25 @@ import articles from '../../../demoData/article.json'
 const Stablecoin = lazy(() => import('./overview/ArticleStablecoin'))
 const ArticleCommodities = lazy(() => import('./overview/ArticleCommodities'))
 
-function KnowledgeBase () {
+function KnowledgeBase() {
   const path = '/knowledgebase'
   const products = [
     {
       name: 'Stablecoin',
-      to: 'stablecoin'
+      to: 'stablecoin',
     },
     {
       name: 'Commodities',
-      to: 'commodities'
+      to: 'commodities',
     },
     {
       name: 'Senatus',
-      to: 'senatus'
+      to: 'senatus',
     },
     {
       name: 'Asset issuance',
-      to: 'assetissuance'
-    }
+      to: 'assetissuance',
+    },
   ]
   return (
     <>

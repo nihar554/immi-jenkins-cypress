@@ -13,7 +13,7 @@ import { DataService } from '../../../config/dataService/dataService'
 import { getItem } from '../../../utility/localStorageControl'
 
 const { Content } = Layout
-function LandingFooter () {
+function LandingFooter() {
   const { t } = useTranslation()
   const userInfo = getItem('access_token')
   const [email, setEmail] = useState('')

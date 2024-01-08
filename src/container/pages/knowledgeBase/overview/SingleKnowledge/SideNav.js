@@ -5,7 +5,7 @@ import UilAngleDown from '@iconscout/react-unicons/icons/uil-angle-down'
 import { Link } from 'react-router-dom'
 import { SidebarNavWrap } from '../../style'
 
-function SideNav () {
+function SideNav() {
   const [open, setOpen] = useState('menu1')
   return (
     <SidebarNavWrap>

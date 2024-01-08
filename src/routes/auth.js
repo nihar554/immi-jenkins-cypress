@@ -28,22 +28,18 @@ const FrontendRoutes = React.memo(() => {
     <Routes>
       {/* <Route index element={<LandingPage />} />; */}
       <Route path="verify-otp" element={<OtpVerify />} />
-      {window.innerWidth >= 600
-        ? (
+      {window.innerWidth >= 600 ? (
         <Route path="login" element={<Login />} />
-          )
-        : (
+      ) : (
         <Route path="login" element={<UseLaptop />} />
-          )}
+      )}
       <Route path="forgot-password" element={<ForgotPass />} />
       <Route path="reset-password" element={<ResetPassword />} />
-      {window.innerWidth >= 600
-        ? (
+      {window.innerWidth >= 600 ? (
         <Route path="register" element={<SignUp />} />
-          )
-        : (
+      ) : (
         <Route path="register" element={<UseLaptop />} />
-          )}
+      )}
       {/* <Route path="*" element={<AuthRoot />} /> */}
       <Route path="/*" element={<LandingRoutes />} />
       {/* <Route path="faqs" element={<FAQs />} />

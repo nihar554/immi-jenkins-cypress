@@ -7,10 +7,10 @@ const RightAside = lazy(() => import('./RightAside'))
 const CreatePost = lazy(() => import('./timeline/CreatePost'))
 const AllPosts = lazy(() => import('./timeline/Posts'))
 
-function Timeline () {
+function Timeline() {
   const { posts } = useSelector((state) => {
     return {
-      posts: state.Profile.posts
+      posts: state.Profile.posts,
     }
   })
   return (

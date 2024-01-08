@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import { TopMenuStyle } from './Style'
 
-function LandingMenu () {
+function LandingMenu() {
   const { t } = useTranslation()
 
   // const path  = '/admin';

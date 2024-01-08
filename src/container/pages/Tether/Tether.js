@@ -10,7 +10,7 @@ import {
   BenefitsSection,
   ImageTitle,
   InsightSection,
-  BannerStyle
+  BannerStyle,
 } from './Style'
 import ProductCards from './ProductCards'
 import BenefitsCards from './BenefitsCards'
@@ -41,7 +41,7 @@ import dots from '../../../static/img/dots.svg'
 import blueAngel from '../../../static/img/blue-angel.svg'
 import vector from '../../../static/img/Vector (2).svg'
 
-function Tether () {
+function Tether() {
   useEffect(() => {
     const reveal = () => {
       const reveals = document.querySelectorAll('.reveal')
@@ -94,7 +94,7 @@ function Tether () {
                       // 'Two Three', // Types 'Three' without deleting 'Two'
                       () => {
                         console.log('Sequence completed')
-                      }
+                      },
                     ]}
                     wrapper="span"
                     cursor="true"
@@ -126,7 +126,7 @@ function Tether () {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left',
             backgroundOrigin: 'content-box',
-            transform: 'rotate(3deg)'
+            transform: 'rotate(3deg)',
             // marginTop: '4%',
           }}
         />

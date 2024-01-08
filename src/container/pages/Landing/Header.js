@@ -30,7 +30,7 @@ const SideBarStyle = {
   height: '100vh',
   position: 'fixed',
   [left]: 0,
-  zIndex: 988
+  zIndex: 988,
 }
 
 const SideBarStyle1 = {
@@ -40,16 +40,16 @@ const SideBarStyle1 = {
   height: '100vh',
   position: 'fixed',
   [left]: 0,
-  zIndex: 988
+  zIndex: 988,
 }
 
-function LandingHeader () {
+function LandingHeader() {
   const Navigate = useNavigate()
   const userInfo = getItem('access_token')
   const { pathname } = useLocation()
   const { i18n, t } = useTranslation()
   const [state, setState] = useState({
-    flag: i18n.language
+    flag: i18n.language,
   })
   const [collapsed, setCollapsed] = useState(true)
   const { flag } = state
@@ -58,7 +58,7 @@ function LandingHeader () {
     e.preventDefault()
     setState({
       ...state,
-      flag: value
+      flag: value,
     })
     i18n.changeLanguage(value)
   }
@@ -74,7 +74,7 @@ function LandingHeader () {
   const renderView = ({ style }) => {
     const customStyle = {
       marginRight: 'auto',
-      [rtl ? 'marginLeft' : 'marginRight']: '-17px'
+      [rtl ? 'marginLeft' : 'marginRight']: '-17px',
     }
     return <div style={{ ...style, ...customStyle }} />
   }
@@ -83,7 +83,7 @@ function LandingHeader () {
     const thumbStyle = {
       borderRadius: 6,
       backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
-      [left]: '2px'
+      [left]: '2px',
     }
     return <div style={{ ...style, ...thumbStyle }} />
   }
@@ -91,7 +91,7 @@ function LandingHeader () {
   const renderThumbHorizontal = ({ style }) => {
     const thumbStyle = {
       borderRadius: 6,
-      backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6'
+      backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
     }
     return <div style={{ ...style, ...thumbStyle }} />
   }
@@ -170,8 +170,7 @@ function LandingHeader () {
         </Header>
       </Layout>
       <Layout>
-        {!topMenu || window.innerWidth <= 991
-          ? (
+        {!topMenu || window.innerWidth <= 991 ? (
           <ThemeProvider theme={theme}>
             <Sider
               width={280}
@@ -193,8 +192,7 @@ function LandingHeader () {
               </Scrollbars>
             </Sider>
           </ThemeProvider>
-            )
-          : null}
+        ) : null}
       </Layout>
     </LayoutContainer>
   )

@@ -3,7 +3,7 @@ import React, { useLayoutEffect } from 'react'
 
 import { TopMenuStyle } from './Style'
 
-function TopMenu () {
+function TopMenu() {
   // const path  = '/admin';
 
   useLayoutEffect(() => {

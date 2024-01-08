@@ -3,7 +3,7 @@ const { wait } = require('@testing-library/user-event/dist/utils')
 /* eslint-disable no-undef */
 describe('template spec', () => {
   const URL = Cypress.env('BASE_URL')
-  const emailAddress = '8aa653ed-0994-445a-8b3d-a0fc8229f327@mailslurp.com'
+  const emailAddress = 'nihar+41@coindelta.io'
   const Password = Cypress.env('DEFAULT_PASSWORD')
   beforeEach(() => {
     cy.viewport(1366, 768) // Set viewport to 550px x 750px
@@ -108,7 +108,7 @@ describe('template spec', () => {
     cy.get('.ant-picker-cell-selected').click()
     cy.get('#account_nationality').type('Australia{enter}')
     cy.get(
-      ':nth-child(6) > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item'
+      ':nth-child(6) > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item',
     ).click()
     cy.get('[title="Male"] > .ant-select-item-option-content').click()
     cy.get('#account_phone_country_code').type('91').should('have.value', '91')
@@ -161,7 +161,7 @@ describe('template spec', () => {
     cy.get('#account_issue_date').click()
     cy.get('.ant-picker-today-btn').click()
     cy.get('input[type=file]').selectFile('cypress/fixtures/Demoimg.jpg', {
-      force: true
+      force: true,
     })
     cy.get('.proced-btn').click()
     cy.get('.proced-btn').click()

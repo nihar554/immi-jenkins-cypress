@@ -4,7 +4,7 @@ import { ButtonStyled, ButtonStyledGroup } from './styled'
 
 // @Todo props spreading
 
-function Button (props) {
+function Button(props) {
   const {
     type,
     shape,
@@ -22,7 +22,7 @@ function Button (props) {
     ...rest
   } = props
   const [state, setState] = useState({
-    loading: false
+    loading: false,
   })
 
   const enterLoading = () => {
@@ -53,7 +53,7 @@ function Button (props) {
 }
 
 Button.defaultProps = {
-  type: 'default'
+  type: 'default',
 }
 
 Button.propTypes = {
@@ -72,7 +72,7 @@ Button.propTypes = {
     'dashed',
     'error',
     'extra-light',
-    'default'
+    'default',
   ]),
   shape: PropTypes.string,
   icon: PropTypes.string,
@@ -85,15 +85,15 @@ Button.propTypes = {
   social: PropTypes.bool,
   load: PropTypes.bool,
   ghost: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node])
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
 }
 
-function BtnGroup ({ children }) {
+function BtnGroup({ children }) {
   return <ButtonStyledGroup>{children}</ButtonStyledGroup>
 }
 
 BtnGroup.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.node).isRequired
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
 }
 
 export { Button, BtnGroup }

@@ -8,19 +8,19 @@ import { Button } from '../../../components/buttons/buttons'
 import { Main } from '../../styled'
 
 const { Panel } = Collapse
-function AllArticle () {
+function AllArticle() {
   const PageRoutes = [
     {
       path: 'index',
-      breadcrumbName: 'Dashboard'
+      breadcrumbName: 'Dashboard',
     },
     {
       path: '',
-      breadcrumbName: 'All Article'
-    }
+      breadcrumbName: 'All Article',
+    },
   ]
   const [state, setstate] = useState({
-    key: 0
+    key: 0,
   })
   const callback = (key) => {
     setstate({ ...state, key })

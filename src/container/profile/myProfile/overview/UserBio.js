@@ -8,7 +8,7 @@ import { UserBioBox } from './Style'
 import { Cards } from '../../../../components/cards/frame/cards-frame'
 import { Button } from '../../../../components/buttons/buttons'
 
-function UserBio () {
+function UserBio() {
   return (
     <UserBioBox>
       <Cards headless>

@@ -6,12 +6,12 @@ import { Button } from '../../../../components/buttons/buttons'
 import { BasicFormWrapper } from '../../../styled'
 import Heading from '../../../../components/heading/heading'
 
-function Account () {
+function Account() {
   const [form] = Form.useForm()
 
   const [state, setState] = useState({
     name: 'clayton',
-    values: null
+    values: null,
   })
 
   const handleSubmit = (values) => {
@@ -25,7 +25,7 @@ function Account () {
 
   const handleChange = (e) => {
     setState({
-      name: e.target.value
+      name: e.target.value,
     })
   }
 

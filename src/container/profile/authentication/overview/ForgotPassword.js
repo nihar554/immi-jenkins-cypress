@@ -8,17 +8,17 @@ import { useTranslation } from 'react-i18next'
 import { AuthFormWrap, LoginWrap } from './style'
 import { DataService } from '../../../../config/dataService/dataService'
 
-function ForgotPassword () {
+function ForgotPassword() {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const [state, setState] = useState({
-    email: ''
+    email: '',
   })
   const [loading, setLoading] = useState(false)
   const handleSubmit = async () => {
     try {
       const body = {
-        email: state.email
+        email: state.email,
       }
       setLoading(true)
       const response = await DataService.post('/forgotOTP', body)
@@ -60,7 +60,7 @@ function ForgotPassword () {
                   <div className="ninjadash-authentication-content">
                     <p className="forgot-text" style={{ textAlign: 'center' }}>
                       {t(
-                        'Enter_the_email_address_you_used_when_you_joined_and_we’ll_send_you_instructions_to_reset_your_password'
+                        'Enter_the_email_address_you_used_when_you_joined_and_we’ll_send_you_instructions_to_reset_your_password',
                       )}
                       .
                     </p>

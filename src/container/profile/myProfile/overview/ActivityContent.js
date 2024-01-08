@@ -11,7 +11,7 @@ import { ActivityContents } from './Style'
 import { Cards } from '../../../../components/cards/frame/cards-frame'
 import { Dropdown } from '../../../../components/dropdown/dropdown'
 
-function ActivityContent () {
+function ActivityContent() {
   return (
     <ActivityContents>
       <Cards headless>

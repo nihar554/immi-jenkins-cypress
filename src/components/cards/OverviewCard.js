@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom'
 import { ReactSVG } from 'react-svg'
 import { OverviewCardWrap } from './Style'
 
-function OverviewCard ({ data, className, bottomStatus, contentFirst, halfCircleIcon }) {
+function OverviewCard({ data, className, bottomStatus, contentFirst, halfCircleIcon }) {
   const [didViewCountUp, setDidViewCountUp] = useState(false)
 
   const { pathname } = useLocation()
@@ -39,8 +39,7 @@ function OverviewCard ({ data, className, bottomStatus, contentFirst, halfCircle
                   : 'ninjadash-overview-card__top--content text-right'
               }
             >
-              {halfCircleIcon
-                ? (
+              {halfCircleIcon ? (
                 <>
                   <span className="ninjadahs-overview-label">{label}</span>
                   <h4 className="ninjadash-overview-total">
@@ -56,8 +55,7 @@ function OverviewCard ({ data, className, bottomStatus, contentFirst, halfCircle
                     />
                   </h4>
                 </>
-                  )
-                : (
+              ) : (
                 <>
                   <h4 className="ninjadash-overview-total">
                     <CountUp
@@ -73,11 +71,10 @@ function OverviewCard ({ data, className, bottomStatus, contentFirst, halfCircle
                   </h4>
                   <span className="ninjadahs-overview-label">{label}</span>
                 </>
-                  )}
+              )}
             </div>
           </div>
-          {bottomStatus && statusRate
-            ? (
+          {bottomStatus && statusRate ? (
             <div className="ninjadash-overview-card__bottom">
               <span className={`ninjadash-overview-status ninjadash-status-${status}`}>
                 <span className="ninjadash-status-rate" style={{ color: '#01B81A' }}>
@@ -87,10 +84,9 @@ function OverviewCard ({ data, className, bottomStatus, contentFirst, halfCircle
                 <span className="ninjadash-status-label">{dataPeriod}</span>
               </span>
             </div>
-              )
-            : (
-                ''
-              )}
+          ) : (
+            ''
+          )}
         </div>
       </Card>
     </OverviewCardWrap>
@@ -101,14 +97,14 @@ OverviewCard.defaultProps = {
   className: 'ninjadash-overview-card-box',
   bottomStatus: true,
   contentFirst: false,
-  halfCircleIcon: false
+  halfCircleIcon: false,
 }
 OverviewCard.propTypes = {
   data: propTypes.object,
   className: propTypes.string,
   bottomStatus: propTypes.bool,
   contentFirst: propTypes.bool,
-  halfCircleIcon: propTypes.bool
+  halfCircleIcon: propTypes.bool,
 }
 
 export default OverviewCard

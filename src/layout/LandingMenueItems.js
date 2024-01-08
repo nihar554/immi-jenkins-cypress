@@ -9,22 +9,22 @@ import { NavLink } from 'react-router-dom'
 import UilEllipsisV from '@iconscout/react-unicons/icons/uil-ellipsis-v'
 import propTypes from 'prop-types'
 
-function LandingMenuItems ({ toggleCollapsed }) {
+function LandingMenuItems({ toggleCollapsed }) {
   const { t } = useTranslation()
 
-  function getItem (label, key, icon, children, type) {
+  function getItem(label, key, icon, children, type) {
     return {
       key,
       icon,
       children,
       label,
-      type
+      type,
     }
   }
 
   const { topMenu } = useSelector((state) => {
     return {
-      topMenu: state.ChangeLayoutMode.topMenu
+      topMenu: state.ChangeLayoutMode.topMenu,
     }
   })
 
@@ -36,7 +36,7 @@ function LandingMenuItems ({ toggleCollapsed }) {
   const mainPathSplit = mainPath?.split('/')
 
   const [openKeys, setOpenKeys] = React.useState(
-    !topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : []
+    !topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : [],
   )
 
   const onOpenChange = (keys) => {
@@ -57,7 +57,7 @@ function LandingMenuItems ({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/starter`}>
           <UilCircle />
         </NavLink>
-      )
+      ),
     ),
     getItem(
       <a href="/welcome#citizenship" onClick={toggleCollapsed}>
@@ -68,7 +68,7 @@ function LandingMenuItems ({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/starter`}>
           <UilCircle />
         </NavLink>
-      )
+      ),
     ),
     getItem(
       <NavLink
@@ -82,7 +82,7 @@ function LandingMenuItems ({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/starter`}>
           <UilCircle />
         </NavLink>
-      )
+      ),
     ),
     getItem(
       <NavLink target="_blank" onClick={toggleCollapsed} to="/about">
@@ -93,7 +93,7 @@ function LandingMenuItems ({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/starter`}>
           <UilCircle />
         </NavLink>
-      )
+      ),
     ),
     getItem(
       <NavLink target="_blank" onClick={toggleCollapsed} to="/contact">
@@ -104,8 +104,8 @@ function LandingMenuItems ({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/starter`}>
           <UilCircle />
         </NavLink>
-      )
-    )
+      ),
+    ),
   ]
 
   return (
@@ -119,7 +119,7 @@ function LandingMenuItems ({ toggleCollapsed }) {
           ? [
               `${
                 mainPathSplit.length === 1 ? 'home' : mainPathSplit.length === 2 ? mainPathSplit[1] : mainPathSplit[2]
-              }`
+              }`,
             ]
           : []
       }
@@ -132,7 +132,7 @@ function LandingMenuItems ({ toggleCollapsed }) {
 }
 
 LandingMenuItems.propTypes = {
-  toggleCollapsed: propTypes.func
+  toggleCollapsed: propTypes.func,
 }
 
 export default LandingMenuItems

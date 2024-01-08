@@ -7,10 +7,10 @@ import { Button } from '../../../../components/buttons/buttons'
 import Heading from '../../../../components/heading/heading'
 import { BasicFormWrapper } from '../../../styled'
 
-function SocialProfile () {
+function SocialProfile() {
   const [form] = Form.useForm()
   const [state, setState] = useState({
-    values: null
+    values: null,
   })
 
   const handleSubmit = (values) => {

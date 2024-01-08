@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function CompanyMenu () {
+function CompanyMenu() {
   console.log('one')
 
   return (

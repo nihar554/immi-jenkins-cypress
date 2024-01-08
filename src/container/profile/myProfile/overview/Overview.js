@@ -39,43 +39,43 @@ const moreContent = (
   </>
 )
 
-function Overview () {
+function Overview() {
   const dataSource = [
     {
       key: '1',
       name: 'Samsung Galaxy S8 256GB',
       price: '$280',
       sold: 126,
-      revenue: '$38,536'
+      revenue: '$38,536',
     },
     {
       key: '2',
       name: 'Half Sleeve Shirt',
       price: '$25',
       sold: 80,
-      revenue: '$38,536'
+      revenue: '$38,536',
     },
     {
       key: '3',
       name: 'Marco Shoes',
       price: '$32',
       sold: 58,
-      revenue: '$38,536'
+      revenue: '$38,536',
     },
     {
       key: '4',
       name: '15" Mackbook Pro        ',
       price: '$950',
       sold: 36,
-      revenue: '$38,536'
+      revenue: '$38,536',
     },
     {
       key: '5',
       name: 'Apple iPhone X',
       price: '$985',
       sold: 24,
-      revenue: '$38,536'
-    }
+      revenue: '$38,536',
+    },
   ]
 
   const columns = [
@@ -83,24 +83,24 @@ function Overview () {
       title: 'Products Name',
       dataIndex: 'name',
       key: 'name',
-      className: 'p_name'
+      className: 'p_name',
     },
     {
       title: 'Price',
       dataIndex: 'price',
       key: 'price',
-      className: 'p_price'
+      className: 'p_price',
     },
     {
       title: 'Sold',
       dataIndex: 'sold',
-      key: 'sold'
+      key: 'sold',
     },
     {
       title: 'Revenue',
       dataIndex: 'revenue',
-      key: 'revenue'
-    }
+      key: 'revenue',
+    },
   ]
 
   return (
@@ -134,30 +134,30 @@ function Overview () {
                         backgroundColor: '#EFEFFE',
                         hoverBackgroundColor: '#5F63F2',
                         label: 'Orders',
-                        barPercentage: 1
-                      }
+                        barPercentage: 1,
+                      },
                     ]}
                     scales={{
                       y: {
                         display: false,
                         stacked: true,
                         gridLines: {
-                          display: false
+                          display: false,
                         },
                         ticks: {
-                          display: false
-                        }
+                          display: false,
+                        },
                       },
                       x: {
                         display: false,
                         stacked: true,
                         gridLines: {
-                          display: false
+                          display: false,
                         },
                         ticks: {
-                          display: false
-                        }
-                      }
+                          display: false,
+                        },
+                      },
                     }}
                     // options={chartOptions}
                   />
@@ -197,33 +197,33 @@ function Overview () {
                         backgroundColor: '#FFF0F6',
                         hoverBackgroundColor: '#FF69A5',
                         label: 'Revenue',
-                        barPercentage: 1
-                      }
+                        barPercentage: 1,
+                      },
                     ]}
                     legends={{
-                      display: false
+                      display: false,
                     }}
                     scales={{
                       y: {
                         display: false,
                         stacked: true,
                         gridLines: {
-                          display: false
+                          display: false,
                         },
                         ticks: {
-                          display: false
-                        }
+                          display: false,
+                        },
                       },
                       x: {
                         display: false,
                         stacked: true,
                         gridLines: {
-                          display: false
+                          display: false,
                         },
                         ticks: {
-                          display: false
-                        }
-                      }
+                          display: false,
+                        },
+                      },
                     }}
                   />
                 </div>
@@ -262,33 +262,33 @@ function Overview () {
                         backgroundColor: '#E8FAF4',
                         hoverBackgroundColor: '#20C997',
                         label: 'Avg Orders',
-                        barPercentage: 1
-                      }
+                        barPercentage: 1,
+                      },
                     ]}
                     legends={{
-                      display: false
+                      display: false,
                     }}
                     scales={{
                       y: {
                         display: false,
                         stacked: true,
                         gridLines: {
-                          display: false
+                          display: false,
                         },
                         ticks: {
-                          display: false
-                        }
+                          display: false,
+                        },
                       },
                       x: {
                         display: false,
                         stacked: true,
                         gridLines: {
-                          display: false
+                          display: false,
                         },
                         ticks: {
-                          display: false
-                        }
-                      }
+                          display: false,
+                        },
+                      },
                     }}
                   />
                 </div>

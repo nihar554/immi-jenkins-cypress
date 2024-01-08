@@ -9,9 +9,9 @@ import { KnowledgeDetailsWrap } from '../../style'
 
 const { Panel } = Collapse
 const { TextArea } = Input
-function SingleKnowledgeDetails () {
+function SingleKnowledgeDetails() {
   const [state, setstate] = useState({
-    key: 0
+    key: 0,
   })
   const callback = (key) => {
     setstate({ ...state, key })

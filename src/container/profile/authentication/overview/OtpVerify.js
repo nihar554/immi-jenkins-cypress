@@ -8,7 +8,7 @@ import Cookies from 'js-cookie'
 import { AuthFormWrap, LoginWrap } from './style'
 import { verifyOTP } from '../../../../redux/authentication/actionCreator'
 
-function OtpVerify () {
+function OtpVerify() {
   const { t } = useTranslation()
   // const user = useSelector((state) => state.auth.data.user);
   const userData = JSON.parse(Cookies.get('user_data'))
@@ -19,7 +19,7 @@ function OtpVerify () {
   const [state, setState] = useState({
     otp: '',
     email: '',
-    id: ''
+    id: '',
   })
 
   const onSuccess = () => {
@@ -30,11 +30,11 @@ function OtpVerify () {
     (values) => {
       const dataToSend = {
         otp: values.otp,
-        email: userData?.email
+        email: userData?.email,
       }
       dispatch(verifyOTP(dataToSend, () => onSuccess()))
     },
-    [navigate, dispatch]
+    [navigate, dispatch],
   )
 
   return (

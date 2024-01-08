@@ -12,16 +12,16 @@ import { KnowledgebaseArticleWrap, SingleKnowledgeContent, SidebarNavWrap } from
 import { Button } from '../../../components/buttons/buttons'
 import { Main } from '../../styled'
 
-function SingleKnowledge () {
+function SingleKnowledge() {
   const [state, setState] = useState({
     responsive: 0,
-    collapsed: false
+    collapsed: false,
   })
   const [open, setOpen] = useState('menu1')
   const { responsive, collapsed } = state
 
   useLayoutEffect(() => {
-    function updateSize () {
+    function updateSize() {
       const width = window.innerWidth
       setState({ responsive: width })
     }
@@ -33,7 +33,7 @@ function SingleKnowledge () {
   const toggleCollapsed = () => {
     setState({
       ...state,
-      collapsed: !collapsed
+      collapsed: !collapsed,
     })
   }
 
@@ -71,8 +71,7 @@ function SingleKnowledge () {
               )}
             </div>
             <SingleKnowledgeContent>
-              {responsive > 991
-                ? (
+              {responsive > 991 ? (
                 <SidebarNavWrap>
                   <div className="knowledge-sidebar">
                     <h4 className="knowledge-sidebar__title">Plugins</h4>
@@ -250,8 +249,7 @@ function SingleKnowledge () {
                     </ul>
                   </div>
                 </SidebarNavWrap>
-                  )
-                : (
+              ) : (
                 <div className={collapsed ? 'knowledge-sidebar-wrap show' : 'knowledge-sidebar-wrap hide'}>
                   <SidebarNavWrap>
                     <div className="knowledge-sidebar">
@@ -436,7 +434,7 @@ function SingleKnowledge () {
                     </div>
                   </SidebarNavWrap>
                 </div>
-                  )}
+              )}
 
               <SingleKnowledgeDetails />
             </SingleKnowledgeContent>

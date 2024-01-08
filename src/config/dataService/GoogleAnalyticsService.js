@@ -9,7 +9,7 @@ const useAnalyticsEventTracker = (category, action, label, pagepath) => {
       ReactGA.event({
         category,
         action,
-        label
+        label,
       })
       // console.log('category', category, 'action', action, 'label', label);
     } catch (err) {

@@ -11,10 +11,10 @@ const listStyle = {
   justifyContent: 'space-between',
   alignItems: 'center',
   margin: 0,
-  padding: 0
+  padding: 0,
 }
 
-function Notification () {
+function Notification() {
   return (
     <NotificationWrapper>
       <Cards
@@ -34,7 +34,7 @@ function Notification () {
                     height: '50px',
                     display: 'flex',
                     justifyContent: 'space-between',
-                    alignItems: 'center'
+                    alignItems: 'center',
                   }}
                   className="notification-header"
                 >
@@ -51,7 +51,7 @@ function Notification () {
                       <ul
                         style={{
                           margin: 0,
-                          padding: 0
+                          padding: 0,
                         }}
                       >
                         <li style={listStyle}>
@@ -106,7 +106,7 @@ function Notification () {
                     height: '50px',
                     display: 'flex',
                     justifyContent: 'space-between',
-                    alignItems: 'center'
+                    alignItems: 'center',
                   }}
                   className="notification-header"
                 >
@@ -123,7 +123,7 @@ function Notification () {
                       <ul
                         style={{
                           margin: 0,
-                          padding: 0
+                          padding: 0,
                         }}
                       >
                         <li style={listStyle}>

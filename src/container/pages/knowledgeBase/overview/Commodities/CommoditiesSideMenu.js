@@ -14,10 +14,10 @@ import { Main } from '../../../../styled'
 // import KnowledgeBaseTop from '../Knowledgebase/knowledgeTop';
 import productsDetails from '../../../../../demoData/products-article.json'
 
-function StablecoinSideMenu () {
+function StablecoinSideMenu() {
   const [state, setState] = useState({
     responsive: 0,
-    collapsed: false
+    collapsed: false,
   })
   const [data, setData] = useState()
   const [open, setOpen] = useState('menu1')
@@ -25,7 +25,7 @@ function StablecoinSideMenu () {
   const { id } = useParams()
 
   useLayoutEffect(() => {
-    function updateSize () {
+    function updateSize() {
       const width = window.innerWidth
       setState({ responsive: width })
     }
@@ -37,7 +37,7 @@ function StablecoinSideMenu () {
   const toggleCollapsed = () => {
     setState({
       ...state,
-      collapsed: !collapsed
+      collapsed: !collapsed,
     })
   }
 
@@ -91,8 +91,7 @@ function StablecoinSideMenu () {
               )}
             </div>
             <SingleKnowledgeContent>
-              {responsive > 991
-                ? (
+              {responsive > 991 ? (
                 <SidebarNavWrap>
                   <div className="knowledge-sidebar">
                     <h4 className="knowledge-sidebar__title">{data?.productName}</h4>
@@ -126,8 +125,7 @@ function StablecoinSideMenu () {
                     </ul>
                   </div>
                 </SidebarNavWrap>
-                  )
-                : (
+              ) : (
                 <div className={collapsed ? 'knowledge-sidebar-wrap show' : 'knowledge-sidebar-wrap hide'}>
                   <SidebarNavWrap>
                     <div className="knowledge-sidebar">
@@ -240,7 +238,7 @@ function StablecoinSideMenu () {
                     </div>
                   </SidebarNavWrap>
                 </div>
-                  )}
+              )}
 
               <CommoditiesKnowledgeDetails title={id} />
             </SingleKnowledgeContent>

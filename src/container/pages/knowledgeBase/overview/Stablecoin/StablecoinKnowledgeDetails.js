@@ -10,9 +10,9 @@ import { KnowledgeDetailsWrap } from '../../style'
 
 const { Panel } = Collapse
 const { TextArea } = Input
-function StablecoinKnowledgeDetails ({ title }) {
+function StablecoinKnowledgeDetails({ title }) {
   const [state, setstate] = useState({
-    key: 0
+    key: 0,
   })
   const callback = (key) => {
     setstate({ ...state, key })
@@ -21,8 +21,7 @@ function StablecoinKnowledgeDetails ({ title }) {
     <KnowledgeDetailsWrap>
       <div className="knowledge-details">
         <h2 className="knowledge-details__title">{title}</h2>
-        {title === 'Switch between accounts'
-          ? (
+        {title === 'Switch between accounts' ? (
           <div className="knowledge-details__single--block">
             <h4>
               <Link to="#">Configuration</Link>
@@ -36,10 +35,8 @@ function StablecoinKnowledgeDetails ({ title }) {
               Read More
             </Link>
           </div>
-            )
-          : null}
-        {title === 'Change your email'
-          ? (
+        ) : null}
+        {title === 'Change your email' ? (
           <div className="knowledge-details__single--block">
             <h4>
               <Link to="#">Research and experiments</Link>
@@ -53,8 +50,7 @@ function StablecoinKnowledgeDetails ({ title }) {
               <img src={require('../../../../../static/img/knowledgebase/wp-research.png')} alt="StrikingDash" />
             </div>
           </div>
-            )
-          : null}
+        ) : null}
         <div className="knowledge-details__single--block">
           <div className="knowledge-details-collapse">
             <Collapse defaultActiveKey={['1']} onChange={callback}>
@@ -250,7 +246,7 @@ function StablecoinKnowledgeDetails ({ title }) {
   )
 }
 StablecoinKnowledgeDetails.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
 }
 
 export default StablecoinKnowledgeDetails

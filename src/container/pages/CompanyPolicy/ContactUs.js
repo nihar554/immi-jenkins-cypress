@@ -7,7 +7,7 @@ import { getItem } from '../../../utility/localStorageControl'
 import { LandingPage } from '../Landing/Style'
 import LandingHeader from '../Landing/Header'
 
-function ContactUs () {
+function ContactUs() {
   const { t } = useTranslation()
   const userInfo = getItem('access_token')
   return (

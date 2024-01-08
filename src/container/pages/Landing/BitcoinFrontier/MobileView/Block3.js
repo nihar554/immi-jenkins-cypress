@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-function Block3 () {
+function Block3() {
   const { t } = useTranslation()
   return (
     <div className="block-container">

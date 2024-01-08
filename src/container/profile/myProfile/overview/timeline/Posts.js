@@ -23,27 +23,27 @@ import { likeUpdate, commentUpdate, postDelete } from '../../../../../redux/prof
 const dataImages = [
   {
     id: 1,
-    image: require('../../../../../static/img/profile/post/506.png')
+    image: require('../../../../../static/img/profile/post/506.png'),
   },
   {
     id: 2,
-    image: require('../../../../../static/img/profile/post/907.png')
+    image: require('../../../../../static/img/profile/post/907.png'),
   },
   {
     id: 3,
-    image: require('../../../../../static/img/profile/post/brightland_3744.png')
+    image: require('../../../../../static/img/profile/post/brightland_3744.png'),
   },
   {
     id: 4,
-    image: require('../../../../../static/img/profile/post/70.png')
+    image: require('../../../../../static/img/profile/post/70.png'),
   },
   {
     id: 5,
-    image: require('../../../../../static/img/profile/post/165.png')
-  }
+    image: require('../../../../../static/img/profile/post/165.png'),
+  },
 ]
 
-function ExampleComment ({ children, replay }) {
+function ExampleComment({ children, replay }) {
   return (
     <Comment
       actions={[
@@ -55,7 +55,7 @@ function ExampleComment ({ children, replay }) {
         </span>,
         <span className="com-time" key="comment-nested-reply-to">
           {moment(parseInt(replay.time, 10)).fromNow()}
-        </span>
+        </span>,
       ]}
       author={<span>{replay.name}</span>}
       avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
@@ -68,21 +68,21 @@ function ExampleComment ({ children, replay }) {
 
 ExampleComment.propTypes = {
   children: PropTypes.node,
-  replay: PropTypes.object
+  replay: PropTypes.object,
 }
 
-function Posts ({ postId, from, time, img, like, comment, content, author }) {
+function Posts({ postId, from, time, img, like, comment, content, author }) {
   const dispatch = useDispatch()
   const { posts } = useSelector((state) => {
     return {
-      posts: state.Profile.posts
+      posts: state.Profile.posts,
     }
   })
 
   const [state, setState] = useState({
     inputValue: '',
     fileList: [],
-    fileList2: []
+    fileList2: [],
   })
 
   const [pickerShow, setPickerShow] = useState(false)
@@ -104,15 +104,15 @@ function Posts ({ postId, from, time, img, like, comment, content, author }) {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     headers: {
-      authorization: 'authorization-text'
+      authorization: 'authorization-text',
     },
     listType: 'picture-card',
-    onChange (info) {
+    onChange(info) {
       if (info.file.status !== 'uploading') {
         // console.log(info.file, info.fileList);
         setState({
           ...state,
-          fileList: info.fileList
+          fileList: info.fileList,
         })
       }
       if (info.file.status === 'done') {
@@ -120,21 +120,21 @@ function Posts ({ postId, from, time, img, like, comment, content, author }) {
       } else if (info.file.status === 'error') {
         message.error(`${info.file.name} file upload failed.`)
       }
-    }
+    },
   }
 
   const attachment = {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     headers: {
-      authorization: 'authorization-text'
+      authorization: 'authorization-text',
     },
-    onChange (info) {
+    onChange(info) {
       if (info.file.status !== 'uploading') {
         // console.log(info.file, info.fileList);
         setState({
           ...state,
-          fileList2: info.fileList
+          fileList2: info.fileList,
         })
       }
       if (info.file.status === 'done') {
@@ -142,7 +142,7 @@ function Posts ({ postId, from, time, img, like, comment, content, author }) {
       } else if (info.file.status === 'error') {
         message.error(`${info.file.name} file upload failed.`)
       }
-    }
+    },
   }
 
   const onLikeUpdate = (id) => {
@@ -189,8 +189,7 @@ function Posts ({ postId, from, time, img, like, comment, content, author }) {
       >
         <div className="post-content">
           <div className="gallery">
-            {img.length
-              ? (
+            {img.length ? (
               <>
                 <Masonry
                   breakpointCols={img.length <= 2 ? img.length : 2}
@@ -240,8 +239,7 @@ function Posts ({ postId, from, time, img, like, comment, content, author }) {
                   </Masonry>
                 )}
               </>
-                )
-              : null}
+            ) : null}
           </div>
 
           <LightBox
@@ -317,35 +315,33 @@ function Posts ({ postId, from, time, img, like, comment, content, author }) {
               </Button>
             </div>
           </div>
-          {comment.length
-            ? (
+          {comment.length ? (
             <div className="commentReplay">
               <ExampleComment
                 replay={{
                   time: comment[0].time,
                   name: comment[0].from,
-                  text: comment[0].text
+                  text: comment[0].text,
                 }}
               >
                 {comment.length > 1
                   ? comment.map((item, key) => {
-                    return (
-                      key >= 1 && (
+                      return (
+                        key >= 1 && (
                           <ExampleComment
                             replay={{
                               time: item.time,
                               name: item.name,
-                              text: item.text
+                              text: item.text,
                             }}
                           />
+                        )
                       )
-                    )
-                  })
+                    })
                   : null}
               </ExampleComment>
             </div>
-              )
-            : null}
+          ) : null}
         </div>
       </Cards>
     </AllPosts>
@@ -360,7 +356,7 @@ Posts.propTypes = {
   like: PropTypes.number,
   comment: PropTypes.array,
   content: PropTypes.string,
-  author: PropTypes.string
+  author: PropTypes.string,
 }
 
 export default Posts

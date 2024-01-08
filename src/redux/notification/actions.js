@@ -5,23 +5,23 @@ const actions = {
 
   readNotificationBegin: () => {
     return {
-      type: actions.READ_NOTIFICATION_BEGIN
+      type: actions.READ_NOTIFICATION_BEGIN,
     }
   },
 
   readNotificationSuccess: (data) => {
     return {
       type: actions.READ_NOTIFICATION_SUCCESS,
-      data
+      data,
     }
   },
 
   readNotificationErr: (err) => {
     return {
       type: actions.READ_NOTIFICATION_ERR,
-      err
+      err,
     }
-  }
+  },
 }
 
 export default actions

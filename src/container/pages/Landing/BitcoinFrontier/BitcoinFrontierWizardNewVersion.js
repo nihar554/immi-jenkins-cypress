@@ -2,7 +2,7 @@ import React from 'react'
 import { Steps } from 'antd'
 import { useTranslation } from 'react-i18next'
 
-function BitcoinFrontierWizardNewVersion () {
+function BitcoinFrontierWizardNewVersion() {
   const { t } = useTranslation()
 
   return (
@@ -36,7 +36,7 @@ function BitcoinFrontierWizardNewVersion () {
                   </ul>
                 </div>
               </div>
-            )
+            ),
           },
           {
             title: 'Proceeding upon Approval',
@@ -68,7 +68,7 @@ function BitcoinFrontierWizardNewVersion () {
                   </ul>
                 </div>
               </div>
-            )
+            ),
           },
           {
             title: 'Receiving Freedom Passport',
@@ -87,8 +87,8 @@ function BitcoinFrontierWizardNewVersion () {
                   </ul>
                 </div>
               </div>
-            )
-          }
+            ),
+          },
         ]}
       />
     </>

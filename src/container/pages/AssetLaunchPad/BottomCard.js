@@ -12,7 +12,7 @@ const BottomCard = React.memo(({ logo, text, buttonTitle }) => {
         bodyStyle={{
           content: '',
           border: '3px dashed #53AE94',
-          borderRadius: '20px'
+          borderRadius: '20px',
         }}
       >
         <CardWrapper>
@@ -45,6 +45,6 @@ const BottomCard = React.memo(({ logo, text, buttonTitle }) => {
 BottomCard.propTypes = {
   logo: PropTypes.string,
   text: PropTypes.string,
-  buttonTitle: PropTypes.string
+  buttonTitle: PropTypes.string,
 }
 export default BottomCard

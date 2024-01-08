@@ -9,11 +9,11 @@ import { Cards } from '../../../../../components/cards/frame/cards-frame'
 import { Button } from '../../../../../components/buttons/buttons'
 import { submitPost } from '../../../../../redux/profile/actionCreator'
 
-function Post () {
+function Post() {
   const dispatch = useDispatch()
   const { posts } = useSelector((state) => {
     return {
-      posts: state.Profile.posts
+      posts: state.Profile.posts,
     }
   })
 
@@ -40,9 +40,9 @@ function Post () {
             author: 'static/img/chat-author/t4.jpg',
             content: textValue,
             like: 0,
-            comment: []
-          }
-        ])
+            comment: [],
+          },
+        ]),
       )
       setTextValue('')
     }

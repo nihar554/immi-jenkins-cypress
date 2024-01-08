@@ -13,16 +13,16 @@ const Overview = lazy(() => import('./overview/Overview'))
 const Timeline = lazy(() => import('./overview/Timeline'))
 const Activity = lazy(() => import('./overview/Activity'))
 
-function MyProfile () {
+function MyProfile() {
   const PageRoutes = [
     {
       path: '/admin',
-      breadcrumbName: 'Dashboard'
+      breadcrumbName: 'Dashboard',
     },
     {
       path: '',
-      breadcrumbName: 'My Profile'
-    }
+      breadcrumbName: 'My Profile',
+    },
   ]
   const path = '.'
   return (

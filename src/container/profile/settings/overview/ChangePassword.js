@@ -10,7 +10,7 @@ import { Button } from '../../../../components/buttons/buttons'
 import PassPopUp from '../../../../components/dropdown/PassPopUp'
 import { checkPasswordValid } from '../../../../utility/utility'
 
-function Password () {
+function Password() {
   const { t } = useTranslation()
   const [form] = Form.useForm()
   const [loading, setLoading] = useState(false)
@@ -25,7 +25,7 @@ function Password () {
     specialCharValid: false,
     uppercaseValid: false,
     lowercaseValid: false,
-    numberValid: false
+    numberValid: false,
   })
   const watch = Form.useWatch([], form)
   React.useEffect(() => {
@@ -39,7 +39,7 @@ function Password () {
       },
       () => {
         setSubmittable(false)
-      }
+      },
     )
   }, [watch])
   React.useEffect(() => {
@@ -60,7 +60,7 @@ function Password () {
     setBtnText(t('Processing...'))
     const body = {
       oldPassword: oldpassword,
-      newPassword: password
+      newPassword: password,
     }
     DataService.post('/changePassword', body)
       .then((res) => {
@@ -137,7 +137,7 @@ function Password () {
                   label={t('New_Password')}
                   rules={[
                     { required: true, message: 'Please input your email!', type: 'password' },
-                    { validator: validatePassword }
+                    { validator: validatePassword },
                   ]}
                 >
                   <Input.Password
@@ -158,7 +158,7 @@ function Password () {
                   label={t('Confirm_New_Password')}
                   rules={[
                     { required: true, message: 'Please input your email!', type: 'password' },
-                    { validator: validateCPassword }
+                    { validator: validateCPassword },
                   ]}
                 >
                   <Input.Password placeholder="**********" />

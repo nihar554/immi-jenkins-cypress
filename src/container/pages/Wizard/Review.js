@@ -7,7 +7,7 @@ import { ReviewWrapper } from '../style'
 import ChooseFileIcon from '../../../static/img/icon/ChooseFileIcon'
 import { validImageTypes } from '../../../utility/utility'
 
-function Review (props) {
+function Review(props) {
   const { form, countries, data, setData } = props
   const [errorMsg, setErrorMsg] = useState('')
   const [passportMsg, setPassportMsg] = useState('')
@@ -45,7 +45,7 @@ function Review (props) {
           } else {
             onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              proof_of_res_data: undefined
+              proof_of_res_data: undefined,
             })
             setErrorMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
           }
@@ -61,7 +61,7 @@ function Review (props) {
           } else {
             onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              passport: undefined
+              passport: undefined,
             })
             setPassportMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
           }
@@ -98,8 +98,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your First Name'
-              }
+                message: 'Please Input Your First Name',
+              },
             ]}
           >
             <Input placeholder={t('Enter Your First Name')} />
@@ -115,8 +115,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your Last Name'
-              }
+                message: 'Please Input Your Last Name',
+              },
             ]}
           >
             <Input placeholder={t('Enter Your Last Name')} />
@@ -127,8 +127,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Select Your Date of Birth'
-              }
+                message: 'Please Select Your Date of Birth',
+              },
             ]}
           >
             <DatePicker
@@ -151,8 +151,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Select Your Nationality'
-              }
+                message: 'Please Select Your Nationality',
+              },
             ]}
           >
             <Select
@@ -171,8 +171,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Select Your Gender'
-              }
+                message: 'Please Select Your Gender',
+              },
             ]}
           >
             <Select style={{ width: '100%' }} placeholder="Please select your gender">
@@ -190,8 +190,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Enter Your Country Code'
-              }
+                message: 'Please Enter Your Country Code',
+              },
             ]}
           >
             <Input placeholder={t('91')} />
@@ -202,8 +202,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Enter Your Phone Number'
-              }
+                message: 'Please Enter Your Phone Number',
+              },
             ]}
           >
             <Input placeholder={t('Enter your mobile number')} />
@@ -220,8 +220,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Building Name / Number'
-              }
+                message: 'Please Input Building Name / Number',
+              },
             ]}
           >
             <Input placeholder={t('Enter Your Building Name / Number')} />
@@ -232,8 +232,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your Street Name'
-              }
+                message: 'Please Input Your Street Name',
+              },
             ]}
           >
             <Input placeholder={t('Enter Your Street Name')} />
@@ -246,8 +246,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your City Name'
-              }
+                message: 'Please Input Your City Name',
+              },
             ]}
           >
             <Input placeholder={t('Enter Your City Name')} />
@@ -258,8 +258,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Input Your Area Name'
-              }
+                message: 'Please Input Your Area Name',
+              },
             ]}
           >
             <Input placeholder={t('Enter Your Area Code')} />
@@ -275,8 +275,8 @@ function Review (props) {
             rules={[
               {
                 required: true,
-                message: 'Please Select Your Country Name'
-              }
+                message: 'Please Select Your Country Name',
+              },
             ]}
           >
             <Select
@@ -293,13 +293,11 @@ function Review (props) {
         <h3 className="title-first">ID Verification</h3>
         <div className="verification-block">
           <div className="proof-block">
-            {data?.proof_of_res_data
-              ? (
+            {data?.proof_of_res_data ? (
               <img alt="proof_if_res" className="img-container" src={data?.proof_of_res_data} />
-                )
-              : (
+            ) : (
               <></>
-                )}
+            )}
             <Form.Item
               name="proof_of_res"
               valuePropName="fileList"
@@ -307,8 +305,8 @@ function Review (props) {
               rules={[
                 {
                   required: true,
-                  message: 'Please Upload Proof of Residence'
-                }
+                  message: 'Please Upload Proof of Residence',
+                },
               ]}
             >
               <Upload
@@ -322,13 +320,11 @@ function Review (props) {
                   })
                 }
               >
-                {data?.proof_of_res_data
-                  ? null
-                  : (
+                {data?.proof_of_res_data ? null : (
                   <Button className="passport-btn">
                     <ChooseFileIcon /> Choose File
                   </Button>
-                    )}
+                )}
               </Upload>
             </Form.Item>
             {errorMsg && (
@@ -346,8 +342,8 @@ function Review (props) {
               rules={[
                 {
                   required: true,
-                  message: 'Please Choose Passport'
-                }
+                  message: 'Please Choose Passport',
+                },
               ]}
             >
               <Upload
@@ -361,13 +357,11 @@ function Review (props) {
                   })
                 }
               >
-                {data?.passport
-                  ? null
-                  : (
+                {data?.passport ? null : (
                   <Button className="passport-btn">
                     <ChooseFileIcon /> {t('Choose File')}
                   </Button>
-                    )}
+                )}
               </Upload>
             </Form.Item>
             {passportMsg && (
@@ -386,7 +380,7 @@ Review.propTypes = {
   form: PropTypes.object,
   countries: PropTypes.array,
   data: PropTypes.string,
-  setData: PropTypes.func
+  setData: PropTypes.func,
 }
 
 export default Review

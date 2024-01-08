@@ -10,7 +10,7 @@ import cardData from '../../../demoData/sampleCards.json'
 
 const { BlogCardData } = cardData
 
-function BlogDetails () {
+function BlogDetails() {
   const { id } = useParams()
   console.log('id', id)
   const [data, setData] = useState({})

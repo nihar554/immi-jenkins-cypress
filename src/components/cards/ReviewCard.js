@@ -3,7 +3,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-export default function ReviewCard ({ title, setState, state, Icon }) {
+export default function ReviewCard({ title, setState, state, Icon }) {
   return (
     <div
       className="card-block"
@@ -39,5 +39,5 @@ ReviewCard.propTypes = {
   title: propTypes.string,
   state: propTypes.object,
   setState: propTypes.func,
-  Icon: propTypes.func
+  Icon: propTypes.func,
 }

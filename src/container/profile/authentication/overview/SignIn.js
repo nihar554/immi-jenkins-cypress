@@ -10,7 +10,7 @@ import { AuthFormWrap, LoginWrap } from './style'
 import { login } from '../../../../redux/authentication/actionCreator'
 import { Checkbox } from '../../../../components/checkbox/checkbox'
 
-function SignIn () {
+function SignIn() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -18,7 +18,7 @@ function SignIn () {
   const [form] = Form.useForm()
   const [state, setState] = useState({
     email: '',
-    password: ''
+    password: '',
   })
 
   const onChange = (checked) => {
@@ -34,10 +34,10 @@ function SignIn () {
           } else {
             navigate('/verify-otp')
           }
-        })
+        }),
       )
     },
-    [navigate, dispatch]
+    [navigate, dispatch],
   )
 
   return (

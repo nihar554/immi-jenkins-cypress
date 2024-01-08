@@ -3,7 +3,7 @@ import { BlogDetailsStyle } from './Style'
 import { Cards } from '../../../components/cards/frame/cards-frame'
 import { Main } from '../../styled'
 
-function Career () {
+function Career() {
   return (
     <>
       <Main>

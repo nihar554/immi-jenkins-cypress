@@ -4,19 +4,19 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Steps } from '../../../../components/steps/steps'
 
-function BitcoinFrontierWizard () {
+function BitcoinFrontierWizard() {
   const { t } = useTranslation()
   const [state, setState] = useState({
     status: 'process',
     isFinished: false,
-    current: 1
+    current: 1,
   })
   useEffect(() => {
     setState({
       status: 'process',
       isFinished: false,
       isHideAction: true,
-      current: 1
+      current: 1,
     })
   }, [])
   const { status, isFinished, isHideAction } = state
@@ -43,7 +43,7 @@ function BitcoinFrontierWizard () {
                           <strong>{t('Fee_Payment')}: </strong>
                           <span>
                             {t(
-                              'Submit_a_non-refundable_application_fee_of_999_USD_in_Bitcoin_(BTC)_or_USDt_to_commence_the_evaluation_process.'
+                              'Submit_a_non-refundable_application_fee_of_999_USD_in_Bitcoin_(BTC)_or_USDt_to_commence_the_evaluation_process.',
                             )}
                           </span>
                         </li>
@@ -104,14 +104,14 @@ function BitcoinFrontierWizard () {
                   </div>
                 </Col>
               </Row>
-            )
+            ),
           },
           {
-            title: 'Proceeding upon Approval'
+            title: 'Proceeding upon Approval',
           },
           {
-            title: 'Receiving Residency Visa'
-          }
+            title: 'Receiving Residency Visa',
+          },
         ]}
         isfinished={isFinished}
         isHideAction={isHideAction}

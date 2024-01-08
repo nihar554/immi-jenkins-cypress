@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Content, PopoverStyle, Title } from './style'
 import './style.css'
 
-function Popover (props) {
+function Popover(props) {
   const { content, placement, title, action, children } = props
   const content1 = <Content>{content}</Content>
 
@@ -36,7 +36,7 @@ const content = (
 Popover.defaultProps = {
   action: 'hover',
   placement: 'bottom',
-  content
+  content,
 }
 
 Popover.propTypes = {
@@ -44,7 +44,7 @@ Popover.propTypes = {
   title: PropTypes.string,
   action: PropTypes.string,
   content: PropTypes.node,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export { Popover }

@@ -13,7 +13,7 @@ import Heading from '../../../../components/heading/heading'
 import { Cards } from '../../../../components/cards/frame/cards-frame'
 import { DataService } from '../../../../config/dataService/dataService'
 
-function AuthorBox ({ state, setState }) {
+function AuthorBox({ state, setState }) {
   const initialSrc = 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png'
   const [src, setSrc] = useState('')
 
@@ -131,7 +131,7 @@ function AuthorBox ({ state, setState }) {
 
 AuthorBox.propTypes = {
   setState: PropTypes.func,
-  state: PropTypes.object
+  state: PropTypes.object,
 }
 
 export default AuthorBox

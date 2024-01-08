@@ -1316,5 +1316,5 @@ export {
   ModeSwitch,
   TopMenuStyle,
   TopMenuSearch,
-  TetheFooterStyle
+  TetheFooterStyle,
 }

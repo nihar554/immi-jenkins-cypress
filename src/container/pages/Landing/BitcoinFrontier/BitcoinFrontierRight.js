@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
-function BitcoinFrontierRight () {
+function BitcoinFrontierRight() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   return (

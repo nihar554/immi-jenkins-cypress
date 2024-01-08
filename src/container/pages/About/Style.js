@@ -902,5 +902,5 @@ export {
   BenefitsSection,
   MainSection,
   ImageTitle,
-  InsightSection
+  InsightSection,
 }

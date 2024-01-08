@@ -6,7 +6,7 @@ import FbIcon from '../../static/img/icons/facebook.svg'
 import YoutubeIcon from '../../static/img/icons/youtube.svg'
 import { subscribeEmailServices } from '../../config/dataService/subscribeEmailServices'
 
-function NewsLetter () {
+function NewsLetter() {
   const [form] = Form.useForm()
   // const [email, setEmail] = useState();
 
@@ -40,12 +40,12 @@ function NewsLetter () {
               rules={[
                 {
                   type: 'email',
-                  message: 'Invalid Email!'
+                  message: 'Invalid Email!',
                 },
                 {
                   required: true,
-                  message: 'Please input your Email!'
-                }
+                  message: 'Please input your Email!',
+                },
               ]}
             >
               <Input name="email" placeholder="Type your email" />

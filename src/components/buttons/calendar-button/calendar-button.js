@@ -4,7 +4,7 @@ import { DateRangePickerOne } from '../../datePicker/datePicker'
 import { Popover } from '../../popup/popup'
 import { Button } from '../buttons'
 
-function CalendarButtonPageHeader () {
+function CalendarButtonPageHeader() {
   const content = <DateRangePickerOne />
 
   return (

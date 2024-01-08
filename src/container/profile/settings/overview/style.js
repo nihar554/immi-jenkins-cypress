@@ -429,5 +429,5 @@ export {
   AccountWrapper,
   ChangePasswordWrapper,
   SocialProfileForm,
-  NotificationWrapper
+  NotificationWrapper,
 }

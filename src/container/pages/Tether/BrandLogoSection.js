@@ -7,7 +7,7 @@ import GeorgiaIcon from '../../../static/img/icons/georgia.png'
 import VanEckIcon from '../../../static/img/icons/vaneck.png'
 import NasdaqIcon from '../../../static/img/icons/nasdaq.png'
 
-function BrandLogoSection () {
+function BrandLogoSection() {
   return (
     <Row gutter={25} className="brand-logo-row image-container">
       {/* <Col  lg={4} sm={12} xs={24}>

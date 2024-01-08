@@ -435,5 +435,5 @@ export {
   BitcoinFrontierWrapper,
   BitcoinFrontierWrapperMobile,
   BitcoinWizardDesktop,
-  BitcoinFrontierWrapperNewVersion
+  BitcoinFrontierWrapperNewVersion,
 }

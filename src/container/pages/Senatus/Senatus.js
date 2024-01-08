@@ -14,29 +14,29 @@ import LinuxIcon from '../../../static/img/icons/linux.svg'
 import DownloadIcon from '../../../static/img/icons/download.svg'
 import BannerSection from '../../../components/BannerSection/Banner'
 
-function Senatus () {
+function Senatus() {
   const data = [
     {
       section: 'windows-section',
       title: 'Windows',
       icon: WindowsIcon,
       description: '',
-      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-win.exe'
+      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-win.exe',
     },
     {
       section: 'mac-section',
       title: 'Mac',
       icon: MacIcon,
       description: '',
-      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-mac.dmg'
+      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-mac.dmg',
     },
     {
       section: 'linux-section',
       title: 'Linux',
       icon: LinuxIcon,
       description: '',
-      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-linux.deb'
-    }
+      download_link: 'https://pv-images-alpha.s3.us-west-2.amazonaws.com/senatus/senatus-linux.deb',
+    },
   ]
   const gaEventTracker = useAnalyticsEventTracker('Senatus', 'Landed on Senatus ', 'Landed')
   useEffect(() => {
@@ -79,7 +79,7 @@ function Senatus () {
                   height: '100%',
                   width: '85%',
                   position: 'absolute',
-                  marginTop: '20%'
+                  marginTop: '20%',
                 }}
               />
             </Row>

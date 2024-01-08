@@ -11,7 +11,7 @@ import { DataService } from '../../../../config/dataService/dataService'
 
 const { Option } = Select
 
-function Profile ({ state, setState }) {
+function Profile({ state, setState }) {
   const { t } = useTranslation()
   const [loading, setLoading] = useState(false)
   const [btnText, setBtnText] = useState('Update Profile')
@@ -22,7 +22,7 @@ function Profile ({ state, setState }) {
   const handleSubmit = (values) => {
     const dataToSend = {
       ...state,
-      ...values
+      ...values,
     }
     setLoading(true)
     setBtnText('Processing')
@@ -124,12 +124,12 @@ function Profile ({ state, setState }) {
                     rules={[
                       {
                         type: 'email',
-                        message: t('Please_enter_a_valid_email_address')
+                        message: t('Please_enter_a_valid_email_address'),
                       },
                       {
                         required: true,
-                        message: t('Email_is_required')
-                      }
+                        message: t('Email_is_required'),
+                      },
                     ]}
                     name="email"
                     initialValue={state?.email}
@@ -210,7 +210,7 @@ function Profile ({ state, setState }) {
 
 Profile.propTypes = {
   setState: PropTypes.func,
-  state: PropTypes.object
+  state: PropTypes.object,
 }
 
 export default Profile

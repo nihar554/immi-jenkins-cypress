@@ -6,9 +6,9 @@ import { Main } from '../styled'
 import Heading from '../../components/heading/heading'
 import { Button } from '../../components/buttons/buttons'
 
-function NotFound () {
+function NotFound() {
   const [state, setState] = useState({
-    isLoading: true
+    isLoading: true,
   })
   useEffect(() => {
     setTimeout(() => {
@@ -17,13 +17,11 @@ function NotFound () {
   }, [])
   return (
     <Main>
-      {state.isLoading
-        ? (
+      {state.isLoading ? (
         <div className="spin">
           <Spin />
         </div>
-          )
-        : (
+      ) : (
         <ErrorWrapper>
           <img src={require('../../static/img/pages/404.svg').default} alt="404" />
           <Heading className="error-text" as="h3">
@@ -36,7 +34,7 @@ function NotFound () {
             </Button>
           </NavLink>
         </ErrorWrapper>
-          )}
+      )}
     </Main>
   )
 }

@@ -30,7 +30,7 @@ const customTooltips = function (context) {
     container.appendChild(tooltipEl)
   }
 
-  function getBody (bodyItem) {
+  function getBody(bodyItem) {
     return bodyItem.lines
   }
 

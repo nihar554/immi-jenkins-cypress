@@ -1,8 +1,8 @@
-import React from 'react';
-import { Row, Col } from 'antd';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import React from 'react'
+import { Row, Col } from 'antd'
+import { PageHeader } from '../../../components/page-headers/page-headers'
+import { Main } from '../../styled'
+import { Cards } from '../../../components/cards/frame/cards-frame'
 
 function Solutions() {
   return (
@@ -18,7 +18,7 @@ function Solutions() {
         </Row>
       </Main>
     </>
-  );
+  )
 }
 
-export default Solutions;
+export default Solutions

@@ -4,7 +4,7 @@ import Block2 from './Block2'
 import Block3 from './Block3'
 import { BitcoinFrontierWrapperMobile } from '../Style'
 
-function MobileBitcoinFrontier () {
+function MobileBitcoinFrontier() {
   return (
     <BitcoinFrontierWrapperMobile>
       <Block1 />

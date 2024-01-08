@@ -10,7 +10,7 @@ import { DataService } from '../../../../config/dataService/dataService'
 import PassPopUp from '../../../../components/dropdown/PassPopUp'
 import { checkPasswordValid } from '../../../../utility/utility'
 
-function ResetPassword () {
+function ResetPassword() {
   const navigate = useNavigate()
   const location = useLocation()
   const [form] = Form.useForm()
@@ -19,7 +19,7 @@ function ResetPassword () {
     email: '',
     password: '',
     confirmPassword: '',
-    otp: ''
+    otp: '',
   })
   const [loading, setLoading] = useState(false)
   const [tooltip, setTooltip] = React.useState(false)
@@ -28,7 +28,7 @@ function ResetPassword () {
     specialCharValid: false,
     uppercaseValid: false,
     lowercaseValid: false,
-    numberValid: false
+    numberValid: false,
   })
 
   const handleSubmit = async () => {
@@ -36,7 +36,7 @@ function ResetPassword () {
       const body = {
         email: location.state,
         password: state.password,
-        otp: Number(state.otp)
+        otp: Number(state.otp),
       }
       setLoading(true)
       const response = await DataService.post('/resetPassword', body)
@@ -58,7 +58,7 @@ function ResetPassword () {
   const resendOTP = async () => {
     try {
       const body = {
-        email: location.state
+        email: location.state,
       }
       const response = await DataService.post('/resendVerificationCode', body)
       if (response?.data?.success === false) {
@@ -147,7 +147,7 @@ function ResetPassword () {
                       name="email"
                       rules={[
                         { required: true, message: t('reset_password_confirm_password_required') },
-                        { validator: validateCPassword }
+                        { validator: validateCPassword },
                       ]}
                     >
                       <Input.Password
@@ -181,7 +181,7 @@ function ResetPassword () {
                       style={{
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center'
+                        alignItems: 'center',
                       }}
                     >
                       <p className="" />

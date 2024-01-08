@@ -8,7 +8,7 @@ import NotFound from '../404'
 
 const { Panel } = Collapse
 
-function ChangeLog () {
+function ChangeLog() {
   const [changeLogData, setChangeLogData] = useState([])
 
   useEffect(() => {
@@ -23,8 +23,7 @@ function ChangeLog () {
 
   return (
     <>
-      {changeLogData && changeLogData.length
-        ? (
+      {changeLogData && changeLogData.length ? (
         <Main style={{ overflow: 'visible', marginTop: '5%' }}>
           <Row gutter={25}>
             <Col xxl={19} md={16} xs={24}>
@@ -151,14 +150,11 @@ function ChangeLog () {
             </Col>
           </Row>
         </Main>
-          )
-        : changeLogData && changeLogData?.errors
-          ? (
+      ) : changeLogData && changeLogData?.errors ? (
         <NotFound />
-            )
-          : (
+      ) : (
         <></>
-            )}
+      )}
     </>
   )
 }

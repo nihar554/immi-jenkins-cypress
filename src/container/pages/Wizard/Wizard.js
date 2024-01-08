@@ -18,7 +18,7 @@ import { Steps } from '../../../components/steps/steps'
 import { DataService } from '../../../config/dataService/dataService'
 import PoweredBy from '../Landing/PowerdBy'
 
-function Wizards () {
+function Wizards() {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const [isResident, setIsResident] = useState('Buy Resident Card')
@@ -34,7 +34,7 @@ function Wizards () {
   const [state, setState] = useState({
     status: 'process',
     isFinished: false,
-    current: 0
+    current: 0,
   })
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function Wizards () {
     setState({
       ...state,
       status: 'process',
-      current: current + 1
+      current: current + 1,
     })
   }
 
@@ -71,7 +71,7 @@ function Wizards () {
           code: country[i].code,
           _id: country[i]._id,
           value: country[i].code,
-          label: country[i].name
+          label: country[i].name,
         })
       }
       setCountries(countryList)
@@ -82,7 +82,7 @@ function Wizards () {
     setState({
       ...state,
       status: 'process',
-      current: current - 1
+      current: current - 1,
     })
   }
 
@@ -100,48 +100,48 @@ function Wizards () {
         {
           type: 'wealth',
           data: 'data:image/png;base64,58e17c4ba3f42f91399f15bdee7beeed6cdada9b=',
-          filename: 'test.png'
+          filename: 'test.png',
         },
         {
           type: 'criminal',
           data: 'data:image/png;base64,58e17c4ba3f42f91399f15bdee7beeed6cdada9b=',
-          filename: 'test.png'
+          filename: 'test.png',
         },
         {
           type: 'bank_statement',
           data: 'data:image/png;base64,58e17c4ba3f42f91399f15bdee7beeed6cdada9b=',
-          filename: 'test.png'
+          filename: 'test.png',
         },
         {
           type: 'selfie',
           data: 'data:image/png;base64,3fac6d2245311292d1d7af8496703f23e847e88d=',
-          filename: 'test.png'
+          filename: 'test.png',
         },
         {
           type: 'passport',
           data: data?.passport,
-          filename: data?.passport_url?.name
+          filename: data?.passport_url?.name,
         },
         {
           type: 'identity_front',
           data: 'data:image/png;base64,3fac6d2245311292d1d7af8496703f23e847e88d=',
-          filename: 'test.png'
+          filename: 'test.png',
         },
         {
           type: 'identity_back',
           data: 'data:image/png;base64,3fac6d2245311292d1d7af8496703f23e847e88d=',
-          filename: 'test.png'
+          filename: 'test.png',
         },
         {
           type: 'proof_of_res',
           data: data?.proof_of_res_data,
-          filename: data?.proof_of_res_url?.name
+          filename: data?.proof_of_res_url?.name,
         },
         {
           type: 'kyc',
           data: 'data:image/png;base64,3fac6d2245311292d1d7af8496703f23e847e88d=',
-          filename: 'test.png'
-        }
+          filename: 'test.png',
+        },
       ],
       first_name: data.first_name,
       middle_name: data?.middle_name ? data?.middle_name : '',
@@ -200,7 +200,7 @@ function Wizards () {
       bank_country: '032',
       type_account: 'individual',
       is_main_account: true,
-      proof_resid_date: moment(data.issue_date).format('YYYY-MM-DD hh:mm:ss')
+      proof_resid_date: moment(data.issue_date).format('YYYY-MM-DD hh:mm:ss'),
     }
 
     await DataService.post('/userApplications', body)
@@ -240,7 +240,7 @@ function Wizards () {
       residCity: data.resid_city,
       fullName: `${`${data.first_name} ${data.middle_name ? data.middle_name : ''} ${data.last_name}`}`,
       email: JSON.parse(Cookies.get('user')).email,
-      paymentType: 'ApplicationPayment'
+      paymentType: 'ApplicationPayment',
     }
     await DataService.post('/bitfinex/submitInvoice', invoiceData)
       .then((resInvoice) => {
@@ -287,29 +287,21 @@ function Wizards () {
               <h1 className="left-heading">
                 Step {state.current + 1}:
                 <br />
-                {state.current === 0
-                  ? (
+                {state.current === 0 ? (
                   <>
                     name & <br /> contact
                   </>
-                    )
-                  : state.current === 1
-                    ? (
-                        'ADDRESS'
-                      )
-                    : state.current === 2
-                      ? (
+                ) : state.current === 1 ? (
+                  'ADDRESS'
+                ) : state.current === 2 ? (
                   <>
                     ID <br /> Verification
                   </>
-                        )
-                      : state.current === 3
-                        ? (
-                            'Review'
-                          )
-                        : (
-                            'Payment'
-                          )}
+                ) : state.current === 3 ? (
+                  'Review'
+                ) : (
+                  'Payment'
+                )}
               </h1>
             </div>
           </div>
@@ -332,7 +324,7 @@ function Wizards () {
                                 title: t('Name & Contact'),
                                 content: (
                                   <NameContact form={form} setData={setData} countries={countries} next={next} />
-                                )
+                                ),
                               },
                               {
                                 title: t('Address'),
@@ -344,7 +336,7 @@ function Wizards () {
                                     data={data}
                                     next={next}
                                   />
-                                )
+                                ),
                               },
                               {
                                 title: t('Identity'),
@@ -352,7 +344,7 @@ function Wizards () {
                                   <BasicFormWrapper>
                                     <Identity form={form} setData={setData} data={data} next={next} />
                                   </BasicFormWrapper>
-                                )
+                                ),
                               },
                               {
                                 title: t('Review'),
@@ -367,7 +359,7 @@ function Wizards () {
                                       data={data}
                                     />
                                   </ReviewWrapper>
-                                )
+                                ),
                               },
                               {
                                 title: t('Payment'),
@@ -382,7 +374,7 @@ function Wizards () {
                                       setData={setData}
                                     />
                                   </BasicFormWrapper>
-                                )
+                                ),
                               },
                               {
                                 title: t('Summary'),
@@ -390,8 +382,8 @@ function Wizards () {
                                   <ReviewWrapper>
                                     <Summary bitfinexUrl={bitfinexUrl} />
                                   </ReviewWrapper>
-                                )
-                              }
+                                ),
+                              },
                             ]}
                             onNext={next}
                             onPrev={prev}

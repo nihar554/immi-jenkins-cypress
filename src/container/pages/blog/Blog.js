@@ -7,7 +7,7 @@ import cardData from '../../../demoData/sampleCards.json'
 
 const { BlogCardData } = cardData
 
-function BlogOne () {
+function BlogOne() {
   return (
     <>
       <Main>

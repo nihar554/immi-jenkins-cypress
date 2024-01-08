@@ -8,7 +8,7 @@ const rootReducers = combineReducers({
   message: readMessageReducer,
   notification: readNotificationReducer,
   auth: authReducer,
-  ChangeLayoutMode
+  ChangeLayoutMode,
 })
 
 export default rootReducers

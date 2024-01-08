@@ -2,7 +2,7 @@ import React from 'react'
 import { Form, Input, Select, Button } from 'antd'
 import { KnowledgebaseTopWrap } from '../../style'
 
-function AllArticleTop () {
+function AllArticleTop() {
   return (
     <KnowledgebaseTopWrap>
       <div className="ninjadash-knowledgetop">

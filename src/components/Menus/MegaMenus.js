@@ -41,6 +41,6 @@ const MegaMenus = React.memo(({ data, title }) => {
 })
 MegaMenus.propTypes = {
   title: PropTypes.string,
-  data: PropTypes.string
+  data: PropTypes.string,
 }
 export default MegaMenus

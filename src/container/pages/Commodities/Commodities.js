@@ -8,7 +8,7 @@ import Cryptocollection from '../../../static/img/images/asset-launchpad-head.sv
 import BannerSection from '../../../components/BannerSection/Banner'
 import BannerImage from '../../../components/BannerSection/BannerImage'
 
-function AssetLaunchPad () {
+function AssetLaunchPad() {
   const gaEventTracker = useAnalyticsEventTracker('Commodities', 'Landed on Commodities', 'Landed')
   useEffect(() => {
     gaEventTracker()
@@ -16,12 +16,12 @@ function AssetLaunchPad () {
   const gaClickGetStartedTracker = useAnalyticsEventTracker(
     'Commodities',
     'Click on Commodities get started',
-    'Clicked'
+    'Clicked',
   )
   const gaClickOtherClientsTracker = useAnalyticsEventTracker(
     'Commodities',
     'Click on Commodities Other Clients',
-    'Clicked'
+    'Clicked',
   )
   return (
     <>

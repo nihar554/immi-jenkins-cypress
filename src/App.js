@@ -21,13 +21,13 @@ if (process.env.NODE_ENV === 'production') {
   console.log = () => {}
 }
 
-function ProviderConfig () {
+function ProviderConfig() {
   const { rtl, isLoggedIn, topMenu, mainContent } = useSelector((state) => {
     return {
       rtl: state.ChangeLayoutMode.rtlData,
       topMenu: state.ChangeLayoutMode.topMenu,
       mainContent: state.ChangeLayoutMode.mode,
-      isLoggedIn: state.auth.login
+      isLoggedIn: state.auth.login,
     }
   })
 
@@ -47,20 +47,18 @@ function ProviderConfig () {
       <ThemeProvider theme={{ ...themeColor, rtl, topMenu, mainContent }}>
         <>
           <Router basename={process.env.PUBLIC_URL}>
-            {!isLoggedIn
-              ? (
+            {!isLoggedIn ? (
               <Routes>
                 <Route path="/*" element={<Auth />} />
                 <Route path="/welcome" element={<Landing />} />
                 <Route path="/" element={<Navigate to="/welcome" />} />
               </Routes>
-                )
-              : (
+            ) : (
               <Routes>
                 <Route path="/*" element={<ProtectedRoute path="/*" Component={Admin} />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
-                )}
+            )}
             {isLoggedIn && (path === process.env.PUBLIC_URL || path === `${process.env.PUBLIC_URL}/`) && (
               <Routes>
                 <Route path="/" element={<Navigate to="/" />} />
@@ -73,7 +71,7 @@ function ProviderConfig () {
   )
 }
 
-function App () {
+function App() {
   return (
     <Provider store={store}>
       <ProviderConfig />

@@ -8,7 +8,7 @@ import CompanyMenu from './FooterMenuSection/CompanyMenu'
 import NewsLetter from './FooterMenuSection/NewsLetter'
 import DevelopersMenu from './FooterMenuSection/DevelopersMenu'
 
-function Footer () {
+function Footer() {
   return (
     <FooterStyle className="admin-footer">
       <Row gutter={25}>

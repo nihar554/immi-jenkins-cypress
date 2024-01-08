@@ -17,7 +17,7 @@ import { logOut } from '../../../redux/authentication/actionCreator'
 const AuthInfo = React.memo(() => {
   const dispatch = useDispatch()
   const [state, setState] = useState({
-    flag: 'en'
+    flag: 'en',
   })
   const navigate = useNavigate()
   const { i18n, t } = useTranslation()
@@ -68,7 +68,7 @@ const AuthInfo = React.memo(() => {
     e.preventDefault()
     setState({
       ...state,
-      flag: value
+      flag: value,
     })
     i18n.changeLanguage(value)
   }

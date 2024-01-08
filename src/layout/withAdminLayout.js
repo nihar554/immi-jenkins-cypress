@@ -29,48 +29,48 @@ const { Header, Sider, Content } = Layout
 
 const ThemeLayout = (WrappedComponent) => {
   class LayoutComponent extends Component {
-    constructor (props) {
+    constructor(props) {
       super(props)
       this.state = {
         collapsed: false,
         hide: true,
         searchHide: true,
         customizerAction: false,
-        activeSearch: false
+        activeSearch: false,
       }
       this.updateDimensions = this.updateDimensions.bind(this)
     }
 
-    componentDidMount () {
+    componentDidMount() {
       window.addEventListener('resize', this.updateDimensions)
       this.updateDimensions()
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
       window.removeEventListener('resize', this.updateDimensions)
     }
 
-    updateDimensions () {
+    updateDimensions() {
       this.setState({
-        collapsed: window.innerWidth <= 1200 && true
+        collapsed: window.innerWidth <= 1200 && true,
       })
     }
 
-    render () {
+    render() {
       const { collapsed, hide } = this.state
       const { layoutMode, rtl, topMenu } = this.props
 
       const left = !rtl ? 'left' : 'right'
       const toggleCollapsed = () => {
         this.setState({
-          collapsed: !collapsed
+          collapsed: !collapsed,
         })
       }
 
       const toggleCollapsedMobile = () => {
         if (window.innerWidth <= 990) {
           this.setState({
-            collapsed: !collapsed
+            collapsed: !collapsed,
           })
         }
       }
@@ -78,7 +78,7 @@ const ThemeLayout = (WrappedComponent) => {
       const onShowHide = () => {
         this.setState({
           hide: !hide,
-          searchHide: true
+          searchHide: true,
         })
       }
 
@@ -89,13 +89,13 @@ const ThemeLayout = (WrappedComponent) => {
         height: '100vh',
         position: 'fixed',
         [left]: 0,
-        zIndex: 988
+        zIndex: 988,
       }
 
       const renderView = ({ style }) => {
         const customStyle = {
           marginRight: 'auto',
-          [rtl ? 'marginLeft' : 'marginRight']: '-17px'
+          [rtl ? 'marginLeft' : 'marginRight']: '-17px',
         }
         return <div style={{ ...style, ...customStyle }} />
       }
@@ -105,7 +105,7 @@ const ThemeLayout = (WrappedComponent) => {
         const thumbStyle = {
           borderRadius: 6,
           backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
-          [left]: '2px'
+          [left]: '2px',
         }
         return <div style={{ ...style, ...thumbStyle }} />
       }
@@ -114,7 +114,7 @@ const ThemeLayout = (WrappedComponent) => {
         const { ChangeLayoutMode } = this.props
         const thumbStyle = {
           borderRadius: 6,
-          backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6'
+          backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
         }
         return <div style={{ ...style, ...thumbStyle }} />
       }
@@ -129,7 +129,7 @@ const ThemeLayout = (WrappedComponent) => {
                 [!rtl ? 'left' : 'right']: 0,
                 display: ['/welcome', '/about', '/contact', '/faqs', '/terms'].includes(window.location.pathname)
                   ? 'none'
-                  : 'block'
+                  : 'block',
               }}
             >
               <div className="ninjadash-header-content d-flex">
@@ -173,18 +173,16 @@ const ThemeLayout = (WrappedComponent) => {
                     {topMenu && window.innerWidth > 991 ? <TopMenu /> : null}
                   </div>
                   <div className="ninjadash-nav-actions">
-                    {topMenu && window.innerWidth > 991
-                      ? (
+                    {topMenu && window.innerWidth > 991 ? (
                       <TopMenuSearch>
                         <div className="top-right-wrap d-flex">
                           <span />
                           <AuthInfo />
                         </div>
                       </TopMenuSearch>
-                        )
-                      : (
+                    ) : (
                       <AuthInfo />
-                        )}
+                    )}
                   </div>
                 </div>
                 <div className="ninjadash-header-content__mobile">
@@ -213,8 +211,7 @@ const ThemeLayout = (WrappedComponent) => {
               </Row>
             </div>
             <Layout>
-              {!topMenu || window.innerWidth <= 991
-                ? (
+              {!topMenu || window.innerWidth <= 991 ? (
                 <ThemeProvider theme={theme}>
                   <Sider
                     width={280}
@@ -236,41 +233,34 @@ const ThemeLayout = (WrappedComponent) => {
                     </Scrollbars>
                   </Sider>
                 </ThemeProvider>
-                  )
-                : null}
+              ) : null}
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent {...this.props} />
                 </Content>
               </Layout>
             </Layout>
-            {['/about', '/contact', '/faqs', '/terms'].includes(window.location.pathname)
-              ? (
-                  window.location.pathname === '/terms'
-                    ? (
+            {['/about', '/contact', '/faqs', '/terms'].includes(window.location.pathname) ? (
+              window.location.pathname === '/terms' ? (
                 <AuthenticationWrap style={{ zIndex: '1' }}>
                   <div className="bottom" style={{ position: 'fixed', bottom: 0 }} />
                   <PoweredBy />
                 </AuthenticationWrap>
-                      )
-                    : (
+              ) : (
                 <AuthenticationWrap style={{ zIndex: '1' }}>
                   <div className="bottom" />
                   <PoweredBy />
                 </AuthenticationWrap>
-                      )
-                )
-              : (
-              <></>
-                )}
-          </Layout>
-          {window.innerWidth <= 991
-            ? (
-            <span className={collapsed ? 'ninjadash-shade' : 'ninjadash-shade show'} onClick={toggleCollapsed} />
               )
-            : (
-                ''
-              )}
+            ) : (
+              <></>
+            )}
+          </Layout>
+          {window.innerWidth <= 991 ? (
+            <span className={collapsed ? 'ninjadash-shade' : 'ninjadash-shade show'} onClick={toggleCollapsed} />
+          ) : (
+            ''
+          )}
         </LayoutContainer>
       )
     }
@@ -280,14 +270,14 @@ const ThemeLayout = (WrappedComponent) => {
     return {
       layoutMode: state.ChangeLayoutMode.mode,
       rtl: state.ChangeLayoutMode.rtlData,
-      topMenu: state.ChangeLayoutMode.topMenu
+      topMenu: state.ChangeLayoutMode.topMenu,
     }
   }
 
   LayoutComponent.propTypes = {
     layoutMode: propTypes.string,
     rtl: propTypes.bool,
-    topMenu: propTypes.bool
+    topMenu: propTypes.bool,
   }
 
   return connect(mapStateToProps)(LayoutComponent)

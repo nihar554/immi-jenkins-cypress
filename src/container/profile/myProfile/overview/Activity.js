@@ -5,7 +5,7 @@ import { Cards } from '../../../../components/cards/frame/cards-frame'
 const RightAside = lazy(() => import('./RightAside'))
 const ActivityContent = lazy(() => import('./ActivityContent'))
 
-function Activity () {
+function Activity() {
   return (
     <Row gutter={25}>
       <Col md={16} xs={24}>

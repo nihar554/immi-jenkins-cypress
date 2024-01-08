@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Row, Col } from 'antd';
-import { HeaderCointainer } from './Style';
-import { Main } from '../../styled';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Row, Col } from 'antd'
+import { HeaderCointainer } from './Style'
+import { Main } from '../../styled'
+import { PageHeader } from '../../../components/page-headers/page-headers'
+import { Cards } from '../../../components/cards/frame/cards-frame'
 // import StableconinsIcon from '../../../static/img/icons/stablecoins_blue.svg';
-import CommoditesIcon from '../../../static/img/icons/comodities_green.svg';
-import AssetLanuchPadIcon from '../../../static/img/icons/asset_launchpad_orange.svg';
+import CommoditesIcon from '../../../static/img/icons/comodities_green.svg'
+import AssetLanuchPadIcon from '../../../static/img/icons/asset_launchpad_orange.svg'
 // import SenatusIcon from '../../../static/img/icons/senatus_blue.svg';
 
 function Developers() {
@@ -99,7 +99,7 @@ function Developers() {
         </HeaderCointainer>
       </Main>
     </>
-  );
+  )
 }
 
-export default Developers;
+export default Developers

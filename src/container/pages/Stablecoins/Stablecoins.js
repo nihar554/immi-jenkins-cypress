@@ -8,7 +8,7 @@ import Cryptocollection from '../../../static/img/images/asset-launchpad-head.sv
 import BannerSection from '../../../components/BannerSection/Banner'
 import BannerImage from '../../../components/BannerSection/BannerImage'
 
-function AssetLaunchPad () {
+function AssetLaunchPad() {
   const gaEventTracker = useAnalyticsEventTracker('Stablecoin', 'Landed on Stablecoin ', 'Landed')
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function AssetLaunchPad () {
   const gaClickOtherBlockchainsTracker = useAnalyticsEventTracker(
     'Stablecoin',
     'Click on Stablecoin Other Blockchains',
-    'Clicked'
+    'Clicked',
   )
 
   return (

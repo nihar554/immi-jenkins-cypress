@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import { BoardStyle } from './Style'
 
-export default function Board () {
+export default function Board() {
   const navigate = useNavigate()
   const { t } = useTranslation()
   return (

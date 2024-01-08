@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 import { CardStyle } from './Style'
 // import CitizenCardHeading from '../../../components/heading/heading';
-function CitizenCard ({ item }) {
+function CitizenCard({ item }) {
   const { t } = useTranslation()
   const { name, img, text } = item
   return (
@@ -20,6 +20,6 @@ function CitizenCard ({ item }) {
   )
 }
 CitizenCard.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object,
 }
 export default CitizenCard

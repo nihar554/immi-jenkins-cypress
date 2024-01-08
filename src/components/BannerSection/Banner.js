@@ -3,7 +3,7 @@ import React from 'react'
 // import { Link } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation'
 
-function BannerSection (props) {
+function BannerSection(props) {
   const { firstWord, middleWord, lastWord, description } = props
   return (
     <>
@@ -15,7 +15,7 @@ function BannerSection (props) {
             1000,
             () => {
               console.log('Sequence completed')
-            }
+            },
           ]}
           wrapper="span"
           cursor="true"
@@ -35,7 +35,7 @@ BannerSection.propTypes = {
   firstWord: PropTypes.any,
   middleWord: PropTypes.any,
   lastWord: PropTypes.any,
-  description: PropTypes.any
+  description: PropTypes.any,
 }
 
 export default BannerSection

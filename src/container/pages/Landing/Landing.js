@@ -10,7 +10,7 @@ import LandingFooter from './Footer'
 import FaqsSection from './Faqs/FaqsSection'
 import BitcoinFrontierNewVersion from './BitcoinFrontier/BitcoinFrontierNewVersion'
 
-export default function Landing () {
+export default function Landing() {
   const location = useLocation()
   // const searchParams = new URLSearchParams(location.search);
   const section = location.hash

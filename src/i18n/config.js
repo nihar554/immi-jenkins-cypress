@@ -6,17 +6,17 @@ i18n.use(initReactI18next).init({
   lng: 'en',
   resources: {
     en: {
-      translations: require('./localization/en/translation.json')
+      translations: require('./localization/en/translation.json'),
     },
     esp: {
-      translations: require('./localization/esp/translation.json')
+      translations: require('./localization/esp/translation.json'),
     },
     ar: {
-      translations: require('./localization/ar/translation.json')
-    }
+      translations: require('./localization/ar/translation.json'),
+    },
   },
   ns: ['translations'],
-  defaultNS: 'translations'
+  defaultNS: 'translations',
 })
 
 i18n.languages = ['en', 'esp', 'ar']

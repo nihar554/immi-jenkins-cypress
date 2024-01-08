@@ -7,7 +7,7 @@ const initState = {
   login: Cookies.get('logedIn'),
   loading: false,
   error: null,
-  data: ''
+  data: '',
 }
 
 /**
@@ -22,37 +22,37 @@ const AuthReducer = (state = initState, action) => {
         ...state,
         login: false,
         data: '',
-        loading: true
+        loading: true,
       }
     case LOGIN_SUCCESS:
       return {
         ...state,
         login: isLogin,
         data: value,
-        loading: false
+        loading: false,
       }
     case LOGIN_ERR:
       return {
         ...state,
         error: err,
-        loading: false
+        loading: false,
       }
     case LOGOUT_BEGIN:
       return {
         ...state,
-        loading: true
+        loading: true,
       }
     case LOGOUT_SUCCESS:
       return {
         ...state,
         login: value,
-        loading: false
+        loading: false,
       }
     case LOGOUT_ERR:
       return {
         ...state,
         error: err,
-        loading: false
+        loading: false,
       }
     default:
       return state

@@ -6,7 +6,7 @@ import { ContainerStyle, MainStyle, RightBlockStyle } from './style'
 import PoweredBy from './Landing/PowerdBy'
 import { DataService } from '../../config/dataService/dataService'
 
-function Dashboard () {
+function Dashboard() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [applicationDetails, setApplicationDetails] = useState('')
@@ -35,8 +35,7 @@ function Dashboard () {
     <>
       <ContainerStyle>
         <MainStyle>
-          {applicationDetails && applicationDetails.length
-            ? (
+          {applicationDetails && applicationDetails.length ? (
             <>
               <div className="left-container">
                 <div className="left-main">
@@ -92,8 +91,7 @@ function Dashboard () {
                 </div>
               </div>
             </>
-              )
-            : (
+          ) : (
             <>
               <div className="left-container">
                 <div className="left-main">
@@ -126,7 +124,7 @@ function Dashboard () {
                 </div>
               </div>
             </>
-              )}
+          )}
         </MainStyle>
         <div className="bottom" />
         <PoweredBy />

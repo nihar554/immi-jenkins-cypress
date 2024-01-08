@@ -35,6 +35,6 @@ BenefitsCards.propTypes = {
   img: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.string,
-  linktext: PropTypes.string
+  linktext: PropTypes.string,
 }
 export default BenefitsCards

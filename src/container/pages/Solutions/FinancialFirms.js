@@ -9,7 +9,7 @@ import { Main } from '../../styled'
 import eliment1 from '../../../static/img/eliment (1).svg'
 import eliment2 from '../../../static/img/eliment (2).svg'
 
-function Tether () {
+function Tether() {
   useEffect(() => {
     const reveal = () => {
       const reveals = document.querySelectorAll('.reveal')
@@ -86,7 +86,7 @@ function Tether () {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left',
             backgroundOrigin: 'content-box',
-            transform: 'rotate(3deg)'
+            transform: 'rotate(3deg)',
             // marginTop: '4%',
           }}
         />

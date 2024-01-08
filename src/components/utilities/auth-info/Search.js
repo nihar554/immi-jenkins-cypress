@@ -9,21 +9,21 @@ const SearchBar = React.memo(() => {
   const [form] = Form.useForm()
 
   const [state, setState] = useState({
-    openSearch: false
+    openSearch: false,
   })
 
   const openSearchbar = (e) => {
     e.preventDefault()
     setState({
       ...state,
-      openSearch: true
+      openSearch: true,
     })
   }
   const closeSearchbar = (e) => {
     e.preventDefault()
     setState({
       ...state,
-      openSearch: false
+      openSearch: false,
     })
   }
 

@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { ArticleTabContentWrap } from '../style'
 import productsDetails from '../../../../demoData/products-article.json'
 
-function ArticleStablecoin () {
+function ArticleStablecoin() {
   const [data, setData] = useState({})
   const filterData = () => {
     const [result] = productsDetails.filter((e) => e.keyName === 'stablecoin')

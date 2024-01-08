@@ -42,6 +42,6 @@ ProductCards.propTypes = {
   text: PropTypes.string,
   textcolor: PropTypes.string,
   bordercolor: PropTypes.string,
-  routelink: PropTypes.string
+  routelink: PropTypes.string,
 }
 export default ProductCards

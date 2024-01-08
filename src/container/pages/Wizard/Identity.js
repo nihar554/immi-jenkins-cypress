@@ -8,7 +8,7 @@ import { IdentityWrapper } from '../style'
 import { Checkbox } from '../../../components/checkbox/checkbox'
 import { validImageTypes } from '../../../utility/utility'
 
-export default function Identity (props) {
+export default function Identity(props) {
   const [passportMsg, setPassportMsg] = useState('')
   // const [nationalFrontMsg, setNationalFrontMsg] = useState('');
   // const [nationalBackMsg, setNationalBackMsg] = useState('');
@@ -39,7 +39,7 @@ export default function Identity (props) {
           } else {
             onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              identity_front: undefined
+              identity_front: undefined,
             })
             // setNationalFrontMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
           }
@@ -58,7 +58,7 @@ export default function Identity (props) {
           } else {
             onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              identity_back: undefined
+              identity_back: undefined,
             })
             // setNationalBackMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`);
           }
@@ -83,7 +83,7 @@ export default function Identity (props) {
           } else {
             onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
             form.setFieldsValue({
-              passport: undefined
+              passport: undefined,
             })
             setPassportMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
           }
@@ -126,7 +126,7 @@ export default function Identity (props) {
         </h3>
         <p className="">
           {t(
-            'To expedite your request, we strongly recommend including a passport. If the back of your national ID, drivers license, or other document is blank, please upload it as well.'
+            'To expedite your request, we strongly recommend including a passport. If the back of your national ID, drivers license, or other document is blank, please upload it as well.',
           )}
         </p>
         <section className="">
@@ -169,8 +169,8 @@ export default function Identity (props) {
                 rules={[
                   {
                     required: true,
-                    message: 'Please Choose Passport'
-                  }
+                    message: 'Please Choose Passport',
+                  },
                 ]}
               >
                 <Upload
@@ -184,13 +184,11 @@ export default function Identity (props) {
                     })
                   }
                 >
-                  {data?.passport
-                    ? null
-                    : (
+                  {data?.passport ? null : (
                     <Button className="passport-btn">
                       <ChooseFileIcon /> {t('Choose File')}
                     </Button>
-                      )}
+                  )}
                 </Upload>
               </Form.Item>
               {passportMsg && (
@@ -360,14 +358,14 @@ export default function Identity (props) {
                   if (!checked) {
                     return Promise.reject(new Error('Please accept the terms & conditions'))
                   }
-                }
-              }
+                },
+              },
             ]}
             valuePropName="checked"
           >
             <Checkbox name="termsAndConditon" checked={data?.termsAndConditon}>
               {t(
-                "I've attached valid self-attested copies of identity and address documents. The identity docs are valid for at least six months, and the address proof is not older than three months. I confirm the account is for my exclusive use, and I declare all information is accurate. I authorize Government of El Salvador to verify and confirm it."
+                "I've attached valid self-attested copies of identity and address documents. The identity docs are valid for at least six months, and the address proof is not older than three months. I confirm the account is for my exclusive use, and I declare all information is accurate. I authorize Government of El Salvador to verify and confirm it.",
               )}
             </Checkbox>
           </Form.Item>
@@ -381,5 +379,5 @@ Identity.propTypes = {
   setData: PropTypes.func,
   next: PropTypes.func,
   data: PropTypes.object,
-  form: PropTypes.object
+  form: PropTypes.object,
 }

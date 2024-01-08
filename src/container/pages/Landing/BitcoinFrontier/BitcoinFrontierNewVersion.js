@@ -3,7 +3,7 @@ import { BitcoinFrontierWrapperNewVersion } from './Style'
 import BitcoinFrontierWizardNewVersion from './BitcoinFrontierWizardNewVersion'
 import BitcoinFrontierRight from './BitcoinFrontierRight'
 
-function BitcoinFrontierNewVersion () {
+function BitcoinFrontierNewVersion() {
   return (
     <BitcoinFrontierWrapperNewVersion>
       <div className="container">

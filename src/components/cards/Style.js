@@ -925,5 +925,5 @@ export {
   NewsletterStyle,
   CourseCardWrap,
   BlogCardStyleWrap,
-  ProfileCardWrapper
+  ProfileCardWrapper,
 }

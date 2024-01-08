@@ -12,7 +12,7 @@ import { Main } from '../../../styled'
 
 // const { BlogCardData } = cardData;
 
-function BlogDetails2 ({ data }) {
+function BlogDetails2({ data }) {
   console.log('data', data)
 
   const currentUrl = 'https://www.google.com/'
@@ -237,7 +237,7 @@ function BlogDetails2 ({ data }) {
 }
 
 BlogDetails2.propTypes = {
-  data: propTypes.object
+  data: propTypes.object,
 }
 
 export default BlogDetails2

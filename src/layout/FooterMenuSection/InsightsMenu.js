@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function InsightsMenu () {
+function InsightsMenu() {
   return (
     <div className="footer-product-menu">
       <p className="footer-menu-title typography-h4">Insights</p>

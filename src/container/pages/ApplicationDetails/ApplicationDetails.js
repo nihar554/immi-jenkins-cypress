@@ -13,7 +13,7 @@ import { RightBlockStyle } from '../style'
 import PoweredBy from '../Landing/PowerdBy'
 
 // const { TabPane } = Tabs;
-export default function ApplicationDetails () {
+export default function ApplicationDetails() {
   const { t } = useTranslation()
   const location = useLocation()
   const [details, setDetails] = useState({})
@@ -42,7 +42,7 @@ export default function ApplicationDetails () {
             resPayments.data.map((item) => {
               tempPay.push({
                 ...item,
-                invoiceID: item?.invoiceData[0].invoiceID
+                invoiceID: item?.invoiceData[0].invoiceID,
               })
               return tempPay
             })
@@ -67,7 +67,7 @@ export default function ApplicationDetails () {
             resPayments.data.map((item) => {
               tempPay.push({
                 ...item,
-                invoiceID: item?.invoiceData[0].invoiceID
+                invoiceID: item?.invoiceData[0].invoiceID,
               })
               return tempPay
             })
@@ -103,8 +103,7 @@ export default function ApplicationDetails () {
       dataIndex: 'status',
       key: 'status',
       render: (item, record) =>
-        item === 'EXPIRED'
-          ? (
+        item === 'EXPIRED' ? (
           <Button
             type="primary"
             onClick={() => {
@@ -114,8 +113,7 @@ export default function ApplicationDetails () {
           >
             Generate New Payment Link
           </Button>
-            )
-          : (
+        ) : (
           <a
             target="_blank"
             href={record?.invoiceData[0].invoiceURL}
@@ -124,29 +122,29 @@ export default function ApplicationDetails () {
           >
             Payment Link
           </a>
-            )
+        ),
     },
     {
       title: 'Status',
       dataIndex: 'status',
-      key: 'status'
+      key: 'status',
     },
     {
       title: 'Amount',
       dataIndex: 'amount',
-      key: 'amount'
+      key: 'amount',
     },
     {
       title: 'Payment Date',
       dataIndex: 't',
       key: 't',
-      render: (item) => moment(item).format('MM-DD-YYYY | hh:mm:ss')
+      render: (item) => moment(item).format('MM-DD-YYYY | hh:mm:ss'),
     },
     {
       title: 'Payment Method',
       dataIndex: 'paymentType',
-      key: 'paymentType'
-    }
+      key: 'paymentType',
+    },
   ]
 
   const verifiedColumns = [
@@ -154,30 +152,30 @@ export default function ApplicationDetails () {
       title: 'S.No',
       dataIndex: 'sno',
       key: 'sno',
-      render: (text, record, index) => index + 1
+      render: (text, record, index) => index + 1,
     },
     {
       title: 'Document Type',
       dataIndex: 'type',
-      key: 'type'
+      key: 'type',
     },
     {
       title: 'File Name',
       dataIndex: 'filename',
-      key: 'filename'
+      key: 'filename',
     },
     {
       title: 'Uploaded At',
       dataIndex: 'upload_at',
       key: 'upload_at',
-      render: () => moment().format('MM-DD-YYYY | hh:mm:ss')
+      render: () => moment().format('MM-DD-YYYY | hh:mm:ss'),
     },
     {
       title: 'Active',
       dataIndex: 'active',
       key: 'active',
-      render: (text) => (text ? 'Yes' : 'No')
-    }
+      render: (text) => (text ? 'Yes' : 'No'),
+    },
   ]
 
   const filteredData = details?.documents?.filter((record) => {

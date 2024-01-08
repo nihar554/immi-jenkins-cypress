@@ -1,7 +1,7 @@
 import Prototypes from 'prop-types'
 import React from 'react'
 
-function BannerImage (props) {
+function BannerImage(props) {
   const { img } = props
   return (
     <>
@@ -12,5 +12,5 @@ function BannerImage (props) {
 
 export default BannerImage
 BannerImage.propTypes = {
-  img: Prototypes.any
+  img: Prototypes.any,
 }

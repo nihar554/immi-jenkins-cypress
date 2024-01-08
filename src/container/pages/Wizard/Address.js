@@ -8,7 +8,7 @@ import Heading from '../../../components/heading/heading'
 import ChooseFileIcon from '../../../static/img/icon/ChooseFileIcon'
 import { validImageTypes } from '../../../utility/utility'
 
-function Address (props) {
+function Address(props) {
   const { t } = useTranslation()
   const { form, setData, countries, next, data } = props
   const [errorMsg, setErrorMsg] = useState('')
@@ -20,7 +20,7 @@ function Address (props) {
         onError('Select only PDF or JPG or PNG image')
         setErrorMsg('Select only PDF or JPG or PNG image')
         form.setFieldsValue({
-          proof_of_res: undefined
+          proof_of_res: undefined,
         })
         return false
       }
@@ -38,7 +38,7 @@ function Address (props) {
         } else {
           onError(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
           form.setFieldsValue({
-            proof_of_res: undefined
+            proof_of_res: undefined,
           })
           setErrorMsg(`File size should be less than ${process.env.REACT_APP_FILE_SIZE_LIMIT / 1048576} MB`)
         }
@@ -93,8 +93,8 @@ function Address (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Building Name / Number'
-                      }
+                        message: 'Please Input Building Name / Number',
+                      },
                     ]}
                   >
                     <Input placeholder={t('Enter Your Building Name / Number')} />
@@ -107,8 +107,8 @@ function Address (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your Street Name'
-                      }
+                        message: 'Please Input Your Street Name',
+                      },
                     ]}
                   >
                     <Input placeholder={t('Enter Your Street Name')} />
@@ -121,8 +121,8 @@ function Address (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your City Name'
-                      }
+                        message: 'Please Input Your City Name',
+                      },
                     ]}
                   >
                     <Input placeholder={t('Enter Your City Name')} />
@@ -135,8 +135,8 @@ function Address (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your Area Name'
-                      }
+                        message: 'Please Input Your Area Name',
+                      },
                     ]}
                   >
                     <Input placeholder={t('Enter Your Area Code')} />
@@ -154,8 +154,8 @@ function Address (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Select Your Country Name'
-                      }
+                        message: 'Please Select Your Country Name',
+                      },
                     ]}
                   >
                     <Select
@@ -188,8 +188,8 @@ function Address (props) {
                 rules={[
                   {
                     required: true,
-                    message: 'Please Select Your Issue Date'
-                  }
+                    message: 'Please Select Your Issue Date',
+                  },
                 ]}
               >
                 <DatePicker
@@ -216,8 +216,8 @@ function Address (props) {
                   rules={[
                     {
                       required: true,
-                      message: 'Please Upload Proof of Residence'
-                    }
+                      message: 'Please Upload Proof of Residence',
+                    },
                   ]}
                 >
                   <Upload
@@ -231,13 +231,11 @@ function Address (props) {
                       })
                     }
                   >
-                    {data?.proof_of_res_data
-                      ? null
-                      : (
+                    {data?.proof_of_res_data ? null : (
                       <Button className="passport-btn">
                         <ChooseFileIcon /> Choose File
                       </Button>
-                        )}
+                    )}
                   </Upload>
                 </Form.Item>
                 {errorMsg && (
@@ -259,6 +257,6 @@ Address.propTypes = {
   form: PropTypes.object,
   setData: PropTypes.func,
   next: PropTypes.func,
-  data: PropTypes.string
+  data: PropTypes.string,
 }
 export default Address

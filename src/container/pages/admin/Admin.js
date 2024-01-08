@@ -15,7 +15,7 @@ import OverviewCard from '../../../components/cards/OverviewCard'
 
 const { TextArea } = Input
 
-export default function Admin () {
+export default function Admin() {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const [form] = Form.useForm()
@@ -107,7 +107,7 @@ export default function Admin () {
     setApplicationPaymentVlaue(value)
     fetchData(
       `?sort=createdAt&order=-1&limit=${limit}&page=${pageNumber}&paymentStatus=${value}`,
-      setAllApplicationDetails
+      setAllApplicationDetails,
     )
   }
 
@@ -127,7 +127,7 @@ export default function Admin () {
     onChange: (current, size) => {
       setPageNumber(current)
       setLimit(size)
-    }
+    },
   }
 
   const columns = [
@@ -135,27 +135,27 @@ export default function Admin () {
       title: 'Full Name',
       dataIndex: 'name',
       key: 'name',
-      sorter: (a, b) => a?.name?.localeCompare(b?.name)
+      sorter: (a, b) => a?.name?.localeCompare(b?.name),
     },
     {
       title: 'Email Address',
       dataIndex: 'email',
       key: 'email',
-      sorter: (a, b) => a?.email?.localeCompare(b?.email)
+      sorter: (a, b) => a?.email?.localeCompare(b?.email),
     },
     {
       title: 'Application Payment',
       dataIndex: 'applicationPaymentStatus',
       key: 'paymentStatus',
       render: (item, record) => <div>{record?.paymentStatus ? record?.paymentStatus : 'PENDING'}</div>,
-      sorter: (a, b) => a?.paymentStatus?.localeCompare(b?.paymentStatus)
+      sorter: (a, b) => a?.paymentStatus?.localeCompare(b?.paymentStatus),
     },
     {
       title: 'KYC Application ID',
       dataIndex: 'applicationId',
       key: 'applicationId',
       sorter: (a, b) => a?.applicationId?.localeCompare(b?.applicationId),
-      render: (item, record) => <div>{record?.applicationId ? record?.applicationId : 'NOT SUBMITTED'}</div>
+      render: (item, record) => <div>{record?.applicationId ? record?.applicationId : 'NOT SUBMITTED'}</div>,
     },
     {
       title: 'KYC User',
@@ -163,25 +163,23 @@ export default function Admin () {
       key: 'uid',
       render: (uid) => (
         <div>
-          {uid
-            ? (
+          {uid ? (
             <Link to={`${process.env.REACT_APP_KYC_USER_URL}${uid}`} target="_blank">
               {uid}
             </Link>
-              )
-            : (
+          ) : (
             <span>NOT SUBMITTED</span>
-              )}
+          )}
         </div>
       ),
-      sorter: (a, b) => a.uid - b.uid
+      sorter: (a, b) => a.uid - b.uid,
     },
     {
       title: 'KYC Status',
       dataIndex: 'status',
       key: 'status',
       sorter: (a, b) => a?.name?.localeCompare(b?.name),
-      render: (item, record) => <div>{record?.status ? record?.status.toUpperCase() : 'NOT SUBMITTED'}</div>
+      render: (item, record) => <div>{record?.status ? record?.status.toUpperCase() : 'NOT SUBMITTED'}</div>,
     },
     {
       title: 'Passport Payment',
@@ -191,8 +189,7 @@ export default function Admin () {
         <div>
           {record?.paymentDetails?.paymentType &&
           record?.paymentDetails?.TransactionId &&
-          record?.paymentDetails?.residentType
-            ? (
+          record?.paymentDetails?.residentType ? (
             <Button
               onClick={() => {
                 setIsViewModalOpen(true)
@@ -201,12 +198,11 @@ export default function Admin () {
             >
               View
             </Button>
-              )
-            : (
+          ) : (
             <span>{record?.passportPaymentStatus || 'PENDING'}</span>
-              )}
+          )}
         </div>
-      )
+      ),
     },
     {
       title: 'Actions',
@@ -221,14 +217,14 @@ export default function Admin () {
           />
           <EyeOutlined
             style={{
-              paddingLeft: '10px'
+              paddingLeft: '10px',
             }}
             className="icon"
             onClick={() => navigate('/user-application-details', { state: { isAdmin: true, uid: record?.uid } })}
           />
         </div>
-      )
-    }
+      ),
+    },
   ]
 
   const onChange = (pagination, filters, sorter, extra) => {
@@ -245,7 +241,7 @@ export default function Admin () {
       suffix: '',
       prefix: '',
       statusRate: totalApplications?.percentageIncrease,
-      dataPeriod: 'Since last month'
+      dataPeriod: 'Since last month',
     },
     {
       id: 2,
@@ -256,7 +252,7 @@ export default function Admin () {
       suffix: '',
       prefix: '',
       statusRate: totalPayment?.percentageIncrease,
-      dataPeriod: 'Since last month'
+      dataPeriod: 'Since last month',
     },
     {
       id: 3,
@@ -267,19 +263,19 @@ export default function Admin () {
       suffix: '',
       prefix: '',
       statusRate: totalNewApplication?.percentageIncrease,
-      dataPeriod: 'Since last month'
-    }
+      dataPeriod: 'Since last month',
+    },
   ]
 
   const PageRoutes = [
     {
       path: 'index',
-      breadcrumbName: 'Dashboard'
+      breadcrumbName: 'Dashboard',
     },
     {
       path: 'first',
-      breadcrumbName: 'Immigration'
-    }
+      breadcrumbName: 'Immigration',
+    },
   ]
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const [sendEmailModelIsOpen, setSendEmailModelIsOpen] = useState(false)
@@ -292,12 +288,12 @@ export default function Admin () {
   const rowSelection = {
     preserveSelectedRowKeys: true,
     selectedRowKeys,
-    onChange: onSelectChange
+    onChange: onSelectChange,
   }
 
   const [emailBody, setEmailBody] = useState({
     subject: '',
-    message: ''
+    message: '',
   })
 
   const updateEmailBody = (e) => {
@@ -316,7 +312,7 @@ export default function Admin () {
       DataService.post('/userApplications/sendNotifications', {
         userIds: selectedRowKeys,
         subject: emailBody.subject,
-        message: emailBody.message
+        message: emailBody.message,
       }).then((res) => {
         if (res) {
           setSelectedRowKeys([])
@@ -385,13 +381,11 @@ export default function Admin () {
                     </Button>
                   }
                 >
-                  {loading
-                    ? (
+                  {loading ? (
                     <div className="spin">
                       <Spin />
                     </div>
-                      )
-                    : (
+                  ) : (
                     <Table
                       className="table-responsive"
                       pagination={paginationConfig}
@@ -400,9 +394,9 @@ export default function Admin () {
                       onChange={onChange}
                       sortDirections={['ascend', 'descend', 'ascend']}
                     />
-                      )}
+                  )}
                 </Card>
-              )
+              ),
             },
             {
               label: 'Email',
@@ -430,19 +424,17 @@ export default function Admin () {
                           { value: 'PENDING', label: 'PENDING' },
                           { value: 'CREATED', label: 'CREATED' },
                           { value: 'COMPLETED', label: 'COMPLETED' },
-                          { value: 'EXPIRED', label: 'EXPIRED' }
+                          { value: 'EXPIRED', label: 'EXPIRED' },
                         ]}
                       />
                     </div>
                   }
                 >
-                  {loading
-                    ? (
+                  {loading ? (
                     <div className="spin">
                       <Spin />
                     </div>
-                      )
-                    : (
+                  ) : (
                     <Table
                       className="table-responsive"
                       rowSelection={rowSelection}
@@ -453,10 +445,10 @@ export default function Admin () {
                       sortDirections={['ascend', 'descend', 'ascend']}
                       rowKey={(record) => record.userId}
                     />
-                      )}
+                  )}
                 </Card>
-              )
-            }
+              ),
+            },
           ]}
           type="card"
           size="large"
@@ -588,7 +580,7 @@ export default function Admin () {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: '100%'
+                    width: '100%',
                   }}
                 >
                   <Button
@@ -597,18 +589,16 @@ export default function Admin () {
                     type="primary"
                     style={{
                       backgroundColor: emailLoader ? 'white' : '#0042A8',
-                      color: emailLoader ? 'black' : 'white'
+                      color: emailLoader ? 'black' : 'white',
                     }}
                   >
-                    {emailLoader
-                      ? (
+                    {emailLoader ? (
                       <div className="spin">
                         <Spin />
                       </div>
-                        )
-                      : (
-                          'Send Notification'
-                        )}
+                    ) : (
+                      'Send Notification'
+                    )}
                   </Button>
                 </div>
               </Form.Item>

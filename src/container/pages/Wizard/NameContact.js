@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { BasicFormWrapper } from '../../styled'
 import Heading from '../../../components/heading/heading'
 
-function NameContact (props) {
+function NameContact(props) {
   const { t } = useTranslation()
   const { form, setData, countries } = props
   const { Option } = Select
@@ -71,11 +71,11 @@ function NameContact (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your First Name'
+                        message: 'Please Input Your First Name',
                       },
                       {
-                        validator: validateName
-                      }
+                        validator: validateName,
+                      },
                     ]}
                   >
                     <Input placeholder={t('Enter Your First Name')} />
@@ -87,8 +87,8 @@ function NameContact (props) {
                     label={t('Middle Name')}
                     rules={[
                       {
-                        validator: validateName
-                      }
+                        validator: validateName,
+                      },
                     ]}
                   >
                     <Input placeholder={t('Enter Your Middle Name')} />
@@ -101,11 +101,11 @@ function NameContact (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Input Your Last Name'
+                        message: 'Please Input Your Last Name',
                       },
                       {
-                        validator: validateName
-                      }
+                        validator: validateName,
+                      },
                     ]}
                   >
                     <Input placeholder={t('Enter Your Last Name')} />
@@ -118,8 +118,8 @@ function NameContact (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Select Your Date of Birth'
-                      }
+                        message: 'Please Select Your Date of Birth',
+                      },
                     ]}
                   >
                     <DatePicker
@@ -140,8 +140,8 @@ function NameContact (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Select Your Nationality'
-                      }
+                        message: 'Please Select Your Nationality',
+                      },
                     ]}
                   >
                     <Select
@@ -163,8 +163,8 @@ function NameContact (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Select Your Gender'
-                      }
+                        message: 'Please Select Your Gender',
+                      },
                     ]}
                   >
                     <Select style={{ width: '100%' }}>
@@ -185,8 +185,8 @@ function NameContact (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Enter Your Country Code'
-                      }
+                        message: 'Please Enter Your Country Code',
+                      },
                     ]}
                   >
                     <Input placeholder={t('91')} />
@@ -199,11 +199,11 @@ function NameContact (props) {
                     rules={[
                       {
                         required: true,
-                        message: 'Please Enter Your Phone Number'
+                        message: 'Please Enter Your Phone Number',
                       },
                       {
-                        validator: validateMobileNumber
-                      }
+                        validator: validateMobileNumber,
+                      },
                     ]}
                   >
                     <Input placeholder={t('Enter your mobile number')} />
@@ -226,6 +226,6 @@ function NameContact (props) {
 NameContact.propTypes = {
   countries: PropTypes.array,
   form: PropTypes.object,
-  setData: PropTypes.func
+  setData: PropTypes.func,
 }
 export default NameContact

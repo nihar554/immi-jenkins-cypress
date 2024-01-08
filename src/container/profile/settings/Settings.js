@@ -27,10 +27,10 @@ export const s3 = new AWS.S3({
   Bucket: S3_BUCKET,
   accessKeyId: AWS_ACCESS_KEY_ID,
   secretAccessKey: AWS_SECRET_ACCESS_KEY,
-  region: 'eu-central-1'
+  region: 'eu-central-1',
 })
 
-function Settings () {
+function Settings() {
   const { t } = useTranslation()
   const [state, setState] = useState({})
   const [loading, setLoading] = useState(true)
@@ -38,12 +38,12 @@ function Settings () {
   const PageRoutes = [
     {
       path: '/',
-      breadcrumbName: t('dashboard')
+      breadcrumbName: t('dashboard'),
     },
     {
       path: 'profile',
-      breadcrumbName: t('My Profile')
-    }
+      breadcrumbName: t('My Profile'),
+    },
   ]
 
   const getUserProfile = () => {

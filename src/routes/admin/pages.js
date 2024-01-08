@@ -14,18 +14,16 @@ const AboutUs = lazy(() => import('../../container/pages/CompanyPolicy/AboutUs')
 const ContactUs = lazy(() => import('../../container/pages/CompanyPolicy/ContactUs'))
 const FAQs = lazy(() => import('../../container/pages/CompanyPolicy/FAQs'))
 
-function PagesRoute () {
+function PagesRoute() {
   return (
     <Routes>
-      {Cookies.get('role') === 'ADMIN' || Cookies.get('role') === 'Admin'
-        ? (
+      {Cookies.get('role') === 'ADMIN' || Cookies.get('role') === 'Admin' ? (
         <>
           <Route index element={<Admin />} />
         </>
-          )
-        : (
+      ) : (
         <Route index element={<Dashboard />} />
-          )}
+      )}
       <Route index element={<Dashboard />} />
       <Route path="starter" element={<Dashboard />} />
       <Route path="wizard" element={<WizardPage />} />

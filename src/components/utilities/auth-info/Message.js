@@ -13,14 +13,14 @@ import { Popover } from '../../popup/popup'
 const MessageBox = React.memo(() => {
   const { rtl } = useSelector((state) => {
     return {
-      rtl: state.ChangeLayoutMode.rtlData
+      rtl: state.ChangeLayoutMode.rtlData,
     }
   })
 
-  function renderThumb ({ style }) {
+  function renderThumb({ style }) {
     const thumbStyle = {
       borderRadius: 6,
-      backgroundColor: '#F1F2F6'
+      backgroundColor: '#F1F2F6',
     }
     return <div style={{ ...style, ...thumbStyle }} />
   }
@@ -34,25 +34,25 @@ const MessageBox = React.memo(() => {
       [rtl ? 'left' : 'right']: '2px',
       bottom: '2px',
       top: '2px',
-      borderRadius: '3px'
+      borderRadius: '3px',
     }
     return <div className="hello" style={thumbStyle} />
   }
 
-  function renderView ({ style }) {
+  function renderView({ style }) {
     const customStyle = {
       marginRight: rtl && 'auto',
-      [rtl ? 'marginLeft' : 'marginRight']: '-17px'
+      [rtl ? 'marginLeft' : 'marginRight']: '-17px',
     }
     return <div style={{ ...style, ...customStyle }} />
   }
 
   renderThumb.propTypes = {
-    style: PropTypes.shape(PropTypes.object)
+    style: PropTypes.shape(PropTypes.object),
   }
 
   renderView.propTypes = {
-    style: PropTypes.shape(PropTypes.object)
+    style: PropTypes.shape(PropTypes.object),
   }
 
   const content = (
@@ -185,7 +185,7 @@ const MessageBox = React.memo(() => {
 })
 
 MessageBox.propTypes = {
-  rtl: PropTypes.bool
+  rtl: PropTypes.bool,
 }
 
 export default MessageBox

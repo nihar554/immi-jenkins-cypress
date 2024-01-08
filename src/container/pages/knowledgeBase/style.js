@@ -1059,5 +1059,5 @@ export {
   ArticleListWrap,
   SingleKnowledgeContent,
   SidebarNavWrap,
-  KnowledgeDetailsWrap
+  KnowledgeDetailsWrap,
 }

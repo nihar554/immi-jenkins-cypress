@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 import { Popover } from '../../popup/popup'
 import { Button } from '../buttons'
 
-function ExportButtonPageHeader () {
+function ExportButtonPageHeader() {
   const content = (
     <>
       <NavLink to="#">

@@ -4,7 +4,7 @@ import { ArrowRightOutlined } from '@ant-design/icons'
 import { Link, NavLink } from 'react-router-dom'
 import { ArticleTabContentWrap } from '../style'
 
-function ArticleExtension () {
+function ArticleExtension() {
   return (
     <ArticleTabContentWrap>
       <div className="ninjadash-article-tab-content">

@@ -7,7 +7,7 @@ const valid = {
   fontSize: '14px',
   fontStyle: 'normal',
   fontWeight: 500,
-  lineHeight: '25px'
+  lineHeight: '25px',
 }
 
 const invalid = {
@@ -15,16 +15,16 @@ const invalid = {
   fontSize: '14px',
   fontStyle: 'normal',
   fontWeight: 500,
-  lineHeight: '25px'
+  lineHeight: '25px',
 }
 
-export default function PassPopUp ({ state }) {
+export default function PassPopUp({ state }) {
   return (
     <PassPopUpStyle>
       <div
         style={{
           padding: '0px 20px',
-          paddingBottom: '15px'
+          paddingBottom: '15px',
         }}
       >
         <div className="msg-container d-flex justify-content-between">
@@ -64,5 +64,5 @@ export default function PassPopUp ({ state }) {
 }
 
 PassPopUp.propTypes = {
-  state: propTypes.object
+  state: propTypes.object,
 }

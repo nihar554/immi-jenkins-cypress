@@ -9,7 +9,7 @@ const initialState = {
   rtlLoading: false,
   menuLoading: false,
   mainContentLoading: false,
-  error: null
+  error: null,
 }
 
 const {
@@ -23,7 +23,7 @@ const {
 
   CHANGE_MENU_MODE_BEGIN,
   CHANGE_MENU_MODE_SUCCESS,
-  CHANGE_MENU_MODE_ERR
+  CHANGE_MENU_MODE_ERR,
 } = actions
 
 const LayoutChangeReducer = (state = initialState, action) => {
@@ -32,54 +32,54 @@ const LayoutChangeReducer = (state = initialState, action) => {
     case CHANGE_LAYOUT_MODE_BEGIN:
       return {
         ...state,
-        loading: true
+        loading: true,
       }
     case CHANGE_LAYOUT_MODE_SUCCESS:
       return {
         ...state,
         mode: data,
-        loading: false
+        loading: false,
       }
     case CHANGE_LAYOUT_MODE_ERR:
       return {
         ...state,
         error: err,
-        loading: false
+        loading: false,
       }
 
     case CHANGE_RTL_MODE_BEGIN:
       return {
         ...state,
-        rtlLoading: true
+        rtlLoading: true,
       }
     case CHANGE_RTL_MODE_SUCCESS:
       return {
         ...state,
         rtlData: data,
-        rtlLoading: false
+        rtlLoading: false,
       }
     case CHANGE_RTL_MODE_ERR:
       return {
         ...state,
         error: err,
-        rtlLoading: false
+        rtlLoading: false,
       }
     case CHANGE_MENU_MODE_BEGIN:
       return {
         ...state,
-        menuLoading: true
+        menuLoading: true,
       }
     case CHANGE_MENU_MODE_SUCCESS:
       return {
         ...state,
         topMenu: data,
-        menuLoading: false
+        menuLoading: false,
       }
     case CHANGE_MENU_MODE_ERR:
       return {
         ...state,
         error: err,
-        menuLoading: false
+        menuLoading: false,
       }
     default:
       return state

@@ -6,10 +6,10 @@ module.exports = {
     configure: {
       resolve: {
         fallback: {
-          path: false
-        }
-      }
-    }
+          path: false,
+        },
+      },
+    },
   },
   plugins: [
     {
@@ -18,12 +18,12 @@ module.exports = {
         lessLoaderOptions: {
           lessOptions: {
             modifyVars: {
-              ...theme
+              ...theme,
             },
-            javascriptEnabled: true
-          }
-        }
-      }
-    }
-  ]
+            javascriptEnabled: true,
+          },
+        },
+      },
+    },
+  ],
 }
