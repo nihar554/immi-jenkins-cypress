@@ -3,7 +3,7 @@ const { wait } = require('@testing-library/user-event/dist/utils')
 /* eslint-disable no-undef */
 describe('template spec', () => {
   const URL = Cypress.env('BASE_URL')
-  const emailAddress = 'nihar+41@coindelta.io'
+  const emailAddress = 'nihar+42@coindelta.io'
   const Password = Cypress.env('DEFAULT_PASSWORD')
   beforeEach(() => {
     cy.viewport(1366, 768) // Set viewport to 550px x 750px

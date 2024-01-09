@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Prod') {
             steps {
                 // Checkout the code from the prod branch
-                checkout([$class: 'GitSCM', branches: [[name: 'prod']], userRemoteConfigs: [[url: 'https://github.com/nihar554/immi-jenkins-cypress.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'prod']], userRemoteConfigs: [[url: 'https://nihar12343568@bitbucket.org/nihar1234321/immi-jenkins-cypress.git']]])
             }
         }
         
@@ -44,7 +44,7 @@ pipeline {
             
             emailext (
                 attachmentsPattern: '**/html/index.html',
-                body: 'Build finished successfully. Here is the attachment.',
+                body: "Build completed successfully. Here's the attachment to review the test results.",
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 subject: 'Test',
                 to:'soni.tizil@gmail.com',

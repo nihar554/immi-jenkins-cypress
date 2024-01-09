@@ -1,13 +1,21 @@
-- pipe: atlassian/jenkins-job-trigger:0.5.0
-  variables:
-    JENKINS_URL: 'http://192.168.1.86:7000/'
-    JENKINS_USER: 'nihar'
-    JENKINS_TOKEN: '11268081a45918d4d60ecad4f74fcc4026'
-    JOB_NAME: 'test git'
-    # JOB_PARAMETERS: '<json>' # Optional
-    # BUILD_FROM_FILE: '<string>' # Optional
-    # JENKINS_FILE_PATH: '<string>' # Optional
-    # CERTIFICATE: '<string>' # Optional
-    # WAIT: '<boolean>' # Optional
-    # WAIT_MAX_TIME: '<integer>' # Optional
-    # DEBUG: '<boolean>' # Optional
+pipelines:
+  branches:
+    prod:
+      - step:
+          name: Trigger Jenkins Job and Wait for Result
+          script:
+            - |
+              # Trigger Jenkins job
+              curl -k -X GET https://af08-2406-b400-d11-a016-a07f-2ecf-3622-9d09.ngrok-free.app/generic-webhook-trigger/invoke?token=12345
+              apt-get update && apt-get install -y jq
+
+              # Poll for completion status from Jenkins (example loop)
+              until [ "$(curl -sSf -k -u nihar:Maheshraval@11  https://af08-2406-b400-d11-a016-a07f-2ecf-3622-9d09.ngrok-free.app/job/test%20git/lastBuild/api/json -- | jq -r '.result')" != "null" ]; do
+                echo "Waiting for Jenkins job to complete..."
+                sleep 10  # Adjust the sleep duration as needed
+              done
+
+              # You might perform further actions based on the Jenkins job completion status
+              # For example, echo a success message or handle errors
+              echo "Jenkins job completed!"
+          # Add retries, timeouts, or error handling as needed
